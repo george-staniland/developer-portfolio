@@ -9,21 +9,28 @@ body {
 }
 
 h1, h2, h3, h4, h5, h6, p, li {
-  font-family: Courier, monospace;
+  font-family: "Source Code Pro", monospace;
   margin-top: 0;
   margin-bottom: 0;
 }
 
+.a-test-class {
+  border: 4px solid black;
+  margin-top: 4rem;
+}
+
 h1 {
   font-size: 1.5rem;
+  font-weight: 400;
 }
 
 h2 {
   font-size: 1.5rem;
+  font-weight: 400;
 }
 
 p {
-  font-weight: 300;
+  font-weight: 400;
   font-size: 1.5rem;;
 }
 
@@ -31,8 +38,47 @@ a {
   color: blue;
   text-decoration: underline;
   text-underline-offset: 4px;
+  cursor: ne-resize;
 }
 
 li {
-  font-size: 1.2rem;
+  font-size: 1.5rem;
+  font-weight: 400;
+  list-style-type: none;
 }
+
+ul {
+  padding-left: 0;
+  margin: 0;
+}
+
+/* Fonts */
+
+@font-face {
+  font-family: "Source Code Pro";
+  src: url('/fonts/SourceCodePro-Light.ttf');
+  font-weight: 300;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "Source Code Pro";
+  src: url('/fonts/SourceCodePro-Regular.ttf');
+  font-weight: 400;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "Source Code Pro";
+  src: url('/fonts/SourceCodePro-SemiBold.ttf');
+  font-weight: 600;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "Source Code Pro";
+  src: url('/fonts/SourceCodePro-Black.ttf');
+  font-weight: 700;
+  font-style: normal;
+}
+
