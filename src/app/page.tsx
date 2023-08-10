@@ -1,5 +1,4 @@
 import AnimatedText from '../../components/AnimatedText'
-import R3FTest from '../../components/ReactThreeFibreTest'
 import styles from './page.module.css'
 
 export default function Home() {
@@ -22,7 +21,7 @@ export default function Home() {
       </div>
 
       <div className={styles.animation_container}>
-        <R3FTest />
+        <AnimatedText />
       </div>
 
     </main >
