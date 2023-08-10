@@ -9,7 +9,13 @@
 
 .animation_container {
     border: 4px solid black;
-    margin-top: 3rem;
+    height: 400px;
+    margin-bottom: 320px;
+}
+
+.main_content_container {
+    min-height: 80vh;
+    border: 1px solid red;
 }
 
 .pb {

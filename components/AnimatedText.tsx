@@ -2,7 +2,7 @@
 import React, { useRef, useState } from 'react'
 import { Canvas, useFrame } from '@react-three/fiber'
 
-function Box(props) {
+function Cube(props) {
     // This reference will give us direct access to the mesh
     const meshRef = useRef()
     // Set up state for the hovered and active state
@@ -20,7 +20,7 @@ function Box(props) {
             onClick={(event) => setActive(!active)}
             onPointerOver={(event) => setHover(true)}
             onPointerOut={(event) => setHover(false)}>
-            <boxGeometry args={[4, 4, 4]} />
+            <boxGeometry args={[3, 3, 3]} />
             <meshStandardMaterial color={hovered ? 'hotpink' : 'orange'} />
         </mesh>
     )
@@ -28,9 +28,8 @@ function Box(props) {
 
 function CustomPointLight() {
     const light = useRef()
-
     return (
-        <pointLight position={[5, 3, 10]} intensity={1} />
+        <pointLight position={[5, 5, 5]} intensity={1} />
     )
 }
 
@@ -40,7 +39,7 @@ export default function AnimatedText() {
         <div className="a-test-class">
             <Canvas>
                 <CustomPointLight />
-                <Box />
+                <Cube />
             </Canvas>
         </div>
     )
