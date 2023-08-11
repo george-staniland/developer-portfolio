@@ -10,6 +10,7 @@
 .animation_container {
     height: 300px;
     margin-bottom: 100px;
+    cursor: grab;
 }
 
 .main_content_container {

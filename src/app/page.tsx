@@ -10,7 +10,7 @@ export default function Home() {
           George Staniland
         </h1>
         <div className={`${styles.text_container} ${styles.pb}`}>
-          <p className={styles.body_text}>Hello &#128075; Im a frontend web developer. <br /> Im inspired when making beautiful, intuitive experiences with code. <br /> Outside of this work, I like photography, seeing my dog, and travelling. </p>
+          <p className={styles.body_text}>Hello &#128075; Im a frontend web developer. <br /> Im inspired when making beautiful, intuitive experiences with code. <br /> Outside of this work, I enjoy photography, seeing my dog, and travelling. </p>
         </div>
         <h2 className={styles.pb_sml} >Recent Projects</h2>
         <ul>

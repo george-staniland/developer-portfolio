@@ -1,10 +1,10 @@
 'use client'
 
 import { useRef, memo } from "react"
-import { extend } from "@react-three/fiber"
+import { extend, useFrame } from "@react-three/fiber"
 import { Grid, AccumulativeShadows, RandomizedLight, CameraControls, useHelper, Center, PerspectiveCamera } from "@react-three/drei"
 import { Canvas } from "@react-three/fiber"
-import { Mesh, SpotLightHelper } from "three"
+import { CameraHelper, Mesh, SpotLightHelper } from "three"
 import { FontLoader } from 'three/examples/jsm/loaders/FontLoader'
 import { TextGeometry } from 'three/examples/jsm/geometries/TextGeometry'
 import BioRhyme from '../public/fonts/BioRhyme_Regular.json'
@@ -16,6 +16,7 @@ declare module "@react-three/fiber" {
         textGeometry: Object3DNode<TextGeometry, typeof TextGeometry>;
     }
 }
+
 
 export default function ThreeJsCanvas() {
     return (
@@ -48,18 +49,24 @@ function CustomLight2() {
 }
 
 function Text() {
-    const meshRef = useRef<Mesh>(null);
+    const ref = useRef(null);
     const font = new FontLoader().parse(BioRhyme)
+
+    // useFrame(() => {
+    //     if (!ref.current) {
+    //         return;
+    //     }
+    //     ref.current.rotation.y += 0.006;
+    // })
 
     return (
         <group>
             <Center disableY>
-                <mesh ref={meshRef} castShadow position={[0, 2, 0]}>
+                <mesh ref={ref} position={[0, 2, 0]} castShadow>
                     <textGeometry args={['Thanks for stopping by', { font, size: 2, height: 1 }]} />
                     <meshStandardMaterial color="cornflowerblue" />
                 </mesh>
             </Center>
-            <Ground />
             <Shadows />
         </group>
     )
