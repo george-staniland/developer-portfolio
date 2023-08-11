@@ -1,5 +1,5 @@
-import AnimatedText from '../../components/AnimatedText'
 import styles from './page.module.css'
+import ThreeJsCanvas from '../../components/ThreeJsCanvas'
 
 export default function Home() {
   return (
@@ -21,7 +21,7 @@ export default function Home() {
       </div>
 
       <div className={styles.animation_container}>
-        <AnimatedText />
+        <ThreeJsCanvas />
       </div>
 
     </main >

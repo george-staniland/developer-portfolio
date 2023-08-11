@@ -8,12 +8,12 @@
 }
 
 .animation_container {
-    height: 160px;
+    height: 300px;
     margin-bottom: 100px;
 }
 
 .main_content_container {
-    min-height: 80vh;
+    min-height: 99vh;
 }
 
 .pb {
