@@ -1,8 +1,8 @@
 'use client'
 
-import { useRef, memo } from "react"
-import { extend, useFrame } from "@react-three/fiber"
-import { Grid, AccumulativeShadows, RandomizedLight, CameraControls, useHelper, Center, PerspectiveCamera } from "@react-three/drei"
+import { useRef, memo, useEffect, useState } from "react"
+import { extend, useFrame, useLoader } from "@react-three/fiber"
+import { Grid, AccumulativeShadows, RandomizedLight, CameraControls, useHelper, Center, PerspectiveCamera, Html } from "@react-three/drei"
 import { Canvas } from "@react-three/fiber"
 import { CameraHelper, Mesh, SpotLightHelper } from "three"
 import { FontLoader } from 'three/examples/jsm/loaders/FontLoader'
@@ -17,57 +17,40 @@ declare module "@react-three/fiber" {
     }
 }
 
-
 export default function ThreeJsCanvas() {
     return (
         <>
             <Canvas shadows>
-                <PerspectiveCamera makeDefault position={[0, 9, 10]} rotation={[0, 0, 0]} fov={60} />
+                <PerspectiveCamera makeDefault position={[0, 1.1, 10]} rotation={[0, 0, 0]} fov={60} />
                 <CameraControls maxDistance={20} minDistance={2} />
                 <CustomLight1 />
-                {/* <CustomLight2 /> */}
+                <ambientLight intensity={0.1} />
                 <Text />
+                <Ground />
             </Canvas>
         </>
     )
 }
 
 function CustomLight1() {
-    // const LightRef = useRef();
+    const LightRef = useRef();
     // useHelper(LightRef, SpotLightHelper, 'red')
     return (
-        <spotLight intensity={1.1} position={[18, 11, 10]} castShadow />
-    )
-}
-
-function CustomLight2() {
-    const LightRef = useRef();
-    useHelper(LightRef, SpotLightHelper, 'cyan')
-    return (
-        <spotLight ref={LightRef} intensity={0.5} position={[3, 4, 30]} castShadow />
+        <spotLight ref={LightRef} intensity={1.1} position={[18, 11, 10]} castShadow />
     )
 }
 
 function Text() {
-    const ref = useRef(null);
     const font = new FontLoader().parse(BioRhyme)
-
-    // useFrame(() => {
-    //     if (!ref.current) {
-    //         return;
-    //     }
-    //     ref.current.rotation.y += 0.006;
-    // })
 
     return (
         <group>
             <Center disableY>
-                <mesh ref={ref} position={[0, 2, 0]} castShadow>
+                <mesh position={[0, 2.2, 0]} >
                     <textGeometry args={['Thanks for stopping by', { font, size: 2, height: 1 }]} />
-                    <meshStandardMaterial color="cornflowerblue" />
+                    <meshStandardMaterial color="cornflowerblue" roughness={0.2} metalness={0.3} />
                 </mesh>
             </Center>
-            <Shadows />
         </group>
     )
 }
@@ -88,8 +71,5 @@ function Ground() {
     return <Grid position={[0, -0.01, 0]} args={[10.5, 10.5]} {...gridConfig} />
 }
 
-const Shadows = memo(() => (
-    <AccumulativeShadows temporal frames={100} color="#9d4b4b" colorBlend={0.5} alphaTest={0.9} scale={20}>
-        <RandomizedLight amount={8} radius={4} position={[5, 5, -10]} />
-    </AccumulativeShadows>
-))
+
+
