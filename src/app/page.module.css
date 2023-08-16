@@ -15,6 +15,10 @@
     display: none;
 }
 
+.projects_list li {
+ padding-bottom: 11px;
+}
+
 @media (min-width: 749px) {
     .hero_text {
         font-size: 27px;
@@ -29,7 +33,6 @@
 
 .animation_container {
     height: 300px;
-    margin-bottom: 100px;
     cursor: grab;
 }
 
@@ -41,7 +44,6 @@
 
 .section {
     margin-top: 5rem;
-    border: 1px solid green;
 }
 
 .pb {

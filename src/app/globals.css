@@ -28,18 +28,24 @@ h2 {
 
 p {
   font-weight: 400;
-  font-size: 1.5rem;;
+  font-size: 1.4rem;;
 }
 
 a {
+  font-family: "Source Code Pro", monospace;
   text-decoration: underline;
   text-underline-offset: 4px;
   cursor: ne-resize;
   color: #222222;
+  transition: color .3s ease-in-out;
+}
+
+a:hover {
+  color: cornflowerblue;
 }
 
 li {
-  font-size: 1.5rem;
+  font-size: 1.4rem;
   font-weight: 400;
   list-style-type: none;
 }
