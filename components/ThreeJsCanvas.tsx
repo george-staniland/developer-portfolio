@@ -1,10 +1,9 @@
 'use client'
 
-import { useRef, memo, useEffect, useState } from "react"
-import { extend, useFrame, useLoader } from "@react-three/fiber"
-import { Grid, AccumulativeShadows, RandomizedLight, CameraControls, useHelper, Center, PerspectiveCamera, Html } from "@react-three/drei"
+import { memo } from "react"
+import { extend } from "@react-three/fiber"
+import { Grid, CameraControls, Center, PerspectiveCamera } from "@react-three/drei"
 import { Canvas } from "@react-three/fiber"
-import { CameraHelper, Mesh, SpotLightHelper } from "three"
 import { FontLoader } from 'three/examples/jsm/loaders/FontLoader'
 import { TextGeometry } from 'three/examples/jsm/geometries/TextGeometry'
 import BioRhyme from '../public/fonts/BioRhyme_Regular.json'
@@ -33,10 +32,8 @@ export default function ThreeJsCanvas() {
 }
 
 function CustomLight1() {
-    const LightRef = useRef();
-    // useHelper(LightRef, SpotLightHelper, 'red')
     return (
-        <spotLight ref={LightRef} intensity={1.1} position={[18, 11, 10]} castShadow />
+        <spotLight intensity={1.1} position={[18, 11, 10]} />
     )
 }
 

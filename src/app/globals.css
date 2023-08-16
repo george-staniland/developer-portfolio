@@ -1,5 +1,6 @@
 html {
   font-size: 16px;
+  background-color: rgb(255, 254, 251);
 }
 
 body {
@@ -12,11 +13,7 @@ h1, h2, h3, h4, h5, h6, p, li {
   font-family: "Source Code Pro", monospace;
   margin-top: 0;
   margin-bottom: 0;
-}
-
-.a-test-class {
-  border: 4px solid black;
-  margin-top: 4rem;
+  color: #222222;
 }
 
 h1 {
@@ -35,10 +32,10 @@ p {
 }
 
 a {
-  color: blue;
   text-decoration: underline;
   text-underline-offset: 4px;
   cursor: ne-resize;
+  color: #222222;
 }
 
 li {
