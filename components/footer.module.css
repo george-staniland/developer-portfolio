@@ -1,18 +1,15 @@
 .footer_container {
- margin: 10rem 30px 14rem;
  padding-top: 3rem;
+ padding-bottom: 3rem;
  display: flex;
  justify-content: center;
+ align-items: center;
 }
 
-.footer_container_inner {
-    display: flex;
-    justify-content: space-between;
+.footer_container a {
+    padding: 0 30px;
 }
 
 
-@media (min-width: 749px) {
-    .footer_container_inner {
-        width: 856px;
-    }
-}
+
+
