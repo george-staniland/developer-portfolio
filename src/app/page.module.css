@@ -23,11 +23,11 @@
 
 .sub_title {
     font-size: 20px;
-    font-weight: 600;
+    font-weight: 500;
     text-transform: uppercase;
-    color: coral;
+    color: #252525;
     @media(min-width:992px) {
-        font-size: 21px;
+        font-size: 16px;
     }
 }
 
