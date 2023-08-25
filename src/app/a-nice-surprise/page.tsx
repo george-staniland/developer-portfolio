@@ -6,7 +6,6 @@ export default async function SurprisePage() {
     return (
         <>
             <DisplayGif />
-            <Footer />
         </>
     )
 }

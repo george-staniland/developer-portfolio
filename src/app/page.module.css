@@ -1,52 +1,77 @@
 .content_inner {
     max-width: 856px;
-    padding-top: 4rem;
-    padding-left: 10px;
-    padding-right: 10px;
+    padding-left: 30px;
+    padding-right: 30px;
+    padding-top: 60px;
+    @media(min-width:992px) {
+        padding-top: 6px;
+        padding-left: 6px;
+    }
 }
 
 .hero_text {
     line-height: 1.5em;
     letter-spacing: 0.01em;
-    font-size: 22px;
+    font-size: 23px;
+    @media(min-width: 749px){
+        font-size: 27px;
+        line-height: 1.5em;
+        letter-spacing: 0.03em;
+        word-spacing: -0.1em;
+    }
+}
+
+.sub_title {
+    font-size: 20px;
+    font-weight: 600;
+    text-transform: uppercase;
+    color: coral;
+    @media(min-width:992px) {
+        font-size: 21px;
+    }
+}
+
+.projects_list li , .body_copy {
+    font-size: 19px;
+    @media(min-width:992px) {
+        font-size: 21px;
+    }
 }
 
 .desktop_only {
     display: none;
+    @media(min-width:749px){
+        display: block;
+    }
 }
 
 .projects_list li {
  padding-bottom: 11px;
 }
 
-@media (min-width: 749px) {
-    .hero_text {
-        font-size: 27px;
-        line-height: 1.5em;
-        letter-spacing: 0.03em;
-        word-spacing: -0.1em;
-    }
-    .desktop_only {
-        display: block;
-    }
-}
-
 .animation_container {
-    margin-top: 100px;
     height: 300px;
     cursor: grab;
+    max-width: 100%;
+    @media(min-width: 749px) {
+        margin-top: 100px;
+    }
 }
 
 .main_content_container {
     min-height: 99vh;
-    display: flex;
-    justify-content: center;
-    border: 2px solid cornflowerblue;
     margin-bottom: 50px;
 }
 
-.section {
-    margin-top: 5rem;
+.bio_section {
+}
+
+.projects_section {
+    margin-top: 3.2rem;
+}
+
+.experience_section {
+    margin-top: 3.2rem;
 }
 
 .pb {
@@ -55,4 +80,11 @@
 
 .pb_sml {
     padding-bottom: .2rem;
+}
+
+.hr {
+    height: 3px;
+    border-radius: 10px;
+    background-color: #252525;
+    margin-top: 10rem;
 }

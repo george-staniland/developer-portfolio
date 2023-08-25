@@ -7,6 +7,7 @@ import { Canvas } from "@react-three/fiber"
 import { FontLoader } from 'three/examples/jsm/loaders/FontLoader'
 import { TextGeometry } from 'three/examples/jsm/geometries/TextGeometry'
 import BioRhyme from '../public/fonts/BioRhyme_Regular.json'
+import { useMediaQuery } from "react-responsive"
 
 extend({ TextGeometry })
 
@@ -17,10 +18,11 @@ declare module "@react-three/fiber" {
 }
 
 export default function ThreeJsCanvas() {
+    const isTablet = useMediaQuery({ query: '(min-width: 992px)' })
     return (
         <>
             <Canvas shadows>
-                <PerspectiveCamera makeDefault position={[0, 1.1, 10]} rotation={[0, 0, 0]} fov={60} />
+                <PerspectiveCamera makeDefault position={[0, 1.1, 10]} rotation={[0, 0, 0]} fov={isTablet ? 60 : 117} />
                 <CameraControls maxDistance={20} minDistance={2} />
                 <CustomLight1 />
                 <ambientLight intensity={0.1} />

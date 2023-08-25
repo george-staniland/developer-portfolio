@@ -1,0 +1,43 @@
+.nav_overlay {
+    position: relative;
+}
+
+.nav_icon_wrap {
+    position: absolute;
+    top: 50px;
+    right: 50px;
+    height: 30px;
+    width: 30px;
+    cursor: pointer;
+    z-index: 10;
+    opacity: 79%;
+}
+
+.nav_menu_container {
+    position: fixed;
+    left: 100%;
+    top: 0;
+    height: 100vh;
+    width: 60vw;
+    background-color: coral;
+    z-index: 5;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.menu_inner {
+    min-height: 400px;
+    width: 40%;
+    display: inline-block;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.menu_item {
+    font-size: 2.3rem;
+    padding: 10px;
+    text-decoration: none;
+}
