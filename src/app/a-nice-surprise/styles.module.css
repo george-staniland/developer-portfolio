@@ -1,0 +1,20 @@
+.title_wrap {
+    padding-left: 30px;
+    padding-right: 30px;
+    padding-top: 60px;
+    @media(min-width:992px) {
+        padding-top: 20px;
+        padding-left: 30px;
+    }
+}
+
+.title_wrap h1{
+    font-size: 20px;
+    font-weight: 900;
+    text-transform: uppercase;
+    color: #252525;
+    letter-spacing: 0.07em;
+    @media(min-width:992px) {
+        font-size: 16px;
+    }
+}
