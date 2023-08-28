@@ -1,25 +1,28 @@
 "use client"
 import styles from './nav.module.css'
-import { useState } from 'react'
+import { usePathname } from 'next/navigation'
+import { useState, useEffect } from 'react'
 import { useSpring, animated } from '@react-spring/web'
 import Link from 'next/link'
 import icon from 'public/nav_icon.png'
 import Image from 'next/image'
 
+
 export default function NavMenu() {
     const [showMenu, setShowMenu] = useState(false)
-
-    function test() {
-        setShowMenu(!showMenu)
-    }
+    const path = usePathname();
 
     const props = useSpring({
         left: showMenu ? '40%' : '100%',
     })
 
+    useEffect(() => {
+        setShowMenu(false)
+    }, [path])
+
     return (
         <div className={styles.nav_overlay} >
-            <div className={styles.nav_icon_wrap} onClick={test}>
+            <div className={styles.nav_icon_wrap} onClick={() => setShowMenu(!showMenu)}>
                 <Image src={icon} alt="circular menu open icon" width={30} height={30} />
             </div>
             <animated.div className={styles.nav_menu_container} style={props}>

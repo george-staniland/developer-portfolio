@@ -4,13 +4,13 @@
 
 .nav_icon_wrap {
     position: absolute;
-    top: 50px;
-    right: 50px;
+    top: 27px;
+    right: 30px;
     height: 30px;
     width: 30px;
     cursor: pointer;
     z-index: 10;
-    opacity: 79%;
+    opacity: 91%;
 }
 
 .nav_menu_container {
@@ -19,7 +19,7 @@
     top: 0;
     height: 100vh;
     width: 60vw;
-    background-color: coral;
+    background-color: cornflowerblue;
     z-index: 5;
     display: flex;
     justify-content: center;
