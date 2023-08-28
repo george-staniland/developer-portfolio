@@ -7,11 +7,11 @@ export async function POST(req: Request) {
 
   const transporter: nodemailer.Transporter = nodemailer.createTransport({
     host: "smtp.gmail.com",
-    port: 587,
+    port: 465,
     secure: true,
     auth: {
       user: "g41659291@gmail.com",
-      pass: "%Z$8!*oNSS&P"
+      pass: "bjheahtzmirjizsh"
     }
   });
 
@@ -19,8 +19,13 @@ export async function POST(req: Request) {
     from: 'g41659291@gmail.com', // sender address
     to: 'georgestaniland@gmail.com', // list of receivers
     replyTo: request.email,
-    subject: request.message, // Subject line
-    html: `<div>${request.message}</div>` // html body
+    subject: 'New submission on Dev site', // Subject line
+    html: `
+    <div>
+    <h4>Name: ${request.name}</h4>
+    <h4>Email: ${request.email}</h4>
+    <p>${request.message}</p>
+    </div>`
   };
 
   return await transporter
@@ -32,6 +37,7 @@ export async function POST(req: Request) {
       );
     })
     .catch((error: nodemailer.SentMessageInfo) => {
+      console.log(error)
       return NextResponse.json(
         { error: true, emailSent: false, errors: [error] },
         { status: 500 }

@@ -1,8 +1,10 @@
 "use client"
+import { useState } from 'react';
 import styles from './contactform.module.css'
 import { useForm } from 'react-hook-form'
 
 export default function ContactFrom() {
+    const [status, setStatus] = useState();
     const {
         register,
         reset,
@@ -20,79 +22,122 @@ export default function ContactFrom() {
         error: 'error'
     };
 
-    async function handleSubmit(event: any) {
-        event.preventDefault();
-        const data = {
-            name: String(event.target.name.value),
-            email: String(event.target.email.value),
-            message: String(event.target.message.value),
-        }
-        fetch("/api/contact-form", {
-            method: "POST",
-            headers: {
-                "Content-Type": "application/json",
-            },
-            body: JSON.stringify(data),
-        });
-        .then((res) => {
-            if (res.ok) {
-                // If we got an 'ok' response from fetch,
-                // clear the AbortController timeout
+    const onSubmit = (data, e) => {
+        // Used to Abort a long running fetch.
+        const abortLongFetch = new AbortController();
+        // Abort after 7 seconds.
+        const abortTimeoutId = setTimeout(() => abortLongFetch.abort(), 7000);
 
-                return res.json();
-            }
-            // If the response was anything besides 'ok', throw an error 
-            // to hit our .catch() block
-            throw new Error('Whoops! Error sending email.');
+        // Don't want to actually submit the form
+        e.preventDefault();
+
+        // Loading
+        setStatus(contactStatuses.loading);
+
+        // You can change this fetch URL to a bad url to see the .catch() block hit
+        // Example: '/api/contact-bad'
+        fetch('/api/contact-form', {
+            signal: abortLongFetch.signal,
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify(data)
         })
             .then((res) => {
-                // On a successful search, set the status to 'submitted' and 
-                // reset the fields
-                console.log(res)
+                if (res.ok) {
+                    // If we got an 'ok' response from fetch, clear the AbortController timeout
+                    clearTimeout(abortTimeoutId);
+                    return res.json();
+                }
+                // If the response was anything besides 'ok', throw an error to hit our .catch() block
+                throw new Error('Whoops! Error sending email.');
+            })
+            .then((res) => {
+                // On a successful search, set the status to 'submitted' and reset the fields
+                setStatus(contactStatuses.submitted);
+                reset();
             })
             .catch((err) => {
                 // There was an error, catch it and set the status to 'error'
-                console.log(err)
+                setStatus(contactStatuses.error);
             });
+    };
 
-    }
+
+    // Email Form Validation RegEx used in client-side validation
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+
+    // Standard error message for required form fields
+    const requiredFieldErrorMsg = 'This field is required';
 
     return (
-        <div>
-            <form onSubmit={handleSubmit}>
+        <div className={styles.form_wrap}>
+            <form onSubmit={handleSubmit(onSubmit)} className={styles.contact_form}>
                 <div className={styles.form_element}>
                     <label htmlFor="name">Name</label>
                     <input
+                        id="contactName"
                         type="text"
-                        id="name"
-                        required
-                        autoComplete="off"
+                        aria-invalid={errors.name}
+                        aria-describedby="name-error"
+                        autoComplete="name"
+                        placeholder="Name"
+                        {...register('name', { required: requiredFieldErrorMsg })}
                     />
+                    {errors.name && (
+                        <span id="name-error" className="formValidationError">
+                            This field is required
+                        </span>
+                    )}
+                </div>
+
+                <div className={styles.form_element}>
+                    <label htmlFor="email">Email Address</label>
+                    <input
+                        id="contactEmail"
+                        type="email"
+                        aria-invalid={errors.email}
+                        aria-describedby="email-error"
+                        autoComplete="name"
+                        placeholder="Email"
+                        {...register('email', {
+                            required: requiredFieldErrorMsg,
+                            pattern: {
+                                value: emailRegex,
+                                message:
+                                    'A valid email address id required. Example: name@domain.com.'
+                            }
+                        })}
+                    />
+
                 </div>
                 <div className={styles.form_element}>
-                    <label htmlFor="email">Email</label>
-                    <input
-                        type="email"
-                        id="email"
-                        required
-                        autoComplete="off"
-                    />
-                </div>
-                <div>
-                    <label htmlFor="message">Message</label>
+                    <label htmlFor="message" className="form-label">
+                        Message
+                    </label>
                     <textarea
-                        rows={4}
-                        name="message"
-                        required
-                        minLength={10}
-                        maxLength={500}
-                        placeholder="Message"
-                    />
+                        id="contactMessage"
+                        rows={5}
+                        placeholder='Message'
+                        aria-invalid={errors.message}
+                        aria-describedby="message-error"
+                        {...register('message', {
+                            required: requiredFieldErrorMsg
+                        })}
+                    ></textarea>
+                    {errors.message && (
+                        <span id="message-error" className="formValidationError">
+                            {errors.message.message}
+                        </span>
+                    )}
                 </div>
+
                 <button
                     type="submit"
+                    className={styles.submit_button}
                 >
-                    Send
+                    Send Message
                 </button>
             </form>
         </div>
