@@ -3,7 +3,8 @@ import nodemailer from 'nodemailer'
 
 export async function POST(req: Request) {
   const request = await req.json();
-  console.log(request)
+
+  // TO DO: use ENV Variables
 
   const transporter: nodemailer.Transporter = nodemailer.createTransport({
     host: "smtp.gmail.com",
