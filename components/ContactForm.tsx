@@ -22,7 +22,7 @@ export default function ContactFrom() {
         error: 'error'
     };
 
-    const onSubmit = (data: Object, e: Event) => {
+    const onSubmit = (data: any, e: any) => {
         // Used to Abort a long running fetch.
         const abortLongFetch = new AbortController();
         // Abort after 7 seconds.
@@ -82,7 +82,6 @@ export default function ContactFrom() {
                     <input
                         id="contactName"
                         type="text"
-                        aria-invalid={errors.name}
                         aria-describedby="name-error"
                         autoComplete="name"
                         placeholder="Name"
@@ -100,7 +99,6 @@ export default function ContactFrom() {
                     <input
                         id="contactEmail"
                         type="email"
-                        aria-invalid={errors.email}
                         aria-describedby="email-error"
                         autoComplete="name"
                         placeholder="Email"
@@ -123,7 +121,6 @@ export default function ContactFrom() {
                         id="contactMessage"
                         rows={5}
                         placeholder='Message'
-                        aria-invalid={errors.message}
                         aria-describedby="message-error"
                         {...register('message', {
                             required: requiredFieldErrorMsg
@@ -131,7 +128,7 @@ export default function ContactFrom() {
                     ></textarea>
                     {errors.message && (
                         <span id="message-error" className="formValidationError">
-                            {errors.message.message}
+                            Error
                         </span>
                     )}
                 </div>

@@ -1,11 +1,12 @@
 'use client'
 
-import { memo } from "react"
-import { extend } from "@react-three/fiber"
+import { Object3DNode, extend } from "@react-three/fiber"
+// @ts-ignore
+import { FontLoader } from 'three/examples/jsm/loaders/FontLoader'
+// @ts-ignore
+import { TextGeometry } from 'three/examples/jsm/geometries/TextGeometry'
 import { Grid, CameraControls, Center, PerspectiveCamera } from "@react-three/drei"
 import { Canvas } from "@react-three/fiber"
-import { FontLoader } from 'three/examples/jsm/loaders/FontLoader'
-import { TextGeometry } from 'three/examples/jsm/geometries/TextGeometry'
 import BioRhyme from '../public/fonts/BioRhyme_Regular.json'
 import { useMediaQuery } from "react-responsive"
 
