@@ -9,12 +9,17 @@
 }
 
 .title_wrap h1{
-    font-size: 20px;
+    font-size: 16px;
     font-weight: 900;
     text-transform: uppercase;
-    color: #252525;
+    color: #4a72bc;
     letter-spacing: 0.07em;
-    @media(min-width:992px) {
-        font-size: 16px;
-    }
+    margin-top: 7px;
+}
+
+.title_wrap a{
+    text-decoration: none;
+    font-size: 16px;
+    font-weight: 900;
+    text-transform: uppercase;
 }

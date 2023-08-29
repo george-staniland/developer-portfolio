@@ -35,7 +35,6 @@ a {
   font-family: "Source Code Pro", monospace;
   text-decoration: underline;
   text-underline-offset: 4px;
-  cursor: ne-resize;
   color: #222222;
   transition: color .3s ease-in-out;
 }

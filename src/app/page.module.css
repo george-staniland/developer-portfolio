@@ -3,11 +3,13 @@
     padding-left: 30px;
     padding-right: 30px;
     padding-top: 60px;
-    @media(min-width:992px) {
+}
+@media (min-width: 992px) {
+    .content_inner {
         padding-top: 20px;
         padding-left: 30px;
         max-width: unset;
-        width: 60%;
+        width: 58%;
     }
 }
 
@@ -16,21 +18,10 @@
     letter-spacing: 0.01em;
     font-size: 23px;
     @media(min-width: 749px){
-        font-size: clamp(16px, 1.9vw, 50px);
+        font-size: 27px;
         line-height: 1.5em;
         letter-spacing: 0.03em;
         word-spacing: -0.1em;
-    }
-}
-
-.sub_title {
-    font-size: 20px;
-    font-weight: 900;
-    text-transform: uppercase;
-    color: #252525;
-    letter-spacing: 0.07em;
-    @media(min-width:992px) {
-        font-size: 16px;
     }
 }
 
@@ -62,8 +53,29 @@
 }
 
 .section_1 {
-    min-height: 80vh;
+    min-height: calc(100vh - 165px);
 }
+
+.sub_title {
+    font-size: 20px;
+    font-weight: 900;
+    text-transform: uppercase;
+    color: #252525;
+    letter-spacing: 0.07em;
+    @media(min-width:992px) {
+        font-size: 16px;
+    }
+}
+
+.section_1 .sub_title {
+    
+}
+
+.section_2 .sub_title {
+    text-transform: unset;
+}
+
+
 
 .section_2 {
     display: flex;
@@ -76,7 +88,7 @@
 }
 
 .bio_section {
-    border: 1px solid red;
+
 }
 
 .projects_section {

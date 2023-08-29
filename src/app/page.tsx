@@ -25,8 +25,6 @@ export default function Home() {
           </ul>
         </div>
         <div className={styles.experience_section}>
-          <h2 className={`${styles.pb} ${styles.sub_title}`} >Work Experience</h2>
-          <p><a href="/resume.pdf" target="_blank" className={styles.body_copy}>View my resume</a></p>
         </div>
       </div>
       <div className={styles.animation_container}>
