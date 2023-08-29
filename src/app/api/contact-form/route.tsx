@@ -4,23 +4,21 @@ import nodemailer from 'nodemailer'
 export async function POST(req: Request) {
   const request = await req.json();
 
-  // TO DO: use ENV Variables
-
   const transporter: nodemailer.Transporter = nodemailer.createTransport({
     host: "smtp.gmail.com",
     port: 465,
     secure: true,
     auth: {
-      user: "g41659291@gmail.com",
-      pass: "bjheahtzmirjizsh"
+      user: process.env.EMAIL_USER,
+      pass: process.env.EMAIL_PASS
     }
   });
 
   const mailOptions: nodemailer.SendMailOptions = {
-    from: 'g41659291@gmail.com', // sender address
-    to: 'georgestaniland@gmail.com', // list of receivers
+    from: process.env.SENDER, // sender address
+    to: process.env.RECEIVER, // list of receivers
     replyTo: request.email,
-    subject: 'New submission on Dev site', // Subject line
+    subject: 'New submission on Dev site',
     html: `
     <div>
     <h4>Name: ${request.name}</h4>

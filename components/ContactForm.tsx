@@ -4,7 +4,7 @@ import styles from './contactform.module.css'
 import { useForm } from 'react-hook-form'
 
 export default function ContactFrom() {
-    const [status, setStatus] = useState();
+    const [status, setStatus] = useState('');
     const {
         register,
         reset,
@@ -22,7 +22,7 @@ export default function ContactFrom() {
         error: 'error'
     };
 
-    const onSubmit = (data, e) => {
+    const onSubmit = (data: Object, e: Event) => {
         // Used to Abort a long running fetch.
         const abortLongFetch = new AbortController();
         // Abort after 7 seconds.
@@ -48,6 +48,7 @@ export default function ContactFrom() {
                 if (res.ok) {
                     // If we got an 'ok' response from fetch, clear the AbortController timeout
                     clearTimeout(abortTimeoutId);
+                    console.log('res . ok')
                     return res.json();
                 }
                 // If the response was anything besides 'ok', throw an error to hit our .catch() block
@@ -56,10 +57,12 @@ export default function ContactFrom() {
             .then((res) => {
                 // On a successful search, set the status to 'submitted' and reset the fields
                 setStatus(contactStatuses.submitted);
+                alert('Message sent :)')
                 reset();
             })
             .catch((err) => {
                 // There was an error, catch it and set the status to 'error'
+                alert('Message sending failed. Please try again')
                 setStatus(contactStatuses.error);
             });
     };
