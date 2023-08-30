@@ -1,10 +1,12 @@
 .title_wrap {
-    padding-left: 30px;
-    padding-right: 30px;
+    padding-left: 15px;
+    padding-right: 15px;
     padding-top: 60px;
-    @media(min-width:992px) {
-        padding-top: 20px;
-        padding-left: 30px;
+}
+@media(min-width:992px) {
+    .title_wrap {
+    padding-top: 20px;
+    padding-left: 30px;
     }
 }
 

@@ -6,13 +6,11 @@ export default function Home() {
   return (
     <main >
       <div className={styles.section_1}>
-        <div className={`${styles.content_inner} ${styles.pb}`}>
-          <div className={styles.bio_section}>
-            <h2 className={`${styles.pb} ${styles.sub_title}`} >About</h2>
-            <h1 className={styles.hero_text}>
-              <span>Hello  &#128075;  my name is George. </span> I&apos;m a front-end software developer inspired when making beautiful, intuitive experiences with code. Outside of work, I enjoy photography, seeing my dog, and traveling.
-            </h1>
-          </div>
+        <div className={styles.section_1_inner}>
+          <h2 className={`${styles.pb} ${styles.sub_title}`} >About</h2>
+          <h1 className={styles.hero_text}>
+            Hello  &#128075;  my name is George. I&apos;m a front-end software developer inspired when making beautiful, intuitive experiences with code. Outside of work, I enjoy photography, seeing my dog, and traveling.
+          </h1>
         </div>
       </div>
       <div className={styles.section_2}>

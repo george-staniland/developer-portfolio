@@ -1,6 +1,6 @@
 'use client'
 
-import { useState, useEffect, use } from "react"
+import { useState, useEffect } from "react"
 import Image from "next/image";
 import styles from './displaygif.module.css';
 
@@ -16,8 +16,9 @@ export default function DisplayGif() {
 
     async function callRouteGifApi() {
         setIsLoading(true);
-        const res = await fetch("http://localhost:3000/api/get-gif", { cache: 'no-store' })
+        const res = await fetch("http://localhost:3000/api/get-gif", { cache: 'no-cache' })
         const url = await res.json();
+        console.log(url)
         setGifUrl(url);
         setIsLoading(false);
     }
@@ -30,8 +31,13 @@ export default function DisplayGif() {
                         <h3>Loading GIF...</h3>
                     </div>
                     :
-                    // eslint-disable-next-line @next/next/no-img-element
-                    <img className={styles.img} src={gifUrl} alt="text" />
+                    <Image
+                        className={styles.img}
+                        src={gifUrl}
+                        alt="text"
+                        fill
+                        sizes="(max-width: 768px) 100vw, 50vw"
+                    />
                 }
             </div>
             <button onClick={callRouteGifApi} className={styles.button}>New Gif!</button>
