@@ -9,10 +9,25 @@ export default function Home() {
       <NavMenu showHomeLink={false} />
       <div className={styles.section_1}>
         <div className={styles.section_1_inner}>
-          <h2 className={`${styles.pb} ${styles.sub_title}`} >About</h2>
-          <h1 className={styles.hero_text}>
-            Hello  &#128075;  my name is George. I&apos;m a front-end software developer inspired when making beautiful, intuitive experiences with code. Outside of work, I enjoy photography, seeing my dog, and traveling.
-          </h1>
+          {/* <h2 className={`${styles.pb} ${styles.sub_title}`} >About</h2> */}
+          <div className={styles.hero_text}>
+            Hello, my name is George,
+            <span className={styles.inline_gif_wrap}>
+              <img src="/test.gif" className={styles.inline_gif} alt="Gif from Giphy"></img>
+            </span>
+            <br></br>
+            I&apos;m a front-end developer. <br />
+            I&apos;m inspired <span className={styles.inline_gif_wrap}>
+              <img src="/fireworks.webp" className={styles.inline_gif} alt="Gif from Giphy"></img>
+            </span> when making beautiful, intuitive things with code. I also enjoy <span className={styles.inline_gif_wrap}>
+              <img src="/photo.gif" className={styles.inline_gif} alt="Gif from Giphy"></img>
+            </span> photography
+            , seeing my dog <span className={styles.inline_gif_wrap}>
+              <img src="/dog.gif" className={styles.inline_gif} alt="Gif from Giphy"></img>
+            </span>, and traveling             <span className={styles.inline_gif_wrap}>
+              <img src="/travel.gif" className={styles.inline_gif} alt="Gif from Giphy"></img>
+            </span>
+          </div>
         </div>
       </div>
       <div className={styles.section_2}>
