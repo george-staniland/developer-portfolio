@@ -7,12 +7,16 @@ import Link from 'next/link'
 import icon from 'public/nav_icon.png'
 import Image from 'next/image'
 
+interface Props {
+    showHomeLink: boolean;
+}
 
-export default function NavMenu() {
+export default function NavMenu(props: Props) {
+    const { showHomeLink = false } = props;
     const [showMenu, setShowMenu] = useState(false)
     const path = usePathname();
 
-    const props = useSpring({
+    const style = useSpring({
         left: showMenu ? '40%' : '100%',
     })
 
@@ -22,10 +26,16 @@ export default function NavMenu() {
 
     return (
         <div className={styles.nav_overlay} >
+            {showHomeLink ?
+                <div className={styles.home_link} >
+                    <Link href="/">Home {'\u2197'}</Link>
+                </div> :
+                null
+            }
             <div className={styles.nav_icon_wrap} onClick={() => setShowMenu(!showMenu)}>
                 <Image src={icon} alt="circular menu open icon" width={30} height={30} />
             </div>
-            <animated.div className={styles.nav_menu_container} style={props}>
+            <animated.div className={styles.nav_menu_container} style={style}>
                 <div className={styles.menu_inner}>
                     <Link className={styles.menu_item} href="/">Home</Link>
                     <Link className={styles.menu_item} href="/contact">Contact Me</Link>

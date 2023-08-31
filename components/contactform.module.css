@@ -42,6 +42,7 @@
 .submit_button {
     font-family: "Source Code Pro", monospace;
     background-color: transparent;
+    color: #252525;
     box-shadow: none;
     border: 1px solid #252525;
     padding: 15px 20px;

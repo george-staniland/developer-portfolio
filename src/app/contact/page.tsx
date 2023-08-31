@@ -1,17 +1,19 @@
 
 import ContactFrom from '../../../components/ContactForm'
+import NavMenu from '../../../components/NavMenu'
 import styles from './styles.module.css'
-import Link from 'next/link'
 
 export default function Contact() {
 
     return (
         <>
-            <div className={styles.title_wrap} >
-                <Link href="/">Home {'\u2197'}</Link>
+            <NavMenu showHomeLink />
+            {/* <div className={styles.title_wrap} >
                 <h1>Contact Me</h1>
+            </div> */}
+            <div className={styles.container}>
+                <ContactFrom />
             </div>
-            <ContactFrom />
         </>
     )
 }

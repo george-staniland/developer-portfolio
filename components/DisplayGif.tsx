@@ -9,6 +9,7 @@ export default function DisplayGif() {
 
     const [gifUrl, setGifUrl] = useState('');
     const [isLoading, setIsLoading] = useState(true);
+    const [loadingStatus, setLoadingStatus] = useState('Loading GIF..')
 
     useEffect(() => {
         callRouteGifApi()
@@ -16,9 +17,13 @@ export default function DisplayGif() {
 
     async function callRouteGifApi() {
         setIsLoading(true);
-        const res = await fetch("http://localhost:3000/api/get-gif", { cache: 'no-cache' })
+        const res = await fetch("/api/get-gif", { cache: 'no-cache' })
+        if (!res.ok) {
+            setLoadingStatus('GIF loading error :(')
+            return Promise.reject('Network or HTTP error')
+        }
         const url = await res.json();
-        console.log(url)
+        setLoadingStatus('Loading GIF..');
         setGifUrl(url);
         setIsLoading(false);
     }
@@ -28,7 +33,7 @@ export default function DisplayGif() {
             <div className={styles.imageWrap}>
                 {isLoading ?
                     <div className={styles.spinner}>
-                        <h3>Loading GIF...</h3>
+                        <h3>{loadingStatus}</h3>
                     </div>
                     :
                     <Image

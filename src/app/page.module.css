@@ -52,7 +52,7 @@
 }
 @media (min-width: 749px) {
     .section_1 {
-        min-height: calc(100vh - 165px);
+        min-height: calc(100vh - 190px);
     }  
 }
 

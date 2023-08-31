@@ -61,6 +61,7 @@ ul {
   src: url('/fonts/SourceCodePro-Light.ttf');
   font-weight: 300;
   font-style: normal;
+  font-display: swap;
 }
 
 @font-face {
@@ -68,6 +69,7 @@ ul {
   src: url('/fonts/SourceCodePro-Regular.ttf');
   font-weight: 400;
   font-style: normal;
+  font-display: swap;
 }
 
 @font-face {
@@ -75,6 +77,7 @@ ul {
   src: url('/fonts/SourceCodePro-SemiBold.ttf');
   font-weight: 600;
   font-style: normal;
+  font-display: swap;
 }
 
 @font-face {
@@ -82,5 +85,9 @@ ul {
   src: url('/fonts/SourceCodePro-Black.ttf');
   font-weight: 700;
   font-style: normal;
+  font-display: swap;
 }
 
+:root {
+  --gs-blue: #4a72bc;
+}

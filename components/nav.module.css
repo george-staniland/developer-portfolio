@@ -13,13 +13,32 @@
     opacity: 91%;
 }
 
+.home_link {
+    position: absolute;
+    top: 27px;
+    left: 30px;
+    cursor: pointer;
+}
+
+.home_link a {
+    text-decoration: none;
+    font-size: 16px;
+    font-weight: 900;
+    text-transform: uppercase;
+    color: #252525;
+}
+
+.home_link a:hover {
+    color: var(--gs-blue);
+}
+
 .nav_menu_container {
     position: fixed;
     left: 100%;
     top: 0;
     height: 100vh;
     width: 60vw;
-    background-color: #4a72bc;
+    background-color: var(--gs-blue);
     z-index: 5;
     display: flex;
     justify-content: center;

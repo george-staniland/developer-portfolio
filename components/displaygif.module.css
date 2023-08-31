@@ -11,11 +11,11 @@
     margin-top: 100px;
     background-color: transparent;
     box-shadow: none;
-    border: 1px solid;
+    border: 3px solid;
     border-color: black;
     border-radius: 0;
     padding: 15px 20px;
-    font-weight: 600;
+    font-weight: 900;
     font-size: 15px;
     cursor: pointer;
     font-family: "Source Code Pro", monospace;
@@ -25,8 +25,8 @@
     }
 }
 .button:hover {
-    color: rgb(154, 229, 73);
-    border-color: rgb(154, 229, 73);
+    color: #4a72bc;
+    border-color: #4a72bc;
 }
 
 .imageWrap {

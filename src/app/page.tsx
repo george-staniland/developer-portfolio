@@ -1,10 +1,12 @@
 import styles from './page.module.css'
 import ThreeJsCanvas from '../../components/ThreeJsCanvas'
 import Footer from '../../components/Footer'
+import NavMenu from '../../components/NavMenu'
 
 export default function Home() {
   return (
     <main >
+      <NavMenu showHomeLink={false} />
       <div className={styles.section_1}>
         <div className={styles.section_1_inner}>
           <h2 className={`${styles.pb} ${styles.sub_title}`} >About</h2>
