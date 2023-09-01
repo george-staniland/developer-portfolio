@@ -11,7 +11,7 @@ export default function Home() {
         <div className={styles.section_1_inner}>
           {/* <h2 className={`${styles.pb} ${styles.sub_title}`} >About</h2> */}
           <div className={styles.hero_text}>
-            Hello, my name is George,
+            Hello, my name is George
             <span className={styles.inline_gif_wrap}>
               <img src="/test.gif" className={styles.inline_gif} alt="Gif from Giphy"></img>
             </span>
@@ -19,9 +19,11 @@ export default function Home() {
             I&apos;m a front-end developer. <br />
             I&apos;m inspired <span className={styles.inline_gif_wrap}>
               <img src="/fireworks.webp" className={styles.inline_gif} alt="Gif from Giphy"></img>
-            </span> when making beautiful, intuitive things with code. I also enjoy <span className={styles.inline_gif_wrap}>
+            </span> when making beautiful, intuitive things with code. I also enjoy
+            photography
+            <span className={styles.inline_gif_wrap}>
               <img src="/photo.gif" className={styles.inline_gif} alt="Gif from Giphy"></img>
-            </span> photography
+            </span>
             , seeing my dog <span className={styles.inline_gif_wrap}>
               <img src="/dog.gif" className={styles.inline_gif} alt="Gif from Giphy"></img>
             </span>, and traveling             <span className={styles.inline_gif_wrap}>
