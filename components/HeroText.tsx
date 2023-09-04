@@ -65,17 +65,17 @@ function Desktop() {
 
 function Mobile() {
     return (
-        < div className={`${styles.hero_text_container} ${styles.container_mobile}`}>
-            <div>
-                <h1 className={styles.text_1}>Hello, my name is George,</h1>
+        < div className={`${styles.hero_text_container_mobile}`}>
+            <h1>
+                <span>Hello. My name is George, I&apos;m a front&#x2011;end developer.</span>
+            </h1>
+            <div className={styles.hero_2}>
+                <h1>
+                    I like crafting beautiful, intuitive experiences with code. I also enjoy photography, seeing my dog, and traveling.
+                </h1>
             </div>
-            <div>
-                <h1 className={styles.text_1}>I&apos;m a front-end developer.</h1>
-            </div>
-            <div className={styles.section_2}>
-                <div>
-                    <h1>I like crafting beautiful, intuitive experiences with code. I also enjoy photography,seeing my dog ,and traveling</h1>
-                </div>
+            <div className={styles.gif_wrap}>
+                <Image src="/fireworks.webp" fill alt="man waving gif" />
             </div>
         </div >
     )

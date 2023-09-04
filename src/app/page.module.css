@@ -28,14 +28,16 @@
 
 .section_1 {
     min-height: 100dvh;
-    padding: 0;
+
+    display: flex;
+    align-items: center;
 }
 @media(min-width:749px) {
     .section_1 {
-        display: flex;
+        
         justify-content: center;
-        align-items: center;
-        padding: 0;
+
+      
     }
 }
 
