@@ -2,35 +2,14 @@ import styles from './page.module.css'
 import ThreeJsCanvas from '../../components/ThreeJsCanvas'
 import Footer from '../../components/Footer'
 import NavMenu from '../../components/NavMenu'
+import HeroText from '../../components/HeroText'
 
 export default function Home() {
   return (
     <main >
       <NavMenu showHomeLink={false} />
       <div className={styles.section_1}>
-        <div className={styles.section_1_inner}>
-          {/* <h2 className={`${styles.pb} ${styles.sub_title}`} >About</h2> */}
-          <div className={styles.hero_text}>
-            Hello, my name is George
-            <span className={styles.inline_gif_wrap}>
-              <img src="/test.gif" className={styles.inline_gif} alt="Gif from Giphy"></img>
-            </span>
-            <br></br>
-            I&apos;m a front-end developer. <br />
-            I&apos;m inspired <span className={styles.inline_gif_wrap}>
-              <img src="/fireworks.webp" className={styles.inline_gif} alt="Gif from Giphy"></img>
-            </span> when making beautiful, intuitive things with code. I also enjoy
-            photography
-            <span className={styles.inline_gif_wrap}>
-              <img src="/photo.gif" className={styles.inline_gif} alt="Gif from Giphy"></img>
-            </span>
-            , seeing my dog <span className={styles.inline_gif_wrap}>
-              <img src="/dog.gif" className={styles.inline_gif} alt="Gif from Giphy"></img>
-            </span>, and traveling             <span className={styles.inline_gif_wrap}>
-              <img src="/travel.gif" className={styles.inline_gif} alt="Gif from Giphy"></img>
-            </span>
-          </div>
-        </div>
+        <HeroText />
       </div>
       <div className={styles.section_2}>
         <div className={styles.projects_section}>
@@ -45,7 +24,7 @@ export default function Home() {
         </div>
       </div>
       <div className={styles.animation_container}>
-        <ThreeJsCanvas />
+        {/* <ThreeJsCanvas /> */}
       </div>
       <Footer />
     </main >
