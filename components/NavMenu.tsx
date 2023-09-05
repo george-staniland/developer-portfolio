@@ -2,7 +2,7 @@
 import styles from './nav.module.css'
 import { usePathname } from 'next/navigation'
 import { useState, useEffect } from 'react'
-import { useSpring, animated } from '@react-spring/web'
+import { useSpring, animated, config } from '@react-spring/web'
 import Link from 'next/link'
 import icon from 'public/nav_icon.png'
 import Image from 'next/image'
@@ -20,6 +20,11 @@ export default function NavMenu(props: Props) {
         left: showMenu ? '40%' : '100%',
     })
 
+    const overlayClose = useSpring({
+        backgroundColor: showMenu ? '#0000006b' : '#ffffff00',
+        config: config.molasses,
+    })
+
     useEffect(() => {
         setShowMenu(false)
     }, [path])
@@ -35,6 +40,11 @@ export default function NavMenu(props: Props) {
             <div className={styles.nav_icon_wrap} onClick={() => setShowMenu(!showMenu)}>
                 <Image src={icon} alt="circular menu open icon" width={30} height={30} />
             </div>
+            <animated.div
+                className={`${styles.close_menu} ${showMenu ? 'allow_pointer' : 'no_pointer'}`}
+                onClick={() => setShowMenu(false)}
+                style={overlayClose}
+            />
             <animated.div className={styles.nav_menu_container} style={style}>
                 <div className={styles.menu_inner}>
                     <Link className={styles.menu_item} href="/">Home</Link>

@@ -32,6 +32,16 @@
     color: var(--gs-blue);
 }
 
+.close_menu {
+    position: fixed;
+    height: 100vh;
+    width: 98vw;
+    top: 0;
+    left: 0;
+    z-index: 2;
+    cursor: pointer;
+}
+
 .nav_menu_container {
     position: fixed;
     left: 100%;

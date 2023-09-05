@@ -22,9 +22,9 @@ export default function DisplayGif() {
             setLoadingStatus('GIF loading error :(')
             return Promise.reject('Network or HTTP error')
         }
-        const url = await res.json();
+        const data = await res.json();
         setLoadingStatus('Loading GIF..');
-        setGifUrl(url);
+        setGifUrl(data.url);
         setIsLoading(false);
     }
 
@@ -36,12 +36,13 @@ export default function DisplayGif() {
                         <h3>{loadingStatus}</h3>
                     </div>
                     :
-                    <Image
+
+                    // eslint-disable-next-line @next/next/no-img-element
+                    <img
                         className={styles.img}
                         src={gifUrl}
-                        alt="text"
-                        fill
-                        sizes="(max-width: 768px) 100vw, 50vw"
+                        loading="eager"
+                        alt="A gif from giphy.com"
                     />
                 }
             </div>

@@ -12,16 +12,12 @@ export default function Home() {
         <HeroText />
       </div>
       <div className={styles.section_2}>
-        <div className={styles.projects_section}>
-          <h2 className={`${styles.pb} ${styles.sub_title}`} >Recent Projects</h2>
-          <ul className={styles.projects_list}>
-            <li><a href="https://www.georgestaniland.net/" target="_blank">Photography Portfolio</a> for my art photography</li>
-            <li><a href="https://www.lomocean.com/" target="_blank">LOMOcean Marine</a>, developed will working with The Web Guys</li>
-            <li><a href="https://capitalscaffolding.co.nz/" target="_blank">Capital Scaffolding</a> - migrated to a new platform while ironing out UI issues</li>
-          </ul>
-        </div>
-        <div className={styles.experience_section}>
-        </div>
+        <h2 className={`${styles.pb} ${styles.sub_title}`} >Recent Projects</h2>
+        <ul className={styles.projects_list}>
+          <li><a href="https://www.georgestaniland.net/" target="_blank">Photography Portfolio</a> for my art photography</li>
+          <li><a href="https://www.lomocean.com/" target="_blank">LOMOcean Marine</a>, developed will working with The Web Guys</li>
+          <li><a href="https://capitalscaffolding.co.nz/" target="_blank">Capital Scaffolding</a> - migrated to a new platform while ironing out UI issues</li>
+        </ul>
       </div>
       <div className={styles.animation_container}>
         {/* <ThreeJsCanvas /> */}

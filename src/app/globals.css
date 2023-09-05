@@ -54,6 +54,10 @@ ul {
   margin: 0;
 }
 
+.no_pointer {
+  pointer-events: none;
+}
+
 /* Fonts */
 
 @font-face {
