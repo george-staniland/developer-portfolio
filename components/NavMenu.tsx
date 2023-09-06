@@ -38,7 +38,7 @@ export default function NavMenu(props: Props) {
                 null
             }
             <div className={styles.nav_icon_wrap} onClick={() => setShowMenu(!showMenu)}>
-                <Image src={icon} alt="circular menu open icon" width={30} height={30} />
+                <Image src={icon} alt="circular menu open icon" width={30} height={30} priority />
             </div>
             <animated.div
                 className={`${styles.close_menu} ${showMenu ? 'allow_pointer' : 'no_pointer'}`}

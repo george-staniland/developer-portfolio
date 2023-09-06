@@ -4,13 +4,20 @@
 
 .nav_icon_wrap {
     position: absolute;
-    top: 38px;
-    right: 46px;
+    top: 30px;
+    right: 25px;
     height: 30px;
     width: 30px;
     cursor: pointer;
     z-index: 10;
-    opacity: 94%;
+    opacity: 89%;
+}
+@media (min-width: 749px){
+    .nav_icon_wrap {
+        top: 38px;
+        right: 46px;
+        opacity: 94%;
+    }
 }
 
 .home_link {

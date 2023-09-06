@@ -29,7 +29,13 @@ function Desktop() {
             <div>
                 <h1 className={styles.text_1}>Hello, my name is George,</h1>
                 <span className={`${styles.inline_gif_wrap} ${styles.gif_1}`}>
-                    <Image src="/test.gif" className={styles.inline_gif} fill alt="Gif from Giphy"></Image>
+                    <Image
+                        src="/wave_small.gif"
+                        className={styles.inline_gif}
+                        fill
+                        alt="Gif from Giphy"
+                        sizes="70px"
+                    />
                 </span>
             </div>
             <div>
@@ -38,24 +44,47 @@ function Desktop() {
             <div className={styles.section_2}>
                 <div>
                     <span className={`${styles.inline_gif_wrap} ${styles.gif_2}`}>
-                        <Image src="/fireworks.webp" className={styles.inline_gif} fill alt="Gif from Giphy"></Image>
+                        <Image
+                            src="/fireworks.webp"
+                            className={styles.inline_gif}
+                            fill
+                            sizes="70px"
+                            alt="Gif from Giphy"
+                        />
                     </span>
                     <h1>I like crafting beautiful, intuitive experiences with code.</h1>
                 </div>
                 <div>
                     <h1>I also enjoy photography,</h1>
                     <span className={`${styles.inline_gif_wrap} ${styles.gif_3}`}>
-                        <Image src="/photo.gif" className={styles.inline_gif} fill alt="Gif from Giphy"></Image>
+                        <Image
+                            src="/camera.gif"
+                            className={styles.inline_gif}
+                            fill
+                            sizes="70px"
+                            alt="Gif from Giphy" />
                     </span>
                 </div>
                 <div>
                     <span className={`${styles.inline_gif_wrap} ${styles.gif_4}`}>
-                        <Image src="/dog.gif" className={styles.inline_gif} fill alt="Gif from Giphy"></Image>
+                        <Image
+                            src="/pup.gif"
+                            className={styles.inline_gif}
+                            fill
+                            alt="Gif from Giphy"
+                            sizes="70px"
+                        />
                     </span>
                     <h1>seeing my dog </h1>
                     <h1>,and traveling </h1>
                     <span className={`${styles.inline_gif_wrap} ${styles.gif_5}`}>
-                        <Image src="/travel.gif" className={styles.inline_gif} fill alt="Gif from Giphy"></Image>
+                        <Image
+                            src="/run_resize.gif"
+                            className={styles.inline_gif}
+                            fill
+                            sizes="70px"
+                            alt="Gif from Giphy"
+                        />
                     </span>
                 </div>
             </div>
