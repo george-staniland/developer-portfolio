@@ -1,7 +1,7 @@
 
 "use client"
 
-import styles from './herotext.module.css'
+import styles from './styles/herotext.module.css'
 import Image from 'next/image'
 import { useEffect, useState } from 'react'
 import { useMediaQuery } from 'react-responsive'

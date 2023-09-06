@@ -1,6 +1,6 @@
 "use client"
 import { useState } from 'react';
-import styles from './contactform.module.css'
+import styles from './styles/contactform.module.css'
 import { useForm } from 'react-hook-form'
 
 export default function ContactFrom() {

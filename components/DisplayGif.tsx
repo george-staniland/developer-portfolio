@@ -2,7 +2,7 @@
 
 import { useState, useEffect } from "react"
 import Image from "next/image";
-import styles from './displaygif.module.css';
+import styles from './styles/displaygif.module.css';
 
 
 export default function DisplayGif() {

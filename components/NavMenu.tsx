@@ -1,5 +1,5 @@
 "use client"
-import styles from './nav.module.css'
+import styles from './styles/nav.module.css'
 import { usePathname } from 'next/navigation'
 import { useState, useEffect } from 'react'
 import { useSpring, animated, config } from '@react-spring/web'

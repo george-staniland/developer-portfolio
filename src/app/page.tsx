@@ -3,6 +3,7 @@ import ThreeJsCanvas from '../../components/ThreeJsCanvas'
 import Footer from '../../components/Footer'
 import NavMenu from '../../components/NavMenu'
 import HeroText from '../../components/HeroText'
+import Accordion from '../../components/Accordion'
 
 export default function Home() {
   return (
@@ -13,14 +14,21 @@ export default function Home() {
       </div>
       <div className={styles.section_2}>
         <h2 className={`${styles.pb} ${styles.sub_title}`} >Recent Projects</h2>
-        <ul className={styles.projects_list}>
-          <li><a href="https://www.georgestaniland.net/" target="_blank">Photography Portfolio</a> for my art photography</li>
-          <li><a href="https://www.lomocean.com/" target="_blank">LOMOcean Marine</a>, developed will working with The Web Guys</li>
-          <li><a href="https://capitalscaffolding.co.nz/" target="_blank">Capital Scaffolding</a> - migrated to a new platform while ironing out UI issues</li>
-        </ul>
+        <Accordion title="Photography Portfolio" maxHeight={'120px'}>
+          <p>To add<a href="https://www.georgestaniland.net/" target="_blank">View</a></p>
+        </Accordion>
+        <Accordion title="LOMOcean Marine" maxHeight={'120px'}>
+          <p>To add<a href="https://www.georgestaniland.net/" target="_blank">View</a></p>
+        </Accordion>
+        <Accordion title="Capital Scaffolding" maxHeight={'120px'}>
+          <p>To add <a href="https://www.georgestaniland.net/" target="_blank">View</a></p>
+        </Accordion>
+        <Accordion title="This portfolio website" maxHeight={'120px'}>
+          <p>To add <a href="https://www.georgestaniland.net/" target="_blank">View</a></p>
+        </Accordion>
       </div>
       <div className={styles.animation_container}>
-        <ThreeJsCanvas />
+        {/* <ThreeJsCanvas /> */}
       </div>
       <Footer />
     </main >

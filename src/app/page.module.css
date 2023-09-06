@@ -47,6 +47,7 @@
     font-weight: 900;
     letter-spacing: 0.08em;
     word-spacing: -0.1em;
+    margin-bottom: 10px;
 }
 @media (min-width: 980px) {
     .sub_title {
@@ -54,6 +55,7 @@
         font-weight: 600;
         letter-spacing: 0.03em;
         word-spacing: -0.1em;
+        margin-bottom: 15px;
     }
 }
 
@@ -85,3 +87,5 @@
     background-color: #252525;
     margin-top: 10rem;
 }
+
+

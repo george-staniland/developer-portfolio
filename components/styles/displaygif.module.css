@@ -27,7 +27,8 @@
     }
 }
 .button:hover {
-    color: #4a72bc;
+    background-color: var(--green);
+    border-color: var(--green);
 }
 
 .imageWrap {
