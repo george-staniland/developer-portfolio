@@ -15,7 +15,8 @@ export default function Accordion(props: Props) {
     const [showContent, setShowContent] = useState(false);
     const style = useSpring({
         maxHeight: showContent ? maxHeight : '0px',
-        padding: showContent ? '15px 0px' : '0px 0px',
+        paddingTop: showContent ? '25px' : '0px',
+        paddingBottom: showContent ? '15px' : '0px',
         config: config.gentle,
     })
     return (

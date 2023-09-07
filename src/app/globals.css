@@ -43,19 +43,12 @@ a:hover {
   color: cornflowerblue;
 }
 
-li {
-  font-size: 1.4rem;
-  font-weight: 400;
-  list-style-type: none;
-}
-
-ul {
-  padding-left: 0;
-  margin: 0;
-}
-
 .no_pointer {
   pointer-events: none;
+}
+
+.div_pb {
+  padding-bottom: 12px;
 }
 
 /* Fonts */
@@ -95,4 +88,5 @@ ul {
 :root {
   --gs-blue: #4a72bc;
   --green: #5A7026;
+  --grey: #686868;
 }

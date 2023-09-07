@@ -4,6 +4,9 @@ import Footer from '../../components/Footer'
 import NavMenu from '../../components/NavMenu'
 import HeroText from '../../components/HeroText'
 import Accordion from '../../components/Accordion'
+import { PhotoPortfolioContent, LomoOceanContent, CapScaffContent, DevSiteContent } from '../../content/ProjectsContent'
+
+
 
 export default function Home() {
   return (
@@ -14,21 +17,26 @@ export default function Home() {
       </div>
       <div className={styles.section_2}>
         <h2 className={`${styles.pb} ${styles.sub_title}`} >Recent Projects</h2>
-        <Accordion title="Photography Portfolio" maxHeight={'120px'}>
-          <p>To add<a href="https://www.georgestaniland.net/" target="_blank">View</a></p>
+
+        <Accordion title="Photography Portfolio" maxHeight={'300px'}>
+          <PhotoPortfolioContent />
         </Accordion>
-        <Accordion title="LOMOcean Marine" maxHeight={'120px'}>
-          <p>To add<a href="https://www.georgestaniland.net/" target="_blank">View</a></p>
+
+        <Accordion title="LOMOcean Marine" maxHeight={'320px'}>
+          <LomoOceanContent />
         </Accordion>
-        <Accordion title="Capital Scaffolding" maxHeight={'120px'}>
-          <p>To add <a href="https://www.georgestaniland.net/" target="_blank">View</a></p>
+
+        <Accordion title="Capital Scaffolding" maxHeight={'220px'}>
+          <CapScaffContent />
         </Accordion>
-        <Accordion title="This portfolio website" maxHeight={'120px'}>
-          <p>To add <a href="https://www.georgestaniland.net/" target="_blank">View</a></p>
+
+        <Accordion title="This portfolio website" maxHeight={'200px'}>
+          <DevSiteContent />
         </Accordion>
+
       </div>
       <div className={styles.animation_container}>
-        {/* <ThreeJsCanvas /> */}
+        <ThreeJsCanvas />
       </div>
       <Footer />
     </main >

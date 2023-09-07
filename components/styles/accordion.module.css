@@ -1,5 +1,5 @@
 .accordion_container {
-    margin-bottom: 10px;
+    margin-bottom: 18px;
 }
 @media(min-width:749px){
     .accordion_container {
@@ -7,29 +7,89 @@
     }
 }
 
-.accordion_container p, .accordion_container a {
+.accordion_container p, .accordion_container a, .accordion_container h6 {
     font-size: 17px;
+    color: #252525;
 }
 @media(min-width: 749px){ 
-    .accordion_container p, .accordion_container a {
+    .accordion_container p, .accordion_container a, .accordion_container h6{
         font-size: 21px;
-        color: #252525;
+    }
+}
+
+.accordion_container h6 {
+    font-weight: 600;
+    padding-bottom: 5px;
+    color: var(--grey);
+}
+
+.accordion_container p {
+    padding-bottom: 12px;
+    color: var(--grey)
+}
+.accordion_container ul {
+    padding-bottom: 20px;
+    padding-left: 0px; 
+    list-style-type: square;
+    margin-top: 5px;   
+}
+.accordion_container ul li {
+    color: var(--grey);
+    display: inline;
+}
+@media(min-width: 749px) {
+    .accordion_container ul li {
+        display: revert;
+    }
+    .accordion_container ul {
+        padding-bottom: 20px;
+        padding-left: 19px;
+    }   
+}
+
+.accordion_container ul li:not(:first-child) {
+    padding-left: 20px;
+}
+
+.accordion_container ul li {
+    font-size: 17px;
+}
+.accordion_container a {
+    font-size: 16px;
+}
+@media(min-width:749px){
+    .accordion_container ul li{
+        font-size: 21px;
+    }
+    .accordion_container a {
+        font-size: 17px;
+    }
+    .accordion_container ul li:not(:first-child) {
+        padding-left: 0px;
     }
 }
 
 .accordion_container a {
-    display: inline;
+    color: var(--grey);
 }
+
+.accordion_container a:hover {
+    color: var(--gs-blue);
+}
+/* .accordion_container h6 {
+    font-size: 17px;
+} */
 
 .accordion_title {
     display: flex;
     cursor: pointer;
+    display: flex;
+    justify-content: space-between;
 }
 
 .accordion_content {
     overflow: hidden;
-   
-    /* padding: 9px 0; */
+    
 }
 @media (min-width:749px){
     .accordion_content {
@@ -44,15 +104,15 @@
 }
 
 .icon_wrap span {
-    font-size: 36px;
+    font-size: 30px;
     font-family: "Source Code Pro", monospace;
     position: absolute;
-    top: -9px;
-    left: 3px;
+    top: -6px;
+    left: 10px;
 }
 
 .accordion_container h5 {
-    font-size: 24px;
+    font-size: 20px;
     font-weight: 400;
     letter-spacing: 0.03em;
     word-spacing: -0.1em;
