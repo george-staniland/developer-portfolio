@@ -37,7 +37,7 @@ export function LomoOceanContent() {
     return (
         <>
             <p>
-                Developed during my time working with The Web Guys. Utilises NextJs for static page generation for fast loading and great SEO optimisation. Configure with WordPress as a headless CMS.
+                Developed during while working with with <a href="https://thewebguys.co.nz/" target="_blank">The Web Guys</a>. Utilises NextJs for static page generation allowing fast loading and great SEO optimisation. Configure with WordPress as a headless CMS.
             </p>
             <h6>Tools Used:</h6>
             <ul>
@@ -63,7 +63,7 @@ export function CapScaffContent() {
     return (
         <>
             <p>
-                The existing site had major UI issues that had creeped in over the years. I rebuilt the site, migrating it from Squarespace to WordPress.
+                Re-built the existing site and design in a new platform. Addressing UI issues and inconsistencies. Created with WordPress to allow non-technical users to update the site easily via the CMS.
             </p>
             <h6>Tools Used:</h6>
             <ul>
@@ -85,7 +85,9 @@ export function DevSiteContent() {
     return (
         <>
             <p>
-                This portfolio website :
+                This small portfolio is a recent project. It uses the latest version of Next.js, utilising React Server Components as default.
+                It uses React Spring, for smooth, realistic animations. The contact from sends submissions via Nodemailer.
+                For fun the Nice Surprise page deliveries GIFs from the Giphy API.
             </p>
             <h6>Tools Used:</h6>
             <ul>
@@ -93,23 +95,6 @@ export function DevSiteContent() {
                 <li>React Spring</li>
                 <li>Threes.js using React Three Fiber</li>
             </ul>
-            <div className="div_pb">
-                <a
-                    href="https://www.georgestaniland.net/"
-                    target="_blank"
-                >
-                    View site
-                </a>
-            </div>
-            <div>
-                <a
-                    href="https://github.com/george-staniland/photo-portfolio-nextjs-2023"
-                    target="_blank"
-                >
-                    View code
-                </a>
-            </div>
-
         </>
     )
 }

@@ -30,12 +30,13 @@
 }
 
 .section_1 {
-    min-height: 98svh;
+    min-height: 94svh;
     display: flex;
     align-items: flex-end;
 }
 @media(min-width:749px) {
     .section_1 {
+        min-height: 98svh;
         align-items: center;
         justify-content: center;
     }
@@ -56,6 +57,7 @@
         letter-spacing: 0.03em;
         word-spacing: -0.1em;
         margin-bottom: 15px;
+        padding-left: 10px;
     }
 }
 

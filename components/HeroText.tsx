@@ -100,7 +100,7 @@ function Mobile() {
             </h1>
             <div className={styles.hero_2}>
                 <h1>
-                    I like crafting beautiful, intuitive experiences with code. I also enjoy photography, seeing my dog, and traveling.
+                    I like crafting beautiful, intuitive experiences with code. <br />I also enjoy photography, seeing my dog, and traveling.
                 </h1>
             </div>
             <div className={styles.gif_wrap}>

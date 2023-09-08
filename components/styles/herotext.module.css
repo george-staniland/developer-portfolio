@@ -87,7 +87,7 @@
 
 .hero_text_container_mobile h1 span {
     font-weight: 600;
-    margin-bottom: 21px;
+    margin-bottom: 10px;
     display: inline-block;
 }
 
@@ -110,6 +110,20 @@
 }
 
 .hero_text_container_mobile .hero_2 {
-    margin-top: 11px;
+    margin-top: 0;
     margin-bottom: 1px;
+}
+@media(min-width:749px) {
+    .hero_text_container_mobile .hero_2 {
+        margin-top: 11px;
+        margin-bottom: 1px;
+    }
+}
+
+.hero_text_container_mobile .hero_2 h1 {
+    font-size: clamp(17px, 5.8vw, 25px);
+    letter-spacing: 0.015em;
+    word-spacing: -0.04em;
+    line-height: 1.3em;
+    color: #292929;
 }

@@ -18,19 +18,19 @@ export default function Home() {
       <div className={styles.section_2}>
         <h2 className={`${styles.pb} ${styles.sub_title}`} >Recent Projects</h2>
 
-        <Accordion title="Photography Portfolio" maxHeight={'300px'}>
+        <Accordion title="Photography Portfolio" maxHeight={'400px'}>
           <PhotoPortfolioContent />
         </Accordion>
 
-        <Accordion title="LOMOcean Marine" maxHeight={'320px'}>
+        <Accordion title="LOMOcean Marine" maxHeight={'400px'}>
           <LomoOceanContent />
         </Accordion>
 
-        <Accordion title="Capital Scaffolding" maxHeight={'220px'}>
+        <Accordion title="Capital Scaffolding" maxHeight={'300px'}>
           <CapScaffContent />
         </Accordion>
 
-        <Accordion title="This portfolio website" maxHeight={'200px'}>
+        <Accordion title="This Website!" maxHeight={'420px'}>
           <DevSiteContent />
         </Accordion>
 
