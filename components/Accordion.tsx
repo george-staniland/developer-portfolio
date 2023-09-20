@@ -25,11 +25,11 @@ export default function Accordion(props: Props) {
         maxHeight: showContent ? maxHeight : '0px',
         paddingTop: showContent ? '25px' : '0px',
         paddingBottom: showContent ? '15px' : '0px',
-        config: config.gentle,
+        config: config.default,
     })
 
     const styleTitle = useSpring({
-        backgroundColor: !showContent && titleHovered ? '#f9f9f9' : '#f9f9f900',
+        backgroundColor: !showContent && titleHovered ? '#EFEFEF80' : '#EFEFEF00',
     })
 
     return (

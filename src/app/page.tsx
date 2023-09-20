@@ -16,9 +16,9 @@ export default function Home() {
         <HeroText />
       </div>
       <div className={styles.section_2}>
-        <h2 className={`${styles.pb} ${styles.sub_title}`} >Recent Projects</h2>
+        <h2 className={`${styles.pb} ${styles.section_title}`} >Recent Projects</h2>
 
-        <Accordion title="Photography Portfolio" maxHeight={'400px'}>
+        <Accordion title="Photo Portfolio" maxHeight={'400px'}>
           <PhotoPortfolioContent />
         </Accordion>
 
@@ -30,13 +30,13 @@ export default function Home() {
           <CapScaffContent />
         </Accordion>
 
-        <Accordion title="This Website!" maxHeight={'420px'}>
+        <Accordion title="This Website" maxHeight={'420px'}>
           <DevSiteContent />
         </Accordion>
 
       </div>
       <div className={styles.animation_container}>
-        <ThreeJsCanvas />
+        {/* <ThreeJsCanvas /> */}
       </div>
       <Footer />
     </main >

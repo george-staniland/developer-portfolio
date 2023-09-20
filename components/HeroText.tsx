@@ -26,8 +26,8 @@ function TextBlock() {
 function Desktop() {
     return (
         < div className={styles.hero_text_container}>
-            <div>
-                <h1 className={styles.text_1}>Hello, my name is George,</h1>
+            <div className={styles.text_block}>
+                <h1 >Hello, my name is George,</h1>
                 <span className={`${styles.inline_gif_wrap} ${styles.gif_1}`}>
                     <Image
                         src="/wave_small.gif"
@@ -38,11 +38,11 @@ function Desktop() {
                     />
                 </span>
             </div>
-            <div>
-                <h1 className={styles.text_1}>I&apos;m a front-end developer.</h1>
+            <div className={styles.text_block}>
+                <h1>I&apos;m a front-end developer.</h1>
             </div>
             <div className={styles.section_2}>
-                <div>
+                <div className={styles.text_block}>
                     <span className={`${styles.inline_gif_wrap} ${styles.gif_2}`}>
                         <Image
                             src="/fireworks.webp"
@@ -54,7 +54,7 @@ function Desktop() {
                     </span>
                     <h1>I like crafting beautiful, intuitive experiences with code.</h1>
                 </div>
-                <div>
+                <div className={styles.text_block}>
                     <h1>I also enjoy photography,</h1>
                     <span className={`${styles.inline_gif_wrap} ${styles.gif_3}`}>
                         <Image
@@ -65,7 +65,7 @@ function Desktop() {
                             alt="Gif from Giphy" />
                     </span>
                 </div>
-                <div>
+                <div className={styles.text_block}>
                     <span className={`${styles.inline_gif_wrap} ${styles.gif_4}`}>
                         <Image
                             src="/pup.gif"

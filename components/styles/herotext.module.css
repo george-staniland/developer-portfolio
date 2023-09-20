@@ -1,41 +1,51 @@
+/* Only effects 749px and up */
 .hero_text_container {
-    width: 100%;
+    width: 92%;
     max-width: 1175px;
     text-align: center;
     position: relative;
     top: -7px;
 }
-@media(min-width: 749px){
-    .hero_text_container {
-        width: 90%;
-    }
-}
 @media(min-width: 1200px){
     .hero_text_container {
         width: 70%;
+        min-width: 1164px;
     }
-}  
+} 
+
+.text_block {
+    /* outline: 1px solid green; */
+}
 
 .hero_text_container h1 {
     display: inline;
-    font-size: 36px;
+    font-size: 1.8em;
     font-family: "Source Code Pro", monospace;
     position: relative;
     color: #252525;
     font-weight: 400;
     letter-spacing: 0.02em;
     word-spacing: -0.1em;
+    line-height: 1.5em;
+}
+
+@media(min-width:960px) {
+    .hero_text_container h1 {
+        font-size: 2.5em;
+        line-height: 1.6em;
+    }
 }
 @media(min-width:1200px) {
     .hero_text_container h1 {
-        font-size: 42px;
+        font-size: 3.1em;
+        line-height: 1.38em;
     }
-}
-@media(min-width:1400px) {
+} 
+@media(min-width:1600px) {
     .hero_text_container h1 {
-        font-size: 56px;
+        font-size: 3.4em;
     }
-}
+} 
 
 .inline_gif_wrap {
     height: 57px;
@@ -54,7 +64,17 @@
 }
 
 .section_2 {
-    margin-top: 68px;
+    margin-top: 20px;
+}
+@media(min-width:960px) {
+    .section_2 {
+        margin-top: 60px;
+    }
+}
+@media(min-width:1600px) {
+    .section_2 {
+        margin-top: 68px;
+    }
 }
 
 .gif_1 {
