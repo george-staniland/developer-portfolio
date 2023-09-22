@@ -5,6 +5,7 @@ import NavMenu from '../../components/NavMenu'
 import HeroText from '../../components/HeroText'
 import Accordion from '../../components/Accordion'
 import { PhotoPortfolioContent, LomoOceanContent, CapScaffContent, DevSiteContent } from '../../content/ProjectsContent'
+import HomePageAnimation from '../../components/HomePageAnimation'
 
 
 
@@ -35,9 +36,9 @@ export default function Home() {
         </Accordion>
 
       </div>
-      <div className={styles.animation_container}>
-        {/* <ThreeJsCanvas /> */}
-      </div>
+
+      <HomePageAnimation />
+
       <Footer />
     </main >
   )

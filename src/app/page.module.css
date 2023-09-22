@@ -20,15 +20,6 @@
        }
 }
 
-.animation_container {
-    height: 300px;
-    cursor: grab;
-    max-width: 100%;
-    @media(min-width: 749px) {
-        margin-top: 100px;
-    }
-}
-
 .section_1 {
     min-height: 94svh;
     display: flex;
@@ -71,7 +62,7 @@
 @media(min-width:992px) {
     .section_2 {
         padding-left: 30px;
-        margin-bottom: 250px;
+        margin-bottom: 50px;
     }
 }
 
