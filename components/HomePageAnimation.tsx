@@ -1,48 +1,69 @@
 "use client"
-
 import styles from './styles/animation.module.css'
-import { useRef, useEffect } from 'react'
+import { useRef, useEffect, useState } from 'react'
 
 export default function HomePageAnimation() {
+    const [windowWidth, setWindowWidth] = useState(0)
+    const canvasRef = useRef<null | HTMLCanvasElement>(null)
+    const imageWidth = 300
 
-    const canvasRef = useRef(null)
-    const windowWidth = useRef(window.innerWidth);
+    function handleResize() {
+        setWindowWidth(window.innerWidth)
+    }
 
-    function draw(context: CanvasRenderingContext2D, count: number) {
-        // context.fillStyle = 'white';
-        // context.fillRect(0, 0, context.canvas.width, context.canvas.height)
+    interface Props {
+        context: CanvasRenderingContext2D | undefined | null,
+        xPos: number,
+    }
 
+    function draw(props: Props) {
+        const { context, xPos } = props;
         const image = new Image();
-        const delta = count % windowWidth.current;
         image.src = "/test.png";
         image.onload = () => {
-            context.clearRect(0, 0, context.canvas.width, context.canvas.height)
-            context.drawImage(image, 0 + delta, 0);
+            context?.clearRect(0, 0, context.canvas.width, context.canvas.height)
+            context?.drawImage(image, xPos, 0, imageWidth, 200);
         }
     }
 
     useEffect(() => {
-        const canvas = canvasRef.current
-        canvas.width = windowWidth.current
-        canvas.height = 400
-        let count = 0
+
+        if (canvasRef.current != null) {
+            canvasRef.current.width = window.innerWidth
+            canvasRef.current.height = 200
+        }
+
+        let xPos = 0
         let animationId: number
 
-        const context = canvas.getContext('2d');
+        const context = canvasRef.current?.getContext('2d');
 
         function renderer() {
-            count = count + 2.8
-            draw(context, count)
+
+            if (xPos < window.innerWidth - imageWidth) {
+                xPos = xPos + 2.8
+            } else {
+                xPos = 0
+            }
+
+            const args = {
+                context: context,
+                xPos: xPos,
+            }
+            draw(args)
             animationId = window.requestAnimationFrame(renderer)
         }
         renderer()
 
 
-        // draw(context, 100)
+        // Resize
+        window.addEventListener('resize', handleResize)
 
-
-        return () => window.cancelAnimationFrame(animationId)
-    }, [])
+        return () => {
+            window.cancelAnimationFrame(animationId)
+            window.removeEventListener('resize', handleResize)
+        }
+    })
 
     return (
         <div
