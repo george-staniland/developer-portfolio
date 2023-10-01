@@ -5,7 +5,8 @@ import { useRef, useEffect, useState } from 'react'
 export default function HomePageAnimation() {
     const [windowWidth, setWindowWidth] = useState(0)
     const canvasRef = useRef<null | HTMLCanvasElement>(null)
-    const imageWidth = 300
+    const imgWidth = 600
+    const imgHeight = imgWidth / 11.2
 
     function handleResize() {
         setWindowWidth(window.innerWidth)
@@ -14,15 +15,19 @@ export default function HomePageAnimation() {
     interface Props {
         context: CanvasRenderingContext2D | undefined | null,
         xPos: number,
+        xPos2: number,
     }
 
     function draw(props: Props) {
-        const { context, xPos } = props;
-        const image = new Image();
-        image.src = "/test.png";
+        const { context, xPos, xPos2 } = props;
+        const image = new Image()
+        const image2 = new Image()
+        image.src = "/text_1_cropped.png";
+        image2.src = "/sml-donut.png";
         image.onload = () => {
             context?.clearRect(0, 0, context.canvas.width, context.canvas.height)
-            context?.drawImage(image, xPos, 0, imageWidth, 200);
+            context?.drawImage(image, xPos, 0, imgWidth, imgHeight);
+            // context?.drawImage(image2, xPos2, 0, 60, 60);
         }
     }
 
@@ -30,25 +35,36 @@ export default function HomePageAnimation() {
 
         if (canvasRef.current != null) {
             canvasRef.current.width = window.innerWidth
-            canvasRef.current.height = 200
+            canvasRef.current.height = imgHeight + 5
         }
 
-        let xPos = 0
+        let xPos = 0 - imgWidth
+        let xPos2 = 0 - 60
         let animationId: number
+        const step = 2
+        const step2 = 5
 
         const context = canvasRef.current?.getContext('2d');
+        let direction = "right"
 
         function renderer() {
-
-            if (xPos < window.innerWidth - imageWidth) {
-                xPos = xPos + 2.8
+            if (xPos < window.innerWidth - imgWidth && direction == "right") {
+                xPos = xPos + step
+                // xPos2 = xPos2 + step2
             } else {
-                xPos = 0
+                direction = "left"
             }
 
+            if (direction == "left" && xPos > 0) {
+                xPos = xPos - step
+                // xPos2 = xPos2 - step2
+            } else {
+                direction = "right"
+            }
             const args = {
                 context: context,
                 xPos: xPos,
+                xPos2: xPos2,
             }
             draw(args)
             animationId = window.requestAnimationFrame(renderer)
@@ -68,12 +84,10 @@ export default function HomePageAnimation() {
     return (
         <div
             className={styles.container}
-
         >
             <canvas
                 ref={canvasRef}
                 className={styles.canvas}
-                height="400px"
             />
         </div>
     )

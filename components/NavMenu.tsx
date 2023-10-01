@@ -21,7 +21,7 @@ export default function NavMenu(props: Props) {
     })
 
     const overlayClose = useSpring({
-        backgroundColor: showMenu ? '#0000006b' : '#ffffff00',
+        backgroundColor: showMenu ? 'rgba(0, 0, 0, 0.09)' : 'rgba(0, 0, 0, 0)',
         config: config.molasses,
     })
 
