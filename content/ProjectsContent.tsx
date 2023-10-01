@@ -37,7 +37,7 @@ export function LomoOceanContent() {
     return (
         <>
             <p>
-                Developed during while working with with <a href="https://thewebguys.co.nz/" target="_blank">The Web Guys</a>. Utilises NextJs for static page generation allowing fast loading and great SEO optimisation. Configure with WordPress as a headless CMS.
+                Developed during while working with <a href="https://thewebguys.co.nz/" target="_blank">The Web Guys</a>. Utilises NextJs for static page generation allowing fast loading and great SEO optimisation. Configure with WordPress as a headless CMS.
             </p>
             <h6>Tools Used:</h6>
             <ul>
@@ -63,7 +63,7 @@ export function CapScaffContent() {
     return (
         <>
             <p>
-                Re-built the existing site and design in a new platform. Addressing UI issues and inconsistencies. Created with WordPress to allow non-technical users to update the site easily via the CMS.
+                A complete re-build of the existing design in a new platform, addressing UI issues and inconsistencies. New site created with WordPress to allow non-technical users to update it easily via the CMS.
             </p>
             <h6>Tools Used:</h6>
             <ul>
@@ -87,7 +87,7 @@ export function DevSiteContent() {
             <p>
                 This small portfolio is a recent project. It uses the latest version of Next.js, utilising React Server Components as default.
                 It uses React Spring, for smooth, realistic animations. The contact from sends submissions via Nodemailer.
-                For fun the Nice Surprise page deliveries GIFs from the Giphy API.
+                For fun the &apos;Nice Surprise&apos; page deliveries GIFs from the Giphy API.
             </p>
             <h6>Tools Used:</h6>
             <ul>
