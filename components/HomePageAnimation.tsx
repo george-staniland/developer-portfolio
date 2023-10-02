@@ -5,8 +5,10 @@ import { useRef, useEffect, useState } from 'react'
 export default function HomePageAnimation() {
     const [windowWidth, setWindowWidth] = useState(0)
     const canvasRef = useRef<null | HTMLCanvasElement>(null)
-    const imgWidth = 600
-    const imgHeight = imgWidth / 11.2
+    const imgWidth = 100
+    // const imgHeight = imgWidth / 11.2
+    const imgHeight = imgWidth
+    const step = 3
 
     function handleResize() {
         setWindowWidth(window.innerWidth)
@@ -21,13 +23,10 @@ export default function HomePageAnimation() {
     function draw(props: Props) {
         const { context, xPos, xPos2 } = props;
         const image = new Image()
-        const image2 = new Image()
-        image.src = "/text_1_cropped.png";
-        image2.src = "/sml-donut.png";
+        image.src = "/donut.png";
         image.onload = () => {
             context?.clearRect(0, 0, context.canvas.width, context.canvas.height)
             context?.drawImage(image, xPos, 0, imgWidth, imgHeight);
-            // context?.drawImage(image2, xPos2, 0, 60, 60);
         }
     }
 
@@ -41,7 +40,6 @@ export default function HomePageAnimation() {
         let xPos = 0 - imgWidth
         let xPos2 = 0 - 60
         let animationId: number
-        const step = 2
         const step2 = 5
 
         const context = canvasRef.current?.getContext('2d');
