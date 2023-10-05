@@ -1,0 +1,31 @@
+.section_title {
+    font-size: 23px;
+    /* color: #5A7026; */
+    color: #252525;
+    font-weight: 400;
+    letter-spacing: 0.08em;
+    word-spacing: -0.1em;
+    
+}
+@media (min-width: 980px) {
+    .section_title {
+        font-size: 2.7rem;
+        letter-spacing: 0.03em;
+        word-spacing: -0.1em;
+    }
+}
+
+.projects_title_wrap {
+    margin-bottom: 50px;
+    padding-left: 10px;
+    padding-right: 30px;
+    position: relative;
+}
+
+.animated_underline {
+    height: 5px;
+    background-color: #5A7026;
+    display: block;
+    border-radius: 1px;
+    margin-top: 10px;
+}

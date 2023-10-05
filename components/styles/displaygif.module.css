@@ -5,6 +5,7 @@
     justify-content: center;
     height: 100vh;
     overflow: hidden;
+    position: relative;
 }
 
 .button {
@@ -60,3 +61,19 @@
     align-items: center;
 }
 
+.giphy_text {
+    position: absolute;
+    right: 10px;
+    bottom: 10px;
+}
+@media(min-width: 998px){
+    .giphy_text {
+        right: 46px;
+        bottom: 20px;
+    }
+}
+
+.giphy_text h6 {
+    color: rgb(106, 106, 106);
+    font-size: 14px;
+}

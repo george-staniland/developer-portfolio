@@ -47,6 +47,9 @@ export default function DisplayGif() {
                 }
             </div>
             <button onClick={callRouteGifApi} className={styles.button}>New Gif!</button>
+            <div className={styles.giphy_text}>
+                <h6>Powered by GIPHY API</h6>
+            </div>
         </div>
     )
 }

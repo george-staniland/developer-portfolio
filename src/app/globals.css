@@ -39,6 +39,15 @@ a {
   transition: color .3s ease-in-out;
 }
 
+.small-heading {
+  font-size: 1.7rem;
+}
+@media(min-width: 992px) {
+  .small-heading {
+    font-size: 2rem;
+  }
+}
+
 a:hover {
   color: cornflowerblue;
 }

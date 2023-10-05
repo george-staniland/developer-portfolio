@@ -6,6 +6,7 @@ import HeroText from '../../components/HeroText'
 import Accordion from '../../components/Accordion'
 import { PhotoPortfolioContent, LomoOceanContent, CapScaffContent, DevSiteContent } from '../../content/ProjectsContent'
 import HomePageAnimation from '../../components/HomePageAnimation'
+import HomePageSectionTitle from '../../components/HomePageSectionTitle'
 
 
 
@@ -17,7 +18,8 @@ export default function Home() {
         <HeroText />
       </div>
       <div className={styles.section_2}>
-        <h2 className={`${styles.pb} ${styles.section_title}`} >Recent Projects</h2>
+
+        <HomePageSectionTitle />
 
         <Accordion title="Photo Portfolio" maxHeight={'400px'}>
           <PhotoPortfolioContent />

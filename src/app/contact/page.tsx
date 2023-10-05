@@ -8,10 +8,12 @@ export default function Contact() {
     return (
         <>
             <NavMenu showHomeLink />
-            {/* <div className={styles.title_wrap} >
-                <h1>Contact Me</h1>
-            </div> */}
             <div className={styles.container}>
+                <div className={styles.text_wrap}>
+                    <h1 className="small-heading">
+                        Contact Me
+                    </h1>
+                </div>
                 <ContactFrom />
             </div>
         </>

@@ -33,24 +33,7 @@
     }
 }
 
-.section_title {
-    font-size: 23px;
-    color: #5A7026;
-    font-weight: 600;
-    letter-spacing: 0.08em;
-    word-spacing: -0.1em;
-    margin-bottom: 10px;
-}
-@media (min-width: 980px) {
-    .section_title {
-        font-size: 32px;
-        font-weight: 600;
-        letter-spacing: 0.03em;
-        word-spacing: -0.1em;
-        margin-bottom: 15px;
-        padding-left: 10px;
-    }
-}
+
 
 .section_2 {
     display: flex;
@@ -74,11 +57,5 @@
     padding-bottom: .2rem;
 }
 
-.hr {
-    height: 3px;
-    border-radius: 10px;
-    background-color: #252525;
-    margin-top: 10rem;
-}
 
 
