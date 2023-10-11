@@ -6,7 +6,7 @@ import styles from './styles/homepage_title.module.css'
 
 export default function HomePageSectionTitle() {
     const ref = useRef(null)
-    const titleInView = useIsInViewport(ref);
+    const titleInView = false;
 
     const style = useSpring({
         width: titleInView ? '100%' : '0%',
@@ -20,27 +20,4 @@ export default function HomePageSectionTitle() {
             <animated.span ref={ref} className={styles.animated_underline} style={style} />
         </div>
     )
-}
-
-function useIsInViewport(ref: HTMLSpanElement) {
-    const [isIntersecting, setIsIntersecting] = useState(false);
-
-    const observer = useMemo(
-        () =>
-            new IntersectionObserver(([entry]) =>
-                setIsIntersecting(entry.isIntersecting),
-                { rootMargin: '-40px' }
-            ),
-        [],
-    );
-
-    useEffect(() => {
-        observer.observe(ref.current);
-
-        return () => {
-            observer.disconnect();
-        };
-    }, [ref, observer]);
-
-    return isIntersecting;
 }
