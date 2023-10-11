@@ -36,7 +36,6 @@ export default function Home() {
         <Accordion title="This Website" maxHeight={'420px'}>
           <DevSiteContent />
         </Accordion>
-
       </div>
 
       <HomePageAnimation />

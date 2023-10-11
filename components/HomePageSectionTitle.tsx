@@ -1,21 +1,23 @@
 "use client"
 
 import { useSpring, animated, config } from '@react-spring/web'
-import { useEffect, useRef, useState, useMemo, RefObject } from 'react';
+import { useInView } from 'react-intersection-observer';
 import styles from './styles/homepage_title.module.css'
 
 export default function HomePageSectionTitle() {
-    const ref = useRef(null)
-    const titleInView = false;
+    const { ref, inView } = useInView({ threshold: 1, delay: 200 });
 
     const style = useSpring({
-        width: titleInView ? '100%' : '0%',
-        config: config.gentle,
+        width: inView ? '150%' : '0%',
+        config: config.slow,
     }
     )
 
     return (
-        <div className={styles.projects_title_wrap}>
+        <div
+            className={styles.projects_title_wrap}
+            ref={ref}
+        >
             <h2 className={styles.section_title} >Recent Projects</h2>
             <animated.span ref={ref} className={styles.animated_underline} style={style} />
         </div>
