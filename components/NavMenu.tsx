@@ -59,6 +59,7 @@ export default function NavMenu(props: Props) {
                     src={icon}
                     alt="circular menu open icon"
                     fill
+                    sizes="40px"
                     priority
                     className={styles.nav_icon}
                 />
