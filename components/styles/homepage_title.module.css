@@ -27,5 +27,6 @@
     background-color: #5A7026;
     display: block;
     border-radius: 1px;
-    margin-top: 10px;
+    margin-top: 20px;
+    position: relative;
 }

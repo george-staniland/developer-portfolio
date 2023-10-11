@@ -1,7 +1,16 @@
 .container {
    margin-bottom: 30px;
+   position: relative;
+   overflow: hidden;
 }
 
 .canvas {
     /* border: 1px solid red; */
+    position: relative;
+    margin-bottom: 30px;
+}
+@media(min-width: 992px) {
+    .canvas {
+        cursor: pointer;
+    }
 }

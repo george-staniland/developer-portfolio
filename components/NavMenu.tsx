@@ -3,6 +3,7 @@ import styles from './styles/nav.module.css'
 import { usePathname } from 'next/navigation'
 import { useState, useEffect } from 'react'
 import { useSpring, animated, config } from '@react-spring/web'
+import { useHover } from '@use-gesture/react'
 import Link from 'next/link'
 import icon from 'public/nav_icon.png'
 import Image from 'next/image'
@@ -14,10 +15,17 @@ interface Props {
 export default function NavMenu(props: Props) {
     const { showHomeLink = false } = props;
     const [showMenu, setShowMenu] = useState(false)
+    const [iconHovered, setIconHovered] = useState(false)
     const path = usePathname();
 
     const style = useSpring({
         left: showMenu ? '40%' : '100%',
+    })
+
+    const iconStyle = useSpring({
+        height: iconHovered ? '35px' : '30px',
+        width: iconHovered ? '35px' : '30px',
+        config: config.wobbly,
     })
 
     const overlayClose = useSpring({
@@ -29,6 +37,10 @@ export default function NavMenu(props: Props) {
         setShowMenu(false)
     }, [path])
 
+    const bind = useHover(({ hovering }) => {
+        setIconHovered(hovering ? true : false)
+    });
+
     return (
         <div className={styles.nav_overlay} >
             {showHomeLink ?
@@ -37,9 +49,20 @@ export default function NavMenu(props: Props) {
                 </div> :
                 null
             }
-            <div className={styles.nav_icon_wrap} onClick={() => setShowMenu(!showMenu)}>
-                <Image src={icon} alt="circular menu open icon" width={30} height={30} priority />
-            </div>
+            <animated.div
+                className={styles.nav_icon_wrap}
+                onClick={() => setShowMenu(!showMenu)}
+                style={iconStyle}
+                {...bind()}
+            >
+                <Image
+                    src={icon}
+                    alt="circular menu open icon"
+                    fill
+                    priority
+                    className={styles.nav_icon}
+                />
+            </animated.div>
             <animated.div
                 className={`${styles.close_menu} ${showMenu ? 'allow_pointer' : 'no_pointer'}`}
                 onClick={() => setShowMenu(false)}

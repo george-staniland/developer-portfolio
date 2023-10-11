@@ -41,6 +41,7 @@ a {
 
 .small-heading {
   font-size: 1.7rem;
+  font-weight: 600;
 }
 @media(min-width: 992px) {
   .small-heading {

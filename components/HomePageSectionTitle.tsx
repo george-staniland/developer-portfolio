@@ -10,7 +10,6 @@ export default function HomePageSectionTitle() {
 
     const style = useSpring({
         width: titleInView ? '100%' : '0%',
-        height: titleInView ? '7px' : '5px',
         config: config.gentle,
     }
     )

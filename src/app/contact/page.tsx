@@ -11,7 +11,7 @@ export default function Contact() {
             <div className={styles.container}>
                 <div className={styles.text_wrap}>
                     <h1 className="small-heading">
-                        Contact Me
+                        To chat drop me a message below 👋
                     </h1>
                 </div>
                 <ContactFrom />
