@@ -41,7 +41,6 @@ export default function DisplayGif() {
                     <img
                         className={styles.img}
                         src={gifUrl}
-                        loading="eager"
                         alt="A gif from giphy.com"
                     />
                 }
