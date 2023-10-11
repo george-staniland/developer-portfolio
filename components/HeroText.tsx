@@ -97,7 +97,7 @@ function Mobile() {
         < div className={`${styles.hero_text_container_mobile}`}>
             <div className={styles.hero_2}>
                 <h1>
-                    <span>Hello. My name is George, I&apos;m a front&#x2011;end developer. </span> <br /> I like crafting beautiful, intuitive experiences with code. I also enjoy photography, seeing my dog, and traveling.
+                    <span>Hello, my name is George, I&apos;m a front&#x2011;end developer. </span> <br /> I like crafting beautiful, intuitive experiences with code. I also enjoy photography, seeing my dog, and traveling.
                 </h1>
             </div>
             <div className={styles.gif_wrap}>
