@@ -7,6 +7,7 @@ export function PhotoPortfolioContent() {
             <h6>Tools Used:</h6>
             <ul>
                 <li>Next.js 13</li>
+                <li>Typescript</li>
                 <li>React Spring</li>
                 <li>Sanity.io headless CMS</li>
                 <li>MaterialUI</li>
@@ -37,15 +38,16 @@ export function LomoOceanContent() {
     return (
         <>
             <p>
-                Developed during while working at <a href="https://thewebguys.co.nz/" target="_blank">The Web Guys</a>. Utilises NextJs for static page generation allowing fast loading and great SEO optimisation. Configure with WordPress as a headless CMS.
+                Developed while working at <a href="https://thewebguys.co.nz/" target="_blank">The Web Guys</a>. Utilising NextJs for static page generation, creates fast loading and great SEO optimisation. Configure with WordPress as a headless CMS.
             </p>
             <h6>Tools Used:</h6>
             <ul>
                 <li>Next.js 12</li>
+                <li>Typescript</li>
+                <li>GraphQL</li>
                 <li>React Spring</li>
                 <li>MaterialUI</li>
                 <li>Headless WordPress</li>
-                <li>GraphQL</li>
             </ul>
             <div className="div_pb">
                 <a
@@ -63,7 +65,7 @@ export function CapScaffContent() {
     return (
         <>
             <p>
-                A complete re-build of the existing design in a new platform, addressing UI issues and inconsistencies. New site created with WordPress to allow non-technical users to update it easily via the CMS.
+                A complete re-build of the existing design in a new platform, addressing UI issues and inconsistencies. The new site was developed with WordPress allowing easy site editing for non-technical users.
             </p>
             <h6>Tools Used:</h6>
             <ul>
@@ -93,8 +95,17 @@ export function DevSiteContent() {
             <ul>
                 <li>Next.js 13</li>
                 <li>React Spring</li>
-                <li>Threes.js using React Three Fiber</li>
+                <li>React Intersection Observer</li>
+                <li>Use-Gesture</li>
             </ul>
+            <div>
+                <a
+                    href="https://github.com/george-staniland/developer-portfolio"
+                    target="_blank"
+                >
+                    View code
+                </a>
+            </div>
         </>
     )
 }

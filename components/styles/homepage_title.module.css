@@ -4,7 +4,7 @@
     font-weight: 600;
     letter-spacing: 0.08em;
     word-spacing: -0.1em;
-    padding: 7px 0;
+    padding: 20px 0 20px;
 }
 @media (min-width: 980px) {
     .section_title {
@@ -17,10 +17,15 @@
 
 .projects_title_wrap {
     margin-bottom: 34px;
-    padding-left: 10px;
-    padding-right: 30px;
     position: relative;
     /* outline: 1px solid red; */
+}
+@media(min-width:749px){
+    .projects_title_wrap {
+        margin-bottom: 34px;
+        padding-left: 10px;
+        padding-right: 30px;
+    } 
 }
 
 .animated_underline {
