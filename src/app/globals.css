@@ -42,11 +42,13 @@ a {
 
 .small-heading {
   font-size: 1.7rem;
-  font-weight: 600;
+  
+  text-align: center;
 }
 @media(min-width: 992px) {
   .small-heading {
     font-size: 2rem;
+    font-weight: 600;
   }
 }
 

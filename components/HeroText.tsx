@@ -95,16 +95,13 @@ function Desktop() {
 function Mobile() {
     return (
         < div className={`${styles.hero_text_container_mobile}`}>
-            <h1>
-                <span>Hello. My name is George, I&apos;m a front&#x2011;end developer.</span>
-            </h1>
             <div className={styles.hero_2}>
                 <h1>
-                    I like crafting beautiful, intuitive experiences with code. <br />I also enjoy photography, seeing my dog, and traveling.
+                    <span>Hello. My name is George, I&apos;m a front&#x2011;end developer. </span> <br /> I like crafting beautiful, intuitive experiences with code. I also enjoy photography, seeing my dog, and traveling.
                 </h1>
             </div>
             <div className={styles.gif_wrap}>
-                <Image src="/fireworks.webp" fill alt="man waving gif" />
+                <Image src="/flowers.webp" fill alt="gif from giphy " title="gif from giphy.com" />
             </div>
         </div >
     )

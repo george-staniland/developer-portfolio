@@ -98,7 +98,7 @@
 /* Mobile */
 
 .hero_text_container_mobile h1 {
-    font-size: clamp(18px, 8vw, 25px);
+    font-size: 19px;
     font-weight: 500;
     letter-spacing: 0.015em;
     word-spacing: -0.04em;
@@ -107,13 +107,14 @@
 
 .hero_text_container_mobile h1 span {
     font-weight: 600;
-    margin-bottom: 10px;
     display: inline-block;
+    margin-bottom: 10px;
 }
 
 
 .hero_text_container_mobile {
-    margin: 0 20px;
+    margin: 0 14px;
+    margin-bottom: 10px;
     position: relative;
 }
 
@@ -131,7 +132,7 @@
 
 .hero_text_container_mobile .hero_2 {
     margin-top: 0;
-    margin-bottom: 1px;
+    margin-bottom: 15vh;
 }
 @media(min-width:749px) {
     .hero_text_container_mobile .hero_2 {
@@ -141,7 +142,7 @@
 }
 
 .hero_text_container_mobile .hero_2 h1 {
-    font-size: clamp(17px, 5.8vw, 25px);
+    font-size: 21px;
     letter-spacing: 0.015em;
     word-spacing: -0.04em;
     line-height: 1.3em;
