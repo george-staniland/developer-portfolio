@@ -1,13 +1,14 @@
 .container {
-   margin-bottom: 30px;
+   margin-bottom: 60px;
    position: relative;
    overflow: hidden;
+   margin-top: 70px;
 }
 
 .canvas {
     /* border: 1px solid red; */
     position: relative;
-    margin-bottom: 30px;
+
 }
 @media(min-width: 992px) {
     .canvas {

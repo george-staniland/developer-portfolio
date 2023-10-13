@@ -38,7 +38,7 @@ export function LomoOceanContent() {
     return (
         <>
             <p>
-                Developed while working at <a href="https://thewebguys.co.nz/" target="_blank">The Web Guys</a>. Utilising NextJs for static page generation, creates fast loading and great SEO optimisation. Configure with WordPress as a headless CMS.
+                Developed while working at <a href="https://thewebguys.co.nz/" target="_blank">The Web Guys</a>. Utilising NextJs for static page generation, ensures fast loading and great SEO optimisation. Configure with WordPress as a headless CMS.
             </p>
             <h6>Tools Used:</h6>
             <ul>

@@ -16,8 +16,8 @@ export default function Home() {
       </div>
       <div className={styles.section_2}>
         <ProjectsSection />
+        <HomePageAnimation />
       </div>
-      <HomePageAnimation />
       <Footer />
     </main >
   )
