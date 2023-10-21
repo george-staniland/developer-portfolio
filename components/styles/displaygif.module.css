@@ -36,11 +36,14 @@
     width: 87vw;
     height: 87vw;
     position: relative;
-    @media (min-width: 749px){
+}
+@media (min-width: 749px){
+    .imageWrap {
         height: 600px;
         width: 600px;
     }
 }
+
 
 .img {
     position: absolute;
