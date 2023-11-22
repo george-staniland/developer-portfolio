@@ -3,7 +3,10 @@ import nodemailer from 'nodemailer'
 
 export async function POST(req: Request) {
   const request = await req.json();
-
+  // Not working currently :(
+  console.log('post function')
+  console.log(process.env.EMAIL_USER)
+  console.log(process.env.EMAIL_PASS)
   const transporter: nodemailer.Transporter = nodemailer.createTransport({
     host: "smtp.gmail.com",
     port: 465,
@@ -37,6 +40,7 @@ export async function POST(req: Request) {
     })
     .catch((error: nodemailer.SentMessageInfo) => {
       console.log(error)
+      console.log('server side error')
       return NextResponse.json(
         { error: true, emailSent: false, errors: [error] },
         { status: 500 }

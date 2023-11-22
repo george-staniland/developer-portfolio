@@ -26,7 +26,7 @@ export default function ContactFrom() {
         // Used to Abort a long running fetch.
         const abortLongFetch = new AbortController();
         // Abort after 7 seconds.
-        const abortTimeoutId = setTimeout(() => abortLongFetch.abort(), 7000);
+        const abortTimeoutId = setTimeout(() => abortLongFetch.abort(), 700000);
 
         // Don't want to actually submit the form
         e.preventDefault();
@@ -62,6 +62,8 @@ export default function ContactFrom() {
             })
             .catch((err) => {
                 // There was an error, catch it and set the status to 'error'
+                console.log(err)
+                console.log('catch block')
                 alert('Message sending failed. Please try again')
                 setStatus(contactStatuses.error);
             });
