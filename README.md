@@ -2,4 +2,4 @@
 
 Uses Next.js 13.4 with the App Router configuration
 
-Live website at [dev.georgestaniland.net](dev.georgestaniland.net) - automatic deployment and hosting on Vercel
+Live website at [https://dev.georgestaniland.net/] - automatic deployment and hosting on Vercel
