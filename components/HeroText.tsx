@@ -9,6 +9,8 @@ import { useMediaQuery } from 'react-responsive'
 export default function HeroText() {
     const [isClient, setIsClient] = useState(false);
 
+
+
     useEffect(() => {
         setIsClient(true)
     }, []);

@@ -1,4 +1,5 @@
 "use client"
+
 import styles from './styles/nav.module.css'
 import { usePathname } from 'next/navigation'
 import { useState, useEffect } from 'react'
@@ -72,7 +73,6 @@ export default function NavMenu(props: Props) {
             <animated.div className={styles.nav_menu_container} style={style}>
                 <div className={styles.menu_inner}>
                     <Link className={styles.menu_item} href="/">Home</Link>
-                    <Link className={styles.menu_item} href="/contact">Contact Me</Link>
                     <Link className={styles.menu_item} href="/a-nice-surprise">A Nice Surprise</Link>
                 </div>
             </animated.div>
