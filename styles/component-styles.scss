@@ -1,0 +1,22 @@
+.hero__section {
+    border: 1px solid red;
+    height: 97dvh;
+    background-color: rgb(154, 154, 154);
+    font-size: 30px;
+    position: relative;
+    .animation-wrap {
+        position: fixed;
+        top: 50vh;
+        left: 50vw;
+        transform: translate(-50%, -50%);
+    }
+}
+
+.main__text {
+    border-radius: 30px;
+    background-color: rgb(130, 150, 209);
+    h1 {
+        font-size: 70px;
+        text-align: center;
+    }
+}

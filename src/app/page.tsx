@@ -4,21 +4,16 @@ import NavMenu from '../../components/NavMenu'
 import HeroText from '../../components/HeroText'
 import HomePageAnimation from '../../components/HomePageAnimation'
 import ProjectsSection from '../../components/ProjectsSection'
+import HeroSection from '../../components/HeroSection'
+import MainText from '../../components/MainText'
 
 
 
 export default function Home() {
   return (
     <main >
-      <NavMenu showHomeLink={false} />
-      <div className={styles.section_1}>
-        <HeroText />
-      </div>
-      <div className={styles.section_2}>
-        <ProjectsSection />
-        <HomePageAnimation />
-      </div>
-      <Footer />
+      <HeroSection />
+      <MainText />
     </main >
   )
 }
