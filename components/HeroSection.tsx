@@ -1,40 +1,54 @@
+
 "use client"
 import { useEffect, useCallback, useState, useRef } from "react";
 
-
-
-function HeroSection() {
+export default function HeroSection() {
     const canvasRef = useRef(null);
     const videoRef = useRef(null);
     const animationFrameRef = useRef(null);
 
-    const [scrollPos, setScrollPos] = useState(0)
+    const [scrollPos, setScrollPos] = useState(0);
+    const [gridSize, setGridSize] = useState(60);
+    const gridSizeRef = useRef(gridSize);
 
-    const onScroll = useCallback(event => {
-        const { scrollY } = window;
-        setScrollPos(scrollY)
-        console.log("scrollY", scrollY);
+    // Keep ref in sync with state for use in halftone
+    useEffect(() => {
+        gridSizeRef.current = gridSize;
+    }, [gridSize]);
+
+    // Update scroll position and gridSize on scroll
+    const onScroll = useCallback(() => {
+        const scrollY = window.scrollY;
+        const vh = window.innerHeight;
+        const maxScroll = vh * 0.25;
+        let size;
+
+        if (scrollY <= 0) {
+            size = 40;
+        } else if (scrollY >= maxScroll) {
+            size = 6;
+        } else {
+            const fraction = scrollY / maxScroll;
+            size = 40 - fraction * (40 - 6); // interpolate 50 → 10
+        }
+
+        setScrollPos(scrollY);
+        setGridSize(Math.round(size));
     }, []);
 
     useEffect(() => {
-        //add eventlistener to window
         window.addEventListener("scroll", onScroll, { passive: true });
-        // remove event on unmount to prevent a memory leak with the cleanup
-        return () => {
-            window.removeEventListener("scroll", onScroll);
-        }
+        return () => window.removeEventListener("scroll", onScroll);
     }, [onScroll]);
 
-    // Hardcoded effect parameters
+    // Halftone config (gridSize read via ref)
     const config = {
-        gridSize: 40,
         brightness: 70,
         contrast: 0,
         gamma: 1.0,
         smoothing: 0,
         ditherType: "None",
         scaleFactor: 1,
-        videoSrc: "https://i.imgur.com/5PrJCc2.mp4"
     };
 
     useEffect(() => {
@@ -52,7 +66,6 @@ function HeroSection() {
         const generateHalftone = () => {
             const targetWidth = canvas.width * config.scaleFactor;
             const targetHeight = canvas.height * config.scaleFactor;
-
             const tempCanvas = document.createElement('canvas');
             tempCanvas.width = targetWidth;
             tempCanvas.height = targetHeight;
@@ -73,7 +86,7 @@ function HeroSection() {
                 grayData[i / 4] = gray;
             }
 
-            const grid = config.gridSize * config.scaleFactor;
+            const grid = gridSizeRef.current * config.scaleFactor;
             const numCols = Math.ceil(targetWidth / grid);
             const numRows = Math.ceil(targetHeight / grid);
             const cellValues = new Float32Array(numRows * numCols);
@@ -92,7 +105,8 @@ function HeroSection() {
             }
 
             const ctx = canvas.getContext('2d');
-            ctx.fillStyle = 'white';
+
+            ctx.fillStyle = '#fcfcfc';
             ctx.fillRect(0, 0, targetWidth, targetHeight);
 
             for (let row = 0; row < numRows; row++) {
@@ -122,8 +136,8 @@ function HeroSection() {
             processVideoFrame();
         });
 
-        // video.src = '/dog-4.mp4';
-        video.crossOrigin = "anonymous";
+        video.src = '/dog-4.mp4';
+        video.crossOrigin = 'anonymous';
         video.autoplay = true;
         video.loop = true;
         video.muted = true;
@@ -135,11 +149,10 @@ function HeroSection() {
     return (
         <section className="hero__section">
             <div className="animation-wrap">
-                <canvas ref={canvasRef} className="border border-gray-400" />
+                <canvas ref={canvasRef} />
                 <video ref={videoRef} style={{ display: 'none' }} />
             </div>
         </section>
     );
-};
+}
 
-export default HeroSection;

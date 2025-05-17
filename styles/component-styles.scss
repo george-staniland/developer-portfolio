@@ -1,22 +1,37 @@
 .hero__section {
-    border: 1px solid red;
     height: 97dvh;
-    background-color: rgb(255, 255, 255);
+    background-color: var(--bg);
     font-size: 30px;
     position: relative;
+    z-index: 1;
     .animation-wrap {
         position: fixed;
-        top: 50vh;
+        top: calc(46vh - 120px);
         left: 50vw;
         transform: translate(-50%, -50%);
+        canvas {
+            // border: 1px solid green;
+        }
     }
 }
 
 .main__text {
-    border-radius: 30px;
-    background-color: rgb(130, 150, 209);
-    h1 {
-        font-size: 70px;
+    z-index: 5;
+    position: relative;
+    // background-color: #5f5f5fbd;
+    min-height: 100vh;
+    margin-bottom: 400px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    h2 {
+        font-size: 55px;
+        max-width: 1200px;
         text-align: center;
+        color: var(--bg);
+        font-weight: 300;
+        a {
+            color: var(--bg);
+        }
     }
 }

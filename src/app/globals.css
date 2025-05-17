@@ -1,6 +1,11 @@
+:root {
+  --bg: rgb(252, 252, 252);
+}
+
 html {
   font-size: 16px;
   background-color: rgb(255, 255, 255);
+  font-family: 'Manrope';
 }
 
 body {
@@ -11,7 +16,6 @@ body {
 }
 
 h1, h2, h3, h4, h5, h6, p, li {
-  font-family: "Source Code Pro", monospace;
   margin-top: 0;
   margin-bottom: 0;
   color: #222222;
@@ -33,10 +37,8 @@ p {
 }
 
 a {
-  font-family: "Source Code Pro", monospace;
-  text-decoration: underline;
-  text-underline-offset: 4px;
-  color: #222222;
+  text-decoration: none;
+  font-style: italic;
   transition: color .3s ease-in-out;
 }
 
@@ -65,38 +67,71 @@ a:hover {
 }
 
 /* Fonts */
-
 @font-face {
-  font-family: "Source Code Pro";
-  src: url('/fonts/SourceCodePro-Light.ttf');
-  font-weight: 300;
+  font-family: 'Manrope';
+  src: url('/fonts/Manrope-Bold.woff2') format('woff2'),
+      url('/fonts/Manrope-Bold.woff') format('woff');
+  font-weight: bold;
   font-style: normal;
   font-display: swap;
 }
 
 @font-face {
-  font-family: "Source Code Pro";
-  src: url('/fonts/SourceCodePro-Regular.ttf');
-  font-weight: 400;
+  font-family: 'Manrope';
+  src: url('/fonts/Manrope-Regular.woff2') format('woff2'),
+      url('/fonts/Manrope-Regular.woff') format('woff');
+  font-weight: normal;
   font-style: normal;
   font-display: swap;
 }
 
 @font-face {
-  font-family: "Source Code Pro";
-  src: url('/fonts/SourceCodePro-SemiBold.ttf');
+  font-family: 'Manrope';
+  src: url('/fonts/Manrope-SemiBold.woff2') format('woff2'),
+      url('/fonts/Manrope-SemiBold.woff') format('woff');
   font-weight: 600;
   font-style: normal;
   font-display: swap;
 }
 
 @font-face {
-  font-family: "Source Code Pro";
-  src: url('/fonts/SourceCodePro-Black.ttf');
-  font-weight: 700;
+  font-family: 'Manrope';
+  src: url('/fonts/Manrope-ExtraLight.woff2') format('woff2'),
+      url('/fonts/Manrope-ExtraLight.woff') format('woff');
+  font-weight: 200;
   font-style: normal;
   font-display: swap;
 }
+
+@font-face {
+  font-family: 'Manrope';
+  src: url('/fonts/Manrope-ExtraBold.woff2') format('woff2'),
+      url('/fonts/Manrope-ExtraBold.woff') format('woff');
+  font-weight: bold;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Manrope';
+  src: url('/fonts/Manrope-Medium.woff2') format('woff2'),
+      url('/fonts/Manrope-Medium.woff') format('woff');
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Manrope';
+  src: url('/fonts/Manrope-Light.woff2') format('woff2'),
+      url('/fonts/Manrope-Light.woff') format('woff');
+  font-weight: 300;
+  font-style: normal;
+  font-display: swap;
+}
+
+
+
 
 :root {
   --gs-blue: #4a72bc;
