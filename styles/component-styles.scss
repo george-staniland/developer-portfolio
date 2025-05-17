@@ -6,7 +6,7 @@
     z-index: 1;
     .animation-wrap {
         position: fixed;
-        top: calc(46vh - 120px);
+        top: calc(46vh - 90px);
         left: 50vw;
         transform: translate(-50%, -50%);
         canvas {
@@ -19,19 +19,19 @@
     z-index: 5;
     position: relative;
     // background-color: #5f5f5fbd;
-    min-height: 100vh;
-    margin-bottom: 400px;
+    padding: 20vh 0;
     display: flex;
     align-items: center;
     justify-content: center;
+
     h2 {
         font-size: 55px;
         max-width: 1200px;
         text-align: center;
-        color: var(--bg);
-        font-weight: 300;
+        color: #1c1c1c;
+        font-weight: 600;
         a {
-            color: var(--bg);
+            color: #1c1c1c;
         }
     }
 }

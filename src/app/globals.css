@@ -1,5 +1,16 @@
 :root {
   --bg: rgb(252, 252, 252);
+  --pm: 20px;
+}
+
+.px {
+  padding-left: var(--pm);
+  padding-right: var(--pm);
+}
+
+.py {
+  padding-top: var(--pm);
+  padding-bottom: var(--pm);
 }
 
 html {
