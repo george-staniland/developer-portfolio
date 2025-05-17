@@ -27,8 +27,8 @@ function HeroSection() {
 
     // Hardcoded effect parameters
     const config = {
-        gridSize: 10,
-        brightness: 90,
+        gridSize: 40,
+        brightness: 70,
         contrast: 0,
         gamma: 1.0,
         smoothing: 0,
@@ -122,7 +122,7 @@ function HeroSection() {
             processVideoFrame();
         });
 
-        video.src = '/dog-2.mp4';
+        // video.src = '/dog-4.mp4';
         video.crossOrigin = "anonymous";
         video.autoplay = true;
         video.loop = true;
