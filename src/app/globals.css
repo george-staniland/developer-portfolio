@@ -22,6 +22,7 @@ h1, h2, h3, h4, h5, h6, p, li {
   margin-top: 0;
   margin-bottom: 0;
   color: var(--fg);
+  font-size: 16px;
 }
 
 html, body {
@@ -46,6 +47,7 @@ a {
   text-decoration: none;
   font-style: italic;
   transition: color .3s ease-in-out;
+  color: var(--fg);
 }
 
 /* Utils */
@@ -68,10 +70,25 @@ a {
   border: 1px solid green;
 }
 
+/* font sizes */
 
+/* font body */
 .fb {
-  font-family: "Nunito";
   font-weight: 320;
-  font-size: 32px;
+  font-size: 18px;
+  line-height: 1.1;
+}
+
+/* font heading 4 */
+.fh4 {
+  font-weight: 320;
+  font-size: 20px;
+  line-height: 1.1;
+}
+
+/* font heading 3 */
+.fh3 {
+  font-weight: 320;
+  font-size: 22px;
   line-height: 1.1;
 }

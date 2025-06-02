@@ -37,3 +37,90 @@
         }
     }
 }
+
+.projects__grid {
+    background-color: var(--bg);
+    padding-bottom: 600px;
+    z-index: 5;
+    position: relative;
+    .title {
+        padding-bottom: var(--pm);
+    }
+    .rows-wrap {
+        display: flex;
+        flex-direction: column;
+        row-gap: 20px;
+    }
+    .row {
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr;
+        transition: all .45s ease-in-out;
+        column-gap: 40px;
+        &:has(.project__card:first-child.active) {
+            grid-template-columns: 2fr 1fr 1fr;
+        }
+        &:has(.project__card:nth-child(2).active) {
+            grid-template-columns: 1fr 2fr 1fr;
+        }
+        &:has(.project__card:nth-child(3).active) {
+            grid-template-columns: 1fr 1fr 2fr;
+        }
+    }
+}
+
+.project__card {
+    border-radius: 9px;
+    overflow: hidden;
+    border: 1px solid black;
+    cursor: pointer;
+    .project-title {
+       font-weight: 500;
+       letter-spacing: 0.01em;
+    }
+    .aspectholder {
+        width: 100%;
+        // aspect-ratio: 4/2.3;
+        position: relative;
+        .top {
+            display: flex;
+            justify-content: space-between;
+            z-index: 5;
+            position: relative;
+            padding-top: var(--pm);
+            button {
+                cursor: pointer;
+            }
+        }
+        .img-wrap {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgb(243, 169, 169);
+            transition: all .45s ease-in-out;
+        }
+    }
+    .img-wrap {
+        pointer-events: none;
+    }
+    .body {
+        padding-top: var(--pm);
+        .sub-title, .paragraph {
+            padding-bottom: 10px;
+        }
+        a {
+            font-style: normal;
+        }
+    }
+    &.active {
+        .img-wrap {
+            background-color: transparent;
+        }
+    }
+    &.not-active {
+        .aspectholder {
+            height: 100%;
+        }
+    }
+}

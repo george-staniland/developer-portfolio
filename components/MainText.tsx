@@ -22,7 +22,7 @@ function MainText() {
                 } else {
                     setAtTop(false)
                 }
-                console.log(atTop, rect.top)
+                // console.log(atTop, rect.top)
             }
         };
 
