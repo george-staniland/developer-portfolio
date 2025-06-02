@@ -76,7 +76,8 @@ a {
 .fb {
   font-weight: 320;
   font-size: 18px;
-  line-height: 1.1;
+  line-height: 1.3;
+  letter-spacing: 0.01em;
 }
 
 /* font heading 4 */
