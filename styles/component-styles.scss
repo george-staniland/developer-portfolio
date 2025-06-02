@@ -1,5 +1,5 @@
 .hero__section {
-    height: 97dvh;
+    height: 95.5dvh;
     background-color: var(--bg);
     font-size: 30px;
     position: relative;
@@ -18,20 +18,22 @@
 .main__text {
     z-index: 5;
     position: relative;
-    // background-color: #5f5f5fbd;
     padding: 20vh 0;
     display: flex;
     align-items: center;
     justify-content: center;
-
+    box-shadow: rgba(17, 12, 46, 0.15) 0px 48px 100px 0px;
     h2 {
-        font-size: 55px;
+        font-size: 65px;
+        letter-spacing: 0.01em;
         max-width: 1200px;
+        font-family: "Nunito";
         text-align: center;
-        color: #1c1c1c;
-        font-weight: 600;
+        color: var(--black);
+        font-weight: 500;
+        
         a {
-            color: #1c1c1c;
+            color: var(--black);
         }
     }
 }

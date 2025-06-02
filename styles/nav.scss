@@ -1,11 +1,21 @@
 .main-nav {
-    display: flex;
-    justify-content: space-between;
+
     position: fixed;
     top: 0;
     left: 0;
     z-index: 10;
+    width: 100%;
+    max-width: 100%;
     h3 {
-        color: #585123;
+        color: var(--black);
+    }
+    .menu {
+        display: block;
+        padding: 5px;
+    }
+    .inner {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
     }
 }

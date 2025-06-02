@@ -3,13 +3,10 @@ import '../../styles/component-styles.scss'
 import '../../styles/nav.scss'
 
 import type { Metadata } from 'next'
-import { Inter } from 'next/font/google'
-
-const inter = Inter({ subsets: ['latin'] })
 
 export const metadata: Metadata = {
-  title: 'George Staniland Front-end Developer Portfolio',
-  description: 'Web developer based in Auckland',
+  title: 'George Staniland - Front-end Developer Portfolio',
+  description: 'Web developer currently at New Territory Studio',
 }
 
 export default function RootLayout({
@@ -19,8 +16,8 @@ export default function RootLayout({
 }) {
 
   return (
-    <html lang="en">
-      <body className={inter.className}>
+    <html lang="en" >
+      <body>
         {children}
       </body>
     </html >

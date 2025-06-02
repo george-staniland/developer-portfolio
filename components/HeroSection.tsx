@@ -134,6 +134,7 @@ export default function HeroSection() {
             setupCanvasDimensions(video.videoWidth, video.videoHeight);
             video.play();
             processVideoFrame();
+            video.pause()
         });
 
         video.src = '/dog-4.mp4';

@@ -1,8 +1,7 @@
-import Nav from '../../components/Nav'
-import HeroSection from '../../components/HeroSection'
-import MainText from '../../components/MainText'
-
-
+import Nav from '@/components/Nav'
+import HeroSection from '@/components/HeroSection'
+import MainText from '@/components/MainText'
+import ProjectsGrid from '@/components/ProjectsGrid'
 
 export default function Home() {
   return (
@@ -11,6 +10,7 @@ export default function Home() {
       <main >
         <HeroSection />
         <MainText />
+        <ProjectsGrid />
       </main >
     </>
   )
