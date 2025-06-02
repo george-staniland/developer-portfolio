@@ -9,7 +9,7 @@ function MainText() {
     const [atTop, setAtTop] = useState(false);
 
     const sectionStyle = useSpring({
-        backgroundColor: atTop ? 'rgb(172, 168, 168);' : 'rgba(172, 168, 168, 0.64)',
+        backgroundColor: atTop ? 'rgb(30, 33, 43);' : 'rgba(30, 33, 43, 0.90)',
         borderRadius: atTop ? '6px' : '40px',
     })
 

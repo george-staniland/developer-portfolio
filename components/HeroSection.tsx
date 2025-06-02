@@ -106,7 +106,7 @@ export default function HeroSection() {
 
             const ctx = canvas.getContext('2d');
 
-            ctx.fillStyle = '#fcfcfc';
+            ctx.fillStyle = '#fcf9f3';
             ctx.fillRect(0, 0, targetWidth, targetHeight);
 
             for (let row = 0; row < numRows; row++) {
