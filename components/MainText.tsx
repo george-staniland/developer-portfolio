@@ -9,7 +9,7 @@ function MainText() {
     const [atTop, setAtTop] = useState(false);
 
     const sectionStyle = useSpring({
-        backgroundColor: atTop ? 'rgb(30, 33, 43);' : 'rgba(30, 33, 43, 0.90)',
+        backgroundColor: atTop ? 'rgba(255, 255, 255, 1);' : 'rgba(255, 255, 255, 0.9)',
         borderRadius: atTop ? '6px' : '40px',
     })
 
@@ -33,10 +33,13 @@ function MainText() {
 
     return (
         <div className="main__text px">
-            <animated.section ref={sectionRef} className="inner" style={sectionStyle}>
-                <h2>Hi, I'm George. I am a front end web developer. Currently at <a href="https:newterritory.studio/" rel="noopener" target="_blank">New Territory</a> , previously at  <a href="thewebguys.co.nz" rel="noopener" target="_blank">The Web Guys</a>, previously previously at <a href="https://www.superstarwebsites.co.nz/" rel="noopener" target="_blank" >Superstar</a> .  </h2>
+            <animated.section ref={sectionRef} className="inner px" style={sectionStyle}>
+                <h2>George is front-end developer specialsing in web technologies. <br></br> He works with a range of technologies to solve problems and create beautiful things.
+                    Currently at <a href="https:newterritory.studio/" rel="noopener" target="_blank">New Territory Studio</a>.
+                    Previously at <a href="thewebguys.co.nz" rel="noopener" target="_blank">The Web Guys</a> and <a href="https://www.superstarwebsites.co.nz/" rel="noopener" target="_blank" >Superstar Websites</a>
+                </h2>
             </animated.section>
-        </div>
+        </div >
     )
 }
 

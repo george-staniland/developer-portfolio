@@ -20,25 +20,24 @@
     position: relative;
 
     .inner {
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        border: 1px solid var(--black);
         padding-top: 150px;
         padding-bottom: 150px;
     }
-    h2 {
-        font-size: 65px;
+    h2, h3 {
+        font-size: 55px;
         letter-spacing: 0.01em;
-        max-width: 1200px;
+        // max-width: 1200px;
         font-family: "Nunito";
-        text-align: center;
-        color: var(--white);
+        color: var(--black);
         font-weight: 500;
         
         a {
-            color: var(--white);
+            color: var(--black);
+            font-style: normal;
         }
+    }
+    h2 {
+        padding-bottom: 1em;
     }
 }
 

@@ -118,7 +118,7 @@ export default function HeroSection() {
                     if (radius > 0.5) {
                         ctx.beginPath();
                         ctx.arc(col * grid + grid / 2, row * grid + grid / 2, radius, 0, Math.PI * 2);
-                        ctx.fillStyle = 'black';
+                        ctx.fillStyle = '#1c1c1c';
                         ctx.fill();
                     }
                 }
