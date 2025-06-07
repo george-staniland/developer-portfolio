@@ -24,7 +24,7 @@
 
     .inner {
         padding-top: 170px;
-        padding-bottom: 18svh;
+        padding-bottom: 22svh;
     }
     h2 {
         font-size: 57px;
@@ -32,30 +32,29 @@
         font-weight: 400;
         letter-spacing: .018em;
         font-family: "Cabin";
-        color: #1C6E8C;
-        a {
-            color: var(--black);
-            font-style: normal;
-        }
-        span {
-            padding-top: 7px;
-            display: block;
-            color: var(--deep-grey);
-        }
+        // color: #1C6E8C;
+    }
+    h2.main {
+        background: linear-gradient(to right, #37baea 0%, #FFF9A3 100%);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+    }
+    h2.sub { 
+        // color: var(--deep-grey);
+         background: linear-gradient(80deg, #90929b 0%, #c9ccdb  100%);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        padding-top: 7px;
     }
 
      h3 {
-        font-size: 25px;
-        display: none;
-        line-height: 1.4em;
+        font-size: 42px;
+        line-height: 1.3em;
         font-weight: 400;
         letter-spacing: .018em;
         font-family: "Cabin";
-        color: var(--black);
-        a {
-            color: var(--black);
-            font-style: normal;
-        }
+        color: var(--deep-grey);
+        display: none;
     }
 }
 
