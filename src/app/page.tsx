@@ -12,10 +12,10 @@ const PROJECTS_QUERY = `
     projectTitle
     myRole
     techIcons
+    studioCompletedAt
     websiteLink
     projectWriteUp {
       value
-      __typename
     }
     websiteLink
     coverImage {

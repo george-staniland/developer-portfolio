@@ -10,42 +10,74 @@
         color: var(--black);
         font-weight: 200;
         letter-spacing: 0.06em;
-        // text-transform: uppercase;
         font-size: 15px;
         background-color: var(--grey);
         padding: 5px 9px;
-    border-radius: 6px;
+        border-radius: 6px;
     }   
 
-    .nav-btn {
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        gap: 4px;
-        font-size: 15px;
-        width: 40px;
-        height: 27px; 
-        color: var(--deep-grey);
+    .inner {
+        position: relative;
     }
 
+    .nav-btn {
+        color: var(--deep-grey);
+        position: absolute;
+        top: -2px;
+        right: var(--pm);
+        cursor: pointer;
+        border: 1px solid transparent;
+        transition: all .2s ease-in-out;
+        &:hover {
+            border-color: var(--deep-grey);
+        }
+        .dots {
+            display: flex;
+            position: absolute;
+            top: 5px;
+            right: 12px;
+            gap: 4px;
+            font-size: 15px;
+        }
+        .overlay-content {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            opacity: 0;
+            .overlay-inner {
+                padding: 8px 12px;
+                .items {
+                padding-top: 13px;
+                display: flex;
+                flex-direction: column;
+                gap: 7px;
+                }
+               p {
+                 font-size: 22px;
+               }
+               p.email object {
+                 position: relative;
+                 top: 6px;
+                 left: 5px;
+               }
 
-//     .btn {
-//     display: block;
-//     padding: 2px 5px;
-//     border-radius: 6px;
-//     border: none;
-//     background-color: var(--grey);
-// }
-
-// .nav-btn {
-//   display: flex;
-//   justify-content: center;
-//   align-items: center;
-//   gap: 4px;
-//   font-size: 15px;
-//   width: 40px;
-//   height: 27px;
-// }
+               p.phone object {
+                 position: relative;
+                 top: 6px;
+                 left: 3px;
+               }
+            }
+        }
+        &.is-active {
+             border-color: var(--deep-grey); 
+             cursor: default;
+            .dots span{
+                color: var(--black);
+            }
+        }
+    }
 
     .inner {
         display: flex;
