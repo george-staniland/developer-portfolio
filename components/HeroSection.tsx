@@ -4,15 +4,16 @@ import { useEffect, useCallback, useState, useRef } from "react";
 
 export default function HeroSection() {
     const canvasRef = useRef(null);
+    const wrapRef = useRef(null);
     const videoRef = useRef(null);
     const animationFrameRef = useRef(null);
 
     const [scrollPos, setScrollPos] = useState(0);
-    const [gridSize, setGridSize] = useState(115);
+    const [gridSize, setGridSize] = useState(48);
     const gridSizeRef = useRef(gridSize);
 
     //pause during dev and design
-    const pause = false;
+    const pause = true;
 
     // Keep ref in sync with state for use in halftone
     useEffect(() => {
@@ -25,8 +26,8 @@ export default function HeroSection() {
         const vh = window.innerHeight;
         const maxScroll = vh - 200;
 
-        const startSize = 115;
-        const endSize = 4;
+        const startSize = 48;
+        const endSize = 12;
         let size;
 
         if (scrollY <= 0) {
@@ -38,6 +39,7 @@ export default function HeroSection() {
             const easedFraction = Math.pow(fraction, 0.5); // slow down the rate of change
             size = startSize - easedFraction * (startSize - endSize);
         }
+
 
         setScrollPos(scrollY);
         setGridSize(Math.round(size));
@@ -51,11 +53,10 @@ export default function HeroSection() {
 
     // Halftone config (gridSize read via ref)
     const config = {
-        brightness: 40,
-        contrast: 0,
-        gamma: 1.0,
-        smoothing: 2,
-        ditherType: "None",
+        brightness: 30,
+        contrast: -10,
+        gamma: 1.3,
+        smoothing: 0,
         scaleFactor: 1,
         canvasBackgroundColor: '#fcfcfc',
         dotColor: '#797B84',
@@ -63,14 +64,17 @@ export default function HeroSection() {
 
     useEffect(() => {
         const canvas = canvasRef.current;
+        const canvasWrap = wrapRef.current;
         const video = videoRef.current;
 
         const setupCanvasDimensions = (width, height) => {
-            const maxWidth = window.innerWidth * 0.6;
+            const maxWidth = window.innerWidth;
             const maxHeight = window.innerHeight * 0.6;
             const ratio = Math.min(maxWidth / width, maxHeight / height);
-            canvas.width = width * ratio;
-            canvas.height = height * ratio;
+
+            canvas.width = canvasWrap.clientWidth;
+            canvas.height = (video.videoHeight / video.videoWidth) * canvas.width;
+
         };
 
         const generateHalftone = () => {
@@ -161,8 +165,8 @@ export default function HeroSection() {
     }, []);
 
     return (
-        <section className="hero__section">
-            <div className="animation-wrap">
+        <section className="hero__section px">
+            <div className="animation-wrap" ref={wrapRef}>
                 <canvas ref={canvasRef} />
                 <video ref={videoRef} style={{ display: 'none' }} />
             </div>

@@ -9,6 +9,7 @@
     z-index: 1;
     .animation-wrap {
         position: relative;
+        width: 100%;
         canvas {
             // border: 1px solid green;
         }
@@ -21,7 +22,7 @@
 
     .inner {
         padding-top: 170px;
-        padding-bottom: 12vh;
+        padding-bottom: 16vh;
     }
     h2 {
         font-size: 55px;
@@ -29,7 +30,7 @@
         font-weight: 400;
         letter-spacing: .018em;
         font-family: "Cabin";
-        color: #FFAD05;
+        color: #1C6E8C;
         a {
             color: var(--black);
             font-style: normal;

@@ -2,7 +2,11 @@
 import { useState } from "react"
 import ProjectCard from "./ProjectCard"
 
-function ProjectsGrid() {
+function ProjectsGrid(props: any) {
+
+    const { projects } = props;
+
+
     const [activeIndex, setActiveIndex] = useState<number | null>(null);
 
     function handleCardClick(index: number) {
@@ -21,12 +25,13 @@ function ProjectsGrid() {
             <section className="rows-wrap">
 
                 <div className="row">
-                    {[0, 1, 2].map((_, index) => (
+                    {projects.allProjects.map((project, index) => (
                         <ProjectCard
                             key={index}
                             isActive={activeIndex === index}
                             cardIndex={index}
                             onCardClick={handleCardClick}
+                            data={project}
                         />
                     ))}
                 </div>
