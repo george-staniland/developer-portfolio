@@ -13,7 +13,7 @@ export default function HeroSection() {
     const gridSizeRef = useRef(gridSize);
 
     //pause during dev and design
-    const pause = true;
+    const pause = false;
 
     // Keep ref in sync with state for use in halftone
     useEffect(() => {
@@ -53,7 +53,7 @@ export default function HeroSection() {
 
     // Halftone config (gridSize read via ref)
     const config = {
-        brightness: 30,
+        brightness: 25,
         contrast: -10,
         gamma: 1.3,
         smoothing: 0,

@@ -8,6 +8,8 @@
     position: relative;
     z-index: 1;
     .animation-wrap {
+        // border-top: 1px solid var(--deep-grey);
+        // padding-top: 45px;
         position: relative;
         width: 100%;
         canvas {
@@ -22,10 +24,10 @@
 
     .inner {
         padding-top: 170px;
-        padding-bottom: 16vh;
+        padding-bottom: 18svh;
     }
     h2 {
-        font-size: 55px;
+        font-size: 57px;
         line-height: 1.3em;
         font-weight: 400;
         letter-spacing: .018em;
