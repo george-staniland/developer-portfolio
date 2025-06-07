@@ -15,7 +15,7 @@ function ProjectsGrid() {
     }
 
     return (
-        <section className="projects__grid px outline" >
+        <section className="projects__grid px" >
             <h4 className="title fh4">Projects</h4>
 
             <section className="rows-wrap">

@@ -1,14 +1,14 @@
 .hero__section {
-    height: 95.5dvh;
+    height: 90svh;
     background-color: var(--bg);
+    display: flex;
+    justify-content: center;
+    align-items: center;
     font-size: 30px;
     position: relative;
     z-index: 1;
     .animation-wrap {
-        position: fixed;
-        top: calc(46vh - 90px);
-        left: 50vw;
-        transform: translate(-50%, -50%);
+        position: relative;
         canvas {
             // border: 1px solid green;
         }
@@ -16,28 +16,43 @@
 }
 
 .main__text {
-    z-index: 5;
+   
     position: relative;
 
     .inner {
-        padding-top: 150px;
-        padding-bottom: 150px;
+        padding-top: 170px;
+        padding-bottom: 12vh;
     }
-    h2, h3 {
+    h2 {
         font-size: 55px;
-        letter-spacing: 0.01em;
-        // max-width: 1200px;
-        font-family: "Nunito";
-        color: var(--black);
-        font-weight: 500;
-        
+        line-height: 1.3em;
+        font-weight: 400;
+        letter-spacing: .018em;
+        font-family: "Cabin";
+        color: #FFAD05;
         a {
             color: var(--black);
             font-style: normal;
         }
+        span {
+            padding-top: 7px;
+            display: block;
+            color: var(--deep-grey);
+        }
     }
-    h2 {
-        padding-bottom: 1em;
+
+     h3 {
+        font-size: 25px;
+        display: none;
+        line-height: 1.4em;
+        font-weight: 400;
+        letter-spacing: .018em;
+        font-family: "Cabin";
+        color: var(--black);
+        a {
+            color: var(--black);
+            font-style: normal;
+        }
     }
 }
 

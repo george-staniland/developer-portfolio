@@ -9,7 +9,7 @@ function MainText() {
     const [atTop, setAtTop] = useState(false);
 
     const sectionStyle = useSpring({
-        backgroundColor: atTop ? 'rgba(255, 255, 255, 1);' : 'rgba(255, 255, 255, 0.9)',
+        backgroundColor: atTop ? 'rgba(255, 255, 255, 1)' : 'rgba(255, 255, 255, 0.9)',
         borderRadius: atTop ? '6px' : '40px',
     })
 
@@ -33,11 +33,10 @@ function MainText() {
 
     return (
         <div className="main__text px">
-            <animated.section ref={sectionRef} className="inner px" style={sectionStyle}>
-                <h2>George is front-end developer specialsing in web technologies. <br></br> He works with a range of technologies to solve problems and create beautiful things.
-                    Currently at <a href="https:newterritory.studio/" rel="noopener" target="_blank">New Territory Studio</a>.
-                    Previously at <a href="thewebguys.co.nz" rel="noopener" target="_blank">The Web Guys</a> and <a href="https://www.superstarwebsites.co.nz/" rel="noopener" target="_blank" >Superstar Websites</a>
+            <animated.section ref={sectionRef} className="inner">
+                <h2>Hi, I'm a front-end developer specialising in web technologies. <br></br> <span>I work with diverse technologies to solve complex problems <br></br> and create beautiful things. </span>
                 </h2>
+                <h3>Currently at New Territory Studio. Previously at The Web Guys and Superstar Websites</h3>
             </animated.section>
         </div >
     )

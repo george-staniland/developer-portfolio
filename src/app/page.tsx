@@ -8,8 +8,8 @@ export default function Home() {
     <>
       <Nav />
       <main >
-        <HeroSection />
         <MainText />
+        <HeroSection />
         <ProjectsGrid />
       </main >
     </>

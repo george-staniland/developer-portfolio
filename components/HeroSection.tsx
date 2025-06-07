@@ -8,8 +8,11 @@ export default function HeroSection() {
     const animationFrameRef = useRef(null);
 
     const [scrollPos, setScrollPos] = useState(0);
-    const [gridSize, setGridSize] = useState(60);
+    const [gridSize, setGridSize] = useState(115);
     const gridSizeRef = useRef(gridSize);
+
+    //pause during dev and design
+    const pause = false;
 
     // Keep ref in sync with state for use in halftone
     useEffect(() => {
@@ -20,21 +23,26 @@ export default function HeroSection() {
     const onScroll = useCallback(() => {
         const scrollY = window.scrollY;
         const vh = window.innerHeight;
-        const maxScroll = vh * 0.25;
+        const maxScroll = vh - 200;
+
+        const startSize = 115;
+        const endSize = 4;
         let size;
 
         if (scrollY <= 0) {
-            size = 40;
+            size = startSize;
         } else if (scrollY >= maxScroll) {
-            size = 6;
+            size = endSize;
         } else {
             const fraction = scrollY / maxScroll;
-            size = 40 - fraction * (40 - 6); // interpolate 50 → 10
+            const easedFraction = Math.pow(fraction, 0.5); // slow down the rate of change
+            size = startSize - easedFraction * (startSize - endSize);
         }
 
         setScrollPos(scrollY);
         setGridSize(Math.round(size));
     }, []);
+
 
     useEffect(() => {
         window.addEventListener("scroll", onScroll, { passive: true });
@@ -43,12 +51,14 @@ export default function HeroSection() {
 
     // Halftone config (gridSize read via ref)
     const config = {
-        brightness: 70,
+        brightness: 40,
         contrast: 0,
         gamma: 1.0,
-        smoothing: 0,
+        smoothing: 2,
         ditherType: "None",
         scaleFactor: 1,
+        canvasBackgroundColor: '#fcfcfc',
+        dotColor: '#797B84',
     };
 
     useEffect(() => {
@@ -106,7 +116,7 @@ export default function HeroSection() {
 
             const ctx = canvas.getContext('2d');
 
-            ctx.fillStyle = '#fcf9f3';
+            ctx.fillStyle = config.canvasBackgroundColor;
             ctx.fillRect(0, 0, targetWidth, targetHeight);
 
             for (let row = 0; row < numRows; row++) {
@@ -118,7 +128,7 @@ export default function HeroSection() {
                     if (radius > 0.5) {
                         ctx.beginPath();
                         ctx.arc(col * grid + grid / 2, row * grid + grid / 2, radius, 0, Math.PI * 2);
-                        ctx.fillStyle = '#1c1c1c';
+                        ctx.fillStyle = config.dotColor;
                         ctx.fill();
                     }
                 }
@@ -134,10 +144,13 @@ export default function HeroSection() {
             setupCanvasDimensions(video.videoWidth, video.videoHeight);
             video.play();
             processVideoFrame();
-            video.pause()
+            if (pause) {
+                video.pause()
+            }
+
         });
 
-        video.src = '/dog-4.mp4';
+        video.src = '/dog-slow.mp4';
         video.crossOrigin = 'anonymous';
         video.autoplay = true;
         video.loop = true;

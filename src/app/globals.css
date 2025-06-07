@@ -7,12 +7,22 @@
   font-weight: 200 900;
 }
 
+@font-face {
+  font-family: "Cabin";
+  src: url("/fonts/Cabin-VariableFont.woff2") format("woff2 supports variations"),
+       url("/fonts/Cabin-VariableFont.woff2") format("woff2-variations");
+  font-optical-sizing: auto;
+  font-style: normal;
+  font-weight: 400 700;
+}
+
 
 /* Variables */
 :root {
-  --white: #fafafa;
+  --white: #fcfcfc;
   --black: #1c1c1c;
-  --grey: rgb(172, 168, 168);
+  --deep-grey: #797B84;
+  --grey: #e1e1e2;
   --pm: 20px;
   --fg: var(--black);
   --bg: var(--white);
@@ -32,11 +42,33 @@ html, body {
   box-sizing: border-box;
 }
 
+.btn {
+    display: block;
+    padding: 2px 5px;
+    border-radius: 6px;
+    border: none;
+    background-color: var(--grey);
+}
+
+.nav-btn {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 4px;
+  font-size: 15px;
+  width: 40px;
+  height: 27px;
+}
+
+.nav-btn span {
+  display: block;
+}
+
 html {
   font-size: 16px;
   background-color: var(--bg);
-  font-family: "Nunito";
-  font-weight: 320;
+  font-family: "Cabin" , sans-serif;
+  font-weight: 300;
 } 
 
 body {
