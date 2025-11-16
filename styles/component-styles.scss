@@ -26,7 +26,7 @@
         padding-top: 170px;
         padding-bottom: 22svh;
     }
-    h2 {
+    h1 {
         font-size: 57px;
         line-height: 1.3em;
         font-weight: 400;
@@ -34,12 +34,12 @@
         font-family: "Cabin";
         // color: #1C6E8C;
     }
-    h2.main {
+    h1 .main {
         background: linear-gradient(to right, #37baea 0%, #FFF9A3 100%);
         -webkit-background-clip: text;
         -webkit-text-fill-color: transparent;
     }
-    h2.sub { 
+    h1 .sub { 
         // color: var(--deep-grey);
          background: linear-gradient(80deg, #c9ccdb 0% , #90929b 0%  100%);
         -webkit-background-clip: text;

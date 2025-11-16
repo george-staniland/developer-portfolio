@@ -1,0 +1,84 @@
+.main-nav {
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 10;
+  width: 100%;
+  max-width: 100%;
+}
+.main-nav h2 {
+  color: var(--black);
+  font-weight: 200;
+  letter-spacing: 0.06em;
+  font-size: 15px;
+  background-color: var(--grey);
+  padding: 5px 9px;
+  border-radius: 6px;
+}
+.main-nav .inner {
+  position: relative;
+}
+.main-nav .nav-btn {
+  color: var(--deep-grey);
+  position: absolute;
+  top: -1px;
+  right: var(--pm);
+  cursor: pointer;
+  border: 1px solid transparent;
+  transition: all 0.2s ease-in-out;
+  padding: 0px;
+}
+.main-nav .nav-btn:hover {
+  border-color: var(--deep-grey);
+}
+.main-nav .nav-btn .open-info__icon {
+  position: absolute;
+  top: 5px;
+  right: 12px;
+  background-color: red;
+  height: 10px;
+  width: 10px;
+}
+.main-nav .nav-btn .open-info__icon .line {
+  background-color: black;
+  height: 1px;
+  width: 6px;
+}
+.main-nav .nav-btn .overlay-content {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  opacity: 0;
+}
+.main-nav .nav-btn .overlay-content .overlay-inner {
+  padding: 8px 12px;
+}
+.main-nav .nav-btn .overlay-content .overlay-inner .items {
+  padding-top: 13px;
+  display: flex;
+  flex-direction: column;
+  gap: 7px;
+}
+.main-nav .nav-btn .overlay-content .overlay-inner p {
+  font-size: 22px;
+}
+.main-nav .nav-btn .overlay-content .overlay-inner p.email object {
+  position: relative;
+  top: 6px;
+  left: 5px;
+}
+.main-nav .nav-btn .overlay-content .overlay-inner p.phone object {
+  position: relative;
+  top: 6px;
+  left: 3px;
+}
+.main-nav .nav-btn.is-active {
+  border-color: var(--deep-grey);
+}
+.main-nav .inner {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}

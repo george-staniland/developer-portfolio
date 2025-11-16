@@ -23,21 +23,27 @@
     .nav-btn {
         color: var(--deep-grey);
         position: absolute;
-        top: -2px;
+        top: -1px;
         right: var(--pm);
         cursor: pointer;
         border: 1px solid transparent;
         transition: all .2s ease-in-out;
+        padding: 0px;
         &:hover {
             border-color: var(--deep-grey);
         }
-        .dots {
-            display: flex;
+        .open-info__icon {
             position: absolute;
             top: 5px;
             right: 12px;
-            gap: 4px;
-            font-size: 15px;
+            background-color: red;
+            height: 10px;
+            width: 10px;
+            .line {
+                background-color: black;
+                height: 1px;
+                width: 6px;
+            }
         }
         .overlay-content {
             position: absolute;
@@ -72,10 +78,6 @@
         }
         &.is-active {
              border-color: var(--deep-grey); 
-             cursor: default;
-            .dots span{
-                color: var(--black);
-            }
         }
     }
 

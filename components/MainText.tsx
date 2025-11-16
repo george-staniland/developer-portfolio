@@ -34,8 +34,10 @@ function MainText() {
     return (
         <div className="main__text px">
             <animated.section ref={sectionRef} className="inner">
-                <h2 className="main">Hi, I'm a front-end developer specialising in web technologies.</h2>
-                <h2 className="sub"><span>I work with a range of technologies to solve complex problems <br></br> and create beautiful things. </span></h2>
+                <h1>
+                <span className="main"> I'm a front-end developer specialising in web technologies.</span> 
+                <span className="sub"><span> I work with a range of technologies to solve complex problems and create beautiful things. </span></span>
+                </h1>
                 <h3>Currently at New Territory Studio. Previously at The Web Guys and Superstar Websites</h3>
             </animated.section>
         </div >

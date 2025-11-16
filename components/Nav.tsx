@@ -7,19 +7,18 @@ function Nav() {
     const [isActive, setIsActive] = useState(false);
 
     const btnStyle = useSpring({
-        height: isActive ? '540px' : '26px',
-        width: isActive ? '460px' : '37px',
+        height: isActive ? '540px' : '28px',
+        width: isActive ? '540px' : '28px',
     })
 
     // Spring for overlay content opacity
     const overlayStyle = useSpring({
         opacity: isActive ? 1 : 0,
         delay: isActive ? 990 : 0, // Delay opacity change until button has expanded
-        config: config.stiff
     });
 
     return (
-        <nav className="main-nav py" >
+        <nav className="main-nav" >
             <div className="inner px">
                 <h2>George Staniland</h2>
                 <animated.div
@@ -28,10 +27,9 @@ function Nav() {
                     onClick={() => setIsActive(!isActive)}
                     style={btnStyle}
                 >
-                    <div className="dots">
-                        <span>•</span>
-                        <span>•</span>
-                        <span>•</span>
+                    <div className="open-info__icon">
+                        <span className="horizontal-line line"></span>
+                        <span className="vertical-line line"></span>
                     </div>
                     <animated.section style={overlayStyle} className="overlay-content">
                         <div className="overlay-inner">

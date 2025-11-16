@@ -33,18 +33,18 @@ const PROJECTS_QUERY = `
 
 export default async function Home() {
 
-  const projects = await executeQuery(PROJECTS_QUERY, {
-    token: process.env.DATOCMS_API_TOKEN,
-  });
+  // const projects = await executeQuery(PROJECTS_QUERY, {
+  //   token: process.env.DATOCMS_API_TOKEN,
+  // });
 
   return (
     <>
       <Nav />
-
       <main >
+         <HeroSection />
         <MainText />
-        <HeroSection />
-        <ProjectsGrid projects={projects} />
+       
+        {/* <ProjectsGrid projects={projects} /> */}
       </main >
     </>
   )
