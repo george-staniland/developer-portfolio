@@ -10,6 +10,7 @@
   },
   "dependencies": {
     "@datocms/cda-client": "^0.2.7",
+    "@gsap/react": "^2.1.2",
     "@react-spring/web": "^9.7.3",
     "@react-three/drei": "^9.77.4",
     "@react-three/fiber": "^8.13.4",
@@ -21,8 +22,8 @@
     "@use-gesture/react": "^10.2.27",
     "eslint": "8.46.0",
     "eslint-config-next": "13.4.12",
-    "next": "13.4.7",
-    "nodemailer": "^6.9.4",
+    "next": "^16.0.3",
+    "nodemailer": "^7.0.10",
     "react": "18.2.0",
     "react-datocms": "^7.2.2",
     "react-dom": "18.2.0",

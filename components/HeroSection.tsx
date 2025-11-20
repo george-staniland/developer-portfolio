@@ -1,6 +1,11 @@
 
 "use client"
 import { useEffect, useCallback, useState, useRef } from "react";
+import gsap from 'gsap';
+import { useGSAP } from '@gsap/react';
+
+gsap.registerPlugin(useGSAP); 
+
 
 export default function HeroSection() {
     const canvasRef = useRef(null);
@@ -14,6 +19,10 @@ export default function HeroSection() {
 
     //pause during dev and design
     const pause = true;
+
+    useGSAP(() => {
+        gsap.to('.animation-wrap', { x: 20 }); 
+    }); 
 
     // Keep ref in sync with state for use in halftone
     useEffect(() => {
@@ -165,8 +174,8 @@ export default function HeroSection() {
     }, []);
 
     return (
-        <section className="hero__section px">
-            <div className="animation-wrap" ref={wrapRef}>
+        <section className="hero__section px outline">
+            <div className="animation-wrap outline" ref={wrapRef}>
                 <canvas ref={canvasRef} />
                 <video ref={videoRef} style={{ display: 'none' }} />
             </div>

@@ -1,6 +1,5 @@
 .hero__section {
-    height: 90svh;
-    background-color: var(--bg);
+    height: 85svh;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -10,6 +9,7 @@
     .animation-wrap {
         // border-top: 1px solid var(--deep-grey);
         // padding-top: 45px;
+
         position: relative;
         width: 100%;
         canvas {

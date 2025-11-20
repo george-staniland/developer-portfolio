@@ -40,8 +40,8 @@ export default async function Home() {
   return (
     <>
       <Nav />
-      <main >
-         <HeroSection />
+      <main className='home-page' >
+        <HeroSection />
         <MainText />
        
         {/* <ProjectsGrid projects={projects} /> */}
