@@ -24,10 +24,13 @@
         right: var(--pm);
         cursor: pointer;
         border: 1px solid transparent;
-        transition: all .4s ease-in-out;
+        transition: height .4s ease-in-out,
+                    width .4s ease-in-out,
+                    border-color .3s ease-in-out;
         padding: 0px;
         width: 30px;
         height: 30px;
+        // box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 12px;
         &:hover {
             border-color: var(--deep-grey);
         }
