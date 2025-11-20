@@ -8,12 +8,9 @@
 }
 .main-nav h2 {
   color: var(--black);
-  font-weight: 200;
+  font-weight: 600;
   letter-spacing: 0.06em;
-  font-size: 15px;
-  background-color: var(--grey);
-  padding: 5px 9px;
-  border-radius: 6px;
+  font-size: 19px;
 }
 .main-nav .inner {
   position: relative;
@@ -21,28 +18,49 @@
 .main-nav .nav-btn {
   color: var(--deep-grey);
   position: absolute;
-  top: -1px;
+  top: calc(var(--pm) + 4px);
   right: var(--pm);
   cursor: pointer;
   border: 1px solid transparent;
-  transition: all 0.2s ease-in-out;
+  transition: all 0.4s ease-in-out;
   padding: 0px;
+  width: 30px;
+  height: 30px;
 }
 .main-nav .nav-btn:hover {
   border-color: var(--deep-grey);
 }
+.main-nav .nav-btn.is-active {
+  width: 30vw;
+  height: 30vw;
+  max-height: 95vh;
+  cursor: ne-resize;
+}
 .main-nav .nav-btn .open-info__icon {
+  --plus-length: 14px;
   position: absolute;
-  top: 5px;
-  right: 12px;
-  background-color: red;
-  height: 10px;
-  width: 10px;
+  top: 8px;
+  right: 8px;
+  display: flex;
+  height: var(--plus-length);
+  width: var(--plus-length);
 }
 .main-nav .nav-btn .open-info__icon .line {
-  background-color: black;
-  height: 1px;
-  width: 6px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: var(--black);
+  transition: all 0.42s ease-in-out;
+  border-radius: 200px;
+}
+.main-nav .nav-btn .open-info__icon .horizontal-line {
+  height: 2px;
+  width: var(--plus-length);
+}
+.main-nav .nav-btn .open-info__icon .vertical-line {
+  width: 2px;
+  height: var(--plus-length);
 }
 .main-nav .nav-btn .overlay-content {
   position: absolute;
@@ -51,9 +69,7 @@
   width: 100%;
   height: 100%;
   opacity: 0;
-}
-.main-nav .nav-btn .overlay-content .overlay-inner {
-  padding: 8px 12px;
+  overflow: hidden;
 }
 .main-nav .nav-btn .overlay-content .overlay-inner .items {
   padding-top: 13px;
@@ -77,8 +93,16 @@
 .main-nav .nav-btn.is-active {
   border-color: var(--deep-grey);
 }
+.main-nav .nav-btn.is-active .overlay-content {
+  opacity: 1;
+  transition: all 0.3s ease-in-out 0.42s;
+}
+.main-nav .nav-btn.is-active .vertical-line {
+  opacity: 0;
+}
 .main-nav .inner {
   display: flex;
   justify-content: space-between;
   align-items: center;
+  padding-top: var(--pm);
 }
