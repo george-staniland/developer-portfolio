@@ -10,7 +10,7 @@ function Nav() {
     return (
         <nav className="main-nav" >
             <div className="inner px">
-                <h2>George Staniland</h2>
+                <h2>☁</h2>
                 <div
                     role="button"
                     className={`menu btn nav-btn ${isActive ? 'is-active' : 'non-active'}`}

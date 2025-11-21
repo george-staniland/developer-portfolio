@@ -187,8 +187,8 @@ export default function HeroSection() {
     }, []);
 
     return (
-        <section className="hero__section outline px">
-            <div className="animation-wrap outline" ref={wrapRef}>
+        <section className="hero__section  px">
+            <div className="animation-wrap " ref={wrapRef}>
                 <canvas ref={canvasRef} />
                 <video ref={videoRef} style={{ display: 'none' }} />
             </div>

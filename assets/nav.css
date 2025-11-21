@@ -8,17 +8,23 @@
 }
 .main-nav h2 {
   color: var(--black);
-  font-weight: 600;
-  letter-spacing: 0.06em;
-  font-size: 19px;
+  font-weight: 200;
+  letter-spacing: 0.09em;
+  line-height: 1;
+  font-size: 17px;
+  text-transform: uppercase;
 }
 .main-nav .inner {
   position: relative;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-top: var(--pm);
 }
 .main-nav .nav-btn {
   color: var(--deep-grey);
   position: absolute;
-  top: calc(var(--pm) + 4px);
+  top: 18px;
   right: var(--pm);
   cursor: pointer;
   border: 1px solid transparent;
@@ -99,10 +105,4 @@
 }
 .main-nav .nav-btn.is-active .vertical-line {
   opacity: 0;
-}
-.main-nav .inner {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding-top: var(--pm);
 }

@@ -11,38 +11,58 @@
   width: 100%;
 }
 .main__text {
-  position: relative;
+  padding: 170px 0;
+  display: flex;
+  justify-content: start;
+  align-items: center;
 }
 .main__text .inner {
-  padding-top: 170px;
-  padding-bottom: 22svh;
+  max-width: 1500px;
 }
 .main__text h1 {
-  font-size: 57px;
-  line-height: 1.3em;
+  font-size: 49px;
+  line-height: 1.2em;
   font-weight: 400;
   letter-spacing: 0.018em;
   font-family: "Cabin";
-}
-.main__text h1 .main {
   background: linear-gradient(to right, #37baea 0%, #FFF9A3 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
 }
-.main__text h1 .sub {
-  background: linear-gradient(80deg, #c9ccdb 0%, #90929b 0% 100%);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  padding-top: 7px;
-}
 .main__text h3 {
-  font-size: 42px;
-  line-height: 1.3em;
+  padding-top: 20px;
+  font-size: 39px;
+  line-height: 1.2em;
   font-weight: 400;
   letter-spacing: 0.018em;
   font-family: "Cabin";
   color: var(--deep-grey);
-  display: none;
+}
+.main__text h4 {
+  font-size: 25px;
+  line-height: 1;
+  font-weight: 400;
+  letter-spacing: 0.02em;
+  font-family: "Cabin";
+  color: var(--deep-grey);
+}
+.main__text h4.tech-title {
+  text-transform: uppercase;
+  line-height: 1;
+  font-size: 19px;
+  padding-bottom: 10px;
+}
+.main__text .tech {
+  padding-top: 40px;
+}
+.main__text a {
+  color: unset;
+  font-style: normal;
+  text-decoration: underline;
+  text-decoration-thickness: 3px;
+}
+.main__text a:hover {
+  color: blue;
 }
 
 .projects__grid {
