@@ -40,7 +40,7 @@ export default async function Home() {
   return (
     <>
       <Nav />
-      <main className='home-page' >
+      <main className="home-page" >
         <HeroSection />
         <MainText />
        

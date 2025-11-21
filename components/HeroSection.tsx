@@ -3,8 +3,11 @@
 import { useEffect, useCallback, useState, useRef } from "react";
 import gsap from 'gsap';
 import { useGSAP } from '@gsap/react';
+import { ScrollTrigger } from "gsap/ScrollTrigger";
+
 
 gsap.registerPlugin(useGSAP); 
+gsap.registerPlugin(ScrollTrigger);
 
 
 export default function HeroSection() {
@@ -14,15 +17,26 @@ export default function HeroSection() {
     const animationFrameRef = useRef(null);
 
     const [scrollPos, setScrollPos] = useState(0);
-    const [gridSize, setGridSize] = useState(48);
+    const [gridSize, setGridSize] = useState(68);
     const gridSizeRef = useRef(gridSize);
 
     //pause during dev and design
     const pause = true;
 
     useGSAP(() => {
-        gsap.to('.animation-wrap', { x: 20 }); 
-    }); 
+        gsap.to('.hero__section',
+            {
+                x: 0,
+                scrollTrigger: {
+                    trigger: ".hero__section",
+                    pin: true,
+                    markers: false,
+                    start: "top 8%",
+                    end: () => `+=${window.innerHeight - 100}`
+                },
+            }
+        )
+    })
 
     // Keep ref in sync with state for use in halftone
     useEffect(() => {
@@ -35,8 +49,8 @@ export default function HeroSection() {
         const vh = window.innerHeight;
         const maxScroll = vh - 200;
 
-        const startSize = 48;
-        const endSize = 12;
+        const startSize = 68;
+        const endSize = 10;
         let size;
 
         if (scrollY <= 0) {
@@ -63,9 +77,8 @@ export default function HeroSection() {
     // Halftone config (gridSize read via ref)
     const config = {
         brightness: 25,
-        contrast: -10,
+        contrast: 0,
         gamma: 1.3,
-        smoothing: 0,
         scaleFactor: 1,
         canvasBackgroundColor: '#fcfcfc',
         dotColor: '#e8e8e6',
@@ -174,7 +187,7 @@ export default function HeroSection() {
     }, []);
 
     return (
-        <section className="hero__section px outline">
+        <section className="hero__section outline px">
             <div className="animation-wrap outline" ref={wrapRef}>
                 <canvas ref={canvasRef} />
                 <video ref={videoRef} style={{ display: 'none' }} />
