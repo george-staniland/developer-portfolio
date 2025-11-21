@@ -1,11 +1,33 @@
 "use client"
+import gsap from 'gsap';
+import { useGSAP } from '@gsap/react';
+import { ScrollTrigger } from "gsap/ScrollTrigger";
 
+gsap.registerPlugin(useGSAP); 
+gsap.registerPlugin(ScrollTrigger);
 
 function MainText() {
 
+     useGSAP(() => {
+        gsap.to('.main__text .inner',
+            {
+                opacity: 1,
+                y: 0,
+                duration: 0.6,
+                ease: "power1.in",
+                scrollTrigger: {
+                    trigger: ".main__text .inner",
+                    markers: false,
+                    start: "top bottom-=60px",
+                    toggleActions: "play reverse play reverse"
+                },
+            }
+        )
+    })
+
     return (
-        <div className="main__text px ">
-            <section className="inner  px">
+        <div className="main__text px outline ">
+            <section className="inner  outline px">
                 <h1> 
                     Hi. I’m George Staniland, a creative front-end web developer.  I bring designs and wireframes to life with precision and technical expertise.
                 </h1>

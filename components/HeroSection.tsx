@@ -17,11 +17,11 @@ export default function HeroSection() {
     const animationFrameRef = useRef(null);
 
     const [scrollPos, setScrollPos] = useState(0);
-    const [gridSize, setGridSize] = useState(68);
+    const [gridSize, setGridSize] = useState(43);
     const gridSizeRef = useRef(gridSize);
 
     //pause during dev and design
-    const pause = true;
+    const pause = false;
 
     useGSAP(() => {
         gsap.to('.hero__section',
@@ -31,7 +31,7 @@ export default function HeroSection() {
                     trigger: ".hero__section",
                     pin: true,
                     markers: false,
-                    start: "top 8%",
+                    start: "top 4%",
                     end: () => `+=${window.innerHeight - 100}`
                 },
             }
@@ -49,8 +49,8 @@ export default function HeroSection() {
         const vh = window.innerHeight;
         const maxScroll = vh - 200;
 
-        const startSize = 68;
-        const endSize = 10;
+        const startSize = 43;
+        const endSize = 5;
         let size;
 
         if (scrollY <= 0) {
@@ -78,10 +78,10 @@ export default function HeroSection() {
     const config = {
         brightness: 25,
         contrast: 0,
-        gamma: 1.3,
+        gamma: 1,
         scaleFactor: 1,
-        canvasBackgroundColor: '#fcfcfc',
-        dotColor: '#e8e8e6',
+        canvasBackgroundColor: '#F7F0EC',
+        dotColor: '#000000ff',
     };
 
     useEffect(() => {
@@ -90,10 +90,6 @@ export default function HeroSection() {
         const video = videoRef.current;
 
         const setupCanvasDimensions = (width, height) => {
-            const maxWidth = window.innerWidth;
-            const maxHeight = window.innerHeight * 0.6;
-            const ratio = Math.min(maxWidth / width, maxHeight / height);
-
             canvas.width = canvasWrap.clientWidth;
             canvas.height = (video.videoHeight / video.videoWidth) * canvas.width;
 
@@ -187,7 +183,7 @@ export default function HeroSection() {
     }, []);
 
     return (
-        <section className="hero__section  px">
+        <section className="hero__section   px">
             <div className="animation-wrap " ref={wrapRef}>
                 <canvas ref={canvasRef} />
                 <video ref={videoRef} style={{ display: 'none' }} />

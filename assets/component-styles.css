@@ -1,23 +1,28 @@
 .hero__section {
-  height: 85vh;
+  height: calc(85vh - var(--pm));
   display: flex;
   justify-content: center;
-  align-items: center;
+  align-items: flex-end;
+  padding-bottom: var(--pm);
   position: relative;
   z-index: 1;
 }
 .hero__section .animation-wrap {
   position: relative;
   width: 100%;
+  border-radius: 12px;
+  overflow: hidden;
 }
 .main__text {
-  padding: 170px 0;
+  padding: 130px 0;
   display: flex;
-  justify-content: start;
+  justify-content: center;
   align-items: center;
 }
 .main__text .inner {
-  max-width: 1500px;
+  max-width: 2000px;
+  opacity: 0;
+  transform: translateY(20px);
 }
 .main__text h1 {
   font-size: 49px;

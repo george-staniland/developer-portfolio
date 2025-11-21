@@ -5,7 +5,7 @@ import '../../styles/nav.scss'
 import type { Metadata } from 'next'
 
 export const metadata: Metadata = {
-  title: 'George Staniland - Front-end Developer Portfolio',
+  title: 'George Staniland - Front-end web Developer',
   description: 'Web developer currently at New Territory Studio',
 }
 

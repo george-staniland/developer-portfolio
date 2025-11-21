@@ -9,10 +9,9 @@
 .main-nav h2 {
   color: var(--black);
   font-weight: 200;
-  letter-spacing: 0.09em;
+  letter-spacing: 0.04em;
   line-height: 1;
   font-size: 17px;
-  text-transform: uppercase;
 }
 .main-nav .inner {
   position: relative;
