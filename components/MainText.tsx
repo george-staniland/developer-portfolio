@@ -26,8 +26,8 @@ function MainText() {
     })
 
     return (
-        <div className="main__text px outline ">
-            <section className="inner  outline px">
+        <div className="main__text  ">
+            <section className="inner  px">
                 <h1> 
                     Hi. I’m George Staniland, a creative front-end web developer.  I bring designs and wireframes to life with precision and technical expertise.
                 </h1>

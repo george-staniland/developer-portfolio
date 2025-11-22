@@ -17,7 +17,7 @@ export default function HeroSection() {
     const animationFrameRef = useRef(null);
 
     const [scrollPos, setScrollPos] = useState(0);
-    const [gridSize, setGridSize] = useState(43);
+    const [gridSize, setGridSize] = useState(55);
     const gridSizeRef = useRef(gridSize);
 
     //pause during dev and design
@@ -31,7 +31,8 @@ export default function HeroSection() {
                     trigger: ".hero__section",
                     pin: true,
                     markers: false,
-                    start: "top 4%",
+                    start: "top 6%",
+                    anticipatePin: 1,
                     end: () => `+=${window.innerHeight - 100}`
                 },
             }
@@ -49,8 +50,8 @@ export default function HeroSection() {
         const vh = window.innerHeight;
         const maxScroll = vh - 200;
 
-        const startSize = 43;
-        const endSize = 5;
+        const startSize = 55;
+        const endSize = 10;
         let size;
 
         if (scrollY <= 0) {
@@ -76,9 +77,9 @@ export default function HeroSection() {
 
     // Halftone config (gridSize read via ref)
     const config = {
-        brightness: 25,
-        contrast: 0,
-        gamma: 1,
+        brightness: 10,
+        contrast: 3,
+        gamma: 1.3,
         scaleFactor: 1,
         canvasBackgroundColor: '#F7F0EC',
         dotColor: '#000000ff',
