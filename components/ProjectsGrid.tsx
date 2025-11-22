@@ -18,25 +18,38 @@ function ProjectsGrid(props: any) {
         }
     }
 
+    console.log(projects.allProjects.length)
+
     return (
         <section className="projects__grid px" >
-            <h4 className="title fh4">Projects</h4>
+            <h4 className="title fh5">Projects</h4>
 
-            <section className="rows-wrap">
-
-                <div className="row">
-                    {projects.allProjects.map((project, index) => (
+           <section className="rows-wrap">
+    {projects.allProjects
+        .reduce((rows, project, index) => {
+            const rowIndex = Math.floor(index / 3); // group by 3
+            if (!rows[rowIndex]) rows[rowIndex] = [];
+            rows[rowIndex].push(project);
+            return rows;
+        }, [])
+        .map((row, rowIndex) => (
+            <div className="row" key={rowIndex}>
+                {row.map((project, index) => {
+                    const projectIndex = rowIndex * 3 + index; // actual index in list
+                    return (
                         <ProjectCard
-                            key={index}
-                            isActive={activeIndex === index}
-                            cardIndex={index}
+                            key={projectIndex}
+                            isActive={activeIndex === projectIndex}
+                            cardIndex={projectIndex}
                             onCardClick={handleCardClick}
                             data={project}
                         />
-                    ))}
-                </div>
+                    );
+                })}
+            </div>
+        ))}
+</section>
 
-            </section>
 
         </section>
     )

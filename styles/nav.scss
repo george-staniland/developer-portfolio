@@ -24,7 +24,8 @@
     }
 
     .nav-btn {
-        color: var(--deep-grey);
+        color: var(--grey);
+        background-color: --grey;
         position: absolute;
         top: 18px;
         right: var(--pm);
@@ -36,7 +37,7 @@
         padding: 0px;
         width: 30px;
         height: 30px;
-        // box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 12px;
+        
         &:hover {
             border-color: var(--deep-grey);
         }
@@ -104,7 +105,7 @@
             }
         }
         &.is-active {
-             border-color: var(--deep-grey); 
+             border-color:  var(--deep-grey); 
         .overlay-content {
             opacity: 1;
             transition: all .3s ease-in-out .42s;

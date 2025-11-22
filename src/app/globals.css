@@ -94,7 +94,33 @@ a {
 
 /* font sizes */
 
-/* font body */
+.fh1 {
+   font-size: 49px;
+   line-height: 1.2em;
+   font-weight: 400;
+   letter-spacing: .018em;
+}
+
+.fh3 {
+  font-size: 39px;
+  line-height: 1.2em;
+  font-weight: 400;
+  letter-spacing: .018em;
+}
+
+.fh4 {
+  font-size: 25px;
+  line-height: 1;
+  font-weight: 400;
+  letter-spacing: .02em;
+}
+
+.fh5 {
+   line-height: 1;
+   font-size: 19px;
+}
+
+
 .fb {
   font-weight: 320;
   font-size: 18px;
@@ -102,19 +128,9 @@ a {
   letter-spacing: 0.01em;
 }
 
-/* font heading 4 */
-.fh4 {
-  font-weight: 320;
-  font-size: 20px;
-  line-height: 1.1;
-}
 
-/* font heading 3 */
-.fh3 {
-  font-weight: 320;
-  font-size: 22px;
-  line-height: 1.1;
-}
+
+
 
 /* Pages */
 .home-page {

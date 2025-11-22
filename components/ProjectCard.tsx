@@ -46,21 +46,20 @@ function ProjectCard(props: Props) {
 
     const { isActive, onCardClick, cardIndex, data } = props;
 
-    console.log(data)
-
     return (
         <article className={`project__card ${isActive ? 'active' : 'not-active'}`} role="button" onClick={() => onCardClick(cardIndex)}>
             <div className="aspectholder">
                 <div className="img-wrap">
-                    {data.coverImage &&
+                    {/* {data.coverImage &&
                         <Image style={{ objectFit: 'cover' }} fill alt={`cover image for ${data.projectTitle}`} src={data.coverImage.url} />
-                    }
+                    } */}
                 </div>
                 <div className="top px">
                     <p className="project-title fh4">{data.projectTitle}</p>
                     <button
                         aria-label="Toggle full project view"
                         onClick={() => onCardClick(cardIndex)}
+                        className="expand-project-btn"
                     >
                         {isActive ?
                             <span>-</span>

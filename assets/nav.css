@@ -21,7 +21,8 @@
   padding-top: var(--pm);
 }
 .main-nav .nav-btn {
-  color: var(--deep-grey);
+  color: var(--grey);
+  background-color: --grey;
   position: absolute;
   top: 18px;
   right: var(--pm);
