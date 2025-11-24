@@ -17,7 +17,7 @@ export default function HeroSection() {
     const animationFrameRef = useRef(null);
 
     const [scrollPos, setScrollPos] = useState(0);
-    const [gridSize, setGridSize] = useState(55);
+    const [gridSize, setGridSize] = useState(58);
     const gridSizeRef = useRef(gridSize);
 
     //pause during dev and design
@@ -50,7 +50,7 @@ export default function HeroSection() {
         const vh = window.innerHeight;
         const maxScroll = vh - 200;
 
-        const startSize = 55;
+        const startSize = 58;
         const endSize = 10;
         let size;
 
@@ -90,9 +90,10 @@ export default function HeroSection() {
         const canvasWrap = wrapRef.current;
         const video = videoRef.current;
 
-        const setupCanvasDimensions = (width, height) => {
-            canvas.width = canvasWrap.clientWidth;
-            canvas.height = (video.videoHeight / video.videoWidth) * canvas.width;
+        const setupCanvasDimensions = (videoWidth, videoHeight) => {
+            const canvasWrapWidth = canvasWrap.clientWidth 
+            canvas.width = canvasWrapWidth - 120;
+            canvas.height = (videoHeight / videoWidth) * canvas.width;
 
         };
 
@@ -184,8 +185,8 @@ export default function HeroSection() {
     }, []);
 
     return (
-        <section className="hero__section   px">
-            <div className="animation-wrap " ref={wrapRef}>
+        <section className="hero__section  px">
+            <div className="animation-wrap   " ref={wrapRef}>
                 <canvas ref={canvasRef} />
                 <video ref={videoRef} style={{ display: 'none' }} />
             </div>

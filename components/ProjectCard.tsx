@@ -49,10 +49,8 @@ function ProjectCard(props: Props) {
     return (
         <article className={`project__card ${isActive ? 'active' : 'not-active'}`} role="button" onClick={() => onCardClick(cardIndex)}>
             <div className="aspectholder">
-                <div className="img-wrap">
-                    {/* {data.coverImage &&
-                        <Image style={{ objectFit: 'cover' }} fill alt={`cover image for ${data.projectTitle}`} src={data.coverImage.url} />
-                    } */}
+                <div className="colour-overlay">
+                    
                 </div>
                 <div className="top px">
                     <p className="project-title fh4">{data.projectTitle}</p>
@@ -69,6 +67,11 @@ function ProjectCard(props: Props) {
                     </button>
                 </div>
                 <div className="body px">
+
+                     <div className="write-up  outline fb">
+                        <StructuredText data={data.projectWriteUp} />
+                    </div>
+
                     <p className="sub-title fb">Role: {data.myRole}</p>
 
                     {data.techIcons &&
@@ -81,19 +84,19 @@ function ProjectCard(props: Props) {
                                 // Render the corresponding icon or fallback if not found
                                 return (
                                     <span className="tech-icon" key={index}>
-                                        {iconMap[iconName] || <span>Unknown Icon: {iconMarkup}</span>}
+                                        {iconMap[iconName] }
                                     </span>
                                 );
                             })}
+                           
+                          
 
                         </div>
                     }
 
                     <p className="sub-title fb" >Studio: {data.studioCompletedAt}</p>
 
-                    <div className="write-up fb">
-                        <StructuredText data={data.projectWriteUp} />
-                    </div>
+                   
 
                     <section className="link-wrap">
                         <a href={data.websiteLink} target="_blank" >View website</a>

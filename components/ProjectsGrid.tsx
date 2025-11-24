@@ -18,7 +18,7 @@ function ProjectsGrid(props: any) {
         }
     }
 
-    console.log(projects.allProjects.length)
+   
 
     return (
         <section className="projects__grid px" >

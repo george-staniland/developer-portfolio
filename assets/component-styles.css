@@ -8,10 +8,15 @@
   z-index: 1;
 }
 .hero__section .animation-wrap {
+  padding-bottom: 20px;
+  padding-top: 20px;
   position: relative;
   width: 100%;
   border-radius: 12px;
   overflow: hidden;
+  display: flex;
+  justify-content: center;
+  background-color: var(--blossom);
 }
 .main__text {
   padding: 110px 0;
@@ -117,14 +122,14 @@
 .project__card .aspectholder .top button {
   cursor: pointer;
 }
-.project__card .aspectholder .img-wrap {
+.project__card .aspectholder .colour-overlay {
   position: absolute;
+  background-color: blue;
   top: 0;
   left: 0;
   width: 100%;
   height: 100%;
-  background-color: var(--bg);
-  transition: all 0.8s ease-in-out;
+  transition: all 0.5s ease-in-out;
   pointer-events: none;
 }
 .project__card .body {
@@ -163,7 +168,7 @@
 .project__card .body .write-up p:not(:last-child) {
   padding-bottom: 10px;
 }
-.project__card.active .img-wrap {
+.project__card.active .colour-overlay {
   opacity: 0;
 }
 .project__card.not-active .aspectholder {
