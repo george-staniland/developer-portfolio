@@ -2,7 +2,6 @@
 import { StructuredText } from "react-datocms";
 import { TbBrandNextjs } from "react-icons/tb";
 import { SiShopify, SiKirby, SiGreensock } from "react-icons/si";
-import { isNullishCoalesce } from "typescript";
 import { useState } from "react";
 
 interface Props {
@@ -20,6 +19,11 @@ interface AccordionRow {
     }
 };
 
+interface Icon {
+    title: string;
+    reactIconMarkup: string;
+}
+
 type ProjectType = {
     id: string; // Unique identifier for the project
     myRole: string; // Role in the project (e.g., "Lead Developer")
@@ -30,7 +34,10 @@ type ProjectType = {
         __typename: string; // DatoCMS metadata, typically identifies the model type
     };
     accordion: AccordionRow[];
-    techIcons: string[] | null; // Array of tech icons (could be null if not available)
+    techIcons: Icon[];
+    brandColour: {
+        hex: string;
+    };
     websiteLink: string; // Website link related to the project
     _firstPublishedAt: string; // Date and time of the first publication
     _status: string; // The status of the project (e.g., "published")
@@ -40,10 +47,9 @@ type ProjectType = {
 // Mapping of icon names to React Icons
 const iconMap: { [key: string]: JSX.Element } = {
     TbBrandNextjs: <TbBrandNextjs />,
-    SiShopifyL: <SiShopify />,
+    SiShopify: <SiShopify />,
     SiKirby: <SiKirby />,
     SiGreensock: <SiGreensock />,
-    // Add other icons as needed
 };
 
 
@@ -64,6 +70,7 @@ function ProjectCard(props: Props) {
         }
     }
 
+
     return (
         <article 
             className={`project__card ${isActive ? 'active' : 'not-active'}`} 
@@ -73,8 +80,27 @@ function ProjectCard(props: Props) {
             }}
         >
             <div className="aspectholder">
-                <div className="colour-overlay">
-                    
+                <div 
+                    className="colour-overlay"
+                    style= {{
+                        '--brand_colour' : data.brandColour?.hex ?? '#6961ff'
+                    }}
+                >
+                      
+                        <div id="blob1"></div>
+                        <div id="blob2"></div>
+                        <div id="blob3"></div>
+                        <div id="noiseLayer"></div>
+                    <svg viewBox='0 0 500 500' preserveAspectRatio='none' xmlns='http://www.w3.org/2000/svg'>
+ 
+                        <filter id='noiseFilter'>
+                            <feTurbulence
+                                type='fractalNoise'
+                                baseFrequency='9'
+                                numOctaves='1'
+                                stitchTiles='stitch' />
+                        </filter>
+                    </svg>
                 </div>
                 <div className="top px">
                     <p className="project-title fh4">{data.projectTitle}</p>
@@ -102,6 +128,7 @@ function ProjectCard(props: Props) {
                              <section 
                                 className={`accordion_row ${ index == activeIndex ? 'row-active' : 'not-active' }`} 
                                 key={item.rowTitle}
+                                onClick={ (e) => toggleActive(e, index)}
                                 >
                                 <div className="accordion_title">
                                     <button 
@@ -117,7 +144,7 @@ function ProjectCard(props: Props) {
                                         </button>
                                 </div>
                                 <div className="accordion_body">
-                                    <div className="inner fb">
+                                    <div className="inner fb-small">
                                         <StructuredText data={item.rowContent} />
                                     </div>
                                 </div>
@@ -126,34 +153,28 @@ function ProjectCard(props: Props) {
                         )}
                     </div>
 
-                    <p className="sub-title fb">Role: {data.myRole}</p>
+                    <p className="sub-title fd">Role: {data.myRole}</p>
+
+                    <p className="sub-title fd" >Studio: {data.studioCompletedAt}</p>
 
                     {data.techIcons &&
                         <div className="tech-icons">
-                            <p className="sub-title fb">Technologies:</p>
-                            {data.techIcons.icons.map((iconMarkup, index) => {
-                                // Clean up the icon markup to get the icon name
-                                const iconName = iconMarkup
-
-                                // Render the corresponding icon or fallback if not found
+                             <p className="sub-title fd">Technologies:</p> 
+                            { data.techIcons.map((icon, index) => {
+                             
                                 return (
-                                    <span className="tech-icon" key={index}>
-                                        {iconMap[iconName] }
-                                    </span>
+                                    <div className="icon_wrap" key={icon.title} >
+                                        {iconMap[icon.reactIconMarkup]}
+                                        <p className="fb">{icon.title}</p>
+                                    </div>
                                 );
                             })}
-                           
-                          
-
+                        
                         </div>
                     }
 
-                    <p className="sub-title fb" >Studio: {data.studioCompletedAt}</p>
-
-                   
-
                     <section className="link-wrap">
-                        <a href={data.websiteLink} target="_blank" >View website</a>
+                        <a className="fb" href={data.websiteLink} target="_blank" >View website</a>
                     </section>
                 </div>
             </div>

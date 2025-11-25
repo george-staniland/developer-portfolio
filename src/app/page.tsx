@@ -2,7 +2,6 @@ import Nav from '@/components/Nav'
 import HeroSection from '@/components/HeroSection'
 import MainText from '@/components/MainText'
 import ProjectsGrid from '@/components/ProjectsGrid'
-import { performRequest } from '@/lib/datocms'
 import { executeQuery } from '@datocms/cda-client';
 
 const PROJECTS_QUERY = `
@@ -11,7 +10,6 @@ const PROJECTS_QUERY = `
     id
     projectTitle
     myRole
-    techIcons
     studioCompletedAt
     websiteLink
     projectWriteUp {
@@ -22,6 +20,13 @@ const PROJECTS_QUERY = `
       rowContent {
         value
 			}
+    }
+    techIcons {
+      title
+      reactIconMarkup
+    }
+    brandColour {
+      hex
     }
     websiteLink
     _status

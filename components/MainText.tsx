@@ -33,7 +33,7 @@ function MainText() {
                 </h1>
                 <h3 className="fh3">I have five years experience coding websites and web applications. Previously at <a href="https://www.superstarwebsites.co.nz/" target="_blank">Superstar Websites</a> and  <a href="https://thewebguys.co.nz/" target="_blank">The Web Guys</a>, I currently contract for <a  target="_blank" href="https://newterritory.studio/"> New Territory</a> studio. I am currently <i> available </i> for contract projects. </h3>
                 <div className="tech">
-                <h4 className="tech-title fh5">Technologies</h4>
+                <h4 className="tech-title fh4">Technologies</h4>
                 <h4 className="fh4"> NextJs / React / Kirby CMS / Shopify / WordPress </h4>
                 </div>
             </section>

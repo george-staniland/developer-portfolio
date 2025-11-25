@@ -1,9 +1,8 @@
 .hero__section {
-  height: calc(85vh - var(--pm));
+  height: 100vh;
   display: flex;
   justify-content: center;
-  align-items: flex-end;
-  padding-bottom: var(--pm);
+  align-items: center;
   position: relative;
   z-index: 1;
 }
@@ -16,10 +15,9 @@
   overflow: hidden;
   display: flex;
   justify-content: center;
-  background-color: var(--blossom);
 }
 .main__text {
-  padding: 110px 0;
+  padding-bottom: 110px;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -33,13 +31,11 @@
   color: var(--black);
 }
 .main__text h3 {
-  padding-top: 20px;
+  padding-top: 32px;
   color: var(--black);
 }
 .main__text h4.tech-title {
-  text-transform: uppercase;
   padding-bottom: 12px;
-  color: var(--deep-grey);
 }
 .main__text .tech {
   padding-top: 60px;
@@ -51,7 +47,7 @@
   text-decoration-thickness: 3px;
 }
 .main__text a:hover {
-  color: blue;
+  color: var(--light-blue);
 }
 
 .projects__grid {
@@ -64,10 +60,12 @@
   flex-direction: column;
   align-items: center;
 }
-.projects__grid .title {
+.projects__grid .title-wrap {
+  width: 100%;
+  max-width: var(--max-page-w);
+}
+.projects__grid .title-wrap .title {
   padding-bottom: var(--pm);
-  color: var(--black);
-  text-transform: uppercase;
 }
 .projects__grid .rows-wrap {
   display: flex;
@@ -94,17 +92,35 @@
 
 .project__card {
   border-radius: 9px;
-  min-height: 450px;
+  min-height: 420px;
   overflow: hidden;
-  border: 1px solid var(--black);
+  box-shadow: rgba(0, 0, 0, 0.02) 0px 1px 3px 0px, rgba(27, 31, 35, 0.15) 0px 0px 0px 1px;
   cursor: pointer;
 }
 .project__card .expand-project-btn {
-  background-color: var(--grey);
-  border: 1px solid var(--black);
-  border-radius: 2px;
-  width: 25px;
+  padding: 0px;
   height: 25px;
+  width: 25px;
+  position: relative;
+  transition: all 0.3s ease-in-out;
+  border-color: var(--deep-grey);
+  border: none;
+}
+.project__card .expand-project-btn span {
+  font-size: 21px;
+  line-height: 1;
+  font-weight: 200;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+.project__card .expand-project-btn:hover {
+  background-color: var(--hover-grey);
+}
+.project__card .project-title {
+  color: var(--bg);
+  transition: all 0.2s ease-in-out 0s;
 }
 .project__card .aspectholder {
   width: 100%;
@@ -120,21 +136,64 @@
   position: relative;
   padding-top: var(--pm);
 }
-.project__card .aspectholder .top button {
-  cursor: pointer;
-}
 .project__card .aspectholder .colour-overlay {
+  --blur-amount: 75px;
   position: absolute;
-  background-color: blue;
+  background-color: rgb(206, 204, 204);
   top: 0;
   left: 0;
   width: 100%;
   height: 100%;
-  transition: all 0.5s ease-in-out;
-  pointer-events: none;
+  transition: opacity 0.4s ease-in-out, height 0.3s ease-in-out, width 0.3s ease-in-out, top 0.3s ease-in-out, left 0.3s ease-in-out;
+  transform-origin: center;
+  overflow: hidden;
+}
+.project__card .aspectholder .colour-overlay #blob1 {
+  width: 125%;
+  height: 50%;
+  border-radius: 75% 90%;
+  background-color: var(--brand_colour);
+  transform: rotate(19deg);
+  filter: blur(var(--blur-amount));
+  mix-blend-mode: soft-light;
+  position: absolute;
+  top: 25%;
+  left: -15%;
+}
+.project__card .aspectholder .colour-overlay #blob2 {
+  width: 70%;
+  height: 60%;
+  border-radius: 50% 33%;
+  background-color: var(--brand_colour);
+  position: absolute;
+  top: 50%;
+  left: 20%;
+  filter: blur(var(--blur-amount));
+  /*   mix-blend-mode: overlay; */
+}
+.project__card .aspectholder .colour-overlay #blob3 {
+  width: 25%;
+  height: 120%;
+  border-radius: 45% 40%;
+  position: absolute;
+  top: 23%;
+  left: 75%;
+  background-color: var(--brand_colour);
+  filter: blur(var(--blur-amount));
+  mix-blend-mode: overlay;
+}
+.project__card .aspectholder .colour-overlay #noiseLayer {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  filter: url(#noiseFilter) brightness(0.4) contrast(0.8);
+  mix-blend-mode: soft-light;
+  z-index: 10;
 }
 .project__card .body {
-  padding-top: var(--pm);
+  padding-top: 30px;
   padding-bottom: var(--pm);
   flex-grow: 1;
   display: flex;
@@ -147,31 +206,108 @@
   flex-grow: 1;
   display: flex;
   align-items: flex-end;
+  padding-top: 20px;
 }
 .project__card .body .link-wrap a {
   font-style: normal;
+  font-weight: 600;
+}
+.project__card .body .link-wrap a:hover {
+  color: var(--light-blue);
 }
 .project__card .body .tech-icons {
   display: flex;
-  gap: 8px;
+  gap: 10px;
+  align-items: start;
+}
+.project__card .body .tech-icons .sub-title {
+  padding-right: 5px;
+}
+.project__card .body .icon_wrap {
+  display: flex;
+  flex-direction: column;
   align-items: center;
+  gap: 6px;
 }
-.project__card .body .tech-icon {
-  display: inline-block;
+.project__card .body .icon_wrap svg {
+  width: 35px;
+  height: auto;
 }
-.project__card .body .tech-icon svg {
-  height: 30px;
-  width: 30px;
+.project__card .body .icon_wrap .fb {
+  font-size: 12px;
 }
 .project__card .body .write-up {
-  max-width: 700px;
+  padding-bottom: 30px;
+  max-height: 0px;
+  transition: all 0.2s ease-in-out 0s;
+  overflow: hidden;
 }
 .project__card .body .write-up p:not(:last-child) {
   padding-bottom: 10px;
 }
+.project__card .body .accordions-outer {
+  padding-bottom: 30px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+.project__card .body .accordions-outer .accordion_row {
+  background-color: var(--grey);
+  border-radius: 6px;
+  transition: all 0.3s ease-in-out;
+}
+.project__card .body .accordions-outer .accordion_row:hover {
+  background-color: var(--hover-grey);
+}
+.project__card .body .accordions-outer .accordion_row .accordion_title button {
+  width: 100%;
+  background-color: transparent;
+  font-weight: 200;
+  border: none;
+  padding: 0;
+  display: flex;
+  justify-content: space-between;
+  padding: 10px;
+}
+.project__card .body .accordions-outer .accordion_row .accordion_body {
+  max-height: 0;
+  transition: all 0.3s ease-in-out;
+  overflow: hidden;
+}
+.project__card .body .accordions-outer .accordion_row .accordion_body .inner {
+  padding: 16px 10px;
+}
+.project__card .body .accordions-outer .accordion_row .accordion_body ul {
+  margin: 0px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+.project__card .body .accordions-outer .accordion_row.row-active {
+  background-color: var(--grey);
+}
+.project__card .body .accordions-outer .accordion_row.row-active .accordion_body {
+  max-height: 210px;
+}
 .project__card.active .colour-overlay {
   opacity: 0;
+  pointer-events: none;
+  transition: all 0.3s ease-in-out 0.3s;
+}
+.project__card.active .project-title {
+  color: var(--black);
+  transition: all 0.5s ease-in-out;
+}
+.project__card.active .write-up {
+  max-height: 200px;
+  transition: all 0.3s ease-in-out 0.05s;
 }
 .project__card.not-active .aspectholder {
   height: 100%;
+}
+.project__card:hover .colour-overlay {
+  width: 120%;
+  top: -20%;
+  height: 120%;
+  left: -20%;
 }

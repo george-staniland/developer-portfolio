@@ -31,8 +31,8 @@ export default function HeroSection() {
                     trigger: ".hero__section",
                     pin: true,
                     markers: false,
-                    start: "top 6%",
-                    anticipatePin: 1,
+                    start: "top 3%",
+                    // anticipatePin: 1,
                     end: () => `+=${window.innerHeight - 100}`
                 },
             }
@@ -77,12 +77,12 @@ export default function HeroSection() {
 
     // Halftone config (gridSize read via ref)
     const config = {
-        brightness: 10,
-        contrast: 3,
-        gamma: 1.3,
+        brightness: 40,
+        contrast: 50,
+        gamma: 2,
         scaleFactor: 1,
-        canvasBackgroundColor: '#f0f0f0',
-        dotColor: '#2a2a2a',
+        canvasBackgroundColor: '#fcfcfc',
+        dotColor: '#ffa200',
     };
 
     useEffect(() => {
@@ -92,7 +92,8 @@ export default function HeroSection() {
 
         const setupCanvasDimensions = (videoWidth, videoHeight) => {
             const canvasWrapWidth = canvasWrap.clientWidth 
-            canvas.width = canvasWrapWidth - 120;
+            canvas.width = canvasWrapWidth - 400;
+            // canvas.width = canvasWrapWidth ;
             canvas.height = (videoHeight / videoWidth) * canvas.width;
 
         };
@@ -185,8 +186,8 @@ export default function HeroSection() {
     }, []);
 
     return (
-        <section className="hero__section  px">
-            <div className="animation-wrap   " ref={wrapRef}>
+        <section className="hero__section px ">
+            <div className="animation-wrap " ref={wrapRef}>
                 <canvas ref={canvasRef} />
                 <video ref={videoRef} style={{ display: 'none' }} />
             </div>
