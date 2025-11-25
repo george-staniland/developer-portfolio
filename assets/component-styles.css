@@ -30,6 +30,9 @@
 .main__text h1 {
   color: var(--black);
 }
+.main__text h2 {
+  padding-top: 32px;
+}
 .main__text h3 {
   padding-top: 32px;
   color: var(--black);
