@@ -67,7 +67,10 @@ function ProjectCard(props: Props) {
     return (
         <article 
             className={`project__card ${isActive ? 'active' : 'not-active'}`} 
-            onClick={() => onCardClick(cardIndex)}
+            onClick={() => { 
+                // setActiveIndex(null)
+                onCardClick(cardIndex)  
+            }}
         >
             <div className="aspectholder">
                 <div className="colour-overlay">
@@ -101,7 +104,17 @@ function ProjectCard(props: Props) {
                                 key={item.rowTitle}
                                 >
                                 <div className="accordion_title">
-                                    <button className="fb" onClick={ (e) => toggleActive(e, index)}> { item.rowTitle }</button>
+                                    <button 
+                                        className="fb" 
+                                        onClick={ (e) => toggleActive(e, index)}
+                                        >
+                                             { item.rowTitle }
+                                        {index == activeIndex ?
+                                            <span>-</span>
+                                            :
+                                            <span>+</span>
+                                        }
+                                        </button>
                                 </div>
                                 <div className="accordion_body">
                                     <div className="inner fb">
