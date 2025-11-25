@@ -25,7 +25,7 @@
   align-items: center;
 }
 .main__text .inner {
-  max-width: 2000px;
+  max-width: var(--max-page-w);
   opacity: 0;
   transform: translateY(20px);
 }
@@ -34,15 +34,12 @@
 }
 .main__text h3 {
   padding-top: 20px;
-  color: var(--deep-grey);
-}
-.main__text h4 {
-  color: var(--deep-grey);
+  color: var(--black);
 }
 .main__text h4.tech-title {
   text-transform: uppercase;
   padding-bottom: 12px;
-  color: var(--black);
+  color: var(--deep-grey);
 }
 .main__text .tech {
   padding-top: 60px;
@@ -63,6 +60,9 @@
   position: relative;
   padding-top: 0px;
   padding-bottom: 110px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 .projects__grid .title {
   padding-bottom: var(--pm);
@@ -73,6 +73,7 @@
   display: flex;
   flex-direction: column;
   row-gap: 20px;
+  max-width: var(--max-page-w);
 }
 .projects__grid .row {
   display: grid;

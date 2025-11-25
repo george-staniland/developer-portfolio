@@ -15,7 +15,7 @@
         overflow: hidden;
         display: flex;
         justify-content: center;
-        background-color: var(--blossom);
+        background-color: var(--grey);
         canvas {
             // display: none;
         }
@@ -30,7 +30,7 @@
      align-items: center;
 
     .inner {
-       max-width: 2000px;
+       max-width: var(--max-page-w);
        opacity: 0;
        transform: translateY(20px);
     }
@@ -44,16 +44,14 @@
 
      h3 {
         padding-top: 20px;
-        color: var(--deep-grey);
+        color: var(--black);
     }
 
-     h4 {
-       
-        color: var(--deep-grey);
+     h4 {        
         &.tech-title {
             text-transform: uppercase;
             padding-bottom: 12px;
-            color: var(--black);
+            color: var(--deep-grey);
         }
     }
     .tech {
@@ -77,15 +75,25 @@
     position: relative;
     padding-top: 0px;
     padding-bottom: 110px;
-    .title {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    .title-wrap {
+        width: 100%;
+        max-width: var(--max-page-w);
+        .title {
         padding-bottom: var(--pm);
-        color: var(--black);
+        color: var(--deep-grey);
         text-transform: uppercase;
+        }
     }
+    
+    
     .rows-wrap {
         display: flex;
         flex-direction: column;
         row-gap: 20px;
+        max-width: var(--max-page-w);
     }
     .row {
         display: grid;
@@ -106,14 +114,12 @@
 
 .project__card {
     border-radius: 9px;
-    min-height: 450px;
+    min-height: 420px;
     overflow: hidden;
     border: 1px solid var(--black);
     cursor: pointer;
     .expand-project-btn {
-        background-color: var(--grey);
-        border: 1px solid var(--black);
-        border-radius: 2px;
+      
         width: 25px;
         height: 25px;
     }
@@ -132,13 +138,10 @@
             z-index: 5;
             position: relative;
             padding-top: var(--pm);
-            button {
-                cursor: pointer;
-            }
         }
         .colour-overlay {
             position: absolute;
-            background-color: blue;
+            background-color: rgb(238, 235, 219);
             top: 0;
             left: 0;
             width: 100%;
@@ -178,8 +181,38 @@
         }
         .write-up {
             max-width: 700px;
+            padding-bottom: var(--pm);
             p:not(:last-child) {
                 padding-bottom: 10px;
+            }
+        }
+        .accordions-outer {
+            padding-bottom: var(--pm);
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+            .accordion_row {
+                .accordion_title {
+                    button {
+                        width: 100%;
+                    }
+                }
+                .accordion_body {
+                    max-height: 0;
+                    transition: all .3s ease-in-out;
+                    overflow: hidden; 
+                    .inner {
+                        padding: 14px 0;
+                    }
+                    ul {
+                        margin: 0px;
+                    }
+                }
+                &.row-active {
+                    .accordion_body {
+                        max-height: 210px;
+                    }
+                }
             }
         }
     }
@@ -194,3 +227,5 @@
         }
     }
 }
+
+

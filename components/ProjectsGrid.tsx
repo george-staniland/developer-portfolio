@@ -22,7 +22,9 @@ function ProjectsGrid(props: any) {
 
     return (
         <section className="projects__grid px" >
-            <h4 className="title fh5">Projects</h4>
+            <div className="title-wrap">
+             <h4 className="title fh5">Projects</h4>
+            </div>
 
            <section className="rows-wrap">
     {projects.allProjects

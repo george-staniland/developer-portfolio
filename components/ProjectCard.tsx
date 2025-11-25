@@ -1,9 +1,9 @@
 "use client"
-import Image from "next/image";
 import { StructuredText } from "react-datocms";
 import { TbBrandNextjs } from "react-icons/tb";
 import { SiShopify, SiKirby, SiGreensock } from "react-icons/si";
-
+import { isNullishCoalesce } from "typescript";
+import { useState } from "react";
 
 interface Props {
     isActive: boolean;
@@ -12,18 +12,24 @@ interface Props {
     data: ProjectType;
 }
 
+
+interface AccordionRow {
+    rowTitle: string;
+    rowContent: {
+        value: string;
+    }
+};
+
 type ProjectType = {
-    coverImage: {
-        url: string; // URL to the cover image
-    };
     id: string; // Unique identifier for the project
     myRole: string; // Role in the project (e.g., "Lead Developer")
     projectTitle: string; // Title of the project
     studioCompletedAt: string;
     projectWriteUp: {
-        value: string; // The value of the write-up, assuming it's a string
+        value: string; 
         __typename: string; // DatoCMS metadata, typically identifies the model type
     };
+    accordion: AccordionRow[];
     techIcons: string[] | null; // Array of tech icons (could be null if not available)
     websiteLink: string; // Website link related to the project
     _firstPublishedAt: string; // Date and time of the first publication
@@ -46,8 +52,23 @@ function ProjectCard(props: Props) {
 
     const { isActive, onCardClick, cardIndex, data } = props;
 
+    const [ activeIndex, setActiveIndex] = useState<number | null>(null);
+
+    function toggleActive (e : React.MouseEvent<HTMLButtonElement>, index: number) {
+        e.stopPropagation()
+
+        if (activeIndex === index) {
+            setActiveIndex(null);
+        } else {
+            setActiveIndex(index); 
+        }
+    }
+
     return (
-        <article className={`project__card ${isActive ? 'active' : 'not-active'}`} role="button" onClick={() => onCardClick(cardIndex)}>
+        <article 
+            className={`project__card ${isActive ? 'active' : 'not-active'}`} 
+            onClick={() => onCardClick(cardIndex)}
+        >
             <div className="aspectholder">
                 <div className="colour-overlay">
                     
@@ -68,8 +89,28 @@ function ProjectCard(props: Props) {
                 </div>
                 <div className="body px">
 
-                     <div className="write-up  outline fb">
+                     <div className="write-up fb">
                         <StructuredText data={data.projectWriteUp} />
+                    </div>
+
+                    <div className="accordions-outer">
+                        
+                        { data.accordion && data.accordion.map( (item, index) => (
+                             <section 
+                                className={`accordion_row ${ index == activeIndex ? 'row-active' : 'not-active' }`} 
+                                key={item.rowTitle}
+                                >
+                                <div className="accordion_title">
+                                    <button className="fb" onClick={ (e) => toggleActive(e, index)}> { item.rowTitle }</button>
+                                </div>
+                                <div className="accordion_body">
+                                    <div className="inner fb">
+                                        <StructuredText data={item.rowContent} />
+                                    </div>
+                                </div>
+                             </section>
+                            )
+                        )}
                     </div>
 
                     <p className="sub-title fb">Role: {data.myRole}</p>

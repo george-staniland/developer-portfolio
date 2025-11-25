@@ -27,6 +27,7 @@
   --pm: 20px;
   --fg: var(--black);
   --bg: var(--white);
+  --max-page-w: 2000px;
 }
 
 h1, h2, h3, h4, h5, h6, p, li {
@@ -128,11 +129,22 @@ a {
   letter-spacing: 0.01em;
 }
 
-
-
-
-
 /* Pages */
 .home-page {
   padding-top: 15svh;
+}
+
+button {
+  font-family: "Cabin" , sans-serif;
+  font-weight: 300;
+  border-radius: 2px;
+  -webkit-appearance: none;
+  text-align: inherit;
+  background: none;
+  box-shadow: none;
+  padding: 5px;
+  cursor: pointer;
+  border: 1px solid var(--black);
+  color: var(--black);
+  background-color: var(--grey);
 }

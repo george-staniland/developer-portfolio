@@ -17,10 +17,13 @@ const PROJECTS_QUERY = `
     projectWriteUp {
       value
     }
-    websiteLink
-    coverImage {
-      url
+    accordion {
+      rowTitle
+      rowContent {
+        value
+			}
     }
+    websiteLink
     _status
     _firstPublishedAt
   }
