@@ -82,7 +82,7 @@ export default function HeroSection() {
         gamma: 2,
         scaleFactor: 1,
         canvasBackgroundColor: '#fcfcfc',
-        dotColor: '#2a2a2a',
+        dotColor: '#000000ff',
     };
 
     useEffect(() => {
