@@ -1,7 +1,8 @@
 "use client"
 import { StructuredText } from "react-datocms";
 import { TbBrandNextjs } from "react-icons/tb";
-import { SiShopify, SiKirby, SiGreensock } from "react-icons/si";
+import { BsFiletypeScss } from "react-icons/bs";
+import { SiShopify, SiKirby, SiGreensock , SiSanity} from "react-icons/si";
 import { useState } from "react";
 
 interface Props {
@@ -50,6 +51,8 @@ const iconMap: { [key: string]: JSX.Element } = {
     SiShopify: <SiShopify />,
     SiKirby: <SiKirby />,
     SiGreensock: <SiGreensock />,
+    SiSanity: <SiSanity/>,
+    BsFiletypeScss: <BsFiletypeScss/>
 };
 
 
@@ -66,7 +69,13 @@ function ProjectCard(props: Props) {
         if (activeIndex === index) {
             setActiveIndex(null);
         } else {
-            setActiveIndex(index); 
+            setActiveIndex(index);
+            const selectedAccordionBody = e.currentTarget.parentElement?.nextElementSibling 
+            const selectedAccordionBodyInner = e.currentTarget.parentElement?.nextElementSibling?.firstChild
+            if(selectedAccordionBodyInner && selectedAccordionBodyInner instanceof HTMLElement && selectedAccordionBody && selectedAccordionBody instanceof HTMLElement) {
+               const innerHeight = selectedAccordionBodyInner.offsetHeight
+               selectedAccordionBody.style.setProperty("--natural-height", `${innerHeight}px`);
+            }
         }
     }
 

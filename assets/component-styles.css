@@ -297,7 +297,7 @@
   background-color: var(--grey);
 }
 .project__card .body .accordions-outer .accordion_row.row-active .accordion_body {
-  max-height: 210px;
+  max-height: var(--natural-height);
 }
 .project__card.active .colour-overlay {
   opacity: 0;
@@ -309,7 +309,7 @@
   transition: all 0.5s ease-in-out;
 }
 .project__card.active .write-up {
-  max-height: 200px;
+  max-height: 250px;
   transition: all 0.3s ease-in-out 0.05s;
 }
 .project__card.not-active .aspectholder {

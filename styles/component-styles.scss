@@ -336,7 +336,7 @@
                 &.row-active {
                     background-color: var(--grey);
                     .accordion_body {
-                        max-height: 210px;
+                        max-height: var(--natural-height);
                     }
                 }
             }
@@ -353,7 +353,7 @@
             transition: all 0.5s ease-in-out; 
         }
         .write-up {
-            max-height: 200px;
+            max-height: 250px;
             transition: all .3s ease-in-out .05s;
         }
     }
