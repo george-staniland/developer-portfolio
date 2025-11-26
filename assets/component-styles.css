@@ -28,6 +28,7 @@
   transform: translateY(20px);
 }
 .main__text h1 {
+  font-weight: 470;
   color: var(--black);
 }
 .main__text h2 {
@@ -39,18 +40,23 @@
 }
 .main__text h4.tech-title {
   padding-bottom: 12px;
+  text-align: center;
+}
+.main__text h4.tech-items {
+  text-align: center;
 }
 .main__text .tech {
-  padding-top: 60px;
+  padding-top: 110px;
 }
 .main__text a {
   color: unset;
   font-style: normal;
   text-decoration: underline;
-  text-decoration-thickness: 3px;
+  text-decoration-thickness: 2px;
+  text-underline-offset: 3px;
 }
 .main__text a:hover {
-  color: var(--light-blue);
+  color: var(--blue);
 }
 
 .projects__grid {
@@ -68,7 +74,8 @@
   max-width: var(--max-page-w);
 }
 .projects__grid .title-wrap .title {
-  padding-bottom: var(--pm);
+  padding-bottom: 32px;
+  text-align: center;
 }
 .projects__grid .rows-wrap {
   display: flex;
@@ -216,7 +223,7 @@
   font-weight: 600;
 }
 .project__card .body .link-wrap a:hover {
-  color: var(--light-blue);
+  color: var(--blue);
 }
 .project__card .body .tech-icons {
   display: flex;

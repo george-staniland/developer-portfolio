@@ -23,7 +23,7 @@ function ProjectsGrid(props: any) {
     return (
         <section className="projects__grid px" >
             <div className="title-wrap">
-             <h4 className="title fh4">Projects</h4>
+             <h4 className="title fh6">Projects</h4>
             </div>
 
            <section className="rows-wrap">

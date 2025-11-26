@@ -7,11 +7,12 @@
     max-width: 100%;
     
     h2 {
+        font-weight: 400;
         color: var(--black);
-        font-weight: 200;
-        letter-spacing: 0.04em;
+        // letter-spacing: 0.04em;
         line-height: 1;
-        font-size: 17px;
+        font-size: 16px;
+        font-family: Courier, monospace;
     }   
 
     .inner {
@@ -24,34 +25,36 @@
     }
 
     .nav-btn {
-        color: var(--grey);
-        background-color: var(--grey);
+        background-color: transparent;
         position: absolute;
-        top: 18px;
+        top: 20px;
         right: var(--pm);
         cursor: pointer;
-        border: 1px solid transparent;
+        border: 1px solid var(--black);;
         transition: height .4s ease-in-out,
                     width .4s ease-in-out,
-                    border-color .3s ease-in-out;
+                    border-color .3s ease-in-out,
+                    background-color .3s ease-in-out;
         padding: 0px;
-        width: 30px;
-        height: 30px;
+        width: 26px;
+        height: 26px;
         
         &:hover {
             border-color: var(--deep-grey);
+            background-color: var(--grey);
         }
         &.is-active {
             width: 30vw;
             height: 30vw;
             max-height: 95vh;
             cursor: ne-resize;
+            background-color: var(--grey);
         }
         .open-info__icon {
             --plus-length: 14px;
             position: absolute;
-            top: 8px;
-            right: 8px;
+            top: 6px;
+            right: 6px;
             display: flex;
             height: var(--plus-length);
             width: var(--plus-length);
@@ -65,11 +68,11 @@
                 border-radius: 200px;
             }
             .horizontal-line {
-                height: 2px;
+                height: 1px;
                 width: var(--plus-length);
             }
             .vertical-line {
-                width: 2px;
+                width: 1px;
                 height: var(--plus-length);
             }
         }

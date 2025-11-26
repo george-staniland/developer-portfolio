@@ -10,7 +10,7 @@ function Nav() {
     return (
         <nav className="main-nav" >
             <div className="inner px">
-                <h2>gs</h2>
+                <h2>george staniland</h2>
                 <div
                     role="button"
                     className={`menu btn nav-btn ${isActive ? 'is-active' : 'non-active'}`}
@@ -21,7 +21,7 @@ function Nav() {
                         <span className="vertical-line line"></span>
                     </div>
                     <section className="overlay-content">
-                        <div className="overlay-inner px py">
+                        <div className="overlay-inner px py fb">
                             <p>Hello ✋</p>
                             <div className="items">
                                 <p>I'm currently in Wellington, New Zealand</p>
