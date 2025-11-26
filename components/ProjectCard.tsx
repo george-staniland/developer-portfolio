@@ -162,29 +162,37 @@ function ProjectCard(props: Props) {
                         )}
                     </div>
 
-                    <p className="sub-title fd">Role: {data.myRole}</p>
+                    <div className="meta ">
+                        <div className="info">
+                             {data.techIcons &&
+                                <div className="tech-icons">
+                                    <p className="sub-title fd">Technologies:</p>
+                                    {data.techIcons.map((icon, index) => {
 
-                    <p className="sub-title fd" >Studio: {data.studioCompletedAt}</p>
+                                        return (
+                                            <div className="icon_wrap" key={icon.title} >
+                                                {iconMap[icon.reactIconMarkup]}
+                                                <p className="fb">{icon.title}</p>
+                                            </div>
+                                        );
+                                    })}
 
-                    {data.techIcons &&
-                        <div className="tech-icons">
-                             <p className="sub-title fd">Technologies:</p> 
-                            { data.techIcons.map((icon, index) => {
-                             
-                                return (
-                                    <div className="icon_wrap" key={icon.title} >
-                                        {iconMap[icon.reactIconMarkup]}
-                                        <p className="fb">{icon.title}</p>
-                                    </div>
-                                );
-                            })}
-                        
+                                </div>
+                            }
+                            <p className="sub-title fd">Role: {data.myRole}</p>
+
+                            <p className="sub-title fd" >Studio: {data.studioCompletedAt}</p>
+
+                           
                         </div>
-                    }
+                        <div className="link-wrap">
+                            <a className="fb" href={data.websiteLink} target="_blank" >View website</a>
+                        </div>
+                    </div>
 
-                    <section className="link-wrap">
-                        <a className="fb" href={data.websiteLink} target="_blank" >View website</a>
-                    </section>
+                  
+
+                   
                 </div>
             </div>
         </article>

@@ -209,14 +209,18 @@
   display: flex;
   flex-direction: column;
 }
-.project__card .body .sub-title, .project__card .body .paragraph {
+.project__card .body .paragraph {
   padding-bottom: 10px;
 }
-.project__card .body .link-wrap {
-  flex-grow: 1;
+.project__card .body .meta {
   display: flex;
+  justify-content: space-between;
   align-items: flex-end;
-  padding-top: 20px;
+}
+.project__card .body .meta .info {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
 }
 .project__card .body .link-wrap a {
   font-style: normal;
