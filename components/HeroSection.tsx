@@ -24,14 +24,14 @@ export default function HeroSection() {
     const pause = false;
 
     useGSAP(() => {
-        gsap.to('.hero__section',
+        gsap.to('.hero__section ',
             {
                 x: 0,
                 scrollTrigger: {
                     trigger: ".hero__section",
                     pin: true,
                     markers: false,
-                    start: "top 3%",
+                    start: "10% 6%",
                     // anticipatePin: 1,
                     end: () => `+=${window.innerHeight - 100}`
                 },
@@ -82,7 +82,7 @@ export default function HeroSection() {
         gamma: 1,
         scaleFactor: 1,
         canvasBackgroundColor: '#fcfcfc',
-        dotColor: '#000000ff',
+        dotColor: '#1f1f1f',
     };
 
     useEffect(() => {
@@ -92,7 +92,7 @@ export default function HeroSection() {
 
         const setupCanvasDimensions = (videoWidth, videoHeight) => {
             const canvasWrapWidth = canvasWrap.clientWidth 
-            canvas.width = canvasWrapWidth - 300;
+            canvas.width = canvasWrapWidth;
             // canvas.width = canvasWrapWidth ;
             canvas.height = (videoHeight / videoWidth) * canvas.width;
 
@@ -175,7 +175,7 @@ export default function HeroSection() {
 
         });
 
-        video.src = '/dog-gen-3.mp4';
+        video.src = '/dog.mp4';
         video.crossOrigin = 'anonymous';
         video.autoplay = true;
         video.loop = true;
@@ -186,8 +186,8 @@ export default function HeroSection() {
     }, []);
 
     return (
-        <section className="hero__section px  ">
-            <div className="animation-wrap  " ref={wrapRef}>
+        <section className="hero__section  px  ">
+            <div className="animation-wrap " ref={wrapRef}>
                 <canvas ref={canvasRef} />
                 <video ref={videoRef} style={{ display: 'none' }} />
             </div>

@@ -1,28 +1,28 @@
 .hero__section {
-    height: 100vh;
+    height: 95vh;
     display: flex;
     justify-content: center;
     align-items: center;
     position: relative;
     z-index: 1;
     .animation-wrap {
-        padding-bottom: 20px;
-        padding-top: 20px;
         position: relative;
-        width: 100%;
+        width: 75%;
         border-radius: 12px;
         overflow: hidden;
         display: flex;
         justify-content: center;
+        aspect-ratio: 16/7;
         // background-color: var(--grey);
         canvas {
-            // display: none;
+            position: relative;
+            top: -10%;
         }
     }
 }
 
 .main__text {
-   
+    z-index: 2;
      padding-bottom: 110px;
      display: flex;
      justify-content: center;
@@ -35,7 +35,8 @@
     }
     
     h1 {
-        color: #6a89a7;
+        color: #649acf;
+        // background-color: var(--grey);
     }
 
      h3 {

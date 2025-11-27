@@ -29,7 +29,7 @@
         top: 20px;
         right: var(--pm);
         cursor: pointer;
-        border: 2px solid var(--black);;
+        border: 1px solid var(--black);;
         transition: height .4s ease-in-out,
                     width .4s ease-in-out,
                     border-color .3s ease-in-out,
@@ -90,19 +90,32 @@
                 flex-direction: column;
                 gap: 7px;
                 }
-               p {
-                 font-size: 22px;
-               }
                p.email object {
                  position: relative;
                  top: 6px;
                  left: 5px;
+                 svg text {
+                    fill: red;
+                 }
                }
 
                p.phone object {
                  position: relative;
                  top: 6px;
                  left: 3px;
+               }
+               .btns {
+                padding-top: 14px;
+                display: flex;
+                gap: 7px;
+                button {
+                     transition: all .3s ease-in-out;
+                &:hover {
+                    background-color: var(--deep-grey);
+                    color: var(--white);
+                }
+                }
+               
                }
             }
         }

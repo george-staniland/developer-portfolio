@@ -25,7 +25,7 @@
   top: 20px;
   right: var(--pm);
   cursor: pointer;
-  border: 2px solid var(--black);
+  border: 1px solid var(--black);
   transition: height 0.4s ease-in-out, width 0.4s ease-in-out, border-color 0.3s ease-in-out, background-color 0.3s ease-in-out;
   padding: 0px;
   width: 26px;
@@ -83,18 +83,30 @@
   flex-direction: column;
   gap: 7px;
 }
-.main-nav .nav-btn .overlay-content .overlay-inner p {
-  font-size: 22px;
-}
 .main-nav .nav-btn .overlay-content .overlay-inner p.email object {
   position: relative;
   top: 6px;
   left: 5px;
 }
+.main-nav .nav-btn .overlay-content .overlay-inner p.email object svg text {
+  fill: red;
+}
 .main-nav .nav-btn .overlay-content .overlay-inner p.phone object {
   position: relative;
   top: 6px;
   left: 3px;
+}
+.main-nav .nav-btn .overlay-content .overlay-inner .btns {
+  padding-top: 14px;
+  display: flex;
+  gap: 7px;
+}
+.main-nav .nav-btn .overlay-content .overlay-inner .btns button {
+  transition: all 0.3s ease-in-out;
+}
+.main-nav .nav-btn .overlay-content .overlay-inner .btns button:hover {
+  background-color: var(--deep-grey);
+  color: var(--white);
 }
 .main-nav .nav-btn.is-active {
   border-color: var(--deep-grey);
