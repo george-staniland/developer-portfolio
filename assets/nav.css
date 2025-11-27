@@ -7,11 +7,10 @@
   max-width: 100%;
 }
 .main-nav h2 {
-  font-weight: 400;
+  font-weight: 500;
   color: var(--black);
   line-height: 1;
   font-size: 16px;
-  font-family: Courier, monospace;
 }
 .main-nav .inner {
   position: relative;

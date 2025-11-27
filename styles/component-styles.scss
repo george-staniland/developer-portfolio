@@ -33,31 +33,17 @@
        opacity: 0;
        transform: translateY(20px);
     }
-    h1 {
-//        background: #0F3CF0;
-    // background: radial-gradient(circle farthest-corner at top left, #0F3CF0 0%, #C3D7F0 100%);
-    //         -webkit-background-clip: text;
-    //         -webkit-text-fill-color: transparent;
-        font-weight: 470;
-        color: var(--black);
-       
-    }
     
-    h2 {
-        padding-top: 32px;
-    }
 
      h3 {
         padding-top: 32px;
-        color: var(--black);
     }
 
      h4 {        
         &.tech-title {
             padding-bottom: 12px;
             text-align: center;
-            // color: var(--deep-grey);
-            //  text-transform: uppercase;
+            color: var(--deep-grey);
         }
         &.tech-items {
             text-align: center;

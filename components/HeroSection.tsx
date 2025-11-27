@@ -23,21 +23,21 @@ export default function HeroSection() {
     //pause during dev and design
     const pause = false;
 
-    useGSAP(() => {
-        gsap.to('.hero__section',
-            {
-                x: 0,
-                scrollTrigger: {
-                    trigger: ".hero__section",
-                    pin: true,
-                    markers: false,
-                    start: "top 3%",
-                    // anticipatePin: 1,
-                    end: () => `+=${window.innerHeight - 100}`
-                },
-            }
-        )
-    })
+    // useGSAP(() => {
+    //     gsap.to('.hero__section',
+    //         {
+    //             x: 0,
+    //             scrollTrigger: {
+    //                 trigger: ".hero__section",
+    //                 pin: true,
+    //                 markers: false,
+    //                 start: "top 3%",
+    //                 // anticipatePin: 1,
+    //                 end: () => `+=${window.innerHeight - 100}`
+    //             },
+    //         }
+    //     )
+    // })
 
     // Keep ref in sync with state for use in halftone
     useEffect(() => {
@@ -186,8 +186,8 @@ export default function HeroSection() {
     }, []);
 
     return (
-        <section className="hero__section px ">
-            <div className="animation-wrap " ref={wrapRef}>
+        <section className="hero__section px outline ">
+            <div className="animation-wrap outline " ref={wrapRef}>
                 <canvas ref={canvasRef} />
                 <video ref={videoRef} style={{ display: 'none' }} />
             </div>

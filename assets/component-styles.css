@@ -27,20 +27,13 @@
   opacity: 0;
   transform: translateY(20px);
 }
-.main__text h1 {
-  font-weight: 470;
-  color: var(--black);
-}
-.main__text h2 {
-  padding-top: 32px;
-}
 .main__text h3 {
   padding-top: 32px;
-  color: var(--black);
 }
 .main__text h4.tech-title {
   padding-bottom: 12px;
   text-align: center;
+  color: var(--deep-grey);
 }
 .main__text h4.tech-items {
   text-align: center;
