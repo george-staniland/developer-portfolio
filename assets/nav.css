@@ -25,7 +25,7 @@
   top: 20px;
   right: var(--pm);
   cursor: pointer;
-  border: 1px solid var(--black);
+  border: 2px solid var(--black);
   transition: height 0.4s ease-in-out, width 0.4s ease-in-out, border-color 0.3s ease-in-out, background-color 0.3s ease-in-out;
   padding: 0px;
   width: 26px;
@@ -61,11 +61,11 @@
   border-radius: 200px;
 }
 .main-nav .nav-btn .open-info__icon .horizontal-line {
-  height: 1px;
+  height: 2px;
   width: var(--plus-length);
 }
 .main-nav .nav-btn .open-info__icon .vertical-line {
-  width: 1px;
+  width: 2px;
   height: var(--plus-length);
 }
 .main-nav .nav-btn .overlay-content {
