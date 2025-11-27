@@ -213,11 +213,11 @@
 .project__card .body .meta .info {
   display: flex;
   flex-direction: column;
-  gap: 8px;
+  gap: 14px;
 }
 .project__card .body .link-wrap a {
   font-style: normal;
-  font-weight: 600;
+  font-weight: 500;
 }
 .project__card .body .link-wrap a:hover {
   color: var(--blue);
@@ -282,7 +282,7 @@
   overflow: hidden;
 }
 .project__card .body .accordions-outer .accordion_row .accordion_body .inner {
-  padding: 16px 10px;
+  padding: 16px 24px;
 }
 .project__card .body .accordions-outer .accordion_row .accordion_body ul {
   margin: 0px;

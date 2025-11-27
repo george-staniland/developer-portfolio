@@ -241,7 +241,7 @@
             .info {
                 display: flex;
                 flex-direction: column;
-                gap: 8px;
+                gap: 14px;
             }
         }
         .link-wrap {
@@ -252,7 +252,7 @@
             a {
                 font-style: normal;
                 
-                font-weight: 600;
+                font-weight: 500;
                 &:hover {
                     color: var(--blue);
                 }
@@ -320,7 +320,7 @@
                     transition: all .3s ease-in-out;
                     overflow: hidden; 
                     .inner {
-                        padding: 16px 10px;
+                        padding: 16px 24px;
                     }
                     ul {
                         margin: 0px;
