@@ -1,3 +1,6 @@
+$ipad-break: 1025;
+$mobile-break: 860;
+
 .hero__section {
     height: 95vh;
     display: flex;
@@ -14,9 +17,42 @@
         justify-content: center;
         aspect-ratio: 16/7;
         // background-color: var(--grey);
+         .colour-overlay {
+            --blur-amount: 75px;
+            opacity: 80%;
+            position: absolute;
+            background-color: rgb(186, 186, 186);
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            transition:
+                opacity 0.4s ease-in-out,
+                height 0.3s ease-in-out, 
+                width 0.3s ease-in-out, 
+                top 0.3s ease-in-out,
+                left 0.3s ease-in-out;
+            transform-origin: center;
+            overflow: hidden; 
+        }
+         #noiseLayer {
+                position: absolute;
+                top: 0;
+                left: 0;
+                width: 100%;
+                height: 100%;
+                filter: url(#noiseFilter) brightness(2) contrast(2);
+                mix-blend-mode: color-dodge;
+                z-index: 10;
+            }
         canvas {
             position: relative;
             top: -10%;
+        }
+    }
+    @media(max-width: $mobile-break) {
+        .animation-wrap {
+            width: 100%;
         }
     }
 }
@@ -67,6 +103,15 @@
             color: var(--blue);
         }
     }
+    @media(max-width: $mobile-break) {
+        padding-bottom: 60px;
+        .tech {
+            padding-top: 60px;
+        }
+        a {
+            text-decoration-thickness: 1px;
+        }
+    }
 }
 
 .projects__grid {
@@ -111,14 +156,18 @@
             grid-template-columns: 1fr 1fr 2fr;
         }
     }
+
+    @media(max-width: $mobile-break) {
+        .desktop {
+            display: none;
+        }
+    }
 }
 
 .project__card {
     border-radius: 9px;
     min-height: 420px;
     overflow: hidden;
-    // background-color: #e7e7e7;
-    // border: 1px solid var(--black);
     box-shadow: rgba(0, 0, 0, 0.02) 0px 1px 3px 0px, rgba(27, 31, 35, 0.15) 0px 0px 0px 1px;
     cursor: pointer;
     .expand-project-btn {
@@ -130,7 +179,7 @@
         border-color: var(--deep-grey);
         border: none;
         span {
-            font-size: 21px;
+            font-size: 20px;
             line-height: 1;
             font-weight: 200;
             position: absolute;
@@ -369,6 +418,10 @@
             height: 120%;
             left: -20%;
         }
+    }
+    
+    @media(max-width: $mobile-break) {
+        
     }
 }
 

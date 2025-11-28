@@ -26,7 +26,7 @@ function ProjectsGrid(props: any) {
              <h4 className="title fh6">Projects</h4>
             </div>
 
-           <section className="rows-wrap">
+           <section className="rows-wrap desktop">
     {projects.allProjects
         .reduce((rows, project, index) => {
             const rowIndex = Math.floor(index / 3); // group by 3

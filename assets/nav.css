@@ -6,12 +6,6 @@
   width: 100%;
   max-width: 100%;
 }
-.main-nav h2 {
-  font-weight: 500;
-  color: var(--black);
-  line-height: 1;
-  font-size: 16px;
-}
 .main-nav .inner {
   position: relative;
   display: flex;
@@ -97,11 +91,13 @@
   left: 3px;
 }
 .main-nav .nav-btn .overlay-content .overlay-inner .btns {
-  padding-top: 14px;
+  padding-top: 20px;
   display: flex;
-  gap: 7px;
+  gap: 16px;
 }
 .main-nav .nav-btn .overlay-content .overlay-inner .btns button {
+  font-size: 14px;
+  font-weight: 400;
   transition: all 0.3s ease-in-out;
 }
 .main-nav .nav-btn .overlay-content .overlay-inner .btns button:hover {
@@ -117,4 +113,10 @@
 }
 .main-nav .nav-btn.is-active .vertical-line {
   opacity: 0;
+}
+@media (max-width: 860) {
+  .main-nav .nav-btn.is-active {
+    width: calc(100vw - var(--pm) * 2);
+    height: calc(100vw - var(--pm) * 2);
+  }
 }

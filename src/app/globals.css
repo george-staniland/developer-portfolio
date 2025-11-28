@@ -100,13 +100,13 @@ a {
 
 .fh1 {
    font-size: 44px;
-   font-weight: 500;
+   font-weight: 520;
    /* letter-spacing: .018em; */
 }
 
 .fh3 {
   font-size: 27px;
-  font-weight: 400;
+  font-weight: 420;
   letter-spacing: .018em;
   line-height: 1.5em;
 }
@@ -145,6 +145,68 @@ a {
   font-weight: 380;
   letter-spacing: 0.01em;
   font-size: 15px; 
+}
+
+@media (max-width: 1025px) {
+
+.fh1 {
+   font-size: 37px;
+   font-weight: 520;
+   /* letter-spacing: .018em; */
+}
+
+}
+
+@media (max-width: 860px) {
+
+:root {
+  --pm: 14px;
+}
+
+.fh1 {
+   font-size: 20px;
+   font-weight: 520;
+}
+
+
+.fh3 {
+  font-size: 19px;
+}
+
+.fh4 {
+  font-size: 19px;
+  font-weight: 400;
+}
+
+.fh5 {
+   font-size: 19px;
+   font-weight: 200;
+   letter-spacing: 0.015em;
+}
+
+.fh6 {
+   font-weight: 400;     
+   font-size: 19px;
+}
+
+
+.fb {
+  font-weight: 390;
+  font-size: 17px;
+  /* letter-spacing: .01em; */
+}
+
+.fb-small {
+  font-weight: 390;
+  font-size: 16px;
+}
+
+.fd {
+  font-weight: 380;
+  letter-spacing: 0.01em;
+  font-size: 15px; 
+}
+
 }
 
 /* Pages */

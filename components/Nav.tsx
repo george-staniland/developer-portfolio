@@ -7,21 +7,22 @@ function Nav() {
     const [isActive, setIsActive] = useState(false);
 
 
-    const handleCopy = (value: string) => {
-        navigator.clipboard.writeText(value)
-            .then(() => {
-                console.log("Copied:", value);
-            })
-            .catch(err => {
-                console.error("Failed to copy:", err);
-            });
-    };
+
+
+    async function handleCopy(text: string) {
+        try {
+            const clipboardItem = new ClipboardItem({ "text/plain": text });
+            await navigator.clipboard.write([clipboardItem]);
+        } catch (err) {
+            console.log('error copying')
+        }
+    }
 
 
     return (
         <nav className="main-nav" >
             <div className="inner px">
-                <h2></h2>
+                <span className="box"></span>
                 <div
                     role="button"
                     className={`menu btn nav-btn ${isActive ? 'is-active' : 'non-active'}`}
@@ -35,18 +36,18 @@ function Nav() {
                         <div className="overlay-inner px py ">
                             <p className="fb">Hello ✋</p>
                             <div className="items">
-                                <p className="fb">I'm currently in Wellington, New Zealand</p>
+                                <p className="fb">I'm currently in Wellington, New Zealand.</p>
                                 <p className="email fb" >email:
                                     <object className="email" width="270" height="24" data="/contact-e.svg" type="image/svg+xml"></object> </p>
                                 <p className="phone fb" >whatsapp:  <object className="phone" width="150" height="17" data="/contact-p.svg" type="image/svg+xml"></object></p>
                             </div>
                             <div className="btns">
-                                
+
                                  <button onClick={(e) => { 
                                     e.stopPropagation();
                                     handleCopy("georgestaniland@gmail.com");
                                 }}>
-                                    Copy email
+                                    Copy Email
                                 </button>
 
                             

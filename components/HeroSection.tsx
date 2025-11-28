@@ -82,7 +82,7 @@ export default function HeroSection() {
         gamma: 1,
         scaleFactor: 1,
         canvasBackgroundColor: '#fcfcfc',
-        dotColor: '#1f1f1f',
+        dotColor: '#000000ff',
     };
 
     useEffect(() => {
@@ -93,7 +93,6 @@ export default function HeroSection() {
         const setupCanvasDimensions = (videoWidth, videoHeight) => {
             const canvasWrapWidth = canvasWrap.clientWidth 
             canvas.width = canvasWrapWidth;
-            // canvas.width = canvasWrapWidth ;
             canvas.height = (videoHeight / videoWidth) * canvas.width;
 
         };
@@ -187,9 +186,24 @@ export default function HeroSection() {
 
     return (
         <section className="hero__section  px  ">
-            <div className="animation-wrap " ref={wrapRef}>
-                <canvas ref={canvasRef} />
+            <div className="animation-wrap  " ref={wrapRef}>
+
+                <canvas ref={canvasRef} className="" />
                 <video ref={videoRef} style={{ display: 'none' }} />
+
+                <div className="colour-overlay">
+                    <div id="noiseLayer"></div>
+                    <svg viewBox='0 0 500 500' preserveAspectRatio='none' xmlns='http://www.w3.org/2000/svg'>
+
+                        <filter id='noiseFilter'>
+                            <feTurbulence
+                                type='fractalNoise'
+                                baseFrequency='9'
+                                numOctaves='1'
+                                stitchTiles='stitch' />
+                        </filter>
+                    </svg>
+                </div>
             </div>
         </section>
     );
