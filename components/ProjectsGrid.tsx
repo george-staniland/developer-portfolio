@@ -1,10 +1,12 @@
 "use client"
 import { useState } from "react"
 import ProjectCard from "./ProjectCard"
+import useEmblaCarousel from 'embla-carousel-react'
 
 function ProjectsGrid(props: any) {
 
     const { projects } = props;
+    const [emblaRef] = useEmblaCarousel()
 
 
     const [activeIndex, setActiveIndex] = useState<number | null>(null);
@@ -51,6 +53,29 @@ function ProjectsGrid(props: any) {
             </div>
         ))}
 </section>
+
+            <section className="projects-mobile">
+                <div className="embla" ref={emblaRef}>
+                    <div className="embla__container">
+    
+                        {projects.allProjects.map((project, index) => {
+                            
+                            return (
+                                <div className="embla__slide" key={project.projectTitle}>
+                                    <ProjectCard
+                                        key={index}
+                                        isActive={activeIndex === index}
+                                        cardIndex={index}
+                                        onCardClick={handleCardClick}
+                                        data={project}
+                                    />
+                                </div>
+                            )
+
+                        })}
+                    </div>
+                </div>
+            </section>
 
 
         </section>

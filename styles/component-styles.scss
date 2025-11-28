@@ -164,6 +164,56 @@ $mobile-break: 860;
     }
 }
 
+.projects-mobile {
+    display: none;
+    width: 100%;
+    @media(max-width: $mobile-break) {
+        display: block;
+
+        .embla {
+            overflow: hidden;
+        }
+
+        .embla__container {
+            display: flex;
+        }
+
+        .embla__slide {
+            flex: 0 0 90%;
+            min-width: 0;
+            margin-right: 10px;
+            .project__card {
+                min-height: 438.5px;
+                .aspectholder {
+                    min-height: 438.5px;
+                }
+                .body {
+                    
+                    .meta {
+                        flex-direction: column;
+                        align-items: flex-start;
+                        gap: 25px;
+                    }
+
+                    
+
+                    .accordions-outer .accordion_row .accordion_body .inner {
+                        padding: 16px 10px;
+                        ul {
+                            padding-left: 20px;
+                        }
+                    }
+                }
+                &.active {
+                    .write-up {
+                        max-height: 550px;
+                    }
+                }
+            }
+        }
+    }
+}
+
 .project__card {
     border-radius: 9px;
     min-height: 420px;

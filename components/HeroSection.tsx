@@ -15,13 +15,20 @@ export default function HeroSection() {
     const wrapRef = useRef(null);
     const videoRef = useRef(null);
     const animationFrameRef = useRef(null);
-
-    const [scrollPos, setScrollPos] = useState(0);
+    const [ isMobile, setIsMobile ] = useState(false)
     const [gridSize, setGridSize] = useState(70);
     const gridSizeRef = useRef(gridSize);
 
     //pause during dev and design
     const pause = false;
+
+    useEffect(() => {
+        if (window.innerWidth < 860) {
+            setIsMobile(true)
+            setGridSize(50)
+        }
+    }, [])
+
 
     useGSAP(() => {
         gsap.to('.hero__section ',
@@ -46,13 +53,16 @@ export default function HeroSection() {
 
     // Update scroll position and gridSize on scroll
     const onScroll = useCallback(() => {
+       
         const scrollY = window.scrollY;
         const vh = window.innerHeight;
-        const maxScroll = vh - 200;
+        const maxScroll = vh - 100;
 
-        const startSize = 70;
-        const endSize = 10;
-        let size;
+        // const startSize = 70;
+       const startSize = isMobile ? 50 : 70;
+       const endSize = 10;
+       let size;
+
 
         if (scrollY <= 0) {
             size = startSize;
@@ -60,14 +70,12 @@ export default function HeroSection() {
             size = endSize;
         } else {
             const fraction = scrollY / maxScroll;
-            const easedFraction = Math.pow(fraction, 0.5); // slow down the rate of change
+            const easedFraction = Math.pow(fraction, 0.5);
             size = startSize - easedFraction * (startSize - endSize);
         }
 
-
-        setScrollPos(scrollY);
         setGridSize(Math.round(size));
-    }, []);
+    }, [isMobile]);
 
 
     useEffect(() => {
@@ -98,6 +106,7 @@ export default function HeroSection() {
         };
 
         const generateHalftone = () => {
+
             const targetWidth = canvas.width * config.scaleFactor;
             const targetHeight = canvas.height * config.scaleFactor;
             const tempCanvas = document.createElement('canvas');

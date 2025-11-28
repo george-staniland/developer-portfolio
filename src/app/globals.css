@@ -165,12 +165,12 @@ a {
 
 .fh1 {
    font-size: 20px;
-   font-weight: 520;
+   font-weight: 500;
 }
 
 
 .fh3 {
-  font-size: 19px;
+  font-size: 17px;
 }
 
 .fh4 {
@@ -192,13 +192,13 @@ a {
 
 .fb {
   font-weight: 390;
-  font-size: 17px;
+  font-size: 16px;
   /* letter-spacing: .01em; */
 }
 
 .fb-small {
   font-weight: 390;
-  font-size: 16px;
+  font-size: 15px;
 }
 
 .fd {
