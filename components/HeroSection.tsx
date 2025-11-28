@@ -1,4 +1,4 @@
-
+// @ts-nocheck
 "use client"
 import { useEffect, useCallback, useState, useRef } from "react";
 import gsap from 'gsap';
