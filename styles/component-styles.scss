@@ -51,6 +51,9 @@ $mobile-break: 860;
         }
     }
     @media(max-width: $mobile-break) {
+        height: 100dvh;
+        padding-bottom: 25px;
+        align-items: end;
         .animation-wrap {
             width: 100%;
         }
@@ -184,6 +187,7 @@ $mobile-break: 860;
             margin-right: 10px;
             .project__card {
                 min-height: 438.5px;
+                overflow: visible;
                 .aspectholder {
                     min-height: 438.5px;
                 }

@@ -31,6 +31,7 @@ export default function HeroSection() {
 
 
     useGSAP(() => {
+        if (window.innerWidth < 860) return; 
         gsap.to('.hero__section ',
             {
                 x: 0,

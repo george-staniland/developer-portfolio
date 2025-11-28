@@ -43,6 +43,11 @@
   top: -10%;
 }
 @media (max-width: 860) {
+  .hero__section {
+    height: 100dvh;
+    padding-bottom: 25px;
+    align-items: end;
+  }
   .hero__section .animation-wrap {
     width: 100%;
   }
@@ -166,6 +171,7 @@
   }
   .projects-mobile .embla__slide .project__card {
     min-height: 438.5px;
+    overflow: visible;
   }
   .projects-mobile .embla__slide .project__card .aspectholder {
     min-height: 438.5px;
