@@ -6,7 +6,7 @@ import type { Metadata } from 'next'
 
 export const metadata: Metadata = {
   title: 'George Staniland - Front-end web Developer',
-  description: 'Web developer currently at New Territory Studio',
+  description: 'Web developer based in Wellington, New Zealand',
 }
 
 export default function RootLayout({
