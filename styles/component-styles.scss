@@ -306,6 +306,7 @@ $mobile-break: 860;
                 position: absolute;
                 top: 25%;
                 left: -15%;
+                will-change: transform
             }
 
             #blob2 {
@@ -317,7 +318,7 @@ $mobile-break: 860;
                 top: 50%;
                 left: 20%;
                 filter: blur(var(--blur-amount));
-                /*   mix-blend-mode: overlay; */
+                will-change: transform
             }
 
             #blob3 {
@@ -330,6 +331,7 @@ $mobile-break: 860;
                 background-color: var(--brand_colour);
                 filter: blur(var(--blur-amount));
                 mix-blend-mode: overlay;
+                will-change: transform
             }
 
             #noiseLayer {

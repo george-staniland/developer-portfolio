@@ -56,12 +56,12 @@ function ProjectsGrid(props: any) {
 
             <section className="projects-mobile">
                 <div className="embla" ref={emblaRef}>
-                    <div className="embla__container-t">
+                    <div className="embla__container">
     
                         {projects.allProjects.map((project, index) => {
                             
                             return (
-                                <div className="embla__slide-t" key={project.projectTitle}>
+                                <div className="embla__slide" key={project.projectTitle}>
                                     <ProjectCard
                                         key={index}
                                         isActive={activeIndex === index}
