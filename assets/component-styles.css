@@ -102,8 +102,11 @@
   .main__text a {
     text-decoration: none;
   }
+  .main__text .fh3 {
+    text-align: center;
+  }
 }
-@media (max-width: 391px) {
+@media (max-width: 401px) {
   .main__text .mob-l-break {
     color: red;
   }
