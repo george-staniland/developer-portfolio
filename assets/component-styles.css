@@ -107,9 +107,6 @@
   }
 }
 @media (max-width: 401px) {
-  .main__text .mob-l-break {
-    color: red;
-  }
   .main__text .mob-l-break::after {
     content: "\a";
     white-space: pre;

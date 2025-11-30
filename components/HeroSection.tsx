@@ -208,7 +208,7 @@ export default function HeroSection() {
                         <filter id='noiseFilter'>
                             <feTurbulence
                                 type='fractalNoise'
-                                baseFrequency='9'
+                                baseFrequency='2'
                                 numOctaves='1'
                                 stitchTiles='stitch' />
                         </filter>

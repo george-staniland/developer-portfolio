@@ -50,7 +50,7 @@ export default async function Home() {
     <>
       <Nav />
       <main className="home-page" >
-        {/* <HeroSection /> */}
+        <HeroSection />
         <MainText />
        
         <ProjectsGrid projects={projects} />

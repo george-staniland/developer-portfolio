@@ -119,9 +119,6 @@ $mobile-break: 860;
         }
     }
     @media(max-width: 401px) {
-         .mob-l-break {
-           color: red;
-    }
     .mob-l-break::after {
             content: "\A";
             white-space: pre;
