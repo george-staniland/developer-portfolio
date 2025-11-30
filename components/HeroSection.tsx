@@ -38,7 +38,7 @@ export default function HeroSection() {
                 scrollTrigger: {
                     trigger: ".hero__section",
                     pin: true,
-                    markers: true,
+                    markers: false,
                     start: "10% 6%",
                     // anticipatePin: 1,
                     end: () => `+=${window.innerHeight - 100}`
@@ -195,24 +195,13 @@ export default function HeroSection() {
     }, []);
 
     return (
-        <section className="hero__section  px outline ">
+        <section className="hero__section  px  ">
             <div className="animation-wrap  " ref={wrapRef}>
 
                 <canvas ref={canvasRef} className="" />
                 <video ref={videoRef} style={{ display: 'none' }} />
 
                 <div className="colour-overlay">
-                    <div id="noiseLayer"></div>
-                    <svg viewBox='0 0 500 500' preserveAspectRatio='none' xmlns='http://www.w3.org/2000/svg'>
-
-                        <filter id='noiseFilter'>
-                            <feTurbulence
-                                type='fractalNoise'
-                                baseFrequency='2'
-                                numOctaves='1'
-                                stitchTiles='stitch' />
-                        </filter>
-                    </svg>
                 </div>
             </div>
         </section>
