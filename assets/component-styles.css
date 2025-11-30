@@ -427,9 +427,11 @@
 .project__card.not-active .aspectholder {
   height: 100%;
 }
-.project__card:hover .colour-overlay {
-  width: 120%;
-  top: -20%;
-  height: 120%;
-  left: -20%;
+@media (hover: hover) and (pointer: fine) and (min-width: 860) {
+  .project__card:hover .colour-overlay {
+    width: 120%;
+    top: -20%;
+    height: 120%;
+    left: -20%;
+  }
 }
