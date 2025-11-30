@@ -29,7 +29,7 @@ function MainText() {
         <div className="main__text">
             <section className="inner  px">
                 <h1 className="fh1"> 
-                    Hi, I’m George Staniland — a creative front-end developer crafting robust, production-ready websites for designers and studios.
+                    Hi, I’m George Staniland  <span className="mob-l-break">— </span> a creative front-end developer crafting robust, production-ready websites for designers and studios.
                 </h1>
                 
                 <h3 className="fh3" >

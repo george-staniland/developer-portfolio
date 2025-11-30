@@ -44,9 +44,9 @@
 }
 @media (max-width: 860) {
   .hero__section {
-    height: 100dvh;
-    padding-bottom: 25px;
-    align-items: end;
+    height: 98vh;
+    padding-bottom: 0px;
+    align-items: center;
   }
   .hero__section .animation-wrap {
     width: 100%;
@@ -100,7 +100,16 @@
     padding-top: 60px;
   }
   .main__text a {
-    text-decoration-thickness: 1px;
+    text-decoration: none;
+  }
+}
+@media (max-width: 391px) {
+  .main__text .mob-l-break {
+    color: red;
+  }
+  .main__text .mob-l-break::after {
+    content: "\a";
+    white-space: pre;
   }
 }
 
@@ -145,6 +154,9 @@
   grid-template-columns: 1fr 1fr 2fr;
 }
 @media (max-width: 860) {
+  .projects__grid {
+    padding-bottom: 100px;
+  }
   .projects__grid .desktop {
     display: none;
   }
@@ -171,7 +183,6 @@
   }
   .projects-mobile .embla__slide .project__card {
     min-height: 438.5px;
-    overflow: visible;
   }
   .projects-mobile .embla__slide .project__card .aspectholder {
     min-height: 438.5px;
@@ -196,7 +207,7 @@
   border-radius: 9px;
   min-height: 420px;
   overflow: hidden;
-  box-shadow: rgba(0, 0, 0, 0.02) 0px 1px 3px 0px, rgba(27, 31, 35, 0.15) 0px 0px 0px 1px;
+  border: 1px solid rgb(211, 211, 211);
   cursor: pointer;
 }
 .project__card .expand-project-btn {

@@ -25,20 +25,20 @@ export default function HeroSection() {
     useEffect(() => {
         if (window.innerWidth < 860) {
             setIsMobile(true)
-            setGridSize(50)
+            setGridSize(35)
         }
     }, [])
 
 
     useGSAP(() => {
-        if (window.innerWidth < 860) return; 
+        // if (window.innerWidth < 860) return; 
         gsap.to('.hero__section ',
             {
                 x: 0,
                 scrollTrigger: {
                     trigger: ".hero__section",
                     pin: true,
-                    markers: false,
+                    markers: true,
                     start: "10% 6%",
                     // anticipatePin: 1,
                     end: () => `+=${window.innerHeight - 100}`
@@ -60,7 +60,7 @@ export default function HeroSection() {
         const maxScroll = vh - 100;
 
         // const startSize = 70;
-       const startSize = isMobile ? 50 : 70;
+       const startSize = isMobile ? 35 : 70;
        const endSize = 10;
        let size;
 
@@ -184,7 +184,7 @@ export default function HeroSection() {
 
         });
 
-        video.src = '/dog.mp4';
+        video.src = '/dog-compress.mp4';
         video.crossOrigin = 'anonymous';
         video.autoplay = true;
         video.loop = true;
@@ -195,7 +195,7 @@ export default function HeroSection() {
     }, []);
 
     return (
-        <section className="hero__section  px  ">
+        <section className="hero__section  px outline ">
             <div className="animation-wrap  " ref={wrapRef}>
 
                 <canvas ref={canvasRef} className="" />
