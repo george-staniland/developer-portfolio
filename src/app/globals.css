@@ -1,20 +1,12 @@
 /* Fonts */
 @font-face {
-  font-family: "Cabin";
-  src: url("/fonts/Cabin-VariableFont.woff2") format("woff2 supports variations"),
-       url("/fonts/Cabin-VariableFont.woff2") format("woff2-variations");
-  font-optical-sizing: auto;
-  font-style: normal;
-  font-weight: 400 700;
-}
-
-@font-face {
   font-family: "Noto Sans";
   src: url("/fonts/NotoSans-VariableFont.woff2") format("woff2 supports variations"),
        url("/fonts/NotoSans-VariableFont.woff2") format("woff2-variations");
   font-optical-sizing: auto;
   font-style: normal;
   font-weight: 100 900;
+  font-display: swap;
 }
 
 /* Variables */
@@ -215,7 +207,7 @@ a {
 }
 
 button {
-  font-family: "Cabin" , sans-serif;
+  font-family: "Noto Sans";
   font-weight: 300;
   border-radius: 2px;
   -webkit-appearance: none;
