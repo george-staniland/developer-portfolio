@@ -138,6 +138,9 @@
   .projects__grid {
     padding-bottom: 35vh;
   }
+  .projects__grid .title-wrap .title {
+    text-align: left;
+  }
   .projects__grid .desktop {
     display: none;
   }

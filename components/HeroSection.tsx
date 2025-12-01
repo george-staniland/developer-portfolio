@@ -193,17 +193,18 @@ export default function HeroSection() {
                     const norm = brightnessValue / 255;
                     const radius = maxRadius * (1 - norm);
 
+                    const circlePath = new Path2D();
+
                     if (radius > 0.5) {
-                        ctx.beginPath();
-                        ctx.arc(
-                            col * grid + gridHalf,
-                            row * grid + gridHalf,
-                            radius,
-                            0,
-                            Math.PI * 2
-                        );
-                        ctx.fill();
-                    }
+            circlePath.arc(
+                col * grid + gridHalf,
+                row * grid + gridHalf,
+                radius,
+                0,
+                Math.PI * 2
+            );
+            ctx.fill(circlePath);
+        }
                 }
             }
         };
@@ -225,7 +226,7 @@ export default function HeroSection() {
 
         });
 
-        video.src = '/dog-compress.mp4';
+        video.src = '/smol.mp4';
         video.crossOrigin = 'anonymous';
         video.autoplay = true;
         video.loop = true;

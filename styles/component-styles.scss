@@ -150,6 +150,11 @@ $mobile-break: 860;
     }
 
     @media(max-width: $mobile-break) {
+        .title-wrap {
+            .title {
+                text-align: left;
+            }
+        }
         .desktop {
             display: none;
         }
