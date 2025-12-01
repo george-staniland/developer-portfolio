@@ -196,21 +196,19 @@ export default function HeroSection() {
                     const circlePath = new Path2D();
 
                     if (radius > 0.5) {
-            circlePath.arc(
-                col * grid + gridHalf,
-                row * grid + gridHalf,
-                radius,
-                0,
-                Math.PI * 2
-            );
-            ctx.fill(circlePath);
-        }
+                        circlePath.arc(
+                            col * grid + gridHalf,
+                            row * grid + gridHalf,
+                            radius,
+                            0,
+                            Math.PI * 2
+                        );
+                        ctx.fill(circlePath);
+                    }
                 }
             }
         };
       
-     
-
         const processVideoFrame = () => {
             generateHalftone();
             animationFrameRef.current = requestAnimationFrame(processVideoFrame);
@@ -223,28 +221,26 @@ export default function HeroSection() {
             if (pause) {
                 video.pause()
             }
-
         });
 
-        video.src = '/smol.mp4';
-        video.crossOrigin = 'anonymous';
-        video.autoplay = true;
-        video.loop = true;
-        video.muted = true;
-        video.playsInline = true;
+        video.src = '/resize-4.mp4';
 
         return () => cancelAnimationFrame(animationFrameRef.current);
     }, []);
 
     return (
         <section className="hero__section  px  ">
-            <div className="animation-wrap  " ref={wrapRef}>
+            <div className="animation-wrap" ref={wrapRef}>
 
                 <canvas ref={canvasRef} className="" />
-                <video ref={videoRef} style={{ display: 'none' }} />
+                <video 
+                    ref={videoRef} 
+                    autoPlay
+                    loop
+                    muted
+                    src="/resize-4.mp4"
+                />
 
-                <div className="colour-overlay">
-                </div>
             </div>
         </section>
     );
