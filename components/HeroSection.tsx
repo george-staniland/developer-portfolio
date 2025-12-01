@@ -97,30 +97,52 @@ export default function HeroSection() {
         dotColor: '#000000ff',
     };
 
+    const tempCanvasRef = useRef(null);
+    const tempCtxRef = useRef(null);
+
     useEffect(() => {
         const canvas = canvasRef.current;
         const canvasWrap = wrapRef.current;
         const video = videoRef.current;
 
-        const setupCanvasDimensions = (videoWidth, videoHeight) => {
-            const canvasWrapWidth = canvasWrap.clientWidth 
-            canvas.width = canvasWrapWidth;
-            canvas.height = (videoHeight / videoWidth) * canvas.width;
+          // Create temp canvas ONCE
+    if (!tempCanvasRef.current) {
+        tempCanvasRef.current = document.createElement('canvas');
+        tempCtxRef.current = tempCanvasRef.current.getContext('2d', {
+            willReadFrequently: true
+        });
+    }
 
-        };
+       const setupCanvasDimensions = (videoWidth, videoHeight) => {
+        const canvasWrapWidth = canvasWrap.clientWidth;
+        canvas.width = canvasWrapWidth;
+        canvas.height = (videoHeight / videoWidth) * canvas.width;
+        
+        // Also set temp canvas dimensions
+        const targetWidth = canvas.width * config.scaleFactor;
+        const targetHeight = canvas.height * config.scaleFactor;
+        tempCanvasRef.current.width = targetWidth;
+        tempCanvasRef.current.height = targetHeight;
+    };
+
 
         const generateHalftone = () => {
-            const targetWidth = canvas.width * config.scaleFactor;
-            const targetHeight = canvas.height * config.scaleFactor;
+              const targetWidth = tempCanvasRef.current.width;
+        const targetHeight = tempCanvasRef.current.height;
+        const tempCtx = tempCtxRef.current;
+
+        tempCtx.drawImage(video, 0, 0, targetWidth, targetHeight);
+        const imgData = tempCtx.getImageData(0, 0, targetWidth, targetHeight);
+
+        
             const tempCanvas = document.createElement('canvas');
             tempCanvas.width = targetWidth;
             tempCanvas.height = targetHeight;
-            const tempCtx = tempCanvas.getContext('2d', {
-                willReadFrequently: true // Performance hint
-            });
 
-            tempCtx.drawImage(video, 0, 0, targetWidth, targetHeight);
-            const imgData = tempCtx.getImageData(0, 0, targetWidth, targetHeight);
+          
+
+           
+                   
             const data = imgData.data;
             const grayData = new Float32Array(targetWidth * targetHeight);
 
@@ -186,6 +208,7 @@ export default function HeroSection() {
             }
         };
       
+     
 
         const processVideoFrame = () => {
             generateHalftone();
@@ -193,7 +216,6 @@ export default function HeroSection() {
         };
 
         video.addEventListener('loadeddata', () => {
-            console.log('loaded')
             setupCanvasDimensions(video.videoWidth, video.videoHeight);
             video.play();
             processVideoFrame();
@@ -202,7 +224,7 @@ export default function HeroSection() {
             }
 
         });
-        console.log(isMobile, 'log test')
+
         video.src = '/dog-compress.mp4';
         video.crossOrigin = 'anonymous';
         video.autoplay = true;
