@@ -27,6 +27,7 @@
     "typescript": "5.1.6"
   },
   "devDependencies": {
+    "baseline-browser-mapping": "^2.8.32",
     "sass": "^1.89.0"
   }
 }

@@ -34,7 +34,7 @@ function MainText() {
                 
                 <h3 className="fh3" >
                     I have five years of experience building websites and web applications.
-                    Previously at <a href="https://www.superstarwebsites.co.nz/" target="_blank" rel="noopener noreferrer">Superstar Websites</a> and <a href="https://thewebguys.co.nz/" target="_blank" rel="noopener noreferrer">The Web Guys</a>, I currently contract for <a href="https://newterritory.studio/" target="_blank" rel="noopener noreferrer">New Territory Studio</a>. I am available for contract projects.
+                    Previously at <a href="https://www.superstarwebsites.co.nz/" target="_blank" rel="noopener noreferrer">Superstar Websites</a> and <a href="https://thewebguys.co.nz/" target="_blank" rel="noopener noreferrer">The Web Guys</a>, I currently contract for <a href="https://newterritory.studio/" target="_blank" rel="noopener noreferrer">New Territory Studio</a>. I am  <span className="yes-icon"> available </span> for contract projects.
                 </h3>
 
                 <div className="tech">
