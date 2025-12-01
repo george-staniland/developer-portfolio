@@ -28,6 +28,7 @@
   width: 100%;
   height: 100%;
   opacity: 0;
+  pointer-events: none;
 }
 @media (max-width: 860) {
   .hero__section {

@@ -224,6 +224,12 @@ export default function HeroSection() {
         });
 
         video.src = '/resize-4.mp4';
+        video.crossOrigin = 'anonymous';
+        video.autoplay = true;
+        video.loop = true;
+        video.muted = true;
+        video.playsInline = true;
+        
 
         return () => cancelAnimationFrame(animationFrameRef.current);
     }, []);
@@ -235,9 +241,6 @@ export default function HeroSection() {
                 <canvas ref={canvasRef} className="" />
                 <video 
                     ref={videoRef} 
-                    autoPlay
-                    loop
-                    muted
                 />
 
             </div>
