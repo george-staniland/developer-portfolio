@@ -238,7 +238,6 @@ export default function HeroSection() {
                     autoPlay
                     loop
                     muted
-                    src="/resize-4.mp4"
                 />
 
             </div>
