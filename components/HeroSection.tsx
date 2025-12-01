@@ -127,28 +127,19 @@ export default function HeroSection() {
 
 
         const generateHalftone = () => {
-              const targetWidth = tempCanvasRef.current.width;
-        const targetHeight = tempCanvasRef.current.height;
-        const tempCtx = tempCtxRef.current;
 
-        tempCtx.drawImage(video, 0, 0, targetWidth, targetHeight);
-        const imgData = tempCtx.getImageData(0, 0, targetWidth, targetHeight);
+            const targetWidth = tempCanvasRef.current.width;
+            const targetHeight = tempCanvasRef.current.height;
+            const tempCtx = tempCtxRef.current;
 
-        
-            const tempCanvas = document.createElement('canvas');
-            tempCanvas.width = targetWidth;
-            tempCanvas.height = targetHeight;
+            tempCtx.drawImage(video, 0, 0, targetWidth, targetHeight);
+            const imgData = tempCtx.getImageData(0, 0, targetWidth, targetHeight);
 
-          
-
-           
-                   
             const data = imgData.data;
             const grayData = new Float32Array(targetWidth * targetHeight);
 
             const contrastFactor = (259 * (config.contrast + 255)) / (255 * (259 - config.contrast));
 
-            // Pre-calculate constants
             const gammaInverse = 1 / config.gamma;
 
             for (let i = 0; i < data.length; i += 4) {
@@ -173,40 +164,43 @@ export default function HeroSection() {
 
             ctx.fillStyle = config.dotColor;
 
-            // Single pass - calculate and draw in one loop
-            for (let row = 0; row < numRows; row++) {
-                for (let col = 0; col < numCols; col++) {
-                    let sum = 0, count = 0;
-                    const rowStart = row * grid;
-                    const rowEnd = Math.min((row + 1) * grid, targetHeight);
-                    const colStart = col * grid;
-                    const colEnd = Math.min((col + 1) * grid, targetWidth);
 
-                    for (let y = rowStart; y < rowEnd; y++) {
-                        for (let x = colStart; x < colEnd; x++) {
-                            sum += grayData[y * targetWidth + x];
-                            count++;
-                        }
-                    }
+        const circlePath = new Path2D();
 
-                    const brightnessValue = sum / count;
-                    const norm = brightnessValue / 255;
-                    const radius = maxRadius * (1 - norm);
+        // Single pass - calculate and draw in one loop
+        for (let row = 0; row < numRows; row++) {
+            for (let col = 0; col < numCols; col++) {
+                let sum = 0, count = 0;
+                const rowStart = row * grid;
+                const rowEnd = Math.min((row + 1) * grid, targetHeight);
+                const colStart = col * grid;
+                const colEnd = Math.min((col + 1) * grid, targetWidth);
 
-                    const circlePath = new Path2D();
-
-                    if (radius > 0.5) {
-                        circlePath.arc(
-                            col * grid + gridHalf,
-                            row * grid + gridHalf,
-                            radius,
-                            0,
-                            Math.PI * 2
-                        );
-                        ctx.fill(circlePath);
+                for (let y = rowStart; y < rowEnd; y++) {
+                    for (let x = colStart; x < colEnd; x++) {
+                        sum += grayData[y * targetWidth + x];
+                        count++;
                     }
                 }
+
+                const brightnessValue = sum / count;
+                const norm = brightnessValue / 255;
+                const radius = maxRadius * (1 - norm);
+
+                if (radius > 0.5) {
+                    ctx.beginPath(); // Use beginPath instead
+                    ctx.arc(
+                        col * grid + gridHalf,
+                        row * grid + gridHalf,
+                        radius,
+                        0,
+                        Math.PI * 2
+                    );
+                    ctx.fill();
+                }
             }
+        }
+        
         };
       
         const processVideoFrame = () => {
@@ -235,14 +229,10 @@ export default function HeroSection() {
     }, []);
 
     return (
-        <section className="hero__section  px  ">
+        <section className="hero__section px">
             <div className="animation-wrap" ref={wrapRef}>
-
                 <canvas ref={canvasRef} className="" />
-                <video 
-                    ref={videoRef} 
-                />
-
+                <video ref={videoRef} />
             </div>
         </section>
     );
