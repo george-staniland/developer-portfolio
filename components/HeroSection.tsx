@@ -200,7 +200,7 @@ export default function HeroSection() {
                 }
             }
         }
-        
+
         };
       
         const processVideoFrame = () => {
@@ -217,7 +217,7 @@ export default function HeroSection() {
             }
         });
 
-        video.src = '/resize-4.mp4';
+        video.src = '/vert.mov';
         video.crossOrigin = 'anonymous';
         video.autoplay = true;
         video.loop = true;
