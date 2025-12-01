@@ -52,7 +52,7 @@ $mobile-break: 860;
 .hero__secton_mobile {
     margin-top: 39svh;
     padding-bottom: 30px;
-    .inner {
+    .h-inner {
         height: 65svh;
         position: relative;
          .colour-holder {
@@ -129,10 +129,10 @@ $mobile-break: 860;
      justify-content: center;
      align-items: center;
 
-    .inner {
+    .inner-text {
        max-width: var(--max-page-w);
-       opacity: 0;
-       transform: translateY(20px);
+    //    opacity: 0;
+    //    transform: translateY(20px);
     }
     
     h1 {

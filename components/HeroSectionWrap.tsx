@@ -59,7 +59,7 @@ export default function HeroSectionWrap() {
 
             {isMobile &&
             <section className='px hero__secton_mobile '>
-                <div className="inner">
+                <div className="h-inner">
                     <div className='colour-holder'>
                         <div id="blob1"></div>
                         <div id="blob2"></div>

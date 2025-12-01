@@ -43,11 +43,11 @@
   margin-top: 39svh;
   padding-bottom: 30px;
 }
-.hero__secton_mobile .inner {
+.hero__secton_mobile .h-inner {
   height: 65svh;
   position: relative;
 }
-.hero__secton_mobile .inner .colour-holder {
+.hero__secton_mobile .h-inner .colour-holder {
   position: absolute;
   --blur-amount: 75px;
   background-color: rgb(206, 204, 204);
@@ -60,7 +60,7 @@
   overflow: hidden;
   border-radius: 9px;
 }
-.hero__secton_mobile .inner .colour-holder #blob1 {
+.hero__secton_mobile .h-inner .colour-holder #blob1 {
   width: 125%;
   height: 50%;
   border-radius: 75% 90%;
@@ -73,7 +73,7 @@
   left: -15%;
   will-change: transform;
 }
-.hero__secton_mobile .inner .colour-holder #blob2 {
+.hero__secton_mobile .h-inner .colour-holder #blob2 {
   width: 70%;
   height: 60%;
   border-radius: 50% 33%;
@@ -84,7 +84,7 @@
   filter: blur(var(--blur-amount));
   will-change: transform;
 }
-.hero__secton_mobile .inner .colour-holder #blob3 {
+.hero__secton_mobile .h-inner .colour-holder #blob3 {
   width: 25%;
   height: 120%;
   border-radius: 45% 40%;
@@ -96,7 +96,7 @@
   mix-blend-mode: overlay;
   will-change: transform;
 }
-.hero__secton_mobile .inner .colour-holder #noiseLayer {
+.hero__secton_mobile .h-inner .colour-holder #noiseLayer {
   position: absolute;
   top: 0;
   left: 0;
@@ -114,10 +114,8 @@
   justify-content: center;
   align-items: center;
 }
-.main__text .inner {
+.main__text .inner-text {
   max-width: var(--max-page-w);
-  opacity: 0;
-  transform: translateY(20px);
 }
 .main__text h1 {
   color: #649acf;

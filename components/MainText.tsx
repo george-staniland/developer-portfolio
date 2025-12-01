@@ -8,26 +8,26 @@ gsap.registerPlugin(ScrollTrigger);
 
 function MainText() {
 
-     useGSAP(() => {
-        gsap.to('.main__text .inner',
-            {
-                opacity: 1,
-                y: 0,
-                duration: 0.6,
-                ease: "power1.in",
-                scrollTrigger: {
-                    trigger: ".main__text .inner",
-                    markers: false,
-                    start: "top bottom-=60px",
-                    toggleActions: "play reverse play reverse"
-                },
-            }
-        )
-    })
+    //  useGSAP(() => {
+    //     gsap.to('.main__text .inner-text',
+    //         {
+    //             opacity: 1,
+    //             y: 0,
+    //             duration: 0.6,
+    //             ease: "power1.in",
+    //             scrollTrigger: {
+    //                 trigger: ".main__text .inner-text",
+    //                 markers: true,
+    //                 start: "10% bottom-=100px",
+    //                 toggleActions: "play reverse play reverse"
+    //             },
+    //         }
+    //     )
+    // })
 
     return (
         <div className="main__text">
-            <section className="inner  px">
+            <section className="inner-text px">
                 <h1 className="fh1"> 
                     Hi, I’m George Staniland  <span className="mob-l-break">— </span> a creative front-end developer crafting robust, production-ready websites for designers and studios.
                 </h1>

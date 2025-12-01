@@ -16,7 +16,7 @@ export default function HeroSection() {
     const videoRef = useRef(null);
     const animationFrameRef = useRef(null);
     const [ isMobile, setIsMobile ] = useState(false)
-    const [gridSize, setGridSize] = useState(70);
+    const [gridSize, setGridSize] = useState(90);
     const gridSizeRef = useRef(gridSize);
 
     //pause during dev and design
@@ -32,7 +32,7 @@ export default function HeroSection() {
 
     useGSAP(() => {
         // if (window.innerWidth < 860) return; 
-        gsap.to('.hero__section ',
+        gsap.to('.hero__section',
             {
                 x: 0,
                 scrollTrigger: {
@@ -40,7 +40,7 @@ export default function HeroSection() {
                     pin: true,
                     markers: false,
                     start: "10% 6%",
-                    // anticipatePin: 1,
+                    anticipatePin: 1,
                     end: () => `+=${window.innerHeight - 100}`
                 },
             }
@@ -60,8 +60,8 @@ export default function HeroSection() {
         const maxScroll = vh - 100;
 
         // const startSize = 70;
-       const startSize = isMobile ? 35 : 70;
-       const endSize = 10;
+       const startSize = isMobile ? 35 : 90;
+       const endSize = 20;
        let size;
 
 
@@ -217,6 +217,7 @@ export default function HeroSection() {
             }
         });
 
+        // video.src = 'dog-compress.mp4';
         video.src = '/vert.mov';
         video.crossOrigin = 'anonymous';
         video.autoplay = true;
