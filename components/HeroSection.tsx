@@ -74,8 +74,11 @@ export default function HeroSection() {
             const easedFraction = Math.pow(fraction, 0.5);
             size = startSize - easedFraction * (startSize - endSize);
         }
+        const roundedSize = Math.round(size);
 
-        setGridSize(Math.round(size));
+         if (Math.abs(roundedSize - gridSizeRef.current) > 0.6) {
+            setGridSize(roundedSize);
+        }
     }, [isMobile]);
 
 
@@ -89,8 +92,8 @@ export default function HeroSection() {
         brightness: 20,
         contrast: 0,
         gamma: 1,
-        scaleFactor: 1,
-        canvasBackgroundColor: '#fcfcfc',
+        scaleFactor: isMobile ? 0.7 : 1,
+        canvasBackgroundColor: '#f0f0f0',
         dotColor: '#000000ff',
     };
 
