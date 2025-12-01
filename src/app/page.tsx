@@ -1,5 +1,5 @@
 import Nav from '@/components/Nav'
-import HeroSection from '@/components/HeroSection'
+import HeroSectionWrap from '@/components/HeroSectionWrap'
 import MainText from '@/components/MainText'
 import ProjectsGrid from '@/components/ProjectsGrid'
 import { executeQuery } from '@datocms/cda-client';
@@ -45,14 +45,12 @@ export default async function Home() {
     token: process.env.DATOCMS_API_TOKEN,
   });
 
-
   return (
     <>
       <Nav />
       <main className="home-page" >
-        <HeroSection />
+        <HeroSectionWrap/>
         <MainText />
-       
         <ProjectsGrid projects={projects} />
       </main >
     </>
