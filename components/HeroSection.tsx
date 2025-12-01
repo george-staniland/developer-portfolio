@@ -92,7 +92,7 @@ export default function HeroSection() {
         brightness: 20,
         contrast: 0,
         gamma: 1,
-        scaleFactor: isMobile ? 0.7 : 1,
+        scaleFactor: 1,
         canvasBackgroundColor: '#f0f0f0',
         dotColor: '#000000ff',
     };
@@ -110,80 +110,81 @@ export default function HeroSection() {
         };
 
         const generateHalftone = () => {
-    const targetWidth = canvas.width * config.scaleFactor;
-    const targetHeight = canvas.height * config.scaleFactor;
-    const tempCanvas = document.createElement('canvas');
-    tempCanvas.width = targetWidth;
-    tempCanvas.height = targetHeight;
-    const tempCtx = tempCanvas.getContext('2d', { 
-        willReadFrequently: true // Performance hint
-    });
+            const targetWidth = canvas.width * config.scaleFactor;
+            const targetHeight = canvas.height * config.scaleFactor;
+            const tempCanvas = document.createElement('canvas');
+            tempCanvas.width = targetWidth;
+            tempCanvas.height = targetHeight;
+            const tempCtx = tempCanvas.getContext('2d', {
+                willReadFrequently: true // Performance hint
+            });
 
-    tempCtx.drawImage(video, 0, 0, targetWidth, targetHeight);
-    const imgData = tempCtx.getImageData(0, 0, targetWidth, targetHeight);
-    const data = imgData.data;
-    const grayData = new Float32Array(targetWidth * targetHeight);
+            tempCtx.drawImage(video, 0, 0, targetWidth, targetHeight);
+            const imgData = tempCtx.getImageData(0, 0, targetWidth, targetHeight);
+            const data = imgData.data;
+            const grayData = new Float32Array(targetWidth * targetHeight);
 
-    const contrastFactor = (259 * (config.contrast + 255)) / (255 * (259 - config.contrast));
-    
-    // Pre-calculate constants
-    const gammaInverse = 1 / config.gamma;
+            const contrastFactor = (259 * (config.contrast + 255)) / (255 * (259 - config.contrast));
 
-    for (let i = 0; i < data.length; i += 4) {
-        let gray = 0.299 * data[i] + 0.587 * data[i + 1] + 0.114 * data[i + 2];
-        gray = contrastFactor * (gray - 128) + 128 + config.brightness;
-        gray = Math.max(0, Math.min(255, gray));
-        gray = 255 * Math.pow(gray / 255, gammaInverse);
-        grayData[i / 4] = gray;
-    }
+            // Pre-calculate constants
+            const gammaInverse = 1 / config.gamma;
 
-    const grid = gridSizeRef.current * config.scaleFactor;
-    const numCols = Math.ceil(targetWidth / grid);
-    const numRows = Math.ceil(targetHeight / grid);
-    
-    const ctx = canvas.getContext('2d');
-    ctx.fillStyle = config.canvasBackgroundColor;
-    ctx.fillRect(0, 0, canvas.width, canvas.height);
-    
-    // Pre-calculate for arc drawing
-    const maxRadius = grid / 2;
-    const gridHalf = grid / 2;
-    
-    // Single pass - calculate and draw in one loop
-    for (let row = 0; row < numRows; row++) {
-        for (let col = 0; col < numCols; col++) {
-            let sum = 0, count = 0;
-            const rowStart = row * grid;
-            const rowEnd = Math.min((row + 1) * grid, targetHeight);
-            const colStart = col * grid;
-            const colEnd = Math.min((col + 1) * grid, targetWidth);
-            
-            for (let y = rowStart; y < rowEnd; y++) {
-                for (let x = colStart; x < colEnd; x++) {
-                    sum += grayData[y * targetWidth + x];
-                    count++;
+            for (let i = 0; i < data.length; i += 4) {
+                let gray = 0.299 * data[i] + 0.587 * data[i + 1] + 0.114 * data[i + 2];
+                gray = contrastFactor * (gray - 128) + 128 + config.brightness;
+                gray = Math.max(0, Math.min(255, gray));
+                gray = 255 * Math.pow(gray / 255, gammaInverse);
+                grayData[i / 4] = gray;
+            }
+
+            const grid = gridSizeRef.current * config.scaleFactor;
+            const numCols = Math.ceil(targetWidth / grid);
+            const numRows = Math.ceil(targetHeight / grid);
+
+            const ctx = canvas.getContext('2d');
+            ctx.fillStyle = config.canvasBackgroundColor;
+            ctx.fillRect(0, 0, canvas.width, canvas.height);
+
+            // Pre-calculate for arc drawing
+            const maxRadius = grid / 2;
+            const gridHalf = grid / 2;
+
+            ctx.fillStyle = config.dotColor;
+
+            // Single pass - calculate and draw in one loop
+            for (let row = 0; row < numRows; row++) {
+                for (let col = 0; col < numCols; col++) {
+                    let sum = 0, count = 0;
+                    const rowStart = row * grid;
+                    const rowEnd = Math.min((row + 1) * grid, targetHeight);
+                    const colStart = col * grid;
+                    const colEnd = Math.min((col + 1) * grid, targetWidth);
+
+                    for (let y = rowStart; y < rowEnd; y++) {
+                        for (let x = colStart; x < colEnd; x++) {
+                            sum += grayData[y * targetWidth + x];
+                            count++;
+                        }
+                    }
+
+                    const brightnessValue = sum / count;
+                    const norm = brightnessValue / 255;
+                    const radius = maxRadius * (1 - norm);
+
+                    if (radius > 0.5) {
+                        ctx.beginPath();
+                        ctx.arc(
+                            col * grid + gridHalf,
+                            row * grid + gridHalf,
+                            radius,
+                            0,
+                            Math.PI * 2
+                        );
+                        ctx.fill();
+                    }
                 }
             }
-            
-            const brightnessValue = sum / count;
-            const norm = brightnessValue / 255;
-            const radius = maxRadius * (1 - norm);
-            
-            if (radius > 0.5) {
-                ctx.beginPath();
-                ctx.arc(
-                    col * grid + gridHalf, 
-                    row * grid + gridHalf, 
-                    radius, 
-                    0, 
-                    Math.PI * 2
-                );
-                ctx.fillStyle = config.dotColor;
-                ctx.fill();
-            }
-        }
-    }
-};
+        };
       
 
         const processVideoFrame = () => {

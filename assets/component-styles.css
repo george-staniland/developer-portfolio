@@ -5,6 +5,7 @@
   align-items: center;
   position: relative;
   z-index: 1;
+  will-change: transform;
 }
 .hero__section .animation-wrap {
   position: relative;
@@ -30,7 +31,7 @@
     width: 100%;
     aspect-ratio: unset;
   }
-  .hero__section .canvas {
+  .hero__section .animation-wrap canvas {
     top: -18px;
   }
 }
