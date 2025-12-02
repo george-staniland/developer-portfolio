@@ -162,20 +162,26 @@ $mobile-break: 860;
     .yes-icon {
         position: relative;
         // border: 1px solid red;
-        padding-right: 18px;
+        padding-right: 20px;
         &::after {
-            --size: 50px;
+            --size: 10px;
             content: '';
             position: absolute;
-            bottom: 7px;
-            right: 11px;
+            bottom: 8px;
+            right: 13px;
             width: var(--size);
             height: var(--size);
             border-radius: 50%;
-            /* Creates the shiny appearance */
-            background: radial-gradient(circle at 20px 20px, #ffb3b3, #ff0000);
-            /* Optional: Adds a subtle glow effect */
-            box-shadow: 0 0 15px rgba(255, 0, 0, 0.7);
+            // background-color: #0be469;
+          
+            /* Shiny look */
+            background: radial-gradient(circle at 3px 3px,
+                    /* highlight position scaled down */
+                    #a2f7c5,
+                    /* lighter highlight derived from #0be469 */
+                    #0be469
+                    /* primary green */
+            );
         }
     }
 
@@ -191,6 +197,9 @@ $mobile-break: 860;
     }
     @media(max-width: $mobile-break) {
         padding-bottom: 60px;
+        .fh1 {
+            color: var(--black);
+        }
         .tech {
             padding-top: 60px;
         }
@@ -199,6 +208,12 @@ $mobile-break: 860;
         }
         .fh3 {
             // text-align: center;
+        }
+        .yes-icon {
+            &::after {
+                right: 5px;
+                bottom: 5px;
+            }
         }
     }
     @media(max-width: 431px) {
@@ -582,3 +597,26 @@ $mobile-break: 860;
 }
 
 
+// Global
+    .yes-icon {
+        position: relative;
+        &::after {
+            --size: 10px;
+            content: '';
+            position: absolute;
+            bottom: 8px;
+            right: 13px;
+            width: var(--size);
+            height: var(--size);
+            border-radius: 50%;
+          
+            /* Shiny look */
+            background: radial-gradient(circle at 3px 3px,
+                    /* highlight position scaled down */
+                    #a2f7c5,
+                    /* lighter highlight derived from #0be469 */
+                    #0be469
+                    /* primary green */
+            );
+        }
+    }

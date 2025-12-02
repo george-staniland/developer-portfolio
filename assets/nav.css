@@ -30,8 +30,8 @@
   background-color: var(--grey);
 }
 .main-nav .nav-btn.is-active {
-  width: 30vw;
-  height: 30vw;
+  width: 35vw;
+  height: 35vw;
   max-height: 95vh;
   cursor: ne-resize;
   background-color: var(--grey);
@@ -77,28 +77,39 @@
   flex-direction: column;
   gap: 7px;
 }
-.main-nav .nav-btn .overlay-content .overlay-inner p.email object {
-  position: relative;
-  top: 6px;
-  left: 5px;
+.main-nav .nav-btn .overlay-content .overlay-inner .svgs-wrap {
+  padding-top: 25px;
+  display: flex;
+  flex-direction: column;
+  gap: 7px;
 }
-.main-nav .nav-btn .overlay-content .overlay-inner p.email object svg text {
-  fill: red;
+.main-nav .nav-btn .overlay-content .overlay-inner .email-wrap {
+  display: flex;
+  gap: 8px;
 }
-.main-nav .nav-btn .overlay-content .overlay-inner p.phone object {
+.main-nav .nav-btn .overlay-content .overlay-inner .email-wrap object {
   position: relative;
-  top: 6px;
-  left: 3px;
+  top: 1px;
+}
+.main-nav .nav-btn .overlay-content .overlay-inner .phone-wrap {
+  display: flex;
+  gap: 8px;
+}
+.main-nav .nav-btn .overlay-content .overlay-inner .phone-wrap object {
+  position: relative;
+  top: 3px;
 }
 .main-nav .nav-btn .overlay-content .overlay-inner .btns {
-  padding-top: 20px;
+  padding-top: 16px;
   display: flex;
   gap: 16px;
 }
 .main-nav .nav-btn .overlay-content .overlay-inner .btns button {
   font-size: 14px;
   font-weight: 400;
-  transition: all 0.3s ease-in-out;
+  display: flex;
+  align-items: flex-end;
+  gap: 4px;
 }
 .main-nav .nav-btn .overlay-content .overlay-inner .btns button:hover {
   background-color: var(--deep-grey);

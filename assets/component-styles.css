@@ -136,21 +136,19 @@
 }
 .main__text .yes-icon {
   position: relative;
-  padding-right: 18px;
+  padding-right: 20px;
 }
 .main__text .yes-icon::after {
-  --size: 50px;
+  --size: 10px;
   content: "";
   position: absolute;
-  bottom: 7px;
-  right: 11px;
+  bottom: 8px;
+  right: 13px;
   width: var(--size);
   height: var(--size);
   border-radius: 50%;
-  /* Creates the shiny appearance */
-  background: radial-gradient(circle at 20px 20px, #ffb3b3, #ff0000);
-  /* Optional: Adds a subtle glow effect */
-  box-shadow: 0 0 15px rgba(255, 0, 0, 0.7);
+  /* Shiny look */
+  background: radial-gradient(circle at 3px 3px, #a2f7c5, #0be469);
 }
 .main__text a {
   color: unset;
@@ -166,11 +164,18 @@
   .main__text {
     padding-bottom: 60px;
   }
+  .main__text .fh1 {
+    color: var(--black);
+  }
   .main__text .tech {
     padding-top: 60px;
   }
   .main__text a {
     text-decoration: none;
+  }
+  .main__text .yes-icon::after {
+    right: 5px;
+    bottom: 5px;
   }
 }
 @media (max-width: 431px) {
@@ -502,4 +507,19 @@
     height: 120%;
     left: -20%;
   }
+}
+.yes-icon {
+  position: relative;
+}
+.yes-icon::after {
+  --size: 10px;
+  content: "";
+  position: absolute;
+  bottom: 8px;
+  right: 13px;
+  width: var(--size);
+  height: var(--size);
+  border-radius: 50%;
+  /* Shiny look */
+  background: radial-gradient(circle at 3px 3px, #a2f7c5, #0be469);
 }
