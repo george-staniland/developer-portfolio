@@ -8,22 +8,22 @@ gsap.registerPlugin(ScrollTrigger);
 
 function MainText() {
 
-    //  useGSAP(() => {
-    //     gsap.to('.main__text .inner-text',
-    //         {
-    //             opacity: 1,
-    //             y: 0,
-    //             duration: 0.6,
-    //             ease: "power1.in",
-    //             scrollTrigger: {
-    //                 trigger: ".main__text .inner-text",
-    //                 markers: true,
-    //                 start: "10% bottom-=100px",
-    //                 toggleActions: "play reverse play reverse"
-    //             },
-    //         }
-    //     )
-    // })
+     useGSAP(() => {
+        if (window.innerWidth > 860) return; 
+        gsap.from('.main__text .inner-text',
+            {
+                opacity: 0,
+                y: 20,
+                duration: 0.6,
+                ease: "power1.out",
+                scrollTrigger: {
+                    trigger: ".main__text .inner-text",
+                    markers: false,
+                    start: "0 bottom-=200px",
+                },
+            }
+        )
+    })
 
     return (
         <div className="main__text">

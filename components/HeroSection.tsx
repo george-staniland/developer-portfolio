@@ -22,16 +22,16 @@ export default function HeroSection() {
     //pause during dev and design
     const pause = false;
 
-    useEffect(() => {
-        if (window.innerWidth < 860) {
-            setIsMobile(true)
-            setGridSize(35)
-        }
-    }, [])
+    // useEffect(() => {
+    //     if (window.innerWidth < 860) {
+    //         setIsMobile(true)
+    //         setGridSize(35)
+    //     }
+    // }, [])
 
 
     useGSAP(() => {
-        // if (window.innerWidth < 860) return; 
+        
         gsap.to('.hero__section',
             {
                 x: 0,
@@ -39,7 +39,7 @@ export default function HeroSection() {
                     trigger: ".hero__section",
                     pin: true,
                     markers: false,
-                    start: "10% 6%",
+                    start: "12% 6%",
                     anticipatePin: 1,
                     end: () => `+=${window.innerHeight - 100}`
                 },
@@ -59,8 +59,8 @@ export default function HeroSection() {
         const vh = window.innerHeight;
         const maxScroll = vh - 100;
 
-        // const startSize = 70;
-       const startSize = isMobile ? 35 : 90;
+        const startSize = 90;
+        // const startSize = isMobile ? 35 : 90;
        const endSize = 20;
        let size;
 
@@ -217,8 +217,7 @@ export default function HeroSection() {
             }
         });
 
-        // video.src = 'dog-compress.mp4';
-        video.src = '/vert.mov';
+        video.src = '/running-man_compressed.mp4';
         video.crossOrigin = 'anonymous';
         video.autoplay = true;
         video.loop = true;

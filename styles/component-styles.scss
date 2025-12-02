@@ -2,7 +2,7 @@ $ipad-break: 1025;
 $mobile-break: 860;
 
 .hero__section {
-    height: 95vh;
+    height: 100vh;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -21,7 +21,8 @@ $mobile-break: 860;
 
         canvas {
             position: relative;
-            top: -10%;
+            top: -8%;
+            left: -0.5%;
         }
         video {
             // position: absolute;
@@ -110,7 +111,7 @@ $mobile-break: 860;
                 left: 15%;
                 filter: blur(var(--blur-amount));
                 will-change: transform;
-                animation: blobSlide2 8s ease-in-out infinite;
+                animation: blobSlide2 12s ease-in-out infinite;
             }
 
             @keyframes blobSlide2 {
@@ -635,7 +636,7 @@ $mobile-break: 860;
             --size: 10px;
             content: '';
             position: absolute;
-            bottom: 8px;
+            top: 8px;
             right: 13px;
             width: var(--size);
             height: var(--size);
