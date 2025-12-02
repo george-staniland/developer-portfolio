@@ -1,11 +1,10 @@
 "use client"
 import { useState, useEffect,useRef } from 'react';
 import HeroSection from '@/components/HeroSection';
+import { isTablet } from 'react-device-detect';
 
 export default function HeroSectionWrap() {
     const [isMobile, setIsMobile] = useState<boolean | null>( null); // Start with null
-    const animationFrameRef = useRef(null);
-
 
     useEffect(() => {
         setIsMobile(window.innerWidth < 860);
@@ -19,7 +18,7 @@ export default function HeroSectionWrap() {
 
     return (
         <>
-            {!isMobile && <HeroSection />}
+            {!isMobile && !isTablet && <HeroSection />}
 
             {isMobile &&
             <section className='px hero__secton_mobile '>
