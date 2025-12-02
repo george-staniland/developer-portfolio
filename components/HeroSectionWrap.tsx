@@ -6,8 +6,12 @@ import { isTablet } from 'react-device-detect';
 export default function HeroSectionWrap() {
     const [isMobile, setIsMobile] = useState<boolean | null>( null); // Start with null
 
+
     useEffect(() => {
-        setIsMobile(window.innerWidth < 860);
+        const check = () => setIsMobile(window.innerWidth < 860);
+        check();                   // run on mount
+        window.addEventListener("resize", check);
+        return () => window.removeEventListener("resize", check);
     }, []);
 
 
@@ -16,10 +20,12 @@ export default function HeroSectionWrap() {
         return <div style={{ height: '95vh' }} />; // Placeholder to prevent layout shift
     }
 
+    const showMobile = isMobile || isTablet;
+
     return (
         <>
             {!isMobile && !isTablet && <HeroSection />}
-            {isMobile || isTablet &&
+            {showMobile &&
             <section className='px hero__secton_mobile '>
                 <div className="h-inner">
                     <div className='colour-holder'>

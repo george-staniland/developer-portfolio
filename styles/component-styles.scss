@@ -55,6 +55,7 @@ $mobile-break: 860;
     padding-bottom: 30px;
     .h-inner {
         height: 65svh;
+        min-height: 480px;
         position: relative;
          .colour-holder {
             --blur-amount: 70px;

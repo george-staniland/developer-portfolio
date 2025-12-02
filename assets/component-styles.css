@@ -46,6 +46,7 @@
 }
 .hero__secton_mobile .h-inner {
   height: 65svh;
+  min-height: 480px;
   position: relative;
 }
 .hero__secton_mobile .h-inner .colour-holder {
