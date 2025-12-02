@@ -201,6 +201,8 @@ a {
 
 }
 
+
+
 /* Pages */
 .home-page {
   /* padding-top: 15svh; */
@@ -219,4 +221,9 @@ button {
   border: 1px solid var(--black);
   color: var(--black);
   background-color: var(--grey);
+}
+
+body.modal-open .modal-backdrop {
+  opacity: 1;
+  pointer-events: all;
 }

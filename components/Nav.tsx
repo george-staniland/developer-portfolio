@@ -1,5 +1,5 @@
 "use client"
-import { useState } from "react"
+import { useEffect, useState } from "react"
 import EmailPic from "./EmailPic";
 import PhonePic from "./PhonePic";
 import { GiConfirmed } from "react-icons/gi";
@@ -11,6 +11,14 @@ function Nav() {
         email: false,
         phone: false
     });
+
+    useEffect(() => {
+        if (isActive) {
+            document.body.classList.add('modal-open');
+        } else {
+            document.body.classList.remove('modal-open');
+        }
+    },[isActive])
 
 
     async function handleCopy(key: "email" | "phone", text: string) {
@@ -33,6 +41,14 @@ function Nav() {
 
     return (
         <nav className="main-nav" >
+            <div 
+                className="modal-backdrop" 
+                onClick={() => setIsActive(!isActive)} 
+                aria-label="toggle info modal"
+                role="button"
+            >
+                
+            </div>
             <div className="inner px">
                 <span className="box"></span>
                 <div

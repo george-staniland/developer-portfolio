@@ -49,8 +49,8 @@
 }
 .hero__secton_mobile .h-inner .colour-holder {
   position: absolute;
-  --blur-amount: 75px;
-  background-color: rgb(206, 204, 204);
+  --blur-amount: 70px;
+  background-color: #e5e5e5;
   top: 0;
   left: 0;
   width: 100%;
@@ -61,40 +61,71 @@
   border-radius: 9px;
 }
 .hero__secton_mobile .h-inner .colour-holder #blob1 {
-  width: 125%;
-  height: 50%;
-  border-radius: 75% 90%;
-  background-color: red;
-  transform: rotate(19deg);
+  width: 168%;
+  height: 62%;
   filter: blur(var(--blur-amount));
-  mix-blend-mode: soft-light;
-  position: absolute;
-  top: 25%;
-  left: -15%;
+  mix-blend-mode: color-burn;
   will-change: transform;
+  background-color: #716ac4;
+  border-radius: 75% 90%;
+  position: absolute;
+  top: 13%;
+  left: -55%;
+  transform: rotate(63deg);
+  animation: blobSlide1 12s ease-in-out infinite;
+}
+@keyframes blobSlide1 {
+  0%, 100% {
+    left: -55%;
+    transform: rotate(63deg);
+  }
+  50% {
+    left: 25%;
+    transform: rotate(0deg);
+  }
 }
 .hero__secton_mobile .h-inner .colour-holder #blob2 {
-  width: 70%;
-  height: 60%;
-  border-radius: 50% 33%;
-  background-color: green;
+  width: 73%;
+  height: 70%;
+  border-radius: 90% 63%;
+  background-color: #fff564;
   position: absolute;
-  top: 40%;
-  left: 5%;
+  top: 16%;
+  left: 15%;
   filter: blur(var(--blur-amount));
   will-change: transform;
+  animation: blobSlide2 8s ease-in-out infinite;
+}
+@keyframes blobSlide2 {
+  0%, 100% {
+    top: 2%;
+    transform: rotate(0deg);
+  }
+  50% {
+    top: 29%;
+    transform: rotate(20deg);
+  }
 }
 .hero__secton_mobile .h-inner .colour-holder #blob3 {
-  width: 25%;
+  width: 28%;
   height: 120%;
+  filter: blur(calc(var(--blur-amount) + 20px));
+  mix-blend-mode: difference;
+  will-change: transform;
+  background-color: #739cab;
   border-radius: 45% 40%;
   position: absolute;
   top: 23%;
-  left: 75%;
-  background-color: blue;
-  filter: blur(var(--blur-amount));
-  mix-blend-mode: overlay;
-  will-change: transform;
+  left: 85%;
+  animation: blobSlide3 8s ease-in-out infinite;
+}
+@keyframes blobSlide3 {
+  0%, 100% {
+    transform: rotate(-10deg);
+  }
+  50% {
+    transform: rotate(90deg);
+  }
 }
 .hero__secton_mobile .h-inner .colour-holder #noiseLayer {
   position: absolute;
@@ -105,6 +136,7 @@
   filter: url(#noiseFilter) brightness(0.4) contrast(0.8);
   mix-blend-mode: soft-light;
   z-index: 2;
+  opacity: 1;
 }
 
 .main__text {
@@ -147,8 +179,6 @@
   width: var(--size);
   height: var(--size);
   border-radius: 50%;
-  /* Shiny look */
-  background: radial-gradient(circle at 3px 3px, #a2f7c5, #0be469);
 }
 .main__text a {
   color: unset;
@@ -174,8 +204,8 @@
     text-decoration: none;
   }
   .main__text .yes-icon::after {
-    right: 5px;
-    bottom: 5px;
+    right: 4px;
+    bottom: 6px;
   }
 }
 @media (max-width: 431px) {
@@ -373,16 +403,6 @@
   mix-blend-mode: overlay;
   will-change: transform;
 }
-.project__card .aspectholder .colour-overlay #noiseLayer {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  filter: url(#noiseFilter) brightness(0.4) contrast(0.8);
-  mix-blend-mode: soft-light;
-  z-index: 10;
-}
 .project__card .body {
   padding-top: 30px;
   padding-bottom: var(--pm);
@@ -521,5 +541,5 @@
   height: var(--size);
   border-radius: 50%;
   /* Shiny look */
-  background: radial-gradient(circle at 3px 3px, #a2f7c5, #0be469);
+  background: radial-gradient(circle at 3px 3px, #a5edaa, #0ea118);
 }

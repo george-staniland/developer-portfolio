@@ -16,6 +16,7 @@
 .main-nav .nav-btn {
   background-color: transparent;
   position: absolute;
+  z-index: 3;
   top: 20px;
   right: var(--pm);
   cursor: pointer;
@@ -124,6 +125,17 @@
 }
 .main-nav .nav-btn.is-active .vertical-line {
   opacity: 0;
+}
+.main-nav .modal-backdrop {
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  background-color: rgba(27, 27, 27, 0.1098039216);
+  opacity: 0;
+  pointer-events: none;
+  transition: all 0.3s ease-in-out;
 }
 @media (max-width: 860) {
   .main-nav .nav-btn.is-active {
