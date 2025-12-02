@@ -34,7 +34,7 @@ export default function HeroSectionWrap() {
                             <filter id='noiseFilter'>
                                 <feTurbulence
                                     type='fractalNoise'
-                                    baseFrequency='1'
+                                    baseFrequency='2'
                                     numOctaves='1'
                                     stitchTiles='stitch' />
                             </filter>
