@@ -113,17 +113,33 @@ export default function HeroSection() {
         });
     }
 
-       const setupCanvasDimensions = (videoWidth, videoHeight) => {
-        const canvasWrapWidth = canvasWrap.clientWidth;
-        canvas.width = canvasWrapWidth;
-        canvas.height = (videoHeight / videoWidth) * canvas.width;
+    //    const setupCanvasDimensions = (videoWidth, videoHeight) => {
+    //     const canvasWrapWidth = canvasWrap.clientWidth;
+    //     canvas.width = canvasWrapWidth;
+    //     canvas.height = (videoHeight / videoWidth) * canvas.width;
         
-        // Also set temp canvas dimensions
-        const targetWidth = canvas.width * config.scaleFactor;
-        const targetHeight = canvas.height * config.scaleFactor;
-        tempCanvasRef.current.width = targetWidth;
-        tempCanvasRef.current.height = targetHeight;
-    };
+    //     // Also set temp canvas dimensions
+    //     const targetWidth = canvas.width * config.scaleFactor;
+    //     const targetHeight = canvas.height * config.scaleFactor;
+    //     tempCanvasRef.current.width = targetWidth;
+    //     tempCanvasRef.current.height = targetHeight;
+    // };
+
+        const setupCanvasDimensions = (videoWidth, videoHeight) => {
+            const canvasWrapWidth = canvasWrap.clientWidth;
+
+            // Calculate proper dimensions maintaining video aspect ratio
+            const videoAspectRatio = videoWidth / videoHeight;
+
+            canvas.width = canvasWrapWidth;
+            canvas.height = canvasWrapWidth / videoAspectRatio; // This ensures correct portrait aspect
+
+            // Also set temp canvas dimensions
+            const targetWidth = canvas.width * config.scaleFactor;
+            const targetHeight = canvas.height * config.scaleFactor;
+            tempCanvasRef.current.width = targetWidth;
+            tempCanvasRef.current.height = targetHeight;
+        };
 
 
         const generateHalftone = () => {

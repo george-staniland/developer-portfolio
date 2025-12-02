@@ -1,6 +1,8 @@
 $ipad-break: 1025;
 $mobile-break: 860;
 
+
+
 .hero__section {
     height: 100vh;
     display: flex;
@@ -9,6 +11,7 @@ $mobile-break: 860;
     position: relative;
     z-index: 1;
     will-change: transform;
+    
     .animation-wrap {
         position: relative;
         width: 75%;
@@ -16,39 +19,43 @@ $mobile-break: 860;
         overflow: hidden;
         display: flex;
         justify-content: center;
-        aspect-ratio: 16/7;
+        align-items: center; // Center the canvas vertically
+        aspect-ratio: 16/7; // Keep landscape container
         background-color: var(--grey);
 
         canvas {
+            display: block;
+            height: 100%; // Fill container height
+            width: auto; // Maintain portrait aspect ratio
+            max-width: 100%; // Don't overflow container
+            object-fit: contain; // Safari-friendly
             position: relative;
             top: -8%;
             left: -0.5%;
         }
+        
         video {
-            // position: absolute;
-            // top: 0;
-            // left: 0;
-            // width: 100%;
-            // height: 100%;
-            // opacity: 0.3;
-            // pointer-events: none;
             display: none;    
         }
     }
+    
     @media(max-width: $mobile-break) {
         height: 98vh;
         padding-bottom: 0px;
         align-items: center;
+        
         .animation-wrap {
             width: 90%;
-            aspect-ratio: unset;
+            aspect-ratio: 9/16; // Switch to portrait on mobile
+            
             canvas {
-                top: -18px;
+                width: 100%; // Full width on mobile
+                height: auto;
             }
         }
-        
     }
 }
+
 
 .hero__secton_mobile {
     margin-top: 39svh;

@@ -14,10 +14,17 @@
   overflow: hidden;
   display: flex;
   justify-content: center;
+  align-items: center;
   aspect-ratio: 16/7;
   background-color: var(--grey);
 }
 .hero__section .animation-wrap canvas {
+  display: block;
+  height: 100%;
+  width: auto;
+  max-width: 100%;
+  -o-object-fit: contain;
+     object-fit: contain;
   position: relative;
   top: -8%;
   left: -0.5%;
@@ -33,10 +40,11 @@
   }
   .hero__section .animation-wrap {
     width: 90%;
-    aspect-ratio: unset;
+    aspect-ratio: 9/16;
   }
   .hero__section .animation-wrap canvas {
-    top: -18px;
+    width: 100%;
+    height: auto;
   }
 }
 
