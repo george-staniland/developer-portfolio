@@ -19,7 +19,7 @@ export default function HeroSectionWrap() {
     return (
         <>
             {!isMobile && !isTablet && <HeroSection />}
-            {isMobile &&
+            {isMobile || isTablet &&
             <section className='px hero__secton_mobile '>
                 <div className="h-inner">
                     <div className='colour-holder'>
