@@ -6,7 +6,7 @@ import Accordion from './Accordion';
 import { PhotoPortfolioContent, LomoOceanContent, CapScaffContent, DevSiteContent } from '../content/ProjectsContent'
 import styles from './styles/projects_section.module.css'
 
-export default function ProjectsSection() {
+export default function ProjectsSectionOld() {
     const { ref, inView } = useInView({ threshold: 0.9 });
 
     const style = useSpring({

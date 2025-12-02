@@ -1,105 +1,229 @@
-html {
-  font-size: 16px;
-  background-color: rgb(255, 254, 251);
+/* Fonts */
+@font-face {
+  font-family: "Noto Sans";
+  src: url("/fonts/NotoSans-VariableFont.woff2") format("woff2 supports variations"),
+       url("/fonts/NotoSans-VariableFont.woff2") format("woff2-variations");
+  font-optical-sizing: auto;
+  font-style: normal;
+  font-weight: 100 900;
+  font-display: swap;
 }
 
-body {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-  overflow-x: hidden;
+/* Variables */
+:root {
+  --white: #fcfcfc;
+  --black: #1f1f1f;
+  --deep-grey: #90929b;
+  --text-grey: #72727E;
+  --grey: #f0f0f0;
+  --hover-grey: #e3e3e3;
+  --blossom : #F7F0EC;
+  --blue: #0F3CF0;
+  --pm: 30px;
+  --fg: var(--black);
+  --bg: var(--white);
+  --max-page-w: 2000px;
 }
 
 h1, h2, h3, h4, h5, h6, p, li {
-  font-family: "Source Code Pro", monospace;
   margin-top: 0;
   margin-bottom: 0;
-  color: #222222;
+  color: var(--fg);
 }
 
-h1 {
-  font-size: 1.5rem;
-  font-weight: 400;
+html, body {
+  margin: 0; 
+  padding: 0;
+  overflow-x: hidden;
+  box-sizing: border-box;
 }
 
-h2 {
-  font-size: 1.5rem;
-  font-weight: 400;
+.btn {
+    display: block;
+    padding: 2px 5px;
+    border-radius: 6px;
+    border: none;
+    background-color: var(--grey);
 }
 
-p {
+.nav-btn span {
+  display: block;
+}
+
+html {
+  font-size: 15px;
+  background-color: var(--bg);
+  font-family: "Noto Sans", sans-serif;
   font-weight: 400;
-  font-size: 1.4rem;;
+} 
+
+body {
+  position: relative;
 }
 
 a {
-  font-family: "Source Code Pro", monospace;
-  text-decoration: underline;
-  text-underline-offset: 4px;
-  color: #222222;
+  text-decoration: none;
+  font-style: italic;
   transition: color .3s ease-in-out;
+  color: var(--fg);
 }
 
-.small-heading {
-  font-size: 1.7rem;
-  
-  text-align: center;
-}
-@media(min-width: 992px) {
-  .small-heading {
-    font-size: 2rem;
-    font-weight: 600;
-  }
-}
-
-a:hover {
-  color: cornflowerblue;
-}
+/* Utils */
 
 .no_pointer {
   pointer-events: none;
 }
 
-.div_pb {
-  padding-bottom: 12px;
+.px {
+  padding-left: var(--pm);
+  padding-right: var(--pm);
 }
 
-/* Fonts */
-
-@font-face {
-  font-family: "Source Code Pro";
-  src: url('/fonts/SourceCodePro-Light.ttf');
-  font-weight: 300;
-  font-style: normal;
-  font-display: swap;
+.py {
+  padding-top: var(--pm);
+  padding-bottom: var(--pm);
 }
 
-@font-face {
-  font-family: "Source Code Pro";
-  src: url('/fonts/SourceCodePro-Regular.ttf');
+.outline {
+  border: 1px solid green;
+}
+
+/* font sizes */
+
+.fh1 {
+   font-size: 44px;
+   font-weight: 520;
+   /* letter-spacing: .018em; */
+}
+
+.fh3 {
+  font-size: 27px;
+  font-weight: 420;
+  letter-spacing: .018em;
+  line-height: 1.5em;
+}
+
+.fh4 {
+  font-size: 25px;
   font-weight: 400;
-  font-style: normal;
-  font-display: swap;
+  /* letter-spacing: .03em; */
 }
 
-@font-face {
-  font-family: "Source Code Pro";
-  src: url('/fonts/SourceCodePro-SemiBold.ttf');
-  font-weight: 600;
-  font-style: normal;
-  font-display: swap;
+.fh5 {
+   font-size: 19px;
+   font-weight: 200;
+   letter-spacing: 0.015em;
 }
 
-@font-face {
-  font-family: "Source Code Pro";
-  src: url('/fonts/SourceCodePro-Black.ttf');
-  font-weight: 700;
-  font-style: normal;
-  font-display: swap;
+.fh6 {
+   font-weight: 400;     
+   letter-spacing: .01em;
+   font-size: 21px;
 }
+
+
+.fb {
+  font-weight: 390;
+  font-size: 17px;
+  /* letter-spacing: .01em; */
+}
+
+.fb-small {
+  font-weight: 390;
+  font-size: 16px;
+}
+
+.fd {
+  font-weight: 380;
+  letter-spacing: 0.01em;
+  font-size: 15px; 
+}
+
+@media (max-width: 1025px) {
+
+.fh1 {
+   font-size: 37px;
+   font-weight: 520;
+   /* letter-spacing: .018em; */
+}
+
+}
+
+@media (max-width: 860px) {
 
 :root {
-  --gs-blue: #4a72bc;
-  --green: #5A7026;
-  --grey: #595858;
+  --pm: 14px;
+}
+
+.fh1 {
+   font-size: 27px;
+   font-weight: 500;
+}
+
+
+.fh3 {
+  font-size: 21px;
+}
+
+.fh4 {
+  font-size: 18px;
+  font-weight: 400;
+}
+
+.fh5 {
+   font-size: 19px;
+   font-weight: 200;
+   letter-spacing: 0.015em;
+}
+
+.fh6 {
+   font-weight: 400;     
+   font-size: 17px;
+}
+
+
+.fb {
+  font-weight: 390;
+  font-size: 16px;
+  /* letter-spacing: .01em; */
+}
+
+.fb-small {
+  font-weight: 390;
+  font-size: 15px;
+}
+
+.fd {
+  font-weight: 380;
+  letter-spacing: 0.01em;
+  font-size: 15px; 
+}
+
+}
+
+
+
+/* Pages */
+.home-page {
+  /* padding-top: 15svh; */
+}
+
+button {
+  font-family: "Noto Sans";
+  font-weight: 300;
+  border-radius: 2px;
+  -webkit-appearance: none;
+  text-align: inherit;
+  background: none;
+  box-shadow: none;
+  padding: 5px;
+  cursor: pointer;
+  border: 1px solid var(--black);
+  color: var(--black);
+  background-color: var(--grey);
+}
+
+body.modal-open .modal-backdrop {
+  opacity: 1;
+  pointer-events: all;
 }

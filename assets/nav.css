@@ -1,0 +1,145 @@
+.main-nav {
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 10;
+  width: 100%;
+  max-width: 100%;
+}
+.main-nav .inner {
+  position: relative;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-top: var(--pm);
+}
+.main-nav .nav-btn {
+  background-color: transparent;
+  position: absolute;
+  z-index: 3;
+  top: 20px;
+  right: var(--pm);
+  cursor: pointer;
+  border: 1px solid var(--black);
+  transition: height 0.4s ease-in-out, width 0.4s ease-in-out, border-color 0.3s ease-in-out, background-color 0.3s ease-in-out;
+  padding: 0px;
+  width: 26px;
+  height: 26px;
+}
+.main-nav .nav-btn:hover {
+  border-color: var(--deep-grey);
+  background-color: var(--grey);
+}
+.main-nav .nav-btn.is-active {
+  width: 35vw;
+  height: 35vw;
+  max-height: 95vh;
+  cursor: ne-resize;
+  background-color: var(--grey);
+}
+.main-nav .nav-btn .open-info__icon {
+  --plus-length: 14px;
+  position: absolute;
+  top: 6px;
+  right: 6px;
+  display: flex;
+  height: var(--plus-length);
+  width: var(--plus-length);
+}
+.main-nav .nav-btn .open-info__icon .line {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: var(--black);
+  transition: all 0.42s ease-in-out;
+  border-radius: 200px;
+}
+.main-nav .nav-btn .open-info__icon .horizontal-line {
+  height: 2px;
+  width: var(--plus-length);
+}
+.main-nav .nav-btn .open-info__icon .vertical-line {
+  width: 2px;
+  height: var(--plus-length);
+}
+.main-nav .nav-btn .overlay-content {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  opacity: 0;
+  overflow: hidden;
+}
+.main-nav .nav-btn .overlay-content .overlay-inner .items {
+  padding-top: 13px;
+  display: flex;
+  flex-direction: column;
+  gap: 7px;
+}
+.main-nav .nav-btn .overlay-content .overlay-inner .svgs-wrap {
+  padding-top: 25px;
+  display: flex;
+  flex-direction: column;
+  gap: 7px;
+}
+.main-nav .nav-btn .overlay-content .overlay-inner .email-wrap {
+  display: flex;
+  gap: 8px;
+}
+.main-nav .nav-btn .overlay-content .overlay-inner .email-wrap object {
+  position: relative;
+  top: 1px;
+}
+.main-nav .nav-btn .overlay-content .overlay-inner .phone-wrap {
+  display: flex;
+  gap: 8px;
+}
+.main-nav .nav-btn .overlay-content .overlay-inner .phone-wrap object {
+  position: relative;
+  top: 3px;
+}
+.main-nav .nav-btn .overlay-content .overlay-inner .btns {
+  padding-top: 16px;
+  display: flex;
+  gap: 16px;
+}
+.main-nav .nav-btn .overlay-content .overlay-inner .btns button {
+  font-size: 14px;
+  font-weight: 400;
+  display: flex;
+  align-items: flex-end;
+  gap: 4px;
+}
+.main-nav .nav-btn .overlay-content .overlay-inner .btns button:hover {
+  background-color: var(--deep-grey);
+  color: var(--white);
+}
+.main-nav .nav-btn.is-active {
+  border-color: var(--deep-grey);
+}
+.main-nav .nav-btn.is-active .overlay-content {
+  opacity: 1;
+  transition: all 0.3s ease-in-out 0.42s;
+}
+.main-nav .nav-btn.is-active .vertical-line {
+  opacity: 0;
+}
+.main-nav .modal-backdrop {
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  background-color: rgba(27, 27, 27, 0.1098039216);
+  opacity: 0;
+  pointer-events: none;
+  transition: all 0.3s ease-in-out;
+}
+@media (max-width: 860) {
+  .main-nav .nav-btn.is-active {
+    width: calc(100vw - var(--pm) * 2);
+    height: calc(100vw - var(--pm) * 2);
+  }
+}
