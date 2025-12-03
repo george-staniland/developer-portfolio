@@ -63,6 +63,11 @@ function ProjectCard(props: Props) {
 
     const [ activeIndex, setActiveIndex] = useState<number | null>(null);
 
+     function handleCardClick(index: number) {
+        setActiveIndex(null);
+        onCardClick(index);
+    }
+
     function toggleActive (e : React.MouseEvent<HTMLButtonElement>, index: number) {
         e.stopPropagation()
 
@@ -85,7 +90,7 @@ function ProjectCard(props: Props) {
             className={`project__card ${isActive ? 'active' : 'not-active'}`} 
             onClick={() => { 
                 // setActiveIndex(null)
-                onCardClick(cardIndex)  
+                handleCardClick(cardIndex)  
             }}
         >
             <div className="aspectholder">
@@ -105,7 +110,7 @@ function ProjectCard(props: Props) {
                     <p className="project-title fh4">{data.projectTitle}</p>
                     <button
                         aria-label="Toggle full project view"
-                        onClick={() => onCardClick(cardIndex)}
+                        onClick={() => handleCardClick(cardIndex)}
                         className="expand-project-btn"
                     >
                         {isActive ?
@@ -125,7 +130,7 @@ function ProjectCard(props: Props) {
                         
                         { data.accordion && data.accordion.map( (item, index) => (
                              <section 
-                                className={`accordion_row ${ index == activeIndex ? 'row-active' : 'not-active' }`} 
+                                className={`accordion_row ${ index == activeIndex && isActive ? 'row-active' : 'not-active' }`} 
                                 key={item.rowTitle}
                                 onClick={ (e) => toggleActive(e, index)}
                                 >
