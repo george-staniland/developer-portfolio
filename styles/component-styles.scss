@@ -19,16 +19,16 @@ $mobile-break: 860;
         overflow: hidden;
         display: flex;
         justify-content: center;
-        align-items: center; // Center the canvas vertically
-        aspect-ratio: 16/7; // Keep landscape container
+        align-items: center; 
+        aspect-ratio: 16/7; 
         background-color: var(--grey);
 
         canvas {
             display: block;
-            height: 100%; // Fill container height
-            width: auto; // Maintain portrait aspect ratio
-            max-width: 100%; // Don't overflow container
-            object-fit: contain; // Safari-friendly
+            height: 100%;
+            width: auto; 
+            max-width: 100%; 
+            object-fit: contain; 
             position: relative;
             top: -8%;
             left: -0.5%;
@@ -46,10 +46,10 @@ $mobile-break: 860;
         
         .animation-wrap {
             width: 90%;
-            aspect-ratio: 9/16; // Switch to portrait on mobile
+            aspect-ratio: 9/16; 
             
             canvas {
-                width: 100%; // Full width on mobile
+                width: 100%; 
                 height: auto;
             }
         }
@@ -260,8 +260,13 @@ $mobile-break: 860;
         }
         .yes-icon {
             &::after {
-                right: 4px;
+                right: 10px;
                 bottom: 6px;
+            }
+        }
+        a {
+            &:hover {
+                color: initial;
             }
         }
     }
@@ -316,7 +321,10 @@ $mobile-break: 860;
     }
 
     @media(max-width: $mobile-break) {
+        padding-left: 0;
+        padding-right: 0;
         .title-wrap {
+            padding-left: 32px;
             .title {
                 text-align: left;
             }
@@ -333,7 +341,6 @@ $mobile-break: 860;
     width: 100%;
     @media(max-width: $mobile-break) {
         display: block;
-
         .embla {
             overflow: hidden;
         }
@@ -346,6 +353,11 @@ $mobile-break: 860;
             flex: 0 0 90%;
             min-width: 0;
             margin-right: 10px;
+
+            &:first-child {
+                padding-left: var(--pm);
+            }
+
             .project__card {
                 min-height: 438.5px;
                 .aspectholder {
@@ -632,7 +644,11 @@ $mobile-break: 860;
     }
     
     @media(max-width: $mobile-break) {
-        
+        .body .accordions-outer .accordion_row{
+            &:hover {
+                background-color: var(--grey);
+            }
+        }
     }
 }
 

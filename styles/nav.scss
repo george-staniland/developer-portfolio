@@ -161,6 +161,12 @@ $mobile-break: 860;
                 height: calc(100vw - var(--pm) * 2);
             }
         }
+        .nav-btn .overlay-content .overlay-inner .btns button {
+            &:hover {
+                background-color: unset;
+                color: unset;
+            }
+        }
     }
     
 }
