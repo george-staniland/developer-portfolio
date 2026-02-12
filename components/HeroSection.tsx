@@ -250,6 +250,7 @@ export default function HeroSection() {
                 <canvas ref={canvasRef} className="" />
                 <video ref={videoRef} />
             </div>
+            {/* <span className="down__arrow"></span> */}
         </section>
     );
 }

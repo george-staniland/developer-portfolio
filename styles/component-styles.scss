@@ -38,6 +38,17 @@ $mobile-break: 860;
             display: none;    
         }
     }
+
+    .down__arrow {
+        position: absolute;
+        bottom: 5%; 
+        left: 50%;  
+        border: solid var(--black); /* Adjust color as needed */
+        border-width: 0 1.3px 1.3px 0; /* Adjust thickness as needed */
+        display: inline-block;
+        padding: 7px; /* Adjust size as needed */
+        transform: translateX(-50%) rotate(45deg) ;
+    }
     
     @media(max-width: $mobile-break) {
         height: 98vh;

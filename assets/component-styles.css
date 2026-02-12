@@ -32,6 +32,16 @@
 .hero__section .animation-wrap video {
   display: none;
 }
+.hero__section .down__arrow {
+  position: absolute;
+  bottom: 5%;
+  left: 50%;
+  border: solid var(--black); /* Adjust color as needed */
+  border-width: 0 1.3px 1.3px 0; /* Adjust thickness as needed */
+  display: inline-block;
+  padding: 7px; /* Adjust size as needed */
+  transform: translateX(-50%) rotate(45deg);
+}
 @media (max-width: 860) {
   .hero__section {
     height: 98vh;
@@ -217,8 +227,11 @@
     text-decoration: none;
   }
   .main__text .yes-icon::after {
-    right: 4px;
+    right: 10px;
     bottom: 6px;
+  }
+  .main__text a:hover {
+    color: initial;
   }
 }
 @media (max-width: 431px) {
@@ -271,7 +284,12 @@
 }
 @media (max-width: 860) {
   .projects__grid {
+    padding-left: 0;
+    padding-right: 0;
     padding-bottom: 10svh;
+  }
+  .projects__grid .title-wrap {
+    padding-left: 32px;
   }
   .projects__grid .title-wrap .title {
     text-align: left;
@@ -299,6 +317,9 @@
     flex: 0 0 90%;
     min-width: 0;
     margin-right: 10px;
+  }
+  .projects-mobile .embla__slide:first-child {
+    padding-left: var(--pm);
   }
   .projects-mobile .embla__slide .project__card {
     min-height: 438.5px;
@@ -541,6 +562,12 @@
     left: -20%;
   }
 }
+@media (max-width: 860) {
+  .project__card .body .accordions-outer .accordion_row:hover {
+    background-color: var(--grey);
+  }
+}
+
 .yes-icon {
   position: relative;
 }
