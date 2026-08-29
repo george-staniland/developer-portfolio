@@ -15,9 +15,7 @@ export default async function Home() {
     <>
       <Nav />
       <main className="home-page" >
-        <HeroSectionWrap/>
         <MainText />
-        <ProjectsGrid projects={projects} />
       </main >
     </>
   )

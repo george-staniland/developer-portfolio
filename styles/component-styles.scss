@@ -192,21 +192,19 @@ $mobile-break: 860;
 
 
 .main__text {
-    z-index: 2;
-     padding-bottom: 110px;
+     z-index: 2;
+     height: 100svh;
      display: flex;
      justify-content: center;
      align-items: center;
 
     .inner-text {
        max-width: var(--max-page-w);
-    //    opacity: 0;
-    //    transform: translateY(20px);
+       opacity: 0;
     }
     
     h1 {
-        color: #649acf;
-        // background-color: var(--grey);
+        color: #424242;
     }
 
      h3 {
@@ -256,10 +254,8 @@ $mobile-break: 860;
         }
     }
     @media(max-width: $mobile-break) {
-        padding-bottom: 60px;
-        .fh1 {
-            color: var(--black);
-        }
+
+
         .tech {
             padding-top: 60px;
         }

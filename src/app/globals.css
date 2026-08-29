@@ -93,6 +93,7 @@ a {
 .fh1 {
    font-size: 44px;
    font-weight: 520;
+   line-height: 1;
    /* letter-spacing: .018em; */
 }
 
