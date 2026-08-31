@@ -3,6 +3,7 @@ import '../../styles/component-styles.scss'
 import '../../styles/nav.scss'
 
 import type { Metadata } from 'next'
+import EntryTransition from '@/components/EntryTransition'
 
 export const metadata: Metadata = {
   title: 'George Staniland - Front-end web Developer',
@@ -18,7 +19,9 @@ export default function RootLayout({
   return (
     <html lang="en" >
       <body>
-        {children}
+        <EntryTransition>
+         {children}
+        </EntryTransition>
       </body>
     </html >
   )

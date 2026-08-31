@@ -3,17 +3,26 @@ $mobile-break: 860;
 
 .main__text {
      z-index: 2;
-     height: 100svh;
-     background-color: rgb(102, 122, 102);
+     height: 92svh;
      display: flex;
      align-items: center;
      justify-content: center;
+    //  background-color: rgb(121, 154, 121);
      .text-wrap {
-        background-color: wheat;
+        opacity: 0;
      }
  
     h1 {
-        color: red;
+       letter-spacing: 0.06em;
+       font-weight: 600;
+       .h1-lighter {
+        font-weight: 260;
+        color: #1f1f1f;
+       }
+        span {
+            display: block;
+            text-align: center;
+        }
     }
 
     a {
@@ -27,4 +36,31 @@ $mobile-break: 860;
         }
     }
 
+}
+
+.site-loading-screen {
+    background-color: rgb(16, 16, 16);
+    height: 100dvh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    .text-wrap {
+        width: 25vw;
+        min-width: 200px;
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 8px;
+    }
+    p {
+        color: white;
+        font-family: 'SF Mono', monospace;
+        &.name {
+            font-weight: 600;
+        }
+    }
+    .hashes {
+        display: inline-block;
+        letter-spacing: 6px;
+    }
 }

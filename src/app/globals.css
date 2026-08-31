@@ -11,7 +11,7 @@
 
 /* Variables */
 :root {
-  --white: #ffffff;
+  --white: #fafafa;
   --black: #1f1f1f;
   --deep-grey: #90929b;
   --text-grey: #72727E;
@@ -36,6 +36,19 @@ html, body {
   padding: 0;
   overflow-x: hidden;
   box-sizing: border-box;
+}
+
+body {
+  min-height: 100vh;
+
+  --dot-bg: rgb(255, 255, 255);
+  --dot-color: rgb(43, 43, 43);
+  --dot-size: 1px;
+  --dot-space: 22px;
+	background:
+		linear-gradient(90deg, var(--dot-bg) calc(var(--dot-space) - var(--dot-size)), transparent 1%) center / var(--dot-space) var(--dot-space),
+		linear-gradient(var(--dot-bg) calc(var(--dot-space) - var(--dot-size)), transparent 1%) center / var(--dot-space) var(--dot-space),
+		var(--dot-color);
 }
 
 .btn {
@@ -92,9 +105,9 @@ a {
 
 .fh1 {
    font-size: 44px;
-   font-weight: 520;
+   font-weight: 820;
    line-height: 1;
-   /* letter-spacing: .018em; */
+   /* letter-spacing: 2em; */
 }
 
 .fh3 {
