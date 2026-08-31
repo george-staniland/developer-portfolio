@@ -19,13 +19,10 @@ function MainText() {
     })
 
     return (
-        <div className="main__text">
-            <section className="inner-text px">
-                <h1 className="fh1"> 
-                    Website undergoing going an update 🚧
-                </h1>
-                
-            </section>
+        <div className="main__text px">
+           <div className="text-wrap">
+            tttt
+           </div>
         </div >
     )
 }
