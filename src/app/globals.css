@@ -41,14 +41,14 @@ html, body {
 body {
   min-height: 100vh;
 
-  --dot-bg: rgb(255, 255, 255);
+  /* --dot-bg: rgb(255, 255, 255);
   --dot-color: rgb(43, 43, 43);
   --dot-size: 1px;
   --dot-space: 22px;
 	background:
 		linear-gradient(90deg, var(--dot-bg) calc(var(--dot-space) - var(--dot-size)), transparent 1%) center / var(--dot-space) var(--dot-space),
 		linear-gradient(var(--dot-bg) calc(var(--dot-space) - var(--dot-size)), transparent 1%) center / var(--dot-space) var(--dot-space),
-		var(--dot-color);
+		var(--dot-color); */
 }
 
 .btn {
@@ -65,9 +65,10 @@ body {
 
 html {
   font-size: 15px;
-  background-color: var(--bg);
+  background-color: white;
   font-family: "Noto Sans", sans-serif;
   font-weight: 400;
+  font-style: normal;
 } 
 
 body {
@@ -125,7 +126,7 @@ a {
 
 .fh5 {
    font-size: 19px;
-   font-weight: 200;
+   font-weight: 400;
    letter-spacing: 0.015em;
 }
 
@@ -135,10 +136,10 @@ a {
    font-size: 21px;
 }
 
-
 .fb {
   font-weight: 390;
   font-size: 17px;
+  font-style: normal;
 }
 
 .fb-small {

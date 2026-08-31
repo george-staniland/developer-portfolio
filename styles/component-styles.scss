@@ -1,13 +1,29 @@
 $ipad-break: 1025;
 $mobile-break: 860;
 
+.line {
+    width: 100%;
+    height: 1px;
+    background-color: var(--hover-grey);
+}
+
 .main__text {
      z-index: 2;
-     height: 92svh;
+     height: 90svh;
      display: flex;
      align-items: center;
      justify-content: center;
     //  background-color: rgb(121, 154, 121);
+
+      --dot-bg: rgb(255, 255, 255);
+  --dot-color: rgb(43, 43, 43);
+  --dot-size: 1px;
+  --dot-space: 22px;
+	background:
+		linear-gradient(90deg, var(--dot-bg) calc(var(--dot-space) - var(--dot-size)), transparent 1%) center / var(--dot-space) var(--dot-space),
+		linear-gradient(var(--dot-bg) calc(var(--dot-space) - var(--dot-size)), transparent 1%) center / var(--dot-space) var(--dot-space),
+		var(--dot-color); 
+
      .text-wrap {
         opacity: 0;
      }
@@ -62,5 +78,43 @@ $mobile-break: 860;
     .hashes {
         display: inline-block;
         letter-spacing: 6px;
+    }
+}
+
+.list-projects {
+    display: flex;
+    flex-direction: column;
+    padding-top: 24px;
+    position: relative;
+    padding-bottom: 120px;
+    .projects-title {
+        position: absolute;
+        top: 35px;
+        left: calc(var(--pm) + 10px);
+        font-weight: 500;
+    }
+    .row {
+        display: grid;
+        grid-template-columns: repeat(12,1fr);
+        padding: 11px 10px;
+        transition: background-color 0.65s ease-out .18s;
+        .project-link {
+            grid-column: 5/-1;
+            display: grid;
+            grid-template-columns: 1fr 1fr 1fr;
+        }
+        .view-text {
+            opacity: 0;
+            transition: opacity .3s ease-in;
+            text-align: right;
+        }
+        &:hover {
+            background-color: rgb(248, 240, 119);
+
+            transition: background-color .22s ease-in;
+            .view-text {
+                opacity: 1;
+            }
+        }
     }
 }
