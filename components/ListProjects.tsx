@@ -5,7 +5,6 @@ type ListProjectProps = {
 }
 
 export default function ListProjects({ projects }: ListProjectProps) {
-    console.log(projects)
     return (
         <div className="list-projects px ">
             <p className="fb projects-title">Projects</p>
