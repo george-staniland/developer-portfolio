@@ -3,7 +3,15 @@ import { getDatoCmsToken } from '@/lib/datocms';
 import { GET_APPLICATION } from '@/lib/queries/queries';
 import { StructuredText, VideoPlayer } from 'react-datocms';
 import Nav from '@/components/Nav';
+import type { Metadata } from 'next';
 
+export const metadata: Metadata = {
+    robots: {
+      index: false,
+      follow: false,
+      noarchive: true,
+    },
+  };
 
 export default async function page ({ params,} : { params: Promise<{ slug: string }> }) {
     const { slug } = await params;

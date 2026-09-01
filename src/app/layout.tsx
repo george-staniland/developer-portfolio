@@ -9,7 +9,6 @@ import EntryTransition from '@/components/EntryTransition'
 
 export const metadata: Metadata = {
   title: 'George Staniland - Front-end web Developer',
-  description: 'Web developer from in Wellington, New Zealand',
 }
 
 export default function RootLayout({
