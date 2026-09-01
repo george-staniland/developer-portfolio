@@ -13,8 +13,8 @@ export default async function Home() {
 
   return (
     <>
-      <Nav />
       <main className="home-page" >
+        <Nav />
         <MainText />
         <ListProjects projects={projects.allProjects} />
       </main >

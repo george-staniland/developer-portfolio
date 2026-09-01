@@ -26,6 +26,16 @@
             height: auto;
         }
     }
+    .home-icon {
+        width: 27px;
+        height: 27px;
+        transition: all .3s ease-in-out;
+        position: relative;
+        top: -9px;
+        &:hover {
+            fill: blue;
+        }
+    }
     @media(max-width: 998px) {
         .inner {
             width: 100%;

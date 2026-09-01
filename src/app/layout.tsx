@@ -3,6 +3,7 @@ import '../../styles/component-styles.scss'
 import '../../styles/page-styles.scss'
 import '../../styles/nav.scss'
 
+
 import type { Metadata } from 'next'
 import EntryTransition from '@/components/EntryTransition'
 

@@ -12,7 +12,7 @@ export default function EntryTransition ({children} : { children: React.ReactNod
 
         async function triggerDelayedEntry() {
             // 1. Hold the loading state for 4,000 milliseconds
-            await delay(4000);
+            await delay(2300);
       
           
             if (!document.startViewTransition) {

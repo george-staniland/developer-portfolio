@@ -11,9 +11,9 @@ $mobile-break: 860;
      z-index: 2;
      height: 90svh;
      display: flex;
-     align-items: center;
      justify-content: center;
     //  background-color: rgb(121, 154, 121);
+    align-items: center;
 
       --dot-bg: rgb(255, 255, 255);
   --dot-color: rgb(43, 43, 43);
@@ -26,19 +26,55 @@ $mobile-break: 860;
 
      .text-wrap {
         opacity: 0;
+        display: flex;
+        flex-direction: column;
+        position: relative;
+        width: 600px;
      }
+
+     .circle-el {
+        position: absolute;
+        transform: translate(-50%, -50%);
+        top: 50%;
+        left: 50%;
+        width: 102%;
+        height: 140%;
+        border-radius: 10px;
+        // background: radial-gradient(circle, rgb(250, 13, 13) 0%, rgba(255, 0, 0, 0) 90%);
+        background-color: rgb(255, 255, 255);
+        box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+        z-index: 1;
+     }
+
+
  
-    h1 {
-       letter-spacing: 0.06em;
-       font-weight: 600;
-       .h1-lighter {
-        font-weight: 260;
-        color: #1f1f1f;
-       }
-        span {
-            display: block;
-            text-align: center;
-        }
+    
+    p.text {
+        text-align: center;
+        letter-spacing: 0.06em;
+        font-weight: 500;
+        font-size: 28px;
+        line-height: 1;
+        z-index: 2;
+    }
+    
+
+    p.title {
+        padding-bottom: 18px;
+        padding-top: 8px;
+        // color: rgb(122, 122, 122);
+        font-weight: 280;
+        font-size: 27px;
+    }
+
+    .body-wrap {
+        z-index: 2;
+    }
+
+    p.body-text {
+        font-weight: 280;
+        font-size: 23px;
+        line-height: 1.24;
     }
 
     a {
@@ -61,8 +97,8 @@ $mobile-break: 860;
     justify-content: center;
     align-items: center;
     .text-wrap {
-        width: 25vw;
-        min-width: 200px;
+        // width: 25vw;
+        // min-width: 200px;
         display: flex;
         flex-direction: column;
         align-items: flex-start;
@@ -71,12 +107,15 @@ $mobile-break: 860;
     p {
         color: white;
         font-family: 'SF Mono', monospace;
+        position: relative;
         &.name {
             font-weight: 600;
         }
     }
     .hashes {
-        display: inline-block;
+        position: absolute;
+        top: 0;
+        left: 112%;
         letter-spacing: 6px;
     }
 }

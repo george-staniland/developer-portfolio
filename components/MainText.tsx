@@ -12,8 +12,8 @@ function MainText() {
         gsap.to('.main__text .text-wrap',
             {
                 opacity: 1,
-                delay: 0.2,
-                duration: 0.3,
+                delay: 0.3,
+                duration: 0.4,
                 ease: "power2.in",
             }
         )
@@ -21,13 +21,17 @@ function MainText() {
 
     return (
         <div className="main__text px">
-           <div className="text-wrap">
-            <h1>
-                <span>George Staniland</span>
-                <span>Front-end Developer</span>
-                <span className="h1-lighter">write some words here </span> 
-                <span className="h1-lighter">that make more sense</span>
-            </h1>
+           <div className="text-wrap outline">
+                
+                <p className="name text">George Staniland</p>
+                <p className="title text">Front-end Developer</p>
+
+                <div className="body-wrap">
+                    <p className="body-text text">Solving problems, and working with teams </p> 
+                    <p className="body-text text">to turn designs into pixel-perfect interfaces</p>
+                </div>
+
+                <div className="circle-el"></div>
            </div>
         </div >
     )

@@ -4,10 +4,9 @@ export default function SiteLoadingScreen () {
     const [ hashes, setHashes] = useState('#')
 
     useEffect(()=> {
-
         const id = setInterval (() => { 
             setHashes((prev) => prev + '#');
-         },500 );
+         },250 );
 
         return () => clearInterval(id)
     },[])

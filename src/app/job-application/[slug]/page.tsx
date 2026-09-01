@@ -2,6 +2,7 @@ import { executeQuery } from '@datocms/cda-client';
 import { getDatoCmsToken } from '@/lib/datocms';
 import { GET_APPLICATION } from '@/lib/queries/queries';
 import { StructuredText, VideoPlayer } from 'react-datocms';
+import Nav from '@/components/Nav';
 
 
 export default async function page ({ params,} : { params: Promise<{ slug: string }> }) {
@@ -18,6 +19,7 @@ export default async function page ({ params,} : { params: Promise<{ slug: strin
 
     return (
         <section className="page__application px">
+            <Nav/>
             <div className="inner">
                 <h1 className="fh2">{role?.companyName}</h1>
                 <p className="fh3"> - {role?.jobRoleTitle}</p>
