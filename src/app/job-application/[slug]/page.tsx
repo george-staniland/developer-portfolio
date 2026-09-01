@@ -1,6 +1,7 @@
 import { executeQuery } from '@datocms/cda-client';
 import { getDatoCmsToken } from '@/lib/datocms';
 import { GET_APPLICATION } from '@/lib/queries/queries';
+import { StructuredText, VideoPlayer } from 'react-datocms';
 
 
 export default async function page ({ params,} : { params: Promise<{ slug: string }> }) {
@@ -13,23 +14,25 @@ export default async function page ({ params,} : { params: Promise<{ slug: strin
 
 
     const { applicationPage: role } = applicationDetails;
+ 
 
     return (
         <section className="page__application px">
             <div className="inner">
                 <h1 className="fh2">{role?.companyName}</h1>
-                <p className="fh3">{role?.jobRoleTitle}</p>
+                <p className="fh3"> - {role?.jobRoleTitle}</p>
                 <div className="writer fb">
-                    <p>para</p>
+                    <StructuredText data={role?.paragraph} />
                 </div>
-                <section className="video-wrapper">
-                    <video 
-                        src={role?.applicationVideo.url} 
-                        aria-label={`application video for ${role?.companyName}`}
-                        controls
-                    >
-                    </video>
-                </section>
+
+                 {role?.applicationVideo && 
+
+                    <section className="video-wrapper">
+                        <VideoPlayer data={role.applicationVideo.video}  />
+                    </section>
+
+                }
+                
             </div>
         </section>
     )

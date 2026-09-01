@@ -86,9 +86,17 @@ export const GET_APPLICATION = `
       id
       jobRoleTitle
       companyName
-      paragraph
+      paragraph {
+        value
+      }
       applicationVideo {
-        url
+        video {
+          muxPlaybackId
+          blurUpThumb
+          height
+          width
+          title
+        }
       }
     }
   }
