@@ -6,7 +6,7 @@ export default function SiteLoadingScreen () {
     useEffect(()=> {
         const id = setInterval (() => { 
             setHashes((prev) => prev + '#');
-         },250 );
+         },110 );
 
         return () => clearInterval(id)
     },[])

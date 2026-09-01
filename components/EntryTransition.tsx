@@ -11,7 +11,7 @@ export default function EntryTransition ({children} : { children: React.ReactNod
         const delay = (ms: number) => new Promise(resolve => setTimeout(resolve, ms));
 
         async function triggerDelayedEntry() {
-            // 1. Hold the loading state for 4,000 milliseconds
+            // Hold the loading state 
             await delay(2300);
       
           

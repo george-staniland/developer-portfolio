@@ -1,3 +1,5 @@
+$mobile-break: 980px;
+
 .page__application {
     padding-top: 52px;
     display: flex;
@@ -11,8 +13,10 @@
         .fh1, .fh3 {
             line-height: 1;
         }
+
         .fh2 {
-            padding-bottom: 12px
+            padding-bottom: 12px;
+            font-weight: 550;
         }
         .writer {
             padding-block: 24px;
@@ -26,19 +30,22 @@
             height: auto;
         }
     }
-    .home-icon {
-        width: 27px;
-        height: 27px;
-        transition: all .3s ease-in-out;
-        position: relative;
-        top: -9px;
-        &:hover {
-            fill: blue;
-        }
-    }
-    @media(max-width: 998px) {
+    @media(max-width: $mobile-break) {
+        padding-top: 160px;
         .inner {
             width: 100%;
+            .fh2 {
+                font-size: 24px;
+                font-weight: 550;
+                padding-bottom: 3px;
+            }
+            .fh3 {
+            
+            }
+            .writer {
+                padding-bottom: 52px;
+            }
         }
+
     }
 }

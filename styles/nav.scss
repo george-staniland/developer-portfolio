@@ -16,6 +16,26 @@ $mobile-break: 860;
         align-items: center;
         padding-top: var(--pm);
         // padding-bottom: var(--pm);
+
+        .home-icon {
+            width: 30px;
+            height: 30px;
+            transition: all .3s ease-in-out;
+            position: relative;
+            top: -9px;
+            &:hover {
+                fill: blue;
+            }
+        }
+
+        .icon-wrap {
+            a {
+                // background-color: red;
+                // height: 26px;
+                // width: 26px;
+                // display: inline-block;
+            }
+        }
     }
 
     .nav-btn {
@@ -165,6 +185,11 @@ $mobile-break: 860;
             &:hover {
                 background-color: unset;
                 color: unset;
+            }
+        }
+        .nav-inner {
+            .home-icon {
+                top: 7px;
             }
         }
     }
