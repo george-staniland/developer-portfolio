@@ -1,0 +1,34 @@
+.page__application {
+    padding-top: 52px;
+    display: flex;
+    justify-content: center;
+    height: 100vh;
+    background-color: #fff;
+    .inner {
+        width: 780px;
+        display: flex;
+        flex-direction: column;
+        .fh1, .fh3 {
+            line-height: 1;
+        }
+        .fh2 {
+            padding-bottom: 12px
+        }
+        .writer {
+            padding-block: 24px;
+        }
+    }
+    .video-wrapper {
+        width: 100%;
+        aspect-ratio: 16/9;
+        video {
+            width: 100%;
+            height: auto;
+        }
+    }
+    @media(max-width: 998px) {
+        .inner {
+            width: 100%;
+        }
+    }
+}

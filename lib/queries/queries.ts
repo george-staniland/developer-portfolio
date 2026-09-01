@@ -66,3 +66,30 @@ export const GET_PROJECTS = `
   }
 }
 `;
+
+export const GET_JOB_APPLICATIONS = `
+{
+   allApplicationPages {
+    id
+    jobRoleTitle
+    paragraph
+    applicationVideo {
+      url
+    }
+  }
+}`
+
+
+export const GET_APPLICATION = `
+  query TestBla ($slug : String!) {
+    applicationPage (filter:{ slug:{ eq: $slug }  } ) {
+      id
+      jobRoleTitle
+      companyName
+      paragraph
+      applicationVideo {
+        url
+      }
+    }
+  }
+`

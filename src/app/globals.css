@@ -18,6 +18,7 @@
   --grey: #f0f0f0;
   --hover-grey: #e3e3e3;
   --blossom : #F7F0EC;
+  --faded-yellow: rgb(253, 252, 211);
   --blue: #0F3CF0;
   --pm: 30px;
   --fg: var(--black);
@@ -213,7 +214,9 @@ a {
 
 }
 
-
+.fade-text {
+  opacity: 60%;
+}
 
 /* Pages */
 .home-page {
