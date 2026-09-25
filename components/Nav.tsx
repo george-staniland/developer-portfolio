@@ -83,7 +83,7 @@ function Nav() {
                         <div className="overlay-inner px py ">
                             <p className="fb-small">Hello ✋</p>
                             <div className="items">
-                                <p className="fb-small">I'm currently working remotely.</p>
+                                <p className="fb-small">Currently based in Sydney, Australia.</p>
                                 <p className="fb-small">For project enquires please reach out below.</p>
                                 <div className="svgs-wrap">
                                     <EmailPic/>

@@ -36,8 +36,8 @@ $mobile-break: 980px;
         transform: translate(-50%, -50%);
         top: 50%;
         left: 50%;
-        width: 102%;
-        height: 140%;
+        width: 103%;
+        height: 165%;
         border-radius: 10px;
         // background: radial-gradient(circle, rgb(250, 13, 13) 0%, rgba(255, 0, 0, 0) 90%);
         background-color: rgb(255, 255, 255);
@@ -47,7 +47,7 @@ $mobile-break: 980px;
    
     p.text {
         text-align: center;
-        letter-spacing: 0.06em;
+        letter-spacing: 0.07em;
         font-weight: 500;
         font-size: 28px;
         line-height: 1;
@@ -57,10 +57,11 @@ $mobile-break: 980px;
 
     p.title {
         padding-bottom: 18px;
-        padding-top: 8px;
+        padding-top: 12px;
         // color: rgb(122, 122, 122);
-        font-weight: 280;
-        font-size: 27px;
+        font-weight: 200;
+        font-size: 23px;
+        letter-spacing: 0.07em;
     }
 
     .body-wrap {
@@ -69,8 +70,9 @@ $mobile-break: 980px;
 
     p.body-text {
         font-weight: 280;
-        font-size: 23px;
-        line-height: 1.24;
+        font-size: 22px;
+        line-height: 1.38;
+        letter-spacing: 0.07em;
     }
 
     a {
