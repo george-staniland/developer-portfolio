@@ -64,6 +64,11 @@ body {
   display: block;
 }
 
+.grid-12 {
+  display: grid;
+  grid-template-columns: repeat(12,1fr);
+}
+
 html {
   font-size: 15px;
   background-color: white;

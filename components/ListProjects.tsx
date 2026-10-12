@@ -9,7 +9,7 @@ export default function ListProjects({ projects }: ListProjectProps) {
         <div className="list-projects px ">
 
             {projects.map ( (project, index) => (
-                <div className="row" key={project._firstPublishedAt} >
+                <div className="row grid-12" key={project._firstPublishedAt} >
                     { index == 0 &&
                         <p className="fb projects-title fade-text">Projects</p>
                     }
