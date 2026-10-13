@@ -24,7 +24,7 @@ function MainText() {
            <div className="text-wrap outline">
                 
                 <p className="name text">George Staniland</p>
-                <p className="title text">Front-end Developer</p>
+                <p className="title text">Developer</p>
 
                 <div className="body-wrap">
                     <p className="body-text text">Solving problems, and working with teams </p> 
