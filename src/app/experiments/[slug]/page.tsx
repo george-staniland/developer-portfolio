@@ -20,9 +20,6 @@ export default async function Page({ params }: { params: Promise<{ slug: string 
 
     const { default: Experiment } = await experiment.load();
 
-    return (
-        <section className="page__experiment px">
-            <Experiment />
-        </section>
-    )
+    return <Experiment />
+    
 }

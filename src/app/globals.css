@@ -108,6 +108,18 @@ a {
   border: 1px solid green;
 }
 
+.code-snippet {
+  font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, "Liberation Mono", monospace;
+  font-size: 0.875em;
+  font-style: normal;
+  color: var(--blue);
+  background-color: var(--grey);
+  border: 1px solid var(--hover-grey);
+  border-radius: 4px;
+  padding: 0.1em 0.4em;
+  white-space: nowrap;
+}
+
 /* font sizes */
 
 .fh1 {

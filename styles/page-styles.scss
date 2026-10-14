@@ -49,3 +49,28 @@ $mobile-break: 980px;
 
     }
 }
+
+.experiment__layout {
+    border: 3px solid grey;
+}
+
+.experiement__html-popover {
+    #test-popover {
+        transition: all .5s;
+        opacity: 0;
+        &:popover-open {
+            display: grid;
+            background-color: blue;
+            opacity: 1;
+            transition-behavior: allow-discrete;
+            transition: all .5s;
+        }
+
+    }
+    @starting-style {
+        #test-popover:popover-open {
+            opacity: 0;
+            
+        }
+    }
+}
