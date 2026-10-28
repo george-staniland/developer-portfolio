@@ -8,31 +8,30 @@ $mobile-break: 980px;
 }
 
 .main__text {
-     z-index: 2;
-     height: 90svh;
-     display: flex;
-     justify-content: center;
-    //  background-color: rgb(121, 154, 121);
+    z-index: 2;
+    height: 90svh;
+    display: flex;
+    justify-content: center;
     align-items: center;
 
-      --dot-bg: rgb(255, 255, 255);
-  --dot-color: rgb(43, 43, 43);
-  --dot-size: 1px;
-  --dot-space: 22px;
-	background:
-		linear-gradient(90deg, var(--dot-bg) calc(var(--dot-space) - var(--dot-size)), transparent 1%) center / var(--dot-space) var(--dot-space),
-		linear-gradient(var(--dot-bg) calc(var(--dot-space) - var(--dot-size)), transparent 1%) center / var(--dot-space) var(--dot-space),
-		var(--dot-color); 
+    --dot-bg: rgb(255, 255, 255);
+    --dot-color: rgb(43, 43, 43);
+    --dot-size: 1px;
+    --dot-space: 22px;
+    background:
+        linear-gradient(90deg, var(--dot-bg) calc(var(--dot-space) - var(--dot-size)), transparent 1%) center / var(--dot-space) var(--dot-space),
+        linear-gradient(var(--dot-bg) calc(var(--dot-space) - var(--dot-size)), transparent 1%) center / var(--dot-space) var(--dot-space),
+        var(--dot-color);
 
-     .text-wrap {
+    .text-wrap {
         opacity: 0;
         display: flex;
         flex-direction: column;
         position: relative;
         width: 600px;
-     }
+    }
 
-     .circle-el {
+    .circle-el {
         position: absolute;
         transform: translate(-50%, -50%);
         top: 50%;
@@ -40,29 +39,38 @@ $mobile-break: 980px;
         width: 103%;
         height: 165%;
         border-radius: 10px;
-        // background: radial-gradient(circle, rgb(250, 13, 13) 0%, rgba(255, 0, 0, 0) 90%);
         background-color: rgb(255, 255, 255);
         box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
         z-index: 1;
-     }
-   
-    p.text {
+    }
+
+    // Typography
+    .title,
+    .sub-title,
+    .body-copy {
         text-align: center;
         letter-spacing: 0.07em;
+        z-index: 2;
+    }
+
+    .title {
         font-weight: 500;
         font-size: 28px;
         line-height: 1;
-        z-index: 2;
     }
-    
 
-    p.title {
-        padding-bottom: 18px;
+    .sub-title {
         padding-top: 12px;
-        // color: rgb(122, 122, 122);
+        padding-bottom: 18px;
         font-weight: 200;
         font-size: 23px;
-        letter-spacing: 0.07em;
+        line-height: 1;
+    }
+
+    .body-copy {
+        font-weight: 280;
+        font-size: 22px;
+        line-height: 1.38;
     }
 
     .body-wrap {
@@ -73,46 +81,45 @@ $mobile-break: 980px;
         display: none;
     }
 
-    p.body-text {
-        font-weight: 280;
-        font-size: 22px;
-        line-height: 1.38;
-        letter-spacing: 0.07em;
-    }
-
     a {
         color: unset;
         font-style: normal;
         text-decoration: underline;
         text-decoration-thickness: 2px;
         text-underline-offset: 3px;
+
         &:hover {
             color: var(--blue);
         }
     }
+
     @media(max-width: $mobile-break) {
         height: 100svh;
+
         .text-wrap {
             width: unset;
             width: 87%;
             max-width: 450px;
+
             .circle-el {
                 width: 106%;
             }
         }
-        p.text {
+
+        .title,
+        .sub-title {
             font-size: 22px;
         }
-        p.title {
-            font-size: 22px;
-        }
-        p.body-text {
+
+        .body-copy {
             font-size: 16px;
             line-height: 1.5;
         }
+
         .body-wrap--split {
             display: none;
         }
+
         .body-wrap--combined {
             display: block;
         }

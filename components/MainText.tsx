@@ -23,15 +23,15 @@ function MainText() {
         <div className="main__text px">
            <div className="text-wrap outline">
                 
-                <p className="name text">George Staniland</p>
-                <p className="title text">Software and Website Developer</p>
+                <p className="title">George Staniland</p>
+                <p className="sub-title">Software and Website Developer</p>
 
                 <div className="body-wrap body-wrap--split">
-                    <p className="body-text text">Solving problems, and working with teams </p>
-                    <p className="body-text text">to turn designs into pixel-perfect interfaces.</p>
+                    <p className="body-copy">Solving problems, and working with teams </p>
+                    <p className="body-copy">to turn designs into pixel-perfect interfaces.</p>
                 </div>
                 <div className="body-wrap body-wrap--combined">
-                    <p className="body-text text">
+                    <p className="body-copy">
                         Solving problems, and working with teams to turn designs into pixel-perfect interfaces.
                     </p>
                 </div>
