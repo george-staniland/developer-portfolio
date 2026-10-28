@@ -1,3 +1,5 @@
+@import './variables';
+
 $mobile-break: 980px;
 
 .page__application {
@@ -49,3 +51,20 @@ $mobile-break: 980px;
 
     }
 }
+
+.experiment__layout {
+   padding-top: 24px;
+   .btn {
+        display: inline-flex;
+        align-items: center;
+        gap: 5px;
+        width: fit-content;
+        padding: 7px 12px;
+        font-size: 14px;
+        font-style: normal;
+        margin-bottom: 19px;
+    }
+}
+
+
+
