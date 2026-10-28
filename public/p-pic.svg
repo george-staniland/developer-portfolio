@@ -3,7 +3,7 @@
      aria-labelledby="title"
      viewBox="0 0 139 18">
 
-  <title id="title">WhatsApp me at +64225109709</title>
+  <title id="title">Mobile is 0423 223 935</title>
 
   <defs>
 
@@ -42,8 +42,8 @@
 
   </defs>
 
-  <a href="tel:+64225109709" aria-label="WhatsApp me at +64225109709">
+  <a href="tel:+61423223935" aria-label="You can call me at 0423 223 935">
     <rect />
-    <text x="50%" y="50%" text-anchor="middle" dominant-baseline="middle">+6422 510 9709</text>
+    <text x="50%" y="50%" text-anchor="middle" dominant-baseline="middle">0423 223 935</text>
   </a>
 </svg>

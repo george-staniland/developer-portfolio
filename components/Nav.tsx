@@ -35,6 +35,7 @@ function Nav() {
 
 
     async function handleCopy(key: "email" | "phone", text: string) {
+        console.log('copy', text)
         try {
             const clipboardItem = new ClipboardItem({ "text/plain": text });
             await navigator.clipboard.write([clipboardItem]);
@@ -105,9 +106,9 @@ function Nav() {
                             
                                 <button onClick={(e) => { 
                                     e.stopPropagation();
-                                    handleCopy("phone","0225109709");
+                                    handleCopy("phone","0423 223 935");
                                 }}>
-                                    Copy WhatsApp
+                                    Copy Mobile
                                     { copied.phone && <GiConfirmed />}
                                 </button>
 
