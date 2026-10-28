@@ -5,11 +5,11 @@ export default function ListExperiments() {
     return (
         <div className="component__list-experiments px ">
             <section className="inner grid-12">
-                <p className="fb fade-text">Experiments</p>
+                <p className="fb fade-text expri-title">Experiments</p>
                 <section className="experi-container">
                     {experiments.map((e) => (
-                        <Link key={e.slug} href={`/experiments/${e.slug}`}>
-                            {e.title}
+                        <Link className="expriment-panel-link" key={e.slug} href={`/experiments/${e.slug}`}>
+                           <p className="fb">{e.title}</p> 
                         </Link>
                     ))}
                 </section>
