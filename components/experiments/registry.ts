@@ -12,12 +12,7 @@ export const experiments: Experiment[] = [
         slug: "html-popover",
         title: "HTML Popover",
         load: () => import("./ExperimentHtmlPopover"),
-    },
-    {
-        slug: "test",
-        title: "Test",
-        load: () => import("./ExperimentTest"),
-    },
+    }
 ];
 
 export function getExperiment(slug: string) {

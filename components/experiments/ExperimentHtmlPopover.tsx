@@ -4,7 +4,7 @@ export default function ExperimentHtmlPopover() {
 
             <section className="text__wrap">
                 <h1 className="fh3">HTML <span className="code-snippet">popover</span> global attribute   </h1>
-
+                <p>* Work In Progress</p>
                 <p>The popover attribute hides the element by default using  <span className="code-snippet">display:none</span>. Popovers are not modal, users can still interact with content outside the Popover. Popovers can be shown and hidden entirely with HTML.
                 </p>
                 <p><i>CanIUse</i> lists Popovers as 'Baseline 2025

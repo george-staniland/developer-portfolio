@@ -12,9 +12,9 @@ function MainText() {
         gsap.to('.main__text .text-wrap',
             {
                 opacity: 1,
-                delay: 0.3,
-                duration: 0.4,
-                ease: "power2.in",
+                delay: 0.7,
+                duration: 0.32,
+                ease: "power1.in",
             }
         )
     })
@@ -24,15 +24,15 @@ function MainText() {
            <div className="text-wrap outline">
                 
                 <p className="name text">George Staniland</p>
-                <p className="title text">Developer</p>
+                <p className="title text">Software and Website Developer</p>
 
                 <div className="body-wrap body-wrap--split">
                     <p className="body-text text">Solving problems, and working with teams </p>
-                    <p className="body-text text">to turn designs into pixel-perfect interfaces</p>
+                    <p className="body-text text">to turn designs into pixel-perfect interfaces.</p>
                 </div>
                 <div className="body-wrap body-wrap--combined">
                     <p className="body-text text">
-                        Solving problems, and working with teams to turn designs into pixel-perfect interfaces
+                        Solving problems, and working with teams to turn designs into pixel-perfect interfaces.
                     </p>
                 </div>
 
