@@ -32,7 +32,7 @@ function MainText() {
                 </div>
                 <div className="body-wrap body-wrap--combined">
                     <p className="body-copy">
-                        Solving problems, and working with teams to turn designs into pixel-perfect interfaces.
+                        Solving problems, and working with teams to turn designs into pixel{'\u2011'}perfect interfaces
                     </p>
                 </div>
 

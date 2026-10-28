@@ -37,7 +37,7 @@ $mobile-break: 980px;
         top: 50%;
         left: 50%;
         width: 103%;
-        height: 165%;
+        height: 154%;
         border-radius: 10px;
         background-color: rgb(255, 255, 255);
         box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
@@ -49,32 +49,40 @@ $mobile-break: 980px;
     .sub-title,
     .body-copy {
         text-align: center;
-        letter-spacing: 0.07em;
         z-index: 2;
     }
 
     .title {
-        font-weight: 500;
         font-size: 28px;
-        line-height: 1;
+        font-weight: 560;
+        line-height: 1.12;
+        letter-spacing: 0.035em;
     }
 
     .sub-title {
-        padding-top: 12px;
-        padding-bottom: 18px;
-        font-weight: 200;
-        font-size: 23px;
-        line-height: 1;
+        margin-top: 10px;
+        font-size: 17px;
+        font-weight: 340;
+        line-height: 1.4;
+        letter-spacing: 0.06em;
+        color: var(--text-grey);
     }
 
     .body-copy {
-        font-weight: 280;
-        font-size: 22px;
-        line-height: 1.38;
+        font-size: 17px;
+        font-weight: 380;
+        line-height: 1.55;
+        letter-spacing: 0.02em;
+        color: var(--black);
+    }
+
+    .body-copy + .body-copy {
+        margin-top: 3px;
     }
 
     .body-wrap {
         z-index: 2;
+        padding-top: 28px;
     }
 
     .body-wrap--combined {
@@ -98,22 +106,36 @@ $mobile-break: 980px;
 
         .text-wrap {
             width: unset;
-            width: 87%;
-            max-width: 450px;
+            width: 80%;
+            max-width: 320px;
 
             .circle-el {
-                width: 106%;
+                width: 110%;
+                max-width: 98vw;
             }
         }
 
-        .title,
+        .title {
+            font-size: 25px;
+            letter-spacing: 0.03em;
+        }
+
         .sub-title {
-            font-size: 22px;
+            margin-top: 8px;
+            font-size: 14px;
+            letter-spacing: 0.05em;
+        }
+
+        .body-wrap {
+            padding-top: 22px;
         }
 
         .body-copy {
-            font-size: 16px;
-            line-height: 1.5;
+            font-size: 15px;
+            line-height: 1.58;
+            letter-spacing: 0.015em;
+            text-wrap: pretty;
+
         }
 
         .body-wrap--split {
