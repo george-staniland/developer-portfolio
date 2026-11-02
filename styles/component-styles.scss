@@ -291,19 +291,40 @@ $mobile-break: 980px;
         display: flex;
         gap: 16px;
     }
-    .popping-element {
-        transition: all .5s;
+
+
+    [popover] {
+        transition: opacity .5s, 
+                    overlay .5s allow-discrete,
+                    display .5s allow-discrete;
         background-color: var(--blossom);
-        &:popover-open {
+
+        // final state?
+        opacity: 0;
+
+         &::backdrop {
+            transition: all 0.2s;
+            cursor: n-resize;
+         }
+
+         &:popover-open {
             display: grid;
             opacity: 1;
-            transition: all .9s;
-        }
-
+            transition: all .9s .24s;
+            &::backdrop {
+                background-color: blue;
+            }
+         }
     }
+    
+
     @starting-style {
-        .popping-element:popover-open {
+        [popover]:popover-open {
             opacity: 0;
         }
+        [popover]:popover-open::backdrop {
+            background-color: transparent;
+        }
     }
+
 }
