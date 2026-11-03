@@ -294,25 +294,31 @@ $mobile-break: 980px;
 
 
     [popover] {
-        transition: opacity .5s, 
-                    overlay .5s allow-discrete,
-                    display .5s allow-discrete;
-        background-color: var(--blossom);
-
-        // final state?
         opacity: 0;
+        transform: translateY(40px);
+        transition: all .4s ease;
+
+        transition: 
+            opacity .4s ease,
+            transform .4s ease, 
+            overlay .5s .4s allow-discrete,
+            display .5s .4s allow-discrete;
+    
 
          &::backdrop {
-            transition: all 0.2s;
+            background-color: transparent;
+            transition: background-color 0.5s 0.4s;
             cursor: n-resize;
          }
 
          &:popover-open {
-            display: grid;
+            
             opacity: 1;
-            transition: all .9s .24s;
+            transform: translateY(0px);
+            transition: opacity .1s .28s ease, transform .4s .28s ease;
             &::backdrop {
                 background-color: blue;
+                transition: background-color 0.3s ease; 
             }
          }
     }
@@ -321,6 +327,7 @@ $mobile-break: 980px;
     @starting-style {
         [popover]:popover-open {
             opacity: 0;
+            transform: translateY(40px);
         }
         [popover]:popover-open::backdrop {
             background-color: transparent;
