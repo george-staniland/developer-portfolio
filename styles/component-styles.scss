@@ -1,4 +1,4 @@
-@import './variables';
+
 $mobile-break: 980px;
 
 .line {
@@ -186,6 +186,7 @@ $mobile-break: 980px;
 .list-projects {
     display: flex;
     flex-direction: column;
+    row-gap: 14px;
     padding-top: 24px;
     position: relative;
     padding-bottom: 120px;
@@ -196,12 +197,14 @@ $mobile-break: 980px;
         padding: 0px 10px;
         .project-link {
             grid-column: 5/-1;
+            border-top-left-radius: 15px;
+            border-top-right-radius: 15px;
+            corner-shape: squircle;
             display: grid;
             grid-template-columns: 1fr 1fr 1fr;
             border-bottom: 1px solid var(--hover-grey);
-            padding-block: 16px;
-            padding-inline: 12px;
-            transition: background-color 0.65s ease-out .18s;
+            padding: 14px 12px 12px; 
+            transition: background-color 0.52s ease-out .33s;
             @media(hover: hover ){
                 &:hover {
                     background-color: var(--faded-yellow);
@@ -223,7 +226,7 @@ $mobile-break: 980px;
         padding-bottom: 0px;
         padding-top: 32px;
         .row {
-            // padding: 0 0;
+            padding: 0 0;
             .projects-title {
                 padding-top: 0px;
                 padding-bottom: 16px;
@@ -280,30 +283,97 @@ $mobile-break: 980px;
 }
 
 .experiement__html-popover {
+    padding: 40px 0 80px;
+    .popover__layout {
+        .text__wrap {
+            grid-column: 1 / 9;
+            grid-row: 1;
+        }
+        .btn-wrap {
+            grid-column: 9 / -1;
+            grid-row: 1;
+            padding-top: 7px;
+            justify-content: flex-start;
+            align-self: start;
+            button {
+                padding: 9px 12px;
+                background-color: var(--blossom);
+                font-weight: 500;
+            }
+        }
+        @media(max-width: $mobile-break) {
+            .text__wrap,
+            .btn-wrap {
+                grid-column: 1 / -1;
+                grid-row: unset;
+            }
+            .btn-wrap {
+                padding-bottom: 32px;
+            }
+        }
+    }
     p {
-        @extend .fb;
+        font-weight: 390;
+        font-size: 17px;
+        font-style: normal;
+        line-height: 1.45;
+        letter-spacing: 0.01em;
+        text-wrap: pretty;
     }
     h1 {
         padding-bottom: 24px;
     }
     .btn-wrap {
-        padding-top: 32px;
         display: flex;
+        flex-wrap: wrap;
         gap: 16px;
     }
-    .popping-element {
-        transition: all .5s;
-        background-color: var(--blossom);
-        &:popover-open {
-            display: grid;
-            opacity: 1;
-            transition: all .9s;
-        }
 
+
+    [popover] {
+        opacity: 0;
+        transform: translateY(40px);
+        // transition: all .4s ease;
+
+        transition: 
+            opacity 0.9s ease-out,
+            transform 0.9s ease-out, 
+            overlay 0.9s ease-out allow-discrete,
+            display 0.9s ease-out allow-discrete;
+    
+
+         &::backdrop {
+            background-color: transparent;
+            transition: 
+                background-color 0.9s,
+                overlay 0.9s allow-discrete,
+                display 0.9s allow-discrete;
+         }
+
+         &:popover-open {
+            
+            opacity: 1;
+            transform: translateY(0px);
+            transition: opacity .1s .28s ease, transform .4s .28s ease;
+            &::backdrop {
+                background-color: rgba(38, 38, 255, 0.651);
+                transition: 
+                    background-color 0.3s ease,
+                    overlay .3s allow-discrete,
+                    display .3s allow-discrete;
+            }
+         }
     }
+    
+
     @starting-style {
-        .popping-element:popover-open {
+        [popover]:popover-open {
             opacity: 0;
+            transform: translateY(40px);
+        }
+        [popover]:popover-open::backdrop {
+            background-color: transparent;
         }
     }
+
 }
