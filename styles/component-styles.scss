@@ -336,18 +336,18 @@ $mobile-break: 980px;
         // transition: all .4s ease;
 
         transition: 
-            opacity 0.9s ease-out,
-            transform 0.9s ease-out, 
-            overlay 0.9s ease-out allow-discrete,
-            display 0.9s ease-out allow-discrete;
+            opacity 0.3s ease-out,
+            transform 0.3s ease-out, 
+            overlay 0.8s ease-out allow-discrete,
+            display 0.8s ease-out allow-discrete;
     
 
          &::backdrop {
             background-color: transparent;
             transition: 
-                background-color 0.9s,
-                overlay 0.9s allow-discrete,
-                display 0.9s allow-discrete;
+                background-color 0.5s 0.3s ease-out,
+                overlay 0.8s allow-discrete,
+                display 0.8s allow-discrete;
          }
 
          &:popover-open {
