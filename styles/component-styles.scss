@@ -106,7 +106,7 @@ $mobile-break: 980px;
 
         .text-wrap {
             width: unset;
-            width: 80%;
+            width: 83%;
             max-width: 320px;
 
             .circle-el {
@@ -122,7 +122,7 @@ $mobile-break: 980px;
 
         .sub-title {
             margin-top: 8px;
-            font-size: 14px;
+            font-size: 17px;
             letter-spacing: 0.05em;
         }
 
@@ -131,7 +131,7 @@ $mobile-break: 980px;
         }
 
         .body-copy {
-            font-size: 15px;
+            font-size: 16px;
             line-height: 1.58;
             letter-spacing: 0.015em;
             text-wrap: pretty;
@@ -266,7 +266,7 @@ $mobile-break: 980px;
         }
     }
     @media(max-width: $mobile-break) {
-        padding-top: 32px;
+        padding-top: 64px;
         padding-bottom: 64px;
        .expri-title {
         padding-bottom: 32px;

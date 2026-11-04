@@ -175,6 +175,12 @@ $mobile-break: 860;
 
     @media(max-width: $mobile-break) {
         .nav-btn {
+            height: 30px;
+            width: 30px;
+            .open-info__icon {
+                top: 7.5px;
+                right: 7.5px;
+            }
             &.is-active {
                 width: calc(100vw - var(--pm) * 2);
                 height: calc(100vw - var(--pm) * 2);
