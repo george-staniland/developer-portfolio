@@ -262,6 +262,9 @@ $mobile-break: 980px;
             display: flex;
             justify-content: center;
             align-items: center;
+            .fb {
+                text-align: center;
+            }
             &:hover, &:focus, &:active {
                 background-color: var(--faded-yellow);
             }
@@ -376,4 +379,17 @@ $mobile-break: 980px;
         }
     }
 
+}
+
+.experiement__claude-api {
+    p, pre {
+        max-width: 500px;
+        overflow: hidden;
+        text-wrap: wrap;
+    }
+    .sent-text, .response-text {
+        border: 3px solid grey;
+        margin-bottom: 20px;
+        padding: 15px;
+    }
 }
