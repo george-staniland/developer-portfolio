@@ -387,6 +387,24 @@ $mobile-break: 980px;
         overflow: hidden;
         text-wrap: wrap;
     }
+
+    .user-creepy-mirror {
+        border: 3px solid green;
+        height: calc(100dvh - 190px);
+        position: relative;
+        .mirror-readout {
+            position: absolute;
+            top: 6px;
+            left: 6px;
+            font-size: 12px;
+            text-transform: uppercase;
+            font-family: monospace;
+        }
+        .mirror-line {
+            margin: 0 0 4px;
+            max-width: none;
+        }
+    }
     .sent-text, .response-text {
         border: 3px solid grey;
         margin-bottom: 20px;
