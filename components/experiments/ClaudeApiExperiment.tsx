@@ -4,9 +4,10 @@ import { useEffect, useRef, useState } from "react";
 import {
     type ClientMirrorInfo,
     enrichClientMirrorInfo,
+    formatMirrorGuess,
     getClientMirrorInfo,
 } from "@/lib/clientMirrorInfo";
-import { getClientIp } from "@/lib/clientIp";
+import { type ClientIpInfo, getClientIp } from "@/lib/clientIp";
 
 type ContentBlock = {
     type: string;
@@ -15,12 +16,13 @@ type ContentBlock = {
 
 function formatMirrorClaudeMessage(
     info: ClientMirrorInfo,
-    ip: string | null,
+    ipInfo: ClientIpInfo | null,
 ): string {
     const telemetry = [
         `Device type: ${info.deviceType}`,
         `Brand: ${info.brand}`,
-        ip ? `Public IP: ${ip}` : null,
+        ipInfo?.city ? `City: ${ipInfo.city}` : null,
+        ipInfo?.country ? `Country: ${ipInfo.country}` : null,
     ].filter((line): line is string => Boolean(line));
 
     return [
@@ -30,25 +32,38 @@ function formatMirrorClaudeMessage(
     ].join("\n");
 }
 
-function formatContentBlock(block: ContentBlock, index: number) {
-    if (block.type === "text" && block.text != null) {
-        return <p key={index}>{block.text}</p>;
+function extractSvgMarkup(blocks: ContentBlock[]): string | null {
+    const text = blocks
+        .filter((block) => block.type === "text" && block.text != null)
+        .map((block) => block.text as string)
+        .join("");
+
+    if (!text) return null;
+
+    const match = text.match(/<svg[\s\S]*?<\/svg>/i);
+    if (!match) return null;
+
+    const doc = new DOMParser().parseFromString(match[0], "image/svg+xml");
+    const parseError = doc.querySelector("parsererror");
+    const svg = doc.documentElement;
+    if (parseError || svg.tagName.toLowerCase() !== "svg") {
+        return null;
     }
 
-    return (
-        <pre key={index}>{JSON.stringify(block, null, 2)}</pre>
-    );
+    return svg.outerHTML;
 }
 
 export default function ClaudeApiExperiment() {
     const [sentMessage, setSentMessage] = useState<string | null>(null);
-    const [content, setContent] = useState<ContentBlock[]>([]);
+    const [svgMarkup, setSvgMarkup] = useState<string | null>(null);
     const [error, setError] = useState<string | null>(null);
     const [loading, setLoading] = useState(true);
     const [mirrorSize, setMirrorSize] = useState<string | null>(null);
     const [clientInfo, setClientInfo] = useState<ClientMirrorInfo | null>(null);
-    const [clientIp, setClientIp] = useState<string | null>(null);
+    const [clientIpInfo, setClientIpInfo] = useState<ClientIpInfo | null>(null);
     const mirrorRef = useRef<HTMLDivElement>(null);
+ 
+
 
     useEffect(() => {
         let cancelled = false;
@@ -57,7 +72,7 @@ export default function ClaudeApiExperiment() {
             const browserInfo = getClientMirrorInfo();
             setClientInfo(browserInfo);
 
-            const [enriched, ip] = await Promise.all([
+            const [enriched, ipInfo] = await Promise.all([
                 enrichClientMirrorInfo(browserInfo),
                 getClientIp(),
             ]);
@@ -65,9 +80,9 @@ export default function ClaudeApiExperiment() {
             if (cancelled) return;
 
             setClientInfo(enriched);
-            setClientIp(ip);
+            setClientIpInfo(ipInfo);
 
-            const message = formatMirrorClaudeMessage(enriched, ip);
+            const message = formatMirrorClaudeMessage(enriched, ipInfo);
 
             try {
                 const res = await fetch("/api/claude-test", {
@@ -86,7 +101,10 @@ export default function ClaudeApiExperiment() {
                     return;
                 }
                 setSentMessage(data.sentMessage ?? null);
-                setContent(Array.isArray(data.content) ? data.content : []);
+                const blocks = Array.isArray(data.content)
+                    ? (data.content as ContentBlock[])
+                    : [];
+                setSvgMarkup(extractSvgMarkup(blocks));
             } catch {
                 if (!cancelled) {
                     setError("Could not reach the Claude API route.");
@@ -124,26 +142,37 @@ export default function ClaudeApiExperiment() {
 
     return (
         <section className="experiement__claude-api">
-            {loading && <p className="expi-title fh3">Calling Claude…</p>}
             {error && <p role="alert">{error}</p>}
 
             {sentMessage != null && (
                 <div className="sent-text">
-                    <p>Message sent: is it thosss?</p>
+                    <p>Message sent to Claude API:</p>
                     <p>{sentMessage}</p>
                 </div>
             )}
 
-            {content.length > 0 && (
-                <div className="response-text">
-                    <p>Claude response</p>
-                    {content.map(formatContentBlock)}
-                </div>
-            )}
+
             <div ref={mirrorRef} className="user-creepy-mirror">
                 <div className="mirror-readout">
+
                     {mirrorSize != null && (
-                        <p className="mirror-line">{mirrorSize}</p>
+                        <p className="mirror-size-readout">{mirrorSize}</p>
+                    )}
+
+{loading && 
+                        <p className="loading-api-call fh3">Ask Claude to draw an image...</p>
+                    }
+
+                    {clientInfo != null && (
+                        <p className="mirror-guess">
+                            {formatMirrorGuess(clientInfo, clientIpInfo)}
+                        </p>
+                    )}
+
+                    {svgMarkup != null && (
+                        <div
+                            dangerouslySetInnerHTML={{ __html: svgMarkup }}
+                        />
                     )}
                 </div>
             </div>

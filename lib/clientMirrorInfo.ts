@@ -1,8 +1,24 @@
+import { type ClientIpInfo } from "@/lib/clientIp";
+
 export type ClientMirrorInfo = {
     deviceType: string;
     brand: string;
     browser: string;
 };
+
+export function formatMirrorGuess(
+    info: ClientMirrorInfo,
+    ipInfo: ClientIpInfo | null,
+): string {
+    const city = ipInfo?.city ?? "an unknown city";
+    const country = ipInfo?.country
+        ? `, ${ipInfo.country}`
+        : ", an unknown country";
+    const device =
+        info.deviceType.toLowerCase() === "desktop" ? "laptop" : info.deviceType;
+
+    return `It looks like you're in ${city}${country} on an ${info.brand} ${device}`;
+}
 
 function parseBrowser(userAgent: string): string {
     if (/Edg\//.test(userAgent)) return "Edge";

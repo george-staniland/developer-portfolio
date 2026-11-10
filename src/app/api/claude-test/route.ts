@@ -15,44 +15,50 @@ export async function POST(request: Request) {
     const client = new Anthropic({ apiKey });
 
 
-    const SYSTEM_PROMPT = `You turn client telemetry into a small, hand-drawn style SVG illustration.
+    const SYSTEM_PROMPT = `You turn client telemetry into a clean, recognisable SVG illustration.
 
 INPUT
-The user message is telemetry: device type, brand, and possibly a location (city/country) or a public IP.
+The user message is telemetry: device type, brand, and a city/country.
 
 OUTPUT FORMAT (strict)
-1. <notes>2-4 short sentences: what you detected (device, brand, location) and how you interpreted it. If the location is missing or unreliable, say which landmark you chose instead.</notes>
+1. <notes>2-3 sentences: what you detected and which landmark you chose.</notes>
 2. <svg>...</svg> containing exactly one complete SVG.
 Output nothing outside these two tags. No markdown fences.
 
-SCENE
-- Foreground: a simple, recognisable drawing of the user's device, if desktop always draw a laptop.
-- Background: for testing allways draw a Sydney, Australia landmark.
+SCENE COMPOSITION
+- Background (upper 60%): One iconic landmark from the city. Focus on the SILHOUETTE - the shape that makes it instantly recognizable.
+- Foreground (lower 40%): The user's device (laptop for desktop, phone for mobile).
+- Device should be positioned bottom-center, partially overlapping the landmark scene.
+
+LANDMARK DRAWING STRATEGY (CRITICAL)
+For recognizable landmarks, capture the KEY SILHOUETTE FEATURES:
+- Sydney Opera House: 3-4 overlapping sail/shell shapes using smooth bezier curves, sitting on a rectangular platform over water
+- Eiffel Tower: distinctive tapered lattice shape with 3 tiers and pointed top
+- Big Ben: tall rectangular clock tower with pointed spire and clock face
+- Statue of Liberty: figure holding torch aloft with crown spikes visible
+- Golden Gate Bridge: two towers with characteristic suspension cables
+- Taj Mahal: central onion dome flanked by smaller domes and minarets
+Always draw the most DISTINCTIVE outline that makes the landmark identifiable at a glance.
 
 STYLE
-- Hand-drawn line art, like a marker sketch in a notebook.
-- Hand-drawn feel: use gentle cubic curves (C/S) instead of perfect straight lines, slightly uneven corners, and small gaps or overshoots where strokes meet. Fill shapes may sit a few pixels off from their outlines.
-- Strokes: stroke-linecap="round" stroke-linejoin="round", stroke-width between 3 and 5.
-- no fill colors
-- Palette (use only these):
-  ink #3F3D56 (all outlines)
-  pastel pink #F7C6D0
-  pastel blue #BFDDF2
-  pastel yellow #FBE8A6
-  Background is transparent.
+- Clean vector illustration style (like a modern logo or icon).
+- Smooth bezier curves (C/S commands) for organic shapes, clean lines for geometric shapes.
+- Strokes: stroke-linecap="round" stroke-linejoin="round", stroke-width 2-4.
+- Palette:
+  outline #3F3D56 (primary strokes)
+  accent-pink #F7C6D0
+  accent-blue #BFDDF2
+  accent-yellow #FBE8A6
+- Use fills sparingly for accent areas. Background is transparent.
 
-BUDGET (this keeps the file small and Lottie-friendly)
-- Max 25 drawable elements total.
-- Use only <path>, <circle>, <ellipse>, <rect>, <line>, and <g>. Prefer <path>.
-- Round all coordinates to integers. Max 8 path commands per path.
+SVG REQUIREMENTS
 - viewBox="0 0 400 400" with xmlns. No width/height attributes.
-
-LOTTIE/ANIMATION RULES
-- Put every style on the element as attributes (fill, stroke, stroke-width). No <style>, class, <defs>, <use>, <symbol>, <clipPath>, <mask>, <text>, <image>, or CSS.
-- Use absolute coordinates. No transform attributes.
-- Group by layer, in draw order, with ids: <g id="sky">, <g id="landmark">, <g id="device">, <g id="details">.
-- Give each path a descriptive id (e.g. id="laptop-screen", id="tower-outline").
-- Draw outlines as separate stroke-only paths (fill="none") from the pastel fill shapes, so strokes can be animated with trim paths and fills can fade in.`;
+- Max 40 drawable elements total.
+- Use <path>, <circle>, <ellipse>, <rect>, <line>, <g>.
+- Paths can have up to 15 commands each - use enough to capture landmark shapes properly.
+- Inline all styles as attributes (fill, stroke, stroke-width). No <style>, class, <defs>, <use>, <clipPath>, <mask>, <text>, or <image>.
+- Round coordinates to 1 decimal place.
+- Group elements logically: <g id="landmark">, <g id="device">.`;
 
     const response = await client.messages.create({
         max_tokens: 10000,

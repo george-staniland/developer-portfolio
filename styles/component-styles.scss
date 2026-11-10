@@ -391,23 +391,77 @@ $mobile-break: 980px;
     .user-creepy-mirror {
         border: 3px solid green;
         height: calc(100dvh - 190px);
+        padding: 12px 10px;
         position: relative;
-        .mirror-readout {
-            position: absolute;
-            top: 6px;
-            left: 6px;
-            font-size: 12px;
+        display: flex;
+        flex-direction: column;
+        .mirror-size-readout {
             text-transform: uppercase;
             font-family: monospace;
         }
-        .mirror-line {
-            margin: 0 0 4px;
+        .mirror-guess {
+            margin: 8px 0 12px;
             max-width: none;
+            text-transform: none;
+            font-family: inherit;
+        }
+        svg {
+            width: 400px;
+            height: auto;
         }
     }
-    .sent-text, .response-text {
+    .sent-text {
         border: 3px solid grey;
         margin-bottom: 20px;
         padding: 15px;
+    }
+}
+
+.experiment__halftone {
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+
+    .animation-wrap {
+        position: relative;
+        width: 75%;
+        border-radius: 12px;
+        overflow: hidden;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        aspect-ratio: 16 / 7;
+        background-color: var(--grey);
+
+        canvas {
+            display: block;
+            height: 100%;
+            width: auto;
+            max-width: 100%;
+            object-fit: contain;
+            position: relative;
+            top: -8%;
+            left: -0.5%;
+        }
+
+        video {
+            display: none;
+        }
+    }
+
+    @media (max-width: 860px) {
+        height: 98vh;
+
+        .animation-wrap {
+            width: 90%;
+            aspect-ratio: 9 / 16;
+
+            canvas {
+                width: 100%;
+                height: auto;
+            }
+        }
     }
 }
