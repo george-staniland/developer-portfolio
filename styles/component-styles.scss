@@ -377,3 +377,53 @@ $mobile-break: 980px;
     }
 
 }
+
+.experiment__halftone {
+    border: 1px solid red;
+    // height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+
+    .animation-wrap {
+        position: relative;
+        width: 75%;
+        border-radius: 12px;
+        overflow: hidden;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        aspect-ratio: 16 / 7;
+        background-color: var(--grey);
+
+        canvas {
+            display: block;
+            height: 100%;
+            width: auto;
+            max-width: 100%;
+            object-fit: contain;
+            position: relative;
+            top: -8%;
+            left: -0.5%;
+        }
+
+        video {
+            display: none;
+        }
+    }
+
+    @media (max-width: 860px) {
+        height: 98vh;
+
+        .animation-wrap {
+            width: 90%;
+            aspect-ratio: 9 / 16;
+
+            canvas {
+                width: 100%;
+                height: auto;
+            }
+        }
+    }
+}
