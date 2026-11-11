@@ -1,24 +1,8 @@
-import { type ClientIpInfo } from "@/lib/clientIp";
-
 export type ClientMirrorInfo = {
     deviceType: string;
     brand: string;
     browser: string;
 };
-
-export function formatMirrorGuess(
-    info: ClientMirrorInfo,
-    ipInfo: ClientIpInfo | null,
-): string {
-    const city = ipInfo?.city ?? "an unknown city";
-    const country = ipInfo?.country
-        ? `, ${ipInfo.country}`
-        : ", an unknown country";
-    const device =
-        info.deviceType.toLowerCase() === "desktop" ? "laptop" : info.deviceType;
-
-    return `It looks like you're in ${city}${country} on an ${info.brand} ${device}`;
-}
 
 function parseBrowser(userAgent: string): string {
     if (/Edg\//.test(userAgent)) return "Edge";
@@ -77,7 +61,7 @@ function parseDeviceFromUserAgent(
     return { deviceType: "Unknown device", brand: "Unknown" };
 }
 
-export function getClientMirrorInfo(): ClientMirrorInfo {
+export function getClientDeviceSpecs(): ClientMirrorInfo {
     const userAgent = navigator.userAgent;
     const { deviceType, brand } = parseDeviceFromUserAgent(userAgent);
     let info: ClientMirrorInfo = {
@@ -119,7 +103,7 @@ export function getClientMirrorInfo(): ClientMirrorInfo {
     return info;
 }
 
-export async function enrichClientMirrorInfo(
+export async function enrichClientDeviceSpecs(
     base: ClientMirrorInfo,
 ): Promise<ClientMirrorInfo> {
     const uad = navigator.userAgentData;
@@ -129,6 +113,7 @@ export async function enrichClientMirrorInfo(
 
     try {
         const hints = await uad.getHighEntropyValues(["model", "platform"]);
+        console.log('enrich function', hints)
         const brand =
             hints.model && hints.model.length > 0 ? hints.model : base.brand;
         return { ...base, brand };

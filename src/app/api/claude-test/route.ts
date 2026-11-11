@@ -21,14 +21,14 @@ INPUT
 The user message is telemetry: device type, brand, and a city/country.
 
 OUTPUT FORMAT (strict)
-1. <notes>2-3 sentences: what you detected and which landmark you chose.</notes>
+1. <notes>1-2 sentences: what you detected and which landmark you chose.</notes>
 2. <svg>...</svg> containing exactly one complete SVG.
 Output nothing outside these two tags. No markdown fences.
 
 SCENE COMPOSITION
-- Background (upper 60%): One iconic landmark from the city. Focus on the SILHOUETTE - the shape that makes it instantly recognizable.
-- Foreground (lower 40%): The user's device (laptop for desktop, phone for mobile).
-- Device should be positioned bottom-center, partially overlapping the landmark scene.
+- Background: Two iconic landmarks from the city. Focus on the SILHOUETTE - the shape that makes it instantly recognizable.
+- Foreground: The user's device (laptop for desktop, phone for mobile).
+- Device should be positioned bottom left, center or right - you decide, partially overlapping the landmark scene.
 
 LANDMARK DRAWING STRATEGY (CRITICAL)
 For recognizable landmarks, capture the KEY SILHOUETTE FEATURES:
@@ -41,15 +41,12 @@ For recognizable landmarks, capture the KEY SILHOUETTE FEATURES:
 Always draw the most DISTINCTIVE outline that makes the landmark identifiable at a glance.
 
 STYLE
-- Clean vector illustration style (like a modern logo or icon).
+- Clean monoline line drawing (like a minimal logo or icon). Outlines only, no filled shapes.
 - Smooth bezier curves (C/S commands) for organic shapes, clean lines for geometric shapes.
-- Strokes: stroke-linecap="round" stroke-linejoin="round", stroke-width 2-4.
-- Palette:
-  outline #3F3D56 (primary strokes)
-  accent-pink #F7C6D0
-  accent-blue #BFDDF2
-  accent-yellow #FBE8A6
-- Use fills sparingly for accent areas. Background is transparent.
+- Strokes: stroke-linecap="round" stroke-linejoin="round", stroke-width 4-7.
+- Every element MUST have fill="none". Never use a fill colour, gradients, or shading.
+- Use one color only - rgb(25, 25, 25).
+- Background is transparent.
 
 SVG REQUIREMENTS
 - viewBox="0 0 400 400" with xmlns. No width/height attributes.
@@ -63,8 +60,14 @@ SVG REQUIREMENTS
     const response = await client.messages.create({
         max_tokens: 10000,
         messages: [{ content: message, role: "user" }],
-        system: SYSTEM_PROMPT,
-        model: "claude-haiku-5-5",
+        system: [
+            {
+                type: "text",
+                text: SYSTEM_PROMPT,
+                cache_control: { type: "ephemeral" },
+            },
+        ],
+        model: "claude-opus-5-5",
     });
 
     return NextResponse.json({

@@ -19,8 +19,7 @@ export async function getClientIp(): Promise<ClientIpInfo | null> {
             return null;
         }
         const data = (await response.json()) as FreeIpApiResponse;
-        console.log("FreeIPAPI response:", data);
-
+        
         const ip =
             typeof data.ipAddress === "string" ? data.ipAddress : null;
         if (!ip) {

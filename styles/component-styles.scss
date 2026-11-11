@@ -382,38 +382,53 @@ $mobile-break: 980px;
 }
 
 .experiement__claude-api {
-    p, pre {
-        max-width: 500px;
-        overflow: hidden;
-        text-wrap: wrap;
-    }
+    display: flex;
+    flex-direction: column;
+    gap: 18px;
+
 
     .user-creepy-mirror {
-        border: 3px solid green;
-        height: calc(100dvh - 190px);
+        border: 1px solid black;
+        // height: calc(100dvh - 190px);
         padding: 12px 10px;
         position: relative;
         display: flex;
         flex-direction: column;
+        row-gap: 12px;
         .mirror-size-readout {
             text-transform: uppercase;
             font-family: monospace;
+            font-size: 11px;
         }
-        .mirror-guess {
-            margin: 8px 0 12px;
-            max-width: none;
-            text-transform: none;
-            font-family: inherit;
+        .loading__body {
+            max-width: 590px;
         }
-        svg {
-            width: 400px;
-            height: auto;
+
+        .claude-notes {
+            max-width: 800px;
         }
+        .claude-img-return__wrap {
+            display: flex;
+            justify-content: center;
+            padding-top: 12px;
+            svg {
+                width: 440px;
+                border: 2px solid black;
+                height: auto;
+            }
+        }
+
     }
-    .sent-text {
-        border: 3px solid grey;
-        margin-bottom: 20px;
-        padding: 15px;
+    .sent-text_or_loading {
+        border: 1px solid black;
+        padding: 8px;
+        .dotz {
+            display: inline-block;
+            transform: translateY(0.3em);
+        }
+        .loading__body {
+            max-width: 590px;
+        }
     }
 }
 
