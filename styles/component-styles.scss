@@ -262,6 +262,9 @@ $mobile-break: 980px;
             display: flex;
             justify-content: center;
             align-items: center;
+            .fb {
+                text-align: center;
+            }
             &:hover, &:focus, &:active {
                 background-color: var(--faded-yellow);
             }
@@ -376,4 +379,211 @@ $mobile-break: 980px;
         }
     }
 
+}
+
+.experiement__claude-api {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding-bottom: 120px;
+
+    .inner-container {
+        width: 750px;
+    }
+
+    // Small grey pill, like the "Shopify" tags in the reference.
+    .claude-tag {
+        display: inline-block;
+        width: fit-content;
+        padding: 3px 8px;
+        border-radius: 4px;
+        background-color: var(--grey);
+        color: var(--black);
+        font-size: 13px;
+        font-weight: 390;
+        line-height: 1.3;
+        letter-spacing: 0.01em;
+        white-space: nowrap;
+    }
+
+    .claude-error {
+        color: var(--black);
+        background-color: var(--blossom);
+        border-radius: 4px;
+        padding: 8px 12px;
+    }
+
+    // Intro: what is being sent / what is loading.
+    .sent-text_or_loading {
+        display: flex;
+        flex-direction: column;
+        row-gap: 12px;
+
+        .claude-heading-row {
+            display: flex;
+            flex-direction: column;
+            row-gap: 8px;
+        }
+        .loading-api-call,
+        .sent-msg-title {
+            color: var(--black);
+            line-height: 1.3;
+        }
+        .dotz {
+            display: inline-block;
+            min-width: 4ch;
+            text-align: left;
+            transform: translateY(0.3em);
+        }
+        .sent-msg-subtitle {
+            color: var(--deep-grey);
+            max-width: 60ch;
+        }
+        .loading__body {
+            max-width: 70%;
+        }
+
+        .msg-sent-text-wrap {
+            // border: 1px solid red;
+            display: flex;
+            flex-direction: column;
+            row-gap: 12px;
+                // Body copy: muted grey, comfortable measure and line height.
+            .claude-body {
+                color: var(--text-grey);
+                line-height: 1.6;
+                max-width: 60ch;
+                // white-space: pre-line;
+            }
+        }
+    }
+
+    // Result: Claude's notes, then the image frame.
+    .user-creepy-mirror {
+        padding-top: 32px;
+
+        .claude-notes-block {
+            display: flex;
+            flex-direction: column;
+            row-gap: 8px;
+            padding-bottom: 32px;
+        }
+
+        .claude-img-return {
+            display: flex;
+            justify-content: center;
+
+            // Fixed-width grey square. The spinner and SVG share one grid
+            // cell so the spinner is centered and the SVG fades in over it.
+            .claude-img-return__frame {
+                display: grid;
+                place-items: center;
+                width: 440px;
+                max-width: 100%;
+                aspect-ratio: 1 / 1;
+                background-color: var(--grey);
+                border-radius: 4px;
+                overflow: hidden;
+            }
+            .loading-spinner {
+                grid-area: 1 / 1;
+                width: 36px;
+                height: 36px;
+                box-sizing: border-box;
+                border-radius: 50%;
+                // Transparent background: only the arc is drawn.
+                border: 2px solid rgba(31, 31, 31, 0.12);
+                border-top-color: var(--black);
+                animation: claude-spin 0.9s linear infinite;
+                transition: opacity 0.4s ease;
+                &.loading-spinner--hidden {
+                    opacity: 0;
+                    pointer-events: none;
+                }
+            }
+            .claude-img-return__wrap {
+                grid-area: 1 / 1;
+                width: 85%;
+                height: 85%;
+                animation: claude-fade-in 0.6s ease both;
+                svg {
+                    display: block;
+                    width: 100%;
+                    height: 100%;
+                }
+            }
+        }
+    }
+    @media(max-width: 998px) {
+        .inner-container {
+            width: 100%;
+        }
+        .fh5 {
+            font-weight: 400;
+        }
+    }
+}
+
+@keyframes claude-fade-in {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+@keyframes claude-spin {
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+.experiment__halftone {
+    height: 150vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+
+    .animation-wrap {
+        position: relative;
+        width: 75%;
+        border-radius: 12px;
+        overflow: hidden;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        aspect-ratio: 16 / 7;
+        background-color: var(--grey);
+
+        canvas {
+            display: block;
+            height: 100%;
+            width: auto;
+            max-width: 100%;
+            object-fit: contain;
+            position: relative;
+            top: -8%;
+            left: -0.5%;
+        }
+
+        video {
+            display: none;
+        }
+    }
+
+    @media (max-width: 860px) {
+        height: 98vh;
+
+        .animation-wrap {
+            width: 90%;
+            aspect-ratio: 9 / 16;
+
+            canvas {
+                width: 100%;
+                height: auto;
+            }
+        }
+    }
 }
