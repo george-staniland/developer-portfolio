@@ -1,6 +1,9 @@
 import Anthropic from "@anthropic-ai/sdk";
 import { NextResponse } from "next/server";
 
+// Max function run time on Vercel, in seconds (1.5 minutes).
+export const maxDuration = 90;
+
 export async function POST(request: Request) {
     const apiKey = process.env.CLAUDE_API_TOKEN;
     if (!apiKey) {
