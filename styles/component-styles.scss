@@ -421,9 +421,8 @@ $mobile-break: 980px;
 
         .claude-heading-row {
             display: flex;
-            align-items: center;
-            flex-wrap: wrap;
-            gap: 8px 12px;
+            flex-direction: column;
+            row-gap: 8px;
         }
         .loading-api-call,
         .sent-msg-title {
@@ -439,6 +438,9 @@ $mobile-break: 980px;
         .sent-msg-subtitle {
             color: var(--deep-grey);
             max-width: 60ch;
+        }
+        .loading__body {
+            max-width: 70%;
         }
 
         .msg-sent-text-wrap {
@@ -458,20 +460,18 @@ $mobile-break: 980px;
 
     // Result: Claude's notes, then the image frame.
     .user-creepy-mirror {
-        display: flex;
-        flex-direction: column;
-        row-gap: 16px;
-        position: relative;
+        padding-top: 32px;
 
         .claude-notes-block {
             display: flex;
             flex-direction: column;
             row-gap: 8px;
+            padding-bottom: 32px;
         }
 
         .claude-img-return {
             display: flex;
-            justify-content: flex-start;
+            justify-content: center;
 
             // Fixed-width grey square. The spinner and SVG share one grid
             // cell so the spinner is centered and the SVG fades in over it.
@@ -512,6 +512,14 @@ $mobile-break: 980px;
                     height: 100%;
                 }
             }
+        }
+    }
+    @media(max-width: 998px) {
+        .inner-container {
+            width: 100%;
+        }
+        .fh5 {
+            font-weight: 400;
         }
     }
 }

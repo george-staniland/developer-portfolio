@@ -73,7 +73,14 @@ export default function ClaudeApiExperiment() {
     const [notes, setNotes] = useState<string | null>(null);
     const [error, setError] = useState<string | null>(null);
     const [loading, setLoading] = useState(true);
+
     const isLoading = FORCE_LOADING || loading;
+    // When FORCE_LOADING is on, hide all returned data so only the loading
+    // state shows, even if the response has already arrived.
+    
+    const shownSentMessage = FORCE_LOADING ? null : sentMessage;
+    const shownNotes = FORCE_LOADING ? null : notes;
+    const shownSvgMarkup = FORCE_LOADING ? null : svgMarkup;
     const [clientInfo, setClientInfo] = useState<ClientMirrorInfo | null>(null);
     const svgWrapRef = useRef<HTMLDivElement>(null);
     const [dotCount, setDotCount] = useState(0);
@@ -190,17 +197,18 @@ export default function ClaudeApiExperiment() {
                 </p>
             )}
 
-            <div className="inner-container outline">
+            <div className="inner-container">
 
             <div className="sent-text_or_loading">
                 {isLoading && (
                     <>
                         <div className="claude-heading-row">
+                        <span className="claude-tag">claude-haiku-5-5</span>
                             <p className="loading-api-call fh5">
                                 Asking Claude to draw an SVG{" "}
                                 <span className="dotz">{"*".repeat(dotCount)}</span>
                             </p>
-                            <span className="claude-tag">claude-haiku-5-5</span>
+
                         </div>
                         <p className="fb claude-body loading__body">
                             This is, creepily, based on your device type, device brand, and location of your I.P address by sending it to a free API.
@@ -208,10 +216,10 @@ export default function ClaudeApiExperiment() {
                     </>
                 )}
 
-                {sentMessage != null && (
+                {shownSentMessage != null && (
                     <div className="msg-sent-text-wrap">
                         <p className="fh5 sent-msg-title">Message sent to the Claude API</p>
-                        <p className="fb claude-body">{sentMessage}</p>
+                        <p className="fb claude-body">"{shownSentMessage}"</p>
                         <p className="fd sent-msg-subtitle">
                             *A system message is also sent to define more constraints for the SVG.
                         </p>
@@ -220,10 +228,10 @@ export default function ClaudeApiExperiment() {
             </div>
 
             <div className="user-creepy-mirror">
-                {notes != null && (
+                {shownNotes != null && (
                     <div className="claude-notes-block">
                         <span className="claude-tag">Claude response</span>
-                        <p className="fb claude-body claude-notes">"{notes}"</p>
+                        <p className="claude-body claude-notes">"{shownNotes}"</p>
                     </div>
                 )}
 
@@ -235,16 +243,16 @@ export default function ClaudeApiExperiment() {
                             role="status"
                             aria-label="Loading"
                             className={`loading-spinner${
-                                isLoading && svgMarkup == null
+                                isLoading && shownSvgMarkup == null
                                     ? ""
                                     : " loading-spinner--hidden"
                             }`}
                         />
 
-                        {svgMarkup != null && (
+                        {shownSvgMarkup != null && (
                             <div
                                 ref={svgWrapRef}
-                                dangerouslySetInnerHTML={{ __html: svgMarkup }}
+                                dangerouslySetInnerHTML={{ __html: shownSvgMarkup }}
                                 className="claude-img-return__wrap"
                             />
                         )}
