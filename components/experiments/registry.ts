@@ -10,7 +10,7 @@ export type Experiment = {
 export const experiments: Experiment[] = [
     {
         slug: "claude-experiment",
-        title: "Claude Model API Experiment",
+        title: "Claude API Experiment",
         load: () => import("./ClaudeApiExperiment"),
     },
     {
