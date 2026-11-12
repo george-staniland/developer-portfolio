@@ -381,6 +381,59 @@ $mobile-break: 980px;
 
 }
 
+.experiement__claude-api {
+    display: flex;
+    flex-direction: column;
+    gap: 18px;
+
+
+    .user-creepy-mirror {
+        border: 1px solid black;
+        // height: calc(100dvh - 190px);
+        padding: 12px 10px;
+        position: relative;
+        display: flex;
+        flex-direction: column;
+        row-gap: 12px;
+        .mirror-size-readout {
+            text-transform: uppercase;
+            font-family: monospace;
+            font-size: 11px;
+        }
+        .loading__body {
+            max-width: 590px;
+        }
+
+        .claude-notes {
+            max-width: 800px;
+        }
+        .claude-img-return__wrap {
+            display: flex;
+            justify-content: center;
+            padding-top: 12px;
+            svg {
+                width: 440px;
+                border: 2px solid black;
+                height: auto;
+            }
+        }
+
+    }
+    .sent-text_or_loading {
+        border: 1px solid black;
+        padding: 8px;
+        .dotz {
+            display: inline-block;
+            transform: translateY(0.3em);
+        }
+        .loading__body {
+            max-width: 590px;
+        }
+    }
+}
+
+
+
 .experiment__halftone {
     border: 1px solid red;
     // height: 100vh;

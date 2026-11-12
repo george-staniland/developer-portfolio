@@ -14,6 +14,11 @@ export const experiments: Experiment[] = [
         load: () => import("./ExperimentHtmlPopover"),
     },
     {
+        slug: "claude-experiment",
+        title: "Claude Model API Experiment",
+        load: () => import("./ClaudeApiExperiment"),
+    },
+    {
         slug: "halftone-canvas",
         title: "Halftone Canvas",
         load: () => import("./ExperimentHalftoneCanvas"),

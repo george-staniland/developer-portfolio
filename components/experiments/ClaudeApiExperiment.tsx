@@ -8,7 +8,7 @@ import {
 } from "@/lib/clientMirrorInfo";
 import { type ClientIpInfo, getClientIp } from "@/lib/clientIp";
 
-// Dev/testing only: set to true to keep the loading state showing permanently.
+// Dev/testing only
 const FORCE_LOADING = false;
 
 type ContentBlock = {
