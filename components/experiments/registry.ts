@@ -9,11 +9,6 @@ export type Experiment = {
 
 export const experiments: Experiment[] = [
     {
-        slug: "html-popover",
-        title: "HTML Popover",
-        load: () => import("./ExperimentHtmlPopover"),
-    },
-    {
         slug: "claude-experiment",
         title: "Claude Model API Experiment",
         load: () => import("./ClaudeApiExperiment"),
@@ -22,6 +17,11 @@ export const experiments: Experiment[] = [
         slug: "halftone-canvas",
         title: "Halftone Canvas",
         load: () => import("./ExperimentHalftoneCanvas"),
+    },
+    {
+        slug: "html-popover",
+        title: "HTML Popover",
+        load: () => import("./ExperimentHtmlPopover"),
     },
 ];
 

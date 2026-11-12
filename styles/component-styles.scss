@@ -385,12 +385,12 @@ $mobile-break: 980px;
     display: flex;
     flex-direction: column;
     gap: 18px;
-
+    padding-bottom: 120px;
 
     .user-creepy-mirror {
         border: 1px solid black;
         // height: calc(100dvh - 190px);
-        padding: 12px 10px;
+        padding: 12px 10px 60px;
         position: relative;
         display: flex;
         flex-direction: column;
@@ -407,21 +407,55 @@ $mobile-break: 980px;
         .claude-notes {
             max-width: 800px;
         }
-        .claude-img-return__wrap {
+        .claude-img-return {
             display: flex;
             justify-content: center;
             padding-top: 12px;
-            svg {
+
+            // Fixed-width grey square. The loader and SVG share one grid
+            // cell so the loader is centered and the SVG fades in over it.
+            .claude-img-return__frame {
+                display: grid;
+                place-items: center;
                 width: 440px;
-                border: 2px solid black;
+                max-width: 100%;
+                aspect-ratio: 1 / 1;
+                background-color: #d9d9d9;
+                overflow: hidden;
+            }
+            .loading-icon {
+                grid-area: 1 / 1;
+                width: 100%;
+                max-width: 200px;
                 height: auto;
+                opacity: 1;
+                transition: opacity 0.4s ease;
+                &.loading-icon--hidden {
+                    opacity: 0;
+                    pointer-events: none;
+                }
+            }
+            .claude-img-return__wrap {
+                grid-area: 1 / 1;
+                width: 85%;
+                height: 85%;
+                animation: claude-fade-in 0.6s ease both;
+                svg {
+                    display: block;
+                    width: 100%;
+                    height: 100%;
+                }
             }
         }
+
 
     }
     .sent-text_or_loading {
         border: 1px solid black;
         padding: 8px;
+        display: flex;
+        flex-direction: column;
+        row-gap: 8px;
         .dotz {
             display: inline-block;
             transform: translateY(0.3em);
@@ -434,9 +468,17 @@ $mobile-break: 980px;
 
 
 
+@keyframes claude-fade-in {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
 .experiment__halftone {
-    border: 1px solid red;
-    // height: 100vh;
+    height: 150vh;
     display: flex;
     justify-content: center;
     align-items: center;

@@ -1,6 +1,8 @@
 "use client";
 
 import { useEffect, useLayoutEffect, useRef, useState } from "react";
+import Image from "next/image";
+import loadingIcon from "@/assets/Loading_icon.gif";
 import {
     type ClientMirrorInfo,
     enrichClientDeviceSpecs,
@@ -214,15 +216,17 @@ export default function ClaudeApiExperiment() {
                             <span className="dotz">{"*".repeat(dotCount)}</span>
                         </p>
                         <p className="fb loading__body">
-                            This is, creepily, based on your browser type, device, and rough location of your I.P address by sending it to a free API.
+                            This is, creepily, based on your device type, device brand, and location of your I.P address by sending it to a free API.
                         </p>
+                        <p className="fb">Model used: claude-haiku-5-5</p>
                     </>
                 )}
 
                 {sentMessage != null && (
                     <>
-                        <p className="fh3 sent-msg-title">Message sent to the Claude API:</p>
+                        <p className="fh5 sent-msg-title">Message sent to the Claude API:</p>
                         <p>"{sentMessage}"</p>
+                        <p className="sent-msg-subtitle">*A system message is also sent to define more constraints for the SVG.</p>
                     </>
                 )}
 
@@ -238,17 +242,42 @@ export default function ClaudeApiExperiment() {
                         <p className="mirror-size-readout">{mirrorSize}</p>
                     )}
 
-                    {notes != null && <p className="test fh3">Claude Response:</p>}
+                    {true && 
+                         <>
+                            {notes != null && 
+                                <>
+                                    <p className="test fh5">Claude Response:</p>
+                                    <p className="claude-notes fb">"{notes}"</p>
+                                </>
+                            }
 
-                    {notes != null && <p className="claude-notes fb">"{notes}"</p>}
+                            <div className="claude-img-return">
+                                {/* Grey square: shows the loader, then the SVG fades in */}
+                                <div className="claude-img-return__frame">
+                                    {/* Stays mounted so it can fade out once the SVG arrives */}
+                                    <Image
+                                        src={loadingIcon}
+                                        alt="Loading"
+                                        className={`loading-icon${
+                                            isLoading && svgMarkup == null
+                                                ? ""
+                                                : " loading-icon--hidden"
+                                        }`}
+                                        unoptimized
+                                    />
 
-                    {svgMarkup != null && (
-                        <div
-                            ref={svgWrapRef}
-                            dangerouslySetInnerHTML={{ __html: svgMarkup }}
-                            className="claude-img-return__wrap"
-                        />
-                    )}
+                                    {svgMarkup != null && (
+                                        <div
+                                            ref={svgWrapRef}
+                                            dangerouslySetInnerHTML={{ __html: svgMarkup }}
+                                            className="claude-img-return__wrap"
+                                        />
+                                    )}
+                                </div>
+                            </div>
+                        </>
+                    }
+                   
                 
             </div>
 
