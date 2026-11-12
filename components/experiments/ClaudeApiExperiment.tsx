@@ -1,8 +1,6 @@
 "use client";
 
 import { useEffect, useLayoutEffect, useRef, useState } from "react";
-import Image from "next/image";
-import loadingIcon from "@/assets/Loading_icon.gif";
 import {
     type ClientMirrorInfo,
     enrichClientDeviceSpecs,
@@ -76,9 +74,7 @@ export default function ClaudeApiExperiment() {
     const [error, setError] = useState<string | null>(null);
     const [loading, setLoading] = useState(true);
     const isLoading = FORCE_LOADING || loading;
-    const [mirrorSize, setMirrorSize] = useState<string | null>(null);
     const [clientInfo, setClientInfo] = useState<ClientMirrorInfo | null>(null);
-    const mirrorRef = useRef<HTMLDivElement>(null);
     const svgWrapRef = useRef<HTMLDivElement>(null);
     const [dotCount, setDotCount] = useState(0);
 
@@ -186,101 +182,77 @@ export default function ClaudeApiExperiment() {
         };
     }, []);
 
-    useEffect(() => {
-        const el = mirrorRef.current;
-        if (!el) return;
-
-        const updateSize = () => {
-            const { width, height } = el.getBoundingClientRect();
-            setMirrorSize(`${Math.round(width)} x ${Math.round(height)}`);
-        };
-
-        updateSize();
-
-        const observer = new ResizeObserver(updateSize);
-        observer.observe(el);
-
-        return () => observer.disconnect();
-    }, []);
-
     return (
         <section className="experiement__claude-api">
-            {error && <p role="alert">{error}</p>}
+            {error && (
+                <p role="alert" className="claude-error fb">
+                    {error}
+                </p>
+            )}
+
+            <div className="inner-container outline">
 
             <div className="sent-text_or_loading">
-
                 {isLoading && (
                     <>
-                        <p className="loading-api-call fh3">
-                            Asking Claude to draw an SVG{" "}
-                            <span className="dotz">{"*".repeat(dotCount)}</span>
-                        </p>
-                        <p className="fb loading__body">
+                        <div className="claude-heading-row">
+                            <p className="loading-api-call fh5">
+                                Asking Claude to draw an SVG{" "}
+                                <span className="dotz">{"*".repeat(dotCount)}</span>
+                            </p>
+                            <span className="claude-tag">claude-haiku-5-5</span>
+                        </div>
+                        <p className="fb claude-body loading__body">
                             This is, creepily, based on your device type, device brand, and location of your I.P address by sending it to a free API.
                         </p>
-                        <p className="fb">Model used: claude-haiku-5-5</p>
                     </>
                 )}
 
                 {sentMessage != null && (
-                    <>
-                        <p className="fh5 sent-msg-title">Message sent to the Claude API:</p>
-                        <p>"{sentMessage}"</p>
-                        <p className="sent-msg-subtitle">*A system message is also sent to define more constraints for the SVG.</p>
-                    </>
+                    <div className="msg-sent-text-wrap">
+                        <p className="fh5 sent-msg-title">Message sent to the Claude API</p>
+                        <p className="fb claude-body">{sentMessage}</p>
+                        <p className="fd sent-msg-subtitle">
+                            *A system message is also sent to define more constraints for the SVG.
+                        </p>
+                    </div>
+                )}
+            </div>
+
+            <div className="user-creepy-mirror">
+                {notes != null && (
+                    <div className="claude-notes-block">
+                        <span className="claude-tag">Claude response</span>
+                        <p className="fb claude-body claude-notes">"{notes}"</p>
+                    </div>
                 )}
 
+                <div className="claude-img-return">
+                    {/* Grey square: shows the spinner, then the SVG fades in */}
+                    <div className="claude-img-return__frame">
+                        {/* Stays mounted so it can fade out once the SVG arrives */}
+                        <span
+                            role="status"
+                            aria-label="Loading"
+                            className={`loading-spinner${
+                                isLoading && svgMarkup == null
+                                    ? ""
+                                    : " loading-spinner--hidden"
+                            }`}
+                        />
+
+                        {svgMarkup != null && (
+                            <div
+                                ref={svgWrapRef}
+                                dangerouslySetInnerHTML={{ __html: svgMarkup }}
+                                className="claude-img-return__wrap"
+                            />
+                        )}
+                    </div>
+                </div>
             </div>
 
-
-
-
-            <div ref={mirrorRef} className="user-creepy-mirror">
-                
-
-                    {mirrorSize != null && (
-                        <p className="mirror-size-readout">{mirrorSize}</p>
-                    )}
-
-                    {true && 
-                         <>
-                            {notes != null && 
-                                <>
-                                    <p className="test fh5">Claude Response:</p>
-                                    <p className="claude-notes fb">"{notes}"</p>
-                                </>
-                            }
-
-                            <div className="claude-img-return">
-                                {/* Grey square: shows the loader, then the SVG fades in */}
-                                <div className="claude-img-return__frame">
-                                    {/* Stays mounted so it can fade out once the SVG arrives */}
-                                    <Image
-                                        src={loadingIcon}
-                                        alt="Loading"
-                                        className={`loading-icon${
-                                            isLoading && svgMarkup == null
-                                                ? ""
-                                                : " loading-icon--hidden"
-                                        }`}
-                                        unoptimized
-                                    />
-
-                                    {svgMarkup != null && (
-                                        <div
-                                            ref={svgWrapRef}
-                                            dangerouslySetInnerHTML={{ __html: svgMarkup }}
-                                            className="claude-img-return__wrap"
-                                        />
-                                    )}
-                                </div>
-                            </div>
-                        </>
-                    }
-                   
-                
             </div>
-
         </section>
     );
 }

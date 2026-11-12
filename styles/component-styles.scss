@@ -384,53 +384,119 @@ $mobile-break: 980px;
 .experiement__claude-api {
     display: flex;
     flex-direction: column;
-    gap: 18px;
+    align-items: center;
     padding-bottom: 120px;
 
-    .user-creepy-mirror {
-        border: 1px solid black;
-        // height: calc(100dvh - 190px);
-        padding: 12px 10px 60px;
-        position: relative;
+    .inner-container {
+        width: 750px;
+    }
+
+    // Small grey pill, like the "Shopify" tags in the reference.
+    .claude-tag {
+        display: inline-block;
+        width: fit-content;
+        padding: 3px 8px;
+        border-radius: 4px;
+        background-color: var(--grey);
+        color: var(--black);
+        font-size: 13px;
+        font-weight: 390;
+        line-height: 1.3;
+        letter-spacing: 0.01em;
+        white-space: nowrap;
+    }
+
+    .claude-error {
+        color: var(--black);
+        background-color: var(--blossom);
+        border-radius: 4px;
+        padding: 8px 12px;
+    }
+
+    // Intro: what is being sent / what is loading.
+    .sent-text_or_loading {
         display: flex;
         flex-direction: column;
         row-gap: 12px;
-        .mirror-size-readout {
-            text-transform: uppercase;
-            font-family: monospace;
-            font-size: 11px;
+
+        .claude-heading-row {
+            display: flex;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 8px 12px;
         }
-        .loading__body {
-            max-width: 590px;
+        .loading-api-call,
+        .sent-msg-title {
+            color: var(--black);
+            line-height: 1.3;
+        }
+        .dotz {
+            display: inline-block;
+            min-width: 4ch;
+            text-align: left;
+            transform: translateY(0.3em);
+        }
+        .sent-msg-subtitle {
+            color: var(--deep-grey);
+            max-width: 60ch;
         }
 
-        .claude-notes {
-            max-width: 800px;
+        .msg-sent-text-wrap {
+            // border: 1px solid red;
+            display: flex;
+            flex-direction: column;
+            row-gap: 12px;
+                // Body copy: muted grey, comfortable measure and line height.
+            .claude-body {
+                color: var(--text-grey);
+                line-height: 1.6;
+                max-width: 60ch;
+                // white-space: pre-line;
+            }
         }
+    }
+
+    // Result: Claude's notes, then the image frame.
+    .user-creepy-mirror {
+        display: flex;
+        flex-direction: column;
+        row-gap: 16px;
+        position: relative;
+
+        .claude-notes-block {
+            display: flex;
+            flex-direction: column;
+            row-gap: 8px;
+        }
+
         .claude-img-return {
             display: flex;
-            justify-content: center;
-            padding-top: 12px;
+            justify-content: flex-start;
 
-            // Fixed-width grey square. The loader and SVG share one grid
-            // cell so the loader is centered and the SVG fades in over it.
+            // Fixed-width grey square. The spinner and SVG share one grid
+            // cell so the spinner is centered and the SVG fades in over it.
             .claude-img-return__frame {
                 display: grid;
                 place-items: center;
                 width: 440px;
                 max-width: 100%;
                 aspect-ratio: 1 / 1;
-                background-color: #d9d9d9;
+                background-color: var(--grey);
+                border-radius: 4px;
                 overflow: hidden;
             }
-            .loading-icon {
+            .loading-spinner {
                 grid-area: 1 / 1;
-                width: 100%;
-                max-width: 200px;
-                height: auto;
-                opacity: 1;
+                width: 36px;
+                height: 36px;
+                box-sizing: border-box;
+                border-radius: 50%;
+                // Transparent background: only the arc is drawn.
+                border: 2px solid rgba(31, 31, 31, 0.12);
+                border-top-color: var(--black);
+                animation: claude-spin 0.9s linear infinite;
                 transition: opacity 0.4s ease;
-                &.loading-icon--hidden {
+                &.loading-spinner--hidden {
                     opacity: 0;
                     pointer-events: none;
                 }
@@ -447,26 +513,8 @@ $mobile-break: 980px;
                 }
             }
         }
-
-
-    }
-    .sent-text_or_loading {
-        border: 1px solid black;
-        padding: 8px;
-        display: flex;
-        flex-direction: column;
-        row-gap: 8px;
-        .dotz {
-            display: inline-block;
-            transform: translateY(0.3em);
-        }
-        .loading__body {
-            max-width: 590px;
-        }
     }
 }
-
-
 
 @keyframes claude-fade-in {
     from {
@@ -474,6 +522,12 @@ $mobile-break: 980px;
     }
     to {
         opacity: 1;
+    }
+}
+
+@keyframes claude-spin {
+    to {
+        transform: rotate(360deg);
     }
 }
 
