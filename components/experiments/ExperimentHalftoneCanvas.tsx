@@ -33,22 +33,22 @@ export default function ExperimentHalftoneCanvas() {
         const section = sectionRef.current;
         if (!section) return;
 
-        ScrollTrigger.create({
-            trigger: section,
-            pin: true,
-            markers: false,
-            start: "12% 6%",
-            anticipatePin: 1,
-            end: () => `+=${window.innerHeight - 100}`,
-            onUpdate: (self) => {
-                const eased = Math.pow(self.progress, 0.5);
-                const size = START_GRID - eased * (START_GRID - END_GRID);
-                const rounded = Math.round(size);
-                if (Math.abs(rounded - gridSizeRef.current) > 0.6) {
-                    gridSizeRef.current = rounded;
-                }
-            },
-        });
+        // ScrollTrigger.create({
+        //     trigger: section,
+        //     pin: true,
+        //     markers: false,
+        //     start: "12% 6%",
+        //     anticipatePin: 1,
+        //     end: () => `+=${window.innerHeight - 100}`,
+        //     onUpdate: (self) => {
+        //         const eased = Math.pow(self.progress, 0.5);
+        //         const size = START_GRID - eased * (START_GRID - END_GRID);
+        //         const rounded = Math.round(size);
+        //         if (Math.abs(rounded - gridSizeRef.current) > 0.6) {
+        //             gridSizeRef.current = rounded;
+        //         }
+        //     },
+        // });
     });
 
     useEffect(() => {
