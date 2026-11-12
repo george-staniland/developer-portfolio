@@ -7,7 +7,7 @@ import { ScrollTrigger } from "gsap/ScrollTrigger";
 gsap.registerPlugin(useGSAP);
 gsap.registerPlugin(ScrollTrigger);
 
-const START_GRID = 130;
+const START_GRID = 90;
 const END_GRID = 20;
 
 const config = {

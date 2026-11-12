@@ -262,6 +262,9 @@ $mobile-break: 980px;
             display: flex;
             justify-content: center;
             align-items: center;
+            .fb {
+                text-align: center;
+            }
             &:hover, &:focus, &:active {
                 background-color: var(--faded-yellow);
             }
