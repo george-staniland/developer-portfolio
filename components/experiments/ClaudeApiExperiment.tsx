@@ -259,15 +259,16 @@ export default function ClaudeApiExperiment() {
             </div>
 
             {shownSvgMarkup != null && (
-                <div className="experiment-notes">
+                <div className="experiment-notes fb">
                     <h2 className="fh5">Notes on using the Claude platform API</h2>
-                    <p>The basic idea of this experiment was to use the Claude API as an advanced SVG generator and pass it dynamic data that is available from the browser.</p>
+                    <p>The basic idea of this experiment is to use the Claude API as an advanced SVG generator and pass it dynamic data that is available from the browser.</p>
 
                     <div className="ul-wrap">
                     <p><b>Steps</b></p>
                         <ul>
                             <li>Use <Cs>navigator.userAgent</Cs> to find out the browser and type of device. Try the less supported <Cs>userAgentData</Cs> if available</li>
                             <li>Call the <Cs>Free IP API</Cs> and filter out City and Country from the response</li>
+                            <li>Location is sometimes wrong. It will always be off if a user has a VPN</li>
                             <li>Call the Claude platform API with a system message and user message with browser and location information. I used the <Cs>claude-sonnet-5-5</Cs> model as it's a good mix of response quality and lower cost per token than more advanced Anthropic models.
                             <ul>
                                 <li>Cache the system prompt for efficiency.</li>
