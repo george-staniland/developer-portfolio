@@ -1,7 +1,7 @@
 import Anthropic from "@anthropic-ai/sdk";
 import { NextResponse } from "next/server";
 
-// Max function run time on Vercel, in seconds (1.5 minutes).
+
 export const maxDuration = 60;
 
 export async function POST(request: Request) {
@@ -61,7 +61,7 @@ SVG REQUIREMENTS
 - Group elements logically: <g id="landmark">, <g id="device">.`;
 
     const response = await client.messages.create({
-        max_tokens: 10000,
+        max_tokens: 6000,
         messages: [{ content: message, role: "user" }],
         system: [
             {
@@ -70,7 +70,7 @@ SVG REQUIREMENTS
                 cache_control: { type: "ephemeral" },
             },
         ],
-        model: "claude-opus-5-5",
+        model: "claude-sonnet-5-5",
     });
 
     return NextResponse.json({

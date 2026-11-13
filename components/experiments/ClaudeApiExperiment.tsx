@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useLayoutEffect, useRef, useState } from "react";
+import Cs from "@/components/Cs";
 import {
     type ClientMirrorInfo,
     enrichClientDeviceSpecs,
@@ -210,7 +211,7 @@ export default function ClaudeApiExperiment() {
                             </p>
 
                         </div>
-                        <p className="fb claude-body loading__body">
+                        <p className="fb loading__body">
                             This is, creepily, based on your device type, device brand, and location of your I.P address by sending it to a free API.
                         </p>
                     </>
@@ -219,10 +220,7 @@ export default function ClaudeApiExperiment() {
                 {shownSentMessage != null && (
                     <div className="msg-sent-text-wrap">
                         <p className="fh5 sent-msg-title">Message sent to the Claude API</p>
-                        <p className="fb claude-body">"{shownSentMessage}"</p>
-                        <p className="fd sent-msg-subtitle">
-                            *A system message is also sent to define more constraints for the SVG.
-                        </p>
+                        <p className="sent-msg-text">"{shownSentMessage}"</p>
                     </div>
                 )}
             </div>
@@ -231,7 +229,7 @@ export default function ClaudeApiExperiment() {
                 {shownNotes != null && (
                     <div className="claude-notes-block">
                         <span className="claude-tag">Claude response</span>
-                        <p className="claude-body claude-notes">"{shownNotes}"</p>
+                        <p className="claude-response-text">"{shownNotes}"</p>
                     </div>
                 )}
 
@@ -260,7 +258,31 @@ export default function ClaudeApiExperiment() {
                 </div>
             </div>
 
+            {shownSvgMarkup != null && (
+                <div className="experiment-notes">
+                    <h2 className="fh5">Notes on using the Claude platform API</h2>
+                    <p>The basic idea of this experiment was to use the Claude API as an advanced SVG generator and pass it dynamic data that is available from the browser.</p>
+
+                    <div className="ul-wrap">
+                    <p><b>Steps</b></p>
+                        <ul>
+                            <li>Use <Cs>navigator.userAgent</Cs> to find out the browser and type of device. Try the less supported <Cs>userAgentData</Cs> if available</li>
+                            <li>Call the <Cs>Free IP API</Cs> and filter out City and Country from the response</li>
+                            <li>Call the Claude platform API with a system message and user message with browser and location information. I used the <Cs>claude-sonnet-5-5</Cs> model as it's a good mix of response quality and lower cost per token than more advanced Anthropic models.
+                            <ul>
+                                <li>Cache the system prompt for efficiency.</li>
+                                <li>Set <Cs>max_tokens</Cs> to 6000. This limit is invisible to the model, but it sets a ceiling for cost and latency.</li>
+                            </ul>
+                            </li>
+                        </ul>
+                    </div>
+                   
+                </div> 
+            )}
+
             </div>
+            
+
         </section>
     );
 }

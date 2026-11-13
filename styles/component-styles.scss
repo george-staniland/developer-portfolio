@@ -388,7 +388,7 @@ $mobile-break: 980px;
     padding-bottom: 120px;
 
     .inner-container {
-        width: 750px;
+        width: 680px;
     }
 
     // Small grey pill, like the "Shopify" tags in the reference.
@@ -444,16 +444,17 @@ $mobile-break: 980px;
         }
 
         .msg-sent-text-wrap {
-            // border: 1px solid red;
+            border-bottom: 1px solid var(--text-grey);
             display: flex;
             flex-direction: column;
             row-gap: 12px;
-                // Body copy: muted grey, comfortable measure and line height.
-            .claude-body {
+            padding-bottom: 32px;
+            .sent-msg-text {
                 color: var(--text-grey);
-                line-height: 1.6;
-                max-width: 60ch;
-                // white-space: pre-line;
+                line-height: 1.5;
+                font-family: monospace;
+                font-size: 14px;
+                max-width: 580px;
             }
         }
     }
@@ -467,6 +468,12 @@ $mobile-break: 980px;
             flex-direction: column;
             row-gap: 8px;
             padding-bottom: 32px;
+            .claude-response-text {
+                line-height: 1.5;
+                font-family: monospace;
+                font-size: 15px;
+                max-width: 580px;
+            }
         }
 
         .claude-img-return {
@@ -514,6 +521,35 @@ $mobile-break: 980px;
             }
         }
     }
+
+    @starting-style {
+        .experiment-notes {
+            opacity: 0;
+            transition: opacity 3s ease-in-out;
+        }
+    }
+
+    .experiment-notes {
+        opacity: 1;
+        padding-top: 32px;
+        margin-top: 32px;
+        border-top: 1px solid var(--text-grey);
+        .fh5 {
+            padding-bottom: 16px;
+        }
+        .ul-wrap {
+            padding-top: 16px;
+
+            ul {
+                display: flex;
+                flex-direction: column;
+                row-gap: 16px;
+                margin-top: 12px;
+                padding-left: 20px;
+            }
+        }
+    }
+
     @media(max-width: 998px) {
         .inner-container {
             width: 100%;
@@ -521,6 +557,15 @@ $mobile-break: 980px;
         .fh5 {
             font-weight: 400;
         }
+        .user-creepy-mirror {
+            .claude-notes-block {
+                row-gap: 20px;
+                .claude-response-text {
+                    font-size: 14px;
+                }
+            }
+        }
+
     }
 }
 

@@ -113,7 +113,6 @@ export async function enrichClientDeviceSpecs(
 
     try {
         const hints = await uad.getHighEntropyValues(["model", "platform"]);
-        console.log('enrich function', hints)
         const brand =
             hints.model && hints.model.length > 0 ? hints.model : base.brand;
         return { ...base, brand };
