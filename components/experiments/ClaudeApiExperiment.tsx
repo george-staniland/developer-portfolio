@@ -17,6 +17,46 @@ type ContentBlock = {
     text?: string;
 };
 
+// One line of the NDJSON stream sent by /api/claude-test.
+type StreamLine =
+    | {
+          type: "status";
+          stage: "started";
+          model: string;
+          inputTokens: number;
+          cacheCreationTokens: number;
+          cacheReadTokens: number;
+      }
+    | { type: "status"; stage: "thinking" }
+    | { type: "status"; stage: "notes" | "drawing"; shapes: number }
+    | {
+          type: "status";
+          stage: "finishing";
+          stopReason: string | null;
+          outputTokens: number;
+      }
+    | { type: "done"; sentMessage: string; content: unknown }
+    | { type: "error"; error: string };
+
+function formatStreamStatus(
+    line: Extract<StreamLine, { type: "status" }>,
+): string {
+    switch (line.stage) {
+        case "started":
+            return `Connected. Model: ${line.model}, ${line.inputTokens} input tokens`;
+        case "thinking":
+            return "Claude is thinking about which landmarks to draw...";
+        case "notes":
+            return "Claude is describing what it detected...";
+        case "drawing":
+            return `Drawing the SVG - ${line.shapes} shape${
+                line.shapes === 1 ? "" : "s"
+            } so far`;
+        case "finishing":
+            return `Finishing up - ${line.outputTokens} output tokens`;
+    }
+}
+
 function formatMirrorClaudeMessage(
     info: ClientMirrorInfo,
     ipInfo: ClientIpInfo | null,
@@ -74,6 +114,9 @@ export default function ClaudeApiExperiment() {
     const [notes, setNotes] = useState<string | null>(null);
     const [error, setError] = useState<string | null>(null);
     const [loading, setLoading] = useState(true);
+    const [streamStatus, setStreamStatus] = useState(
+        "Connecting to the Claude API...",
+    );
 
     const isLoading = FORCE_LOADING || loading;
     // When FORCE_LOADING is on, hide all returned data so only the loading
@@ -133,6 +176,24 @@ export default function ClaudeApiExperiment() {
 
     useEffect(() => {
         let cancelled = false;
+        const abortController = new AbortController();
+
+        function handleStreamLine(line: StreamLine) {
+         
+
+            if (line.type === "status") {
+                setStreamStatus(formatStreamStatus(line));
+            } else if (line.type === "error") {
+                setError(line.error);
+            } else if (line.type === "done") {
+                setSentMessage(line.sentMessage ?? null);
+                const blocks = Array.isArray(line.content)
+                    ? (line.content as ContentBlock[])
+                    : [];
+                setNotes(extractNotes(blocks));
+                setSvgMarkup(extractSvgMarkup(blocks));
+            }
+        }
 
         async function loadMirrorAndCallClaude() {
             const clientDevSpecs = getClientDeviceSpecs();
@@ -154,24 +215,43 @@ export default function ClaudeApiExperiment() {
                     method: "POST",
                     headers: { "Content-Type": "application/json" },
                     body: JSON.stringify({ message }),
+                    signal: abortController.signal,
                 });
-                const data = await res.json();
-                console.log('claude res??', data)
-                if (cancelled) return;
-                if (!res.ok) {
+
+                // Errors before streaming starts (e.g. missing API key) are JSON.
+                if (!res.ok || !res.body) {
+                    const data = await res.json().catch(() => null);
+                    console.log("claude error response", data);
+                    if (cancelled) return;
                     setError(
-                        typeof data.error === "string"
+                        typeof data?.error === "string"
                             ? data.error
                             : "Request failed",
                     );
                     return;
                 }
-                setSentMessage(data.sentMessage ?? null);
-                const blocks = Array.isArray(data.content)
-                    ? (data.content as ContentBlock[])
-                    : [];
-                setNotes(extractNotes(blocks));
-                setSvgMarkup(extractSvgMarkup(blocks));
+
+                // Read the NDJSON stream: one JSON object per line.
+                const reader = res.body.getReader();
+                const decoder = new TextDecoder();
+                let buffer = "";
+
+                while (true) {
+                    const { done, value } = await reader.read();
+                    if (cancelled) return;
+
+                    buffer += decoder.decode(value, { stream: !done });
+                    const lines = buffer.split("\n");
+                    // Last piece may be a partial line; keep it for next chunk.
+                    buffer = done ? "" : (lines.pop() ?? "");
+
+                    for (const rawLine of lines) {
+                        if (!rawLine.trim()) continue;
+                        handleStreamLine(JSON.parse(rawLine) as StreamLine);
+                    }
+
+                    if (done) break;
+                }
             } catch {
                 if (!cancelled) {
                     setError("Could not reach the Claude API route.");
@@ -187,6 +267,7 @@ export default function ClaudeApiExperiment() {
 
         return () => {
             cancelled = true;
+            abortController.abort();
         };
     }, []);
 
@@ -204,7 +285,7 @@ export default function ClaudeApiExperiment() {
                 {isLoading && (
                     <>
                         <div className="claude-heading-row">
-                        <span className="claude-tag">claude-haiku-5-5</span>
+                        <span className="claude-tag">claude-sonnet-5-5</span>
                             <p className="loading-api-call fh5">
                                 Asking Claude to draw an SVG{" "}
                                 <span className="dotz">{"*".repeat(dotCount)}</span>
@@ -237,15 +318,27 @@ export default function ClaudeApiExperiment() {
                     {/* Grey square: shows the spinner, then the SVG fades in */}
                     <div className="claude-img-return__frame">
                         {/* Stays mounted so it can fade out once the SVG arrives */}
-                        <span
-                            role="status"
-                            aria-label="Loading"
-                            className={`loading-spinner${
+                        <div
+                            className={`claude-img-return__loading${
                                 isLoading && shownSvgMarkup == null
                                     ? ""
-                                    : " loading-spinner--hidden"
+                                    : " claude-img-return__loading--hidden"
                             }`}
-                        />
+                        >
+                            <p
+                                className="claude-stream-status"
+                                role="status"
+                                aria-live="polite"
+                            >
+                                {FORCE_LOADING
+                                    ? "Connecting to the Claude API..."
+                                    : streamStatus}
+                            </p>
+                            <span
+                                aria-label="Loading"
+                                className="loading-spinner"
+                            />
+                        </div>
 
                         {shownSvgMarkup != null && (
                             <div
@@ -261,7 +354,7 @@ export default function ClaudeApiExperiment() {
             {shownSvgMarkup != null && (
                 <div className="experiment-notes fb">
                     <h2 className="fh5">Notes on using the Claude platform API</h2>
-                    <p>The basic idea of this experiment is to use the Claude API as an advanced SVG generator and pass it dynamic data that is available from the browser.</p>
+                    <p>The basic idea of this experiment is to use the Claude API as an advanced SVG generator and pass it dynamic data that is available from the browser. This page is publicy accesible, however <Cs>robots.txt</Cs> specifies no index, so it's unlikely a malicous user could find the page and use tokens, if they did a hard limit is set in the API account. </p>
 
                     <div className="ul-wrap">
                     <p><b>Steps</b></p>

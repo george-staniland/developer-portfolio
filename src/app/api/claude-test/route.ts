@@ -4,6 +4,27 @@ import { NextResponse } from "next/server";
 
 export const maxDuration = 60;
 
+// One line of the NDJSON response sent to the browser.
+type StreamLine =
+    | {
+          type: "status";
+          stage: "started";
+          model: string;
+          inputTokens: number;
+          cacheCreationTokens: number;
+          cacheReadTokens: number;
+      }
+    | { type: "status"; stage: "thinking" }
+    | { type: "status"; stage: "notes" | "drawing"; shapes: number }
+    | {
+          type: "status";
+          stage: "finishing";
+          stopReason: string | null;
+          outputTokens: number;
+      }
+    | { type: "done"; sentMessage: string; content: unknown }
+    | { type: "error"; error: string };
+
 export async function POST(request: Request) {
     const apiKey = process.env.CLAUDE_API_TOKEN;
     if (!apiKey) {
@@ -60,7 +81,7 @@ SVG REQUIREMENTS
 - Round coordinates to 1 decimal place.
 - Group elements logically: <g id="landmark">, <g id="device">.`;
 
-    const response = await client.messages.create({
+    const claudeStream = client.messages.stream({
         max_tokens: 6000,
         messages: [{ content: message, role: "user" }],
         system: [
@@ -73,8 +94,119 @@ SVG REQUIREMENTS
         model: "claude-sonnet-5-5",
     });
 
-    return NextResponse.json({
-        sentMessage: message,
-        content: response.content,
+    // Stop generating tokens if the browser goes away.
+    request.signal.addEventListener("abort", () => claudeStream.abort());
+
+    const encoder = new TextEncoder();
+
+    const body = new ReadableStream<Uint8Array>({
+        async start(controller) {
+            // One JSON object per line (NDJSON).
+            const send = (line: StreamLine) => {
+                try {
+                    controller.enqueue(
+                        encoder.encode(`${JSON.stringify(line)}\n`),
+                    );
+                } catch {
+                    // Controller already closed (client disconnected).
+                }
+            };
+
+            let text = "";
+            let stage: "notes" | "drawing" | null = null;
+            let shapes = 0;
+
+            try {
+                for await (const event of claudeStream) {
+                    // Raw Claude event, so it can be inspected in the terminal.
+                    // console.log("[claude-stream]", JSON.stringify(event));
+
+                    if (event.type === "message_start") {
+                        const usage = event.message.usage;
+                        send({
+                            type: "status",
+                            stage: "started",
+                            model: event.message.model,
+                            inputTokens: usage.input_tokens,
+                            cacheCreationTokens:
+                                usage.cache_creation_input_tokens ?? 0,
+                            cacheReadTokens: usage.cache_read_input_tokens ?? 0,
+                        });
+                    } else if (
+                        event.type === "content_block_start" &&
+                        (event.content_block.type === "thinking" ||
+                            event.content_block.type === "redacted_thinking")
+                    ) {
+                        // The model thinks before it writes any text, which
+                        // is where most of the silent wait comes from.
+                        send({ type: "status", stage: "thinking" });
+                    } else if (
+                        event.type === "content_block_delta" &&
+                        event.delta.type === "text_delta"
+                    ) {
+                        text += event.delta.text;
+
+                        const nextStage = text.includes("<svg")
+                            ? "drawing"
+                            : "notes";
+                        const nextShapes = (
+                            text.match(/<(path|circle|ellipse|rect|line)\b/g) ??
+                            []
+                        ).length;
+
+                        // Only send when something visible changed.
+                        if (nextStage !== stage || nextShapes !== shapes) {
+                            stage = nextStage;
+                            shapes = nextShapes;
+                            send({ type: "status", stage, shapes });
+                        }
+                    } else if (event.type === "message_delta") {
+                        send({
+                            type: "status",
+                            stage: "finishing",
+                            stopReason: event.delta.stop_reason,
+                            outputTokens: event.usage.output_tokens,
+                        });
+                    }
+                }
+
+                const finalMessage = await claudeStream.finalMessage();
+                // console.log(
+                //     "[claude-stream] final message",
+                //     JSON.stringify(finalMessage),
+                // );
+
+                send({
+                    type: "done",
+                    sentMessage: message,
+                    content: finalMessage.content,
+                });
+            } catch (error) {
+                console.error("[claude-stream] error", error);
+                send({
+                    type: "error",
+                    error:
+                        error instanceof Error
+                            ? error.message
+                            : "Claude stream failed",
+                });
+            } finally {
+                try {
+                    controller.close();
+                } catch {
+                    // Already closed.
+                }
+            }
+        },
+        cancel() {
+            claudeStream.abort();
+        },
+    });
+
+    return new Response(body, {
+        headers: {
+            "Content-Type": "application/x-ndjson; charset=utf-8",
+            "Cache-Control": "no-cache, no-transform",
+        },
     });
 }
