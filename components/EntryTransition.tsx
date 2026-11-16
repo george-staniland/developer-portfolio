@@ -4,40 +4,45 @@ import { useState, useLayoutEffect } from 'react';
 import { flushSync } from 'react-dom';
 import SiteLoadingScreen from './SiteLoadingScreen';
 
-export default function EntryTransition ({children} : { children: React.ReactNode }) {
-    const [isMounted, setIsMounted] = useState(false);
+const ENTRY_DELAY_MS = 2300;
 
-    useLayoutEffect(()=> {
-        const delay = (ms: number) => new Promise(resolve => setTimeout(resolve, ms));
+export default function EntryTransition({
+  children,
+}: {
+  children: React.ReactNode;
+}) {
+  const [isMounted, setIsMounted] = useState(false);
 
-        async function triggerDelayedEntry() {
-            // Hold the loading state 
-            await delay(2300);
-      
-          
-            if (!document.startViewTransition) {
-              setIsMounted(true);
-              return;
-            }
-      
-            const transition = document.startViewTransition(() => {
-                flushSync(()=> {
-                    setIsMounted(true)
-                })
-            });
+  useLayoutEffect(() => {
+    let cancelled = false;
 
-            transition.finished.catch(()=> {
-                console.log('catch')
-            })
-        }
-        triggerDelayedEntry();
-    },[])
+    const timeoutId = window.setTimeout(() => {
+      if (cancelled) return;
 
-    if (!isMounted) {
-        return (
-            <SiteLoadingScreen/>
-        )
-    }
+      const reveal = () => {
+        flushSync(() => setIsMounted(true));
+      };
 
-    return <>{children}</>;
+      if (!document.startViewTransition) {
+        reveal();
+        return;
+      }
+
+      const transition = document.startViewTransition(reveal);
+      // Preempted transitions reject with AbortError; silence to avoid console noise.
+      transition.ready.catch(() => {});
+      transition.finished.catch(() => {});
+    }, ENTRY_DELAY_MS);
+
+    return () => {
+      cancelled = true;
+      window.clearTimeout(timeoutId);
+    };
+  }, []);
+
+  if (!isMounted) {
+    return <SiteLoadingScreen />;
+  }
+
+  return <>{children}</>;
 }

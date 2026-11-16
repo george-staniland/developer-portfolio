@@ -10,7 +10,7 @@ import EntryTransition from '@/components/EntryTransition'
 import SmoothScroll from '@/components/SmoothScroll'
 
 export const metadata: Metadata = {
-  title: 'George Staniland - Front-end web Developer',
+  title: 'George Staniland - Software Developer',
 }
 
 export default function RootLayout({
@@ -19,14 +19,13 @@ export default function RootLayout({
   children: React.ReactNode
 }) {
 
+  // Chrome on mobile may inject attrs (e.g. __gcrremoteframetoken) before hydration.
   return (
-    <html lang="en" >
-      <body>
-        <SmoothScroll>
-          <EntryTransition>
-            {children}
-          </EntryTransition>
-        </SmoothScroll>
+    <html lang="en" suppressHydrationWarning>
+      <body suppressHydrationWarning>
+        <EntryTransition>
+          <SmoothScroll>{children}</SmoothScroll>
+        </EntryTransition>
       </body>
     </html >
   )
