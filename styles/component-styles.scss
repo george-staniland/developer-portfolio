@@ -9,6 +9,8 @@ $mobile-break: 980px;
 
 .main__text {
     z-index: 2;
+    position: relative;
+    overflow: hidden;
     height: 90svh;
     display: flex;
     justify-content: center;
@@ -23,11 +25,23 @@ $mobile-break: 980px;
         linear-gradient(var(--dot-bg) calc(var(--dot-space) - var(--dot-size)), transparent 1%) center / var(--dot-space) var(--dot-space),
         var(--dot-color);
 
+    .ghost-canvas {
+        position: absolute;
+        inset: 0;
+        width: 100%;
+        height: 100%;
+        pointer-events: none;
+        z-index: 0;
+        opacity: 0.5;
+        mix-blend-mode: multiply;
+    }
+
     .text-wrap {
         opacity: 0;
         display: flex;
         flex-direction: column;
         position: relative;
+        z-index: 1;
         width: 600px;
     }
 

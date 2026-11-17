@@ -2,6 +2,7 @@
 import gsap from 'gsap';
 import { useGSAP } from '@gsap/react';
 import { ScrollTrigger } from "gsap/ScrollTrigger";
+import GhostCanvas from './GhostCanvas';
 
 gsap.registerPlugin(useGSAP); 
 gsap.registerPlugin(ScrollTrigger);
@@ -21,6 +22,7 @@ function MainText() {
 
     return (
         <div className="main__text px">
+           <GhostCanvas />
            <div className="text-wrap outline">
                 
                 <p className="title">George Staniland</p>
