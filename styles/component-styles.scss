@@ -609,11 +609,36 @@ $mobile-break: 980px;
 }
 
 .experiment__halftone {
-    height: 150vh;
-    display: flex;
-    justify-content: center;
-    align-items: center;
     position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+
+    .outer-wrap {
+        height: 120vh;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        position: relative;
+    }
+
+
+    .spacer {
+        height: 100vh;
+        display: flex;
+        justify-content: center;
+        align-items: flex-end;
+        p {
+            padding-bottom: 32px;
+            font-size: 21px;
+            font-weight: 500;
+            font-style: normal;
+            line-height: 1;
+            letter-spacing: 0.03em;
+            text-wrap: pretty;
+        }
+    }
 
     .animation-wrap {
         position: relative;
@@ -639,6 +664,24 @@ $mobile-break: 980px;
 
         video {
             display: none;
+        }
+    }
+
+    .mobile-notice {
+        display: none;
+    }
+
+    @media (max-width: 995px) {
+        .outer-wrap {
+            display: none;
+        }
+
+        .mobile-notice {
+            display: block;
+            height: 30vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
         }
     }
 
